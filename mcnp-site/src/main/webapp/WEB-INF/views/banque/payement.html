@@ -1,0 +1,112 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorator="layout/template">
+<head>
+<title>Paiement de Salaire / Bon d'Achat Convertible</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+	<ul layout:fragment="navbar">
+		<li class=""><a href="index.html" th:href="@{/home}"> <i
+				class="menu-icon fa fa-tachometer"></i> <span class="menu-text">
+					Accueil </span>
+		</a> <b class="arrow"></b></li>
+		<li><a href="#" class="dropdown-toggle"> <i
+				class="menu-icon fa fa-tachometer"></i> <span class="menu-text">
+					Salaire </span>
+		</a> <b class="arrow"></b>
+			<ul class="submenu">
+				<li><a href="/mcnp/banque/payerba" th:href="@{/payerba}"> <i
+						class="menu-icon fa fa-tachometer"></i> <span class="menu-text">
+							Emission </span>
+				</a> <b class="arrow"></b></li>
+				<li><a href="/mcnp/banque/validerba" th:href="@{/validerba}">
+						<i class="menu-icon fa fa-tachometer"></i> <span class="menu-text">
+							Validation </span>
+				</a> <b class="arrow"></b></li>
+			</ul></li>
+		<li><a href="#" class="dropdown-toggle"> <i
+				class="menu-icon fa fa-tachometer"></i> <span class="menu-text">
+					GCp </span>
+		</a> <b class="arrow"></b>
+			<ul class="submenu">
+				<li class=""><a href="/mcnp/banque/emettreopi"
+					th:href="@{/emettreopi}"> <i
+						class="menu-icon fa fa-plus purple"></i>Emission
+				</a> <b class="arrow"></b></li>
+				<li class=""><a href="/mcnp/banque/validopi"
+					th:href="@{/validopi}"> <i class="menu-icon fa fa-plus purple"></i>Validation
+				</a> <b class="arrow"></b></li>
+			</ul></li>
+	</ul>
+	<ul class="breadcrumb" layout:fragment="breadcrumb">
+		<li><i class="ace-icon fa fa-home home-icon"></i> <a
+			th:href="@{/}">Accueil</a></li>
+		<li class="active">Paiement de Salaire / Bon d'Achat Convertible
+			en Espèces</li>
+	</ul>
+	<!-- /.breadcrumb -->
+	<div layout:fragment="content">
+		<div class="widget-box widget-color-blue">
+			<div class="widget-header widget-header-small">
+				<h5 class="widget-title">Paiement de Salaire / Bon d'Achat
+					Convertible en Espèces</h5>
+			</div>
+			<div class="widget-body">
+				<div class="widget-main">
+					<form id="frm_transfertba" action="#" th:action="@{/payerba}"
+						th:object="${paiement}" method="post">
+						<div class="message">
+							<p th:text="${message}"></p>
+						</div>
+						<div>
+							<label for="bac_typeBa">Type Bon Achat</label> <select
+								class="form-control" id="bac_typeBa" th:field="*{typeBa}"
+								required="required">
+								<option value="PaR">Part de Rembousement</option>
+								<option value="CNCS">Salaire</option>
+							</select>
+						</div>
+						<div id="div-bac_codeBanque">
+							<label for="bac_codeBanque">Banque</label> <select
+								id="bac_codeBanque" class="form-control"
+								th:field="*{codeBanque}">
+								<option th:each="bk: ${banks}" th:value="${bk.codeBanque}"
+									th:text="${bk.libelleBanque}">BTCI</option>
+							</select>
+						</div>
+						<div>
+							<label for="bac_codeMembre">Code Membre</label> <input
+								class="form-control" id="bac_codeMembre"
+								th:field="*{codeMembre}" required="required" />
+						</div>
+						<div>
+							<label for="bac_montant">Montant transfert</label> <input
+								class="form-control" id="bac_montant" th:field="*{montant}"
+								required="required" />
+						</div>
+						<div>
+							<label for="opi_nbre">Nombre d'OPI</label> <input
+								class="form-control" id="opi_nbre" th:field="*{nbre}" />
+						</div>
+						<div>
+							<label for="opi_serie">Nombre de Série d'OPI</label> <input
+								class="form-control" id="opi_serie" th:field="*{serie}" />
+						</div>
+						<div class="form-actions">
+							<button type="submit" class="btn btn-primary">
+								<i class="ace-icon fa fa-check bigger-110"></i>Valider
+							</button>
+							&nbsp; &nbsp; &nbsp;
+							<button class="btn" type="reset">
+								<i class="ace-icon fa fa-undo bigger-110"></i> Réinitialiser
+							</button>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

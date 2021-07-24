@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="fr" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4"
+	layout:decorator="layout/template">
+<head>
+<meta charset="UTF-8" />
+<title>Paiement des charges</title>
+</head>
+<body>
+	<ul layout:fragment="navbar">
+		<li class=""><a href="index.html" th:href="@{/home}"> <i
+				class="menu-icon fa fa-tachometer"></i> <span class="menu-text">
+					Accueil </span>
+		</a> <b class="arrow"></b></li>
+		<li sec:authorize="hasAnyAuthority('smc_tesmcipnwi')"><a
+			href="/mcnp/smcipn/charge" th:href="@{/salaire}"> <i
+				class="menu-icon fa fa-tachometer"></i> <span class="menu-text">
+					Salaire </span>
+		</a> <b class="arrow"></b></li>
+		<li sec:authorize="hasAnyAuthority('detentrice')"
+			th:if="${#strings.equalsIgnoreCase(role,'SOURCE')}"><a
+			href="/mcnp/smcipn/budget" th:href="@{/budget}"> <i
+				class="menu-icon fa fa-tachometer"></i> <span class="menu-text">Budget
+					En Nature</span>
+		</a> <b class="arrow"></b></li>
+		<li><a href="#" class="dropdown-toggle"> <i
+				class="menu-icon fa fa-tachometer"></i> <span class="menu-text">
+					SMCIPN </span>
+		</a> <b class="arrow"></b>
+			<ul class="submenu">
+				<li sec:authorize="hasAnyAuthority('detentrice')"
+					th:if="${#strings.equalsIgnoreCase(role,'SOURCE')}"><a
+					href="/mcnp/smcipn/smci" th:href="@{/technopole}"> <i
+						class="menu-icon fa fa-tachometer"></i> <span class="menu-text">
+							KIT Technopôle </span>
+				</a> <b class="arrow"></b></li>
+				<li><a href="/mcnp/smcipn/charge" th:href="@{/payerCharge}">
+						<i class="menu-icon fa fa-tachometer"></i> <span class="menu-text">
+							Budget </span>
+				</a> <b class="arrow"></b></li>
+				<li sec:authorize="hasAnyAuthority('detentrice')"
+					th:if="${#strings.equalsIgnoreCase(role,'SOURCE')}"><a
+					href="/mcnp/smcipn/smcipn" th:href="@{/payer}"> <i
+						class="menu-icon fa fa-tachometer"></i> <span class="menu-text">
+							Payement de Charges </span>
+				</a> <b class="arrow"></b></li>
+				<li class=""><a href="/mcnp/smcipn/transfert_smcipn"
+					th:href="@{/transfertSmcipn}"> <i
+						class="menu-icon fa fa-plus purple"></i>Transfert SMCIPN
+				</a> <b class="arrow"></b></li>
+			</ul></li>
+		<li class=""><a href="/mcnp/smcipn/transfert_recu"
+			th:href="@{/transfertrec}"> <i
+				class="menu-icon fa fa-plus purple"></i>SMCIPN Reçus
+		</a> <b class="arrow"></b></li>
+		<li class=""><a href="/mcnp/smcipn/transfert_eff"
+			th:href="@{/transferteff}"> <i
+				class="menu-icon fa fa-plus purple"></i>SMCIPN Transférés
+		</a> <b class="arrow"></b></li>
+	</ul>
+	<ul class="breadcrumb" layout:fragment="breadcrumb">
+		<li><i class="ace-icon fa fa-home home-icon"></i> <a
+			th:href="@{/}">Accueil</a></li>
+		<li class="active">SMCIPN</li>
+	</ul>
+	<div layout:fragment="content">
+		<div class="widget-box widget-color-blue">
+			<div class="widget-header widget-header-small">
+				<h5 class="widget-title">Paiement de charges par SMCIPN</h5>
+			</div>
+			<div class="widget-body">
+				<div class="widget-main">
+					<form id="frm_budget" class="form-horizontal" method="post"
+						action="#" th:action="@{/budget}" th:object="${budget}">
+						<div class="alert alert-info" th:if="${message}">
+							<button type="button" class="close" data-dismiss="alert">
+								<i class="ace-icon fa fa-times"></i>
+							</button>
+							<p id="opi_message" th:text="${message}"></p>
+						</div>
+						<div>
+							<label for="budget_typeRessource">Type SMCIPN</label> <select
+								class="form-control" id="budget_typeRessource"
+								th:field="*{typeRessource}" required="required">
+								<option value="I">Investissement</option>
+								<option value="TPN">Salaire</option>
+							</select>
+						</div>
+						<div>
+							<label for="budget_codeMembre">Code Membre Beneficiaire</label> <input
+								class="form-control" id="budget_codeMembre"
+								th:field="*{codeMembre}" required="required" />
+						</div>
+						<div id="div_smcipn_tegc">
+							<label for="budget_codeTegc">Terminal de Vente</label> <select
+								id="budget_codeTegc" th:field="*{codeTegc}" class="form-control"></select>
+						</div>
+						<div>
+							<label for="numeroBudget">Numéro Budget</label> <input
+								id="numeroBudget" class="form-control"
+								th:field="*{numeroBudget}" />
+						</div>
+						<div>
+							<label for="typeBudget">Type Budget</label> <select
+								id="typeBudget" class="form-control" th:field="*{typeBudget}"
+								required="required">
+								<option value="DA">Demande d'Achat</option>
+								<option value="OP">Offre de projet</option>
+							</select>
+						</div>
+						<div>
+							<label for="typeBudgetId">ID ou Numéro Type Budget</label> <input
+								id="typeBudgetId" class="form-control"
+								th:field="*{typeBudgetId}" required="required" />
+						</div>
+						<div>
+							<label for="smc_montant">Montant Budget</label> <input
+								class="form-control" id="smc_montant" th:field="*{montant}"
+								required="required" />
+						</div>
+						<div class="form-actions">
+							<button type="submit" id="btn-val-budget" class="btn btn-primary">
+								<i class="ace-icon fa fa-check bigger-110"></i>Valider
+							</button>
+							&nbsp; &nbsp; &nbsp;
+							<button id="btn-reset-budget" class="btn" type="reset">
+								<i class="ace-icon fa fa-undo bigger-110"></i> Réinitialiser
+							</button>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

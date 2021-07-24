@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4"
+      layout:decorate="layout/admin">
+<head>
+    <title>SMCIPN</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+</head>
+<body>
+<ul class="collapsible collapsible-accordion" layout:fragment="navbar">
+    <div th:include="smcipn/menu :: navbar" th:remove="tag"></div>
+</ul>
+<ul class="breadcrumb" layout:fragment="breadcrumb">
+    <li><i class="ace-icon fa fa-home home-icon"></i> <a
+            th:href="@{/}">Accueil</a></li>
+    <li class="active">SMCIPN</li>
+</ul>
+<!-- /.breadcrumb -->
+<div layout:fragment="content"></div>
+</body>
+</html>

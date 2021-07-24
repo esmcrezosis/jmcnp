@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorator="layout/admin">
+<head>
+    <title>Utilisateurs</title>
+    <th:block th:fragment="style" th:remove="tag">
+        <!--<link rel="stylesheet" th:href="@{/resources/js/jqgrid/ui.jqgrid.css}">-->
+        <link rel="stylesheet" th:href="@{/resources/js/jqgrid/ui.jqgrid-bootstrap4.css}">
+        <link rel="stylesheet" th:href="@{/resources/js/jqgrid/ui.jqgrid-bootstrap-ui.css}">
+    </th:block>
+</head>
+<body>
+<ul layout:fragment="navbar">
+    <div th:include="signup/menu :: navbar" th:remove="tag"></div>
+</ul>
+<ul class="breadcrumb" layout:fragment="breadcrumb">
+    <li><i class="ace-icon fa fa-home home-icon active"></i>Accueil</li>
+</ul>
+<div layout:fragment="content">
+    <div class="card card-cascade narrower z-depth-1">
+        <!-- Card image -->
+        <div class="view view-cascade gradient-card-header blue-gradient narrower py-2 mx-4 mb-3 d-flex justify-content-between align-items-center">
+
+            <div>
+                <a id="btnImp" th:href="@{/admin/register}"
+                   class="btn btn-outline-white btn-rounded btn-sm px-2">
+                    <i class="fas fa-user-plus mt-0"></i> Ajouter
+                </a>
+            </div>
+
+            <a href="" class="white-text mx-3">Liste des Utilisateurs</a>
+
+            <div>
+                <button id="btnEditUser" type="button" class="btn btn-outline-white btn-rounded btn-sm px-2">
+                    <i class="fas fa-user-edit mt-0"></i> Editer
+                </button>
+            </div>
+
+        </div>
+        <!-- /Card image -->
+
+        <div class="px-4">
+            <div class="table-responsive">
+                <table id="userGrid"></table>
+                <div id="userGridPager"></div>
+            </div>
+        </div>
+    </div>
+    <div id="usersDlg" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+         aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header text-center">
+                    <h4 class="modal-title w-100 font-weight-bold">Edition Utilisateur</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="container-fluid">
+                        <form id="frmEditUser" class="form-horizontal" method="post">
+                            <input type="hidden" name="_csrf" th:value="${_csrf.token}">
+                            <div class="md-form">
+                                <input type="text" class="form-control" id="idUtilisateur"
+                                       name="idUtilisateur" readonly="readonly"/>
+                                <label for="idUtilisateur">ID Utilisateur</label>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <select id="selCentre" th:name="centre.id" class="mdb-select md-form"
+                                            searchable="Rechercher ici..">
+                                        <option value="" selected>Choisir le Centre de l'utilisateur</option>
+                                        <option th:each=" centre : ${centres}" th:value="${centre.id}"
+                                                th:text="${centre.libelleCentre}">Centre
+                                        </option>
+                                    </select>
+                                    <label class="mdb-main-label">Centre</label>
+                                </div>
+                                <div class="col-md-6">
+                                    <select id="selAgenceOdd" th:name="agencesOdd.id" class="mdb-select md-form"
+                                            searchable="Rechercher ici..">
+                                        <option value="" selected>Choisir l'Agence de l'utilisateur</option>
+                                        <option th:each=" agenceOdd : ${agencesOdds}"
+                                                th:value="${agenceOdd.idAgencesOdd}"
+                                                th:text="${agenceOdd.libelleAgencesOdd}">Agence ODD
+                                        </option>
+                                    </select>
+                                    <label class="mdb-main-label">Agence ODD</label>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="md-form col-lg-6">
+                                    <input type="text" class="form-control form-control-sm" id="txtNomUser"
+                                           placeholder="Nom Utilisateur" th:name="nomUtilisateur"/>
+                                    <label for="txtNomUser">Nom Utilisateur</label>
+                                </div>
+                                <div class="md-form col-lg-6">
+                                    <input type="text" class="form-control form-control-sm" id="txtPrenomUser"
+                                           placeholder="Prénom Utilisateur" th:name="prenomUtilisateur"/>
+                                    <label for="txtPrenomUser">Prénoms Utilisateur</label>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <div class="md-form input-group mb-3">
+                                        <input id="txtCodeMembre" type="text" class="form-control form-control-sm"
+                                               aria-label="Le Code du Membre"
+                                               aria-describedby="btnCodeMembre" th:name="codeMembre">
+                                        <div class="input-group-append">
+                                            <button class="btn btn-md btn-secondary m-0 px-3" type="button"
+                                                    id="btnCodeMembre">
+                                                QRCODE
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="md-form col-lg-6">
+                                    <input type="text" class="form-control form-control-sm" id="txtLogin"
+                                           th:name="login"/>
+                                    <label for="txtLogin" class="col-lg-3 control-label">Login</label>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="md-form col-lg-6">
+                                    <input type="password" class="form-control form-control-sm" id="txtPasswordHash"
+                                           name="passwordHash"/>
+                                    <label for="txtPasswordHash">Mot de passe</label>
+                                </div>
+                                <div class="md-form col-lg-6">
+                                    <input type="password" class="form-control form-control-sm" id="txtPasswordConfirm"
+                                           th:name="passwordConfirm"/>
+                                    <label for="txtPasswordConfirm">Confirmez le mot de passe</label>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <select id="selCodeGroupe" th:name="groupe" class="mdb-select md-form"
+                                            searchable="Rechercher ici..">
+                                        <option value="">Choisir le Groupe d'utilisateur</option>
+                                        <option th:each="u : ${ugroupes}" th:value="${u.codeGroupe}"
+                                                th:text="${u.libelleGroupe}"></option>
+                                    </select>
+                                    <label class="mdb-main-label">Groupe Utilisateur</label>
+                                </div>
+                                <div class="col-lg-6">
+                                    <select id="selRoleUser" th:name="role" class="mdb-select md-form"
+                                            multiple searchable="Rechercher ici..">
+                                        <option value="">Choisir le Role de l'utilisateur</option>
+                                        <option th:each="r : ${roles}" th:value="${r.idRoles}"
+                                                th:text="${r.libelleRoles}"></option>
+                                    </select>
+                                    <label class="mdb-main-label">Role Utilisateur</label>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="md-form col-lg-6">
+                                    <input type="text" class="form-control" id="txtIdUserParent"
+                                           name="idUtilisateurParent">
+                                    <label for="txtIdUserParent">Utilisateur Parent</label>
+                                </div>
+                                <div class="md-form col-lg-6">
+                                    <div class="form-check">
+                                        <input id="desactiverCkb" type="checkbox" class="form-check-input">
+                                        <label class="form-check-label" for="desactiverCkb">Desactiver</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-lg-offset-3 col-lg-9">
+                                    <button id="btnValEditUser" type="submit" class="btn btn-sm btn-primary">
+                                        Enregistrer
+                                    </button>
+                                    <a onclick="resetForm()" class="btn btn-sm btn-default">Annuler</a>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<th:block layout:fragment="script" th:remove="tag">
+    <script th:src="@{/resources/js/jqgrid/grid.locale-fr.js}"></script>
+    <script th:src="@{/resources/js/jqgrid/jquery.jqGrid.min.js}"></script>
+    <script th:src="@{/resources/app/qrcode-decoder/qcode-decoder.min.js}"></script>
+    <script th:src="@{/resources/app/outil-qr.js}"></script>
+    <script th:inline="javascript">
+        function resetForm() {
+            $("#frmEditUser").trigger("reset");
+            $("#userGrid").jqGrid('resetSelection');
+            $('#usersDlg').modal('hide');
+        }
+
+        $(document).ready(function () {
+            outilqrbouton_cm("frmEditUser", "btnCodeMembre", "txtCodeMembre");
+
+            $("#userGrid").jqGrid({
+                url: 'ulist/',
+                mtype: "GET",
+                styleUI: 'Bootstrap4',
+                iconSet: "fontAwesome",
+                datatype: "json",
+                colModel: [
+                    {label: 'ID', name: 'idUtilisateur', key: true, width: 75},
+                    {label: 'Nom', name: 'nomUtilisateur', width: 230},
+                    {label: 'Prenoms', name: 'prenomUtilisateur', width: 230},
+                    {label: 'Code Membre', name: 'codeMembre', width: 200},
+                    {label: 'Login', name: 'login', width: 200},
+                    {label: 'Groupe', name: 'userGroup.codeGroupe', width: 150}
+                ],
+                page: 1,
+                width: null,
+                shrinkToFit: false,
+                height: 350,
+                rowNum: 20,
+                rowList: [20, 50, 100],
+                sortname: 'idUtilisateur',
+                viewrecords: true,
+                emptyrecords: 'Pas d\'utilisateurs trouves', // the message will be displayed at the bottom
+                pager: "#userGridPager"
+            });
+
+            $('#btnEditUser').click(
+                function (e) {
+                    e.preventDefault();
+                    var grid = $("#userGrid");
+                    var rowKey = grid.jqGrid('getGridParam', "selrow");
+                    if (rowKey) {
+                        var row = grid.jqGrid('getRowData', rowKey);
+                        $.ajax({
+                            type: 'GET',
+                            url: 'findUser/' + row.idUtilisateur,
+                            dataType: 'json',
+                        }).done(function (data, status) {
+                            $('#idUtilisateur').val(data.idUtilisateur);
+                            $('#idUtilisateur').next("label").addClass('active');
+                            if (data.centre) {
+                                $('#selCentre').val(data.centre.idCentres);
+                                $('#selCentre').next("label").addClass('active');
+                            }
+                            if (data.agencesOdd) {
+                                $('#selAgenceOdd').val(data.agencesOdd.idAgencesOdd);
+                                $('#selAgenceOdd').next("label").addClass('active');
+                            }
+                            $('#txtNomUser').val(data.nomUtilisateur);
+                            $('#txtNomUser').next("label").addClass('active');
+                            $('#txtPrenomUser').val(data.prenomUtilisateur);
+                            $('#txtPrenomUser').next("label").addClass('active');
+                            $('#txtCodeMembre').val(data.codeMembre);
+                            $('#txtCodeMembre').next("label").addClass('active');
+                            $('#txtLogin').val(data.login);
+                            $('#txtLogin').next("label").addClass('active');
+                            $('#txtPasswordHash').val(data.passwordHash);
+                            $('#txtPasswordHash').next("label").addClass('active');
+                            $('#txtPasswordConfirm').val(data.passwordHash);
+                            $('#txtPasswordConfirm').next("label").addClass('active');
+                            if (data.euUserGroup) {
+                                $('#selCodeGroupe').val(data.euUserGroup.codeGroupe);
+                                $('#selCodeGroupe').next("label").addClass('active');
+                            }
+                            $('#txtIdUserParent').val(data.idUtilisateurParent);
+                            $('#txtIdUserParent').next("label").addClass('active');
+                            $('#desactiverCkb').val(data.ulock);
+                            var ids = Array();
+                            if (data.roles && data.roles.length > 0) {
+                                let roles = data.roles;
+                                for (let i = 0; i < data.roles.length; i++) {
+                                    console.log(roles[i].idRoles);
+                                    ids.push(roles[i].idRoles);
+                                }
+                                $('#selRoleUser').val(ids);
+                                $('#selRoleUser').next("label").addClass('active');
+                            }
+                            $('#usersDlg').modal('show');
+                        }).fail(function (xhr, status, error) {
+                            let resp = JSON.parse(xhr.responseText);
+                            toastr.error('Erreur d\'execution :' + resp.message);
+                        });
+                    } else {
+                        toastr.info("Aucune ligne sélectionée");
+                    }
+                }
+            );
+
+            $('#frmEditUser').submit(function (event) {
+                // get the form data
+                // there are many ways to get this data using jQuery (you can use the class or id also)
+                var formData = $(this).serialize();
+                // process the form
+                $.ajax({
+                    type: 'POST', // define the type of HTTP verb we want to use (POST for our form)
+                    url: 'editUser', // the url where we want to POST
+                    data: formData, // our data object
+                    dataType: 'json', // what type of data do we expect back from the server
+                    encode: true
+                }).done(function (data, status) {
+                    $('#userGrid').jqGrid().trigger('reloadGrid');
+                    $('#usersDlg').modal('hide');
+                    toastr.success(data.message);
+                }).fail(function (xhr, status, error) {
+                    let resp = JSON.parse(xhr.responseText);
+                    toastr.error('Erreur d\'execution :' + resp.message);
+                });
+
+                // stop the form from submitting the normal way and refreshing the page
+                event.preventDefault();
+            });
+        });
+    </script>
+</th:block>
+</body>
+</html>

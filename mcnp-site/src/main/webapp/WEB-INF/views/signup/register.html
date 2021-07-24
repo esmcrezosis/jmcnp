@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="layout/admin">
+
+<head>
+    <title>Ajout d'utilisateurs</title>
+</head>
+
+<body>
+<ul layout:fragment="navbar">
+    <div th:include="signup/menu :: navbar" th:remove="tag"></div>
+</ul>
+<ul class="breadcrumb" layout:fragment="breadcrumb">
+    <li><i class="ace-icon fa fa-home home-icon"></i> <a
+            th:href="@{/}">Accueil</a></li>
+    <li class="active">Ajout Utilisateur</li>
+</ul>
+<!-- /.breadcrumb -->
+<div layout:fragment="content">
+    <div class="card">
+        <div class="card-body">
+            <form id="frmAddUser" class="form-horizontal" action="#" th:action="@{/admin/register}"
+                  th:object="${user}" method="post">
+                <div class="form-header">
+                    <h5>Ajout d'un utilisateur</h5>
+                </div>
+                <div class="alert alert-info" th:if="${message}">
+                    <button type="button" class="close" data-dismiss="alert">
+                        <i class="ace-icon fa fa-times"></i>
+                    </button>
+                    <p th:text="${message}"></p>
+                </div>
+                <div class="md-form" th:hidden="true">
+                    <label for="login" class="col-lg-3 control-label">ID
+                        Utilisateur</label>
+                    <div class="col-lg-9">
+                        <input type="text" class="form-control" id="idUtilisateur"
+                               placeholder="ID Utilisateur" th:field="*{idUtilisateur}"
+                               readonly="readonly"/>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <select id="selCentre" th:name="centre.id" class="mdb-select md-form"
+                                searchable="Rechercher ici..">
+                            <option value="" selected>Choisir le Centre de l'utilisateur</option>
+                            <option th:each=" centre : ${centres}" th:value="${centre.id}"
+                                    th:text="${centre.libelleCentre}">Centre
+                            </option>
+                        </select>
+                        <label class="mdb-main-label">Centre</label>
+                    </div>
+                    <div class="col-md-6">
+                        <select id="selAgenceOdd" th:name="agencesOdd.id" class="mdb-select md-form"
+                                searchable="Rechercher ici..">
+                            <option value="" selected>Choisir l'Agence de l'utilisateur</option>
+                            <option th:each=" agenceOdd : ${agencesOdds}" th:value="${agenceOdd.idAgencesOdd}"
+                                    th:text="${agenceOdd.libelleAgencesOdd}">Agence ODD
+                            </option>
+                        </select>
+                        <label class="mdb-main-label">Agence ODD</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="md-form col-lg-6">
+                        <input type="text" class="form-control form-control-sm" id="nomMembre"
+                               placeholder="Nom Utilisateur" th:field="*{nomUtilisateur}"/>
+                        <label for="nomMembre">Nom Utilisateur</label>
+                    </div>
+                    <div class="md-form col-lg-6">
+                        <input type="text" class="form-control form-control-sm" id="prenomMembre"
+                               placeholder="Prénom Utilisateur" th:field="*{prenomUtilisateur}"/>
+                        <label for="prenomMembre">Prénoms Utilisateur</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="md-form input-group mb-3">
+                            <input id="txtCodeMembre" type="text" class="form-control form-control-sm"
+                                   placeholder="Code Membre" aria-label="Le Code du Membre"
+                                   aria-describedby="btnCodeMembre" th:field="*{codeMembre}">
+                            <div class="input-group-append">
+                                <button class="btn btn-md btn-secondary m-0 px-3" type="button" id="btnCodeMembre">
+                                    QRCODE
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="md-form col-lg-6">
+                        <input type="text" class="form-control form-control-sm" id="login"
+                               placeholder="Nom d'utilisateur" th:field="*{login}"/>
+                        <label for="login" class="col-lg-3 control-label">Login</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="md-form col-lg-6">
+                        <input type="password" class="form-control form-control-sm" id="password"
+                               placeholder="Mot de passe" th:field="*{pwd}"/>
+                        <label for="password">Mot de passe</label>
+                    </div>
+                    <div class="md-form col-lg-6">
+                        <input type="password" class="form-control form-control-sm" id="passwordConfirm"
+                               placeholder="Retapez le mot de passe" th:name="pwdConfirm"/>
+                        <label for="passwordConfirm">Confirmez le mot de passe</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-6">
+                        <select id="codeGroupe" th:name="groupe" class="mdb-select md-form"
+                                searchable="Rechercher ici..">
+                            <option value="">Choisir le Groupe d'utilisateur</option>
+                            <option th:each="u : ${ugroupes}" th:value="${u.codeGroupe}"
+                                    th:text="${u.libelleGroupe}"></option>
+                        </select>
+                        <label class="mdb-main-label">Groupe Utilisateur</label>
+                    </div>
+                    <div class="col-lg-6">
+                        <select id="groupeRole" th:name="groupeRole" class="mdb-select md-form"
+                                searchable="Rechercher ici..">
+                            <option value="">Choisir le Groupe de Rôle de l'utilisateur</option>
+                            <option th:each="g : ${groupes}" th:value="${g.id}"
+                                    th:text="${g.libelleGroupeRoles}"></option>
+                        </select>
+                        <label class="mdb-main-label">Groupe de Role</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-6">
+                        <select id="roleUser" th:name="role" class="mdb-select md-form" searchable="Rechercher ici..">
+                            <option value="">Choisir le Role de l'utilisateur</option>
+                            <option th:each="r : ${roles}" th:value="${r.idRoles}"
+                                    th:text="${r.libelleRoles}"></option>
+                        </select>
+                        <label class="mdb-main-label">Role Utilisateur</label>
+                    </div>
+                    <div class="md-form col-lg-6">
+                        <div class="form-check">
+                            <input type="checkbox" name="responsable" th:value="1" class="form-check-input"
+                                   id="responsableCkb">
+                            <label class="form-check-label" for="responsableCkb">Responsable</label>
+                        </div>
+                    </div>
+                </div>
+                <div id="responsabiliteDiv" class="row" style="display: none">
+                    <div class="md-form col-lg-6">
+                        <input type="text" class="form-control" id="codeResponsabiliteTxt" name="codeResponsabilite"
+                               placeholder="Un code de 8 caractères max">
+                        <label for="codeResponsabiliteTxt">Code Responsabilite</label>
+                    </div>
+                    <div class="md-form col-lg-6">
+                        <input type="text" class="form-control" id="libResponsabiliteTxt" name="nomResponsabilite"
+                               placeholder="Fonction de l'utilisateur">
+                        <label for="libResponsabiliteTxt">Nom Responsabilite</label>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-lg-offset-3 col-lg-9">
+                        <button type="submit" class="btn btn-sm btn-primary">Enregistrer</button>
+                        <a th:href="@{/admin/utilisateur}" class="btn btn-sm btn-default">Annuler</a>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<th:block layout:fragment="script" th:remove="tag">
+    <script th:src="@{/resources/app/qrcode-decoder/qcode-decoder.min.js}"></script>
+    <script th:src="@{/resources/app/outil-qr.js}"></script>
+    <script th:inline="javascript">
+        $(document).ready(function () {
+            outilqrbouton_cm("frmAddUser", "btnCodeMembre", "txtCodeMembre");
+            $('#responsableCkb').change(function () {
+                if ($(this).is(":checked")) {
+                    $('#responsabiliteDiv').show();
+                } else {
+                    $('#responsabiliteDiv').hide();
+                }
+            });
+
+            /*$('#selCentre').change(function () {
+                var centre = $(this).val();
+                $.ajax({
+                    url: 'agenceOdd/',
+                    type: 'get',
+                    data: {id: centre},
+                    dataType: 'json',
+                    success: function (response) {
+                        var len = response.length;
+                        var selAgence = $('#selAgenceOdd');
+                        selAgence.empty();
+                        selAgence.append("<option value=\"\" selected>Choisir l'Agence de l'utilisateur</option>");
+                        if (len > 0) {
+                            for (var i = 0; i < len; i++) {
+                                var id = response[i]['id'];
+                                var name = response[i]['libelleAgencesOdd'];
+                                selAgence.append("<option value='" + id + "'>" + name + "</option>");
+                            }
+                        }
+                    }
+                });
+            });*/
+
+            $('select#groupeRole').change(function () {
+                var groupe = $(this).val();
+                $.ajax({
+                    url: 'rolesUser/',
+                    type: 'get',
+                    data: {id: groupe},
+                    dataType: 'json',
+                    success: function (response) {
+                        var len = response.length;
+                        var selRole = $('select#roleUser');
+                        selRole.empty();
+                        selRole.append("<option value=\"\">Choisir le Role de l'utilisateur</option>");
+                        if (len > 0) {
+                            for (var i = 0; i < len; i++) {
+                                var idRole = response[i]['id'];
+                                var libelle = response[i]['libelleRoles'];
+                                if (libelle == null) {
+                                    libelle = response[i]['codeRoles'];
+                                }
+                                selRole.append("<option value='" + idRole + "'>" + libelle + "</option>");
+                            }
+                        }
+                    }
+                });
+            });
+        });
+    </script>
+</th:block>
+</body>
+</html>

@@ -1,0 +1,195 @@
+<th:block xmlns="http://www.w3.org/1999/xhtml"
+          xmlns:th="http://www.thymeleaf.org"
+          xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5"
+          th:fragment="navbar">
+    <li>
+        <a href="/index" th:href="@{/home}"
+           class="collapsible-header waves-effect">
+            <i class="fas fa-home"></i>
+            Accueil
+        </a>
+    </li>
+    <li sec:authorize="hasAnyAuthority('detentrice','smc_tesmcipnwi','executante')">
+        <a href="/mcnp/creances" th:href="@{/icreance}"
+           class="collapsible-header waves-effect">
+            <i class="fas fa-list"></i>
+            Désendettement
+        </a>
+    </li>
+    <li sec:authorize="hasAnyAuthority('surveillance_filiere','filiere')">
+        <a href="/mcnp/paiement/index" th:href="@{/paiement}"
+           class="collapsible-header waves-effect">
+            <i class="fa fa-tachometer"></i>
+            Reglement
+        </a>
+    </li>
+    <li sec:authorize="hasAnyAuthority('cnp_tegcp_pbf', 'FILIERE', 'FDD')">
+        <a href="/mcnp/bon" th:href="@{/fgfn}" class="collapsible-header waves-effect">
+            <i class="fa fa-edit"></i>
+            Les Etat des CM
+        </a>
+    </li>
+    <li sec:authorize="hasAnyAuthority('cnp_tegcp_pbf', 'FILIERE', 'FDD')">
+        <a href="/mcnp/bon" th:href="@{/banque}" class="collapsible-header waves-effect">
+            <i class="fa fa-edit"></i>
+            Les OPI
+        </a>
+    </li>
+    <li sec:authorize="hasAnyAuthority('cnp_tegcp_pbf', 'FILIERE', 'FDD')">
+        <a href="/mcnp/bon" th:href="@{/smcipn/index}" class="collapsible-header waves-effect">
+            <i class="fa fa-edit"></i>
+            Les SMCIPN
+        </a>
+    </li>
+    <li class="" sec:authorize="hasAuthority('surveillance_filiere')">
+        <a href="mcnp/distributeur/exploitation.html" th:href="@{/exploitation}"
+           class="collapsible-header waves-effect">
+            <i class="fa fa-pencil-square-o"></i>
+            Calcul frais exploitation
+        </a>
+    </li>
+    <li sec:authorize="hasAuthority('KSU')">
+        <a href="mcnp/odd/fiche.html" th:href="@{/odd/index}" class="collapsible-header waves-effect">
+            <i class="fa fa-book"></i>
+            Fiche ODD
+        </a>
+    </li>
+    <li class="" sec:authorize="hasAnyAuthority('KSU','KSUI')">
+        <a href="mcnp/ksu/index.html" th:href="@{/ksu/index}" class="collapsible-header waves-effect">
+            <i class="fa fa-book"></i>
+            KSU
+        </a>
+    </li>
+    <li sec:authorize="hasAnyAuthority('BUDGET', 'FILIERE', 'FDD', 'FDS', 'FDE')">
+        <a href="mcnp/budget/index.html" th:href="@{/budget/index}" class="collapsible-header waves-effect">
+            <i class="fa fa-book"></i>
+            Budget
+        </a>
+    </li>
+    <li sec:authorize="hasAnyAuthority('FDD', 'FDS', 'FDE')">
+        <a href="#" class="collapsible-header waves-effect arrow-r">
+            <i class="menu-icon fa fa-list"></i> <span class="menu-text">
+				Formation </span><b class="arrow fa fa-angle-down"></b>
+        </a> <b class="arrow"></b>
+        <div class="collapsible-body">
+            <ul>
+                <li>
+                    <a href="/mcnp/smcipn/charge" th:href="@{/formation}"
+                       class="collapsible-header waves-effect"> <i
+                            class="menu-icon fa fa-plus"></i>
+                        <span class="menu-text">Formations</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="/mcnp/smcipn/smcipn" th:href="@{/formation/add}"
+                            class="collapsible-header waves-effect"> <i
+                            class="menu-icon fa fa-plus"></i>
+                        <span class="menu-text">Ajouter Formation</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="/mcnp/smcipn/smci" th:href="@{/formation/inscrit}"
+                            class="collapsible-header waves-effect"> <i
+                            class="menu-icon fa fa-plus"></i>
+                        <span class="menu-text">Les Inscriptions</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </li>
+    <!---->
+    <li sec:authorize="hasAnyAuthority('ADMIN', 'CA')">
+        <a href="mcnp/budget/index.html" th:href="@{/admin/index}" class="collapsible-header waves-effect">
+            <i class="fa fa-book"></i>
+            Administration
+        </a>
+    </li>
+    <div sec:authorize="hasAnyAuthority('personne_physique', 'personne_morale','oe_detaillant', 'oe_grossiste','oe_semi_grossiste')" th:remove="tag">
+        <li>
+            <a class="collapsible-header waves-effect arrow-r">
+                <i class="fas fa-image"></i> OI <i class="fas fa-angle-down rotate-icon"></i>
+            </a>
+            <div class="collapsible-body">
+                <ul>
+                    <li th:hidden="${codeMembre != null && !#strings.endsWith(codeMembre,'P')}">
+                        <a th:href="@{/oi/iv/index}" class="waves-effect">OI Individu</a>
+                    </li>
+                    <li th:hidden="${(codeMembre != null && !#strings.endsWith(codeMembre,'M')) && #strings.equals(statutMembre, 'Maison')}">
+                        <a th:href="@{/oi/ms/index}" class="waves-effect">OI Ménage</a>
+                    </li>
+                </ul>
+            </div>
+        </li>
+        <li>
+            <a class="collapsible-header waves-effect arrow-r">
+                <i class="fas fa-user"></i> OKSU <i class="fas fa-angle-down rotate-icon"></i>
+            </a>
+            <div class="collapsible-body">
+                <ul>
+                    <li th:hidden="${codeMembre == null || (codeMembre != null && !#strings.endsWith(codeMembre,'P'))}">
+                        <a th:href="@{/oksu}" class="waves-effect">OKSU PP </a>
+                    </li>
+                    <li th:hidden="${codeMembre == null || (codeMembre != null && !#strings.endsWith(codeMembre,'M'))}">
+                        <a th:href="@{/oksu}" class="waves-effect">OKSU PM </a>
+                    </li>
+                </ul>
+            </div>
+        </li>
+        <li>
+            <a class="collapsible-header waves-effect arrow-r">
+                <i class="fab fa-css3"></i> OBPSD <i class="fas fa-angle-down rotate-icon"></i>
+            </a>
+            <div class="collapsible-body">
+                <ul>
+                    <li th:hidden="${codeMembre != null && !#strings.endsWith(codeMembre,'P')}">
+                        <a th:href="@{/obpsd}" class="waves-effect"> OBPSD PP </a>
+                    </li>
+                    <li th:hidden="${codeMembre != null && !#strings.endsWith(codeMembre,'M')}">
+                        <a th:href="@{/obpsd}" class="waves-effect"> OBPSD PM </a>
+                    </li>
+                </ul>
+            </div>
+        </li>
+        <li>
+            <a class="collapsible-header waves-effect arrow-r">
+                <i class="fas fa-th"></i> OBPS <i class="fas fa-angle-down rotate-icon"></i>
+            </a>
+            <div class="collapsible-body">
+                <ul>
+                    <li th:hidden="${codeMembre == null || (codeMembre != null && !#strings.endsWith(codeMembre,'M'))}">
+                        <a th:href="@{/obps}" class="waves-effect">OBPS PM </a>
+                    </li>
+                </ul>
+            </div>
+        </li>
+        <li>
+            <a class="collapsible-header waves-effect arrow-r">
+                <i class="far fa-check-square"></i> OP <i class="fas fa-angle-down rotate-icon"></i>
+            </a>
+            <div class="collapsible-body">
+                <ul>
+                    <li th:hidden="${codeMembre == null || (codeMembre != null && !#strings.endsWith(codeMembre,'P'))}">
+                        <a th:href="@{/op}" class="waves-effect">PP</a>
+                    </li>
+                    <li th:hidden="${codeMembre == null || (codeMembre != null && !#strings.endsWith(codeMembre,'M'))}">
+                        <a th:href="@{/op}" class="waves-effect">PM</a>
+                    </li>
+                </ul>
+            </div>
+        </li>
+        <li>
+            <a class="collapsible-header waves-effect arrow-r">
+                <i class="fas fa-table"></i> OT <i class="fas fa-angle-down rotate-icon"></i>
+            </a>
+            <div class="collapsible-body">
+                <ul>
+                    <li th:hidden="${codeMembre == null || (codeMembre != null && !#strings.endsWith(codeMembre,'P'))}">
+                        <a
+                                th:href="@{/ot/pp}" class="waves-effect">OT PP</a></li>
+                    <li th:hidden="${codeMembre == null || (codeMembre != null && !#strings.endsWith(codeMembre,'P'))}">
+                        <a href="../tables/datatables.html" class="waves-effect">Menu OT </a></li>
+                </ul>
+            </div>
+        </li>
+    </div>
+</th:block>

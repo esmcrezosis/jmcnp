@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4"
+      layout:decorate="layout/admin">
+<head>
+    <title>SMCIPN</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+<ul class="collapsible collapsible-accordion" layout:fragment="navbar">
+    <div th:include="budget/menu :: navbar" th:remove="tag"></div>
+</ul>
+<ul class="collapsible collapsible-accordion" layout:fragment="navbar">
+    <li><a href="index.html" th:href="@{/home}"> <i
+            class="menu-icon fas fa-home"></i> <span class="menu-text">
+					Accueil </span>
+    </a> <b class="arrow"></b></li>
+    <li class=""><a href="#"
+                    class="collapsible-header waves-effect arrow-r"> <i
+            class="menu-icon fa fa-list"></i> <span class="menu-text">
+					Désendettement </span> <b class="arrow fa fa-angle-down"></b>
+    </a> <b class="arrow"></b>
+        <div class="collapsible-body">
+            <ul>
+                <li><a href="/mcnp/creance/recouvrement.html"
+                       th:href="@{/recouvrer}"> <i class="menu-icon fas fa-circle"></i>
+                    <span class="menu-text"> Recouvrement </span>
+                </a> <b class="arrow"></b></li>
+                <li><a href="/mcnp/creance/recouvrement.html"
+                       th:href="@{/payercmfh}"> <i class="menu-icon fas fa-circle"></i>
+                    <span class="menu-text"> Recouvrement CMFH </span>
+                </a> <b class="arrow"></b></li>
+                <li><a href="/mcnp/creance/releve.html"
+                       th:href="@{/releve}"> <i
+                        class="menu-icon fas fa-credit-card"></i> <span class="menu-text">
+								Relevé des Créances </span>
+                </a> <b class="arrow"></b></li>
+            </ul>
+        </div>
+    </li>
+</ul>
+<!-- /.breadcrumb -->
+<div layout:fragment="content">
+    <div class="card card-cascade narrower z-depth-1">
+        <!-- Card image -->
+        <div class="view view-cascade gradient-card-header blue-gradient narrower py-2 mx-4 mb-3 d-flex justify-content-between align-items-center">
+
+            <div>
+                <a id="btnAjoutBudget" data-toggle="modal" data-target="#budgetDlg"
+                   class="btn btn-outline-white btn-rounded btn-sm px-2">
+                    <i class="fas fa-th-large mt-0"></i> Ajouter
+                </a>
+                <a id="btnAjoutDetBudget"
+                   class="btn btn-outline-white btn-rounded btn-sm px-2">
+                    <i class="fas fa-th-large mt-0"></i> Nouveau Detail
+                </a>
+            </div>
+
+            <a href="" class="white-text mx-3">Budgets Emis </a>
+
+            <div>
+                <button id="btnEditBudget" type="button"
+                        class="btn btn-outline-white btn-rounded btn-sm px-2">
+                    <i class="fas fa-th-list mt-0"></i> Editer
+                </button>
+            </div>
+
+        </div>
+        <!-- /Card image -->
+
+        <div class="px-4">
+            <table id="budgetGrid">
+            </table>
+            <div id="budgetGridPager"></div>
+            <br/>
+            <table id="detbudgetGrid">
+            </table>
+            <div id="detbudgetGridPager"></div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

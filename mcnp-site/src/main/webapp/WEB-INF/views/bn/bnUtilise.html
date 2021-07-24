@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorator="layout/admin">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Etat des Details BAn</title>
+    <th:block th:fragment="style" th:remove="tag">
+        <!--<link rel="stylesheet" th:href="@{/resources/js/jqgrid/ui.jqgrid.css}">-->
+        <link rel="stylesheet"
+              th:href="@{/resources/js/jqgrid/ui.jqgrid-bootstrap4.css}">
+        <link rel="stylesheet"
+              th:href="@{/resources/js/jqgrid/ui.jqgrid-bootstrap-ui.css}">
+        <style type="text/css">
+            input[type='checkbox'], input[type='checkbox']:checked, input[type='checkbox']:not(:checked) {
+                display: inline-block;
+                position: relative;
+                pointer-events: auto;
+                opacity: 1;
+            }
+        </style>
+    </th:block>
+</head>
+<body>
+<th:block layout:fragment="navbar">
+    <div th:include="fgfn/menu :: navbar" th:remove="tag"></div>
+</th:block>
+<ul class="breadcrumb" layout:fragment="breadcrumb">
+    <li><i class="ace-icon fa fa-home home-icon"></i> <a
+            th:href="@{/}">Accueil</a></li>
+    <li class="active">Etat BAn</li>
+</ul>
+<!-- /.breadcrumb -->
+<div layout:fragment="content">
+    <div class=" card">
+        <div class="container">
+            <div class="row">
+                <div class="md-form col-lg-6">
+                    <input type="text" id="codeMembreBanUtil" class="form-control">
+                    <label for="codeMembreBanUtil">Code Membre</label>
+                </div>
+                <div class="md-form col-lg-6">
+                    <input type="text" id="codeBanUtilise" class="form-control">
+                    <label for="codeBanUtilise" class="active">Code BAn</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="md-form col-lg-6">
+                    <input type="date" id="dateDebBanUtil" class="form-control">
+                    <label for="dateDebBanUtil">Date Debut</label>
+                </div>
+                <div class="md-form col-lg-6">
+                    <div class="input-group mb-3">
+                        <input type="date" id="dateFinBanUtil" class="form-control">
+                        <div class="input-group-append">
+                            <button class="btn btn-md btn-sm btn-secondary" type="button" id="btnSearchBanUtil">
+                                Rechercher
+                            </button>
+                        </div>
+                    </div>
+                    <label class="active" for="dateFinBanUtil">Date Fin</label>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="card" style="margin-top: 5px;">
+        <div class="card-header">
+            <div class="float-left align-middle">
+                <button id="btnExportBanUtil" type="button" class="btn btn-sm btn-default">Export</button>
+                <!--<button id="btnEditGcp" type="button" class="btn btn-sm btn-blue-grey">Editer</button>-->
+            </div>
+            <h5 class="card-title align-middle">Etat des BAn Utilises</h5>
+        </div>
+        <div class="card-body">
+            <table id="tblBanUtil"></table>
+            <!-- Pagination Bar -->
+            <div id="banUtilPager"></div>
+        </div>
+    </div>
+</div>
+<th:block layout:fragment="script" th:remove="tag">
+    <script th:src="@{/resources/js/inputmask/jquery.inputmask.min.js}"></script>
+    <script th:src="@{/resources/js/jqgrid/grid.locale-fr.js}"></script>
+    <script th:src="@{/resources/js/jqgrid/jquery.jqGrid.min.js}"></script>
+    <script th:inline="javascript">
+        $(function () {
+            $(":input").inputmask();
+
+            var banUtilTable = $("#tblBanUtil");
+            banUtilTable.jqGrid({
+                url: 'banUtilises/',
+                mtype: "GET",
+                styleUI: 'Bootstrap4',
+                iconSet: "fontAwesome",
+                postData: {
+                    codeMembre: function () {
+                        return $("#codeMembreBanUtil").val();
+                    },
+                    code: function () {
+                        return $("#codeBanUtilise").val();
+                    },
+                    deb: function () {
+                        return $("input#dateDebBanUtil").val();
+                    },
+                    fin: function () {
+                        return $("input#dateFinBanUtil").val();
+                    }
+                },
+                datatype: "json",
+                colModel: [
+                    {label: 'ID', name: 'bonNeutreUtiliseId', key: true, width: 50},
+                    {label: 'Date', name: 'bonNeutreUtiliseDate', width: 100},
+                    {label: 'Code Membre', name: 'euBonNeutre.bonNeutreCodeMembre', width: 140},
+                    {label: 'Code BAn', name: 'euBonNeutre.bonNeutreCode', width: 70},
+                    {label: 'CodeDetail BAn', name: 'bonNeutreDetail.bonNeutreDetailCode', width: 70},
+                    {label: 'Libelle', name: 'bonNeutreUtiliseLibelle', width: 150},
+                    {
+                        label: 'Montant',
+                        name: 'bonNeutreUtiliseMontant',
+                        width: 100,
+                        summaryTpl: "Total: {0}",
+                        summaryType: "sum"
+                    },
+                    {label: 'Type', name: 'bonNeutreUtiliseType', width: 80}
+                ],
+                page: 1,
+                autowidth: true,
+                viewrecords: true,
+                height: 400,
+                rowNum: 100,
+                rowList: [100, 250, 500],
+                sortname: 'bonNeutreUtiliseDate',
+                emptyrecords: 'Pas de lignes trouvees',
+                pager: "#banUtilPager",
+                footerrow: true, // set a footer row
+                userDataOnFooter: true, // the calculated sums and/or strings from server are put at footer row.
+                grouping: true,
+                groupingView: {
+                    groupField: ["euBonNeutre.bonNeutreCodeMembre"],
+                    groupColumnShow: [false],
+                    groupText: ["Code Membre: <b>{0}</b>"],
+                    groupOrder: ["asc"],
+                    groupSummary: [true],
+                    groupCollapse: false
+                }
+            });
+
+            /*$("#btnEditGcp").click(function (e) {
+                e.preventDefault();
+                var id = detBanTable.jqGrid('getGridParam', 'selrow');
+                if (id) {
+                    var data = gcpTable.jqGrid('getRowData', id);
+                    //location.href = "traite?id=" + data.idGcp;
+                }
+            });*/
+
+            $("#btnSearchBanUtil").click(function (e) {
+                e.preventDefault();
+                banUtilTable.jqGrid().trigger('reloadGrid');
+            });
+        });
+    </script>
+</th:block>
+</body>
+</html>

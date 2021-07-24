@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorator="layout/admin">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Etat Des Comptes Marchands</title>
+    <th:block th:fragment="style" th:remove="tag">
+        <!--<link rel="stylesheet" th:href="@{/resources/js/jqgrid/ui.jqgrid.css}">-->
+        <link rel="stylesheet"
+              th:href="@{/resources/js/jqgrid/ui.jqgrid-bootstrap4.css}">
+        <link rel="stylesheet"
+              th:href="@{/resources/js/jqgrid/ui.jqgrid-bootstrap-ui.css}">
+        <style type="text/css">
+            input[type='checkbox'], input[type='checkbox']:checked, input[type='checkbox']:not(:checked) {
+                display: inline-block;
+                position: relative;
+                pointer-events: auto;
+                opacity: 1;
+            }
+        </style>
+    </th:block>
+</head>
+<body>
+<th:block layout:fragment="navbar">
+    <div th:include="fgfn/menu :: navbar" th:remove="tag"></div>
+</th:block>
+<ul class="breadcrumb" layout:fragment="breadcrumb">
+    <li><i class="ace-icon fa fa-home home-icon"></i> <a
+            th:href="@{/}">Accueil</a></li>
+    <li class="active">Etat Des Comptes Marchands</li>
+</ul>
+<!-- /.breadcrumb -->
+<div layout:fragment="content">
+    <div class=" card">
+        <div class="container">
+            <div class="row">
+                <div class="md-form col-lg-4">
+                    <div class="input-group">
+                        <input type="text" id="codeMembreCC" class="form-control">
+                        <div class="input-group-append">
+                            <button class="btn btn-md btn-sm btn-secondary" type="button" id="btnQrCodeMembre">
+                                QR Code
+                            </button>
+                        </div>
+                        <label for="codeMembreCC">Code Membre</label>
+                    </div>
+                </div>
+                <div class="md-form col-lg-4" style="margin-top: 11px;">
+                    <select type="text" id="codeProduit" class="mdb-select">
+                        <option value="" selected>Choisir le Type</option>
+                        <option value="RPGnr">BC Non Recurrent PP</option>
+                        <option value="Inr">BC Non Recurrent PM</option>
+                        <option value="RPGr">BC Recurrent PP</option>
+                        <option value="Ir">BC Recurrent PM</option>
+                    </select>
+                    <label class="mdb-main-label" for="codeProduit">Type BC</label>
+                </div>
+                <div class="md-form col-lg-4" style="margin-top: 11px;">
+                    <select type="text" id="typeRecurrent" class="mdb-select">
+                        <option value="" selected>Choisir la catégorie</option>
+                        <option value="illimite">BC Recurrent Illimite</option>
+                        <option value="Ir">BC Recurrent limite</option>
+                    </select>
+                    <label class="mdb-main-label" for="typeRecurrent">Type Recurrent</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="md-form col-lg-6">
+                    <input type="text" id="dateDebCC" class="form-control">
+                    <label for="dateDebCC">Date Debut</label>
+                </div>
+                <div class="md-form col-lg-6">
+                    <input type="text" id="dateFinCC" class="form-control">
+                    <label for="dateFinCC">Date Fin</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="md-form col-lg-5" style="margin-top: 11px;">
+                    <select type="text" id="prk" class="mdb-select">
+                        <option value="" selected>Choisir la catégorie</option>
+                        <option value="6.5">6.5</option>
+                        <option value="7.0">7.0</option>
+                        <option value="8.0">8.0</option>
+                    </select>
+                    <label class="mdb-main-label" for="prk">PRK</label>
+                </div>
+                <div class="md-form col-lg-5" style="margin-top: 11px;">
+                    <select type="text" id="typeCompte" class="mdb-select">
+                        <option value="" selected>Choisir le Type</option>
+                        <option value="NB">Bon de Consommation</option>
+                        <option value="NR">SMCIPN</option>
+                        <option value="NN">Bon d'Achat</option>
+                    </select>
+                    <label class="mdb-main-label" for="typeCompte">Type Compte</label>
+                </div>
+                <div class="col-lg-2">
+                    <button class="btn btn-primary" type="button" id="btnSearchCompte">
+                        Rechercher
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="card" style="margin-top: 5px;">
+        <div class="card-header">
+            <div class="float-left align-middle">
+                <button id="btnExportCompte" type="button" class="btn btn-sm btn-default">Export</button>
+                <button id="btnEditCompte" type="button" class="btn btn-sm btn-blue-grey">Editer</button>
+            </div>
+            <h5 class="card-title align-middle">Etat des Comptes Marchands</h5>
+        </div>
+        <div class="card-body">
+            <table id="tblCc"></table>
+            <!-- Pagination Bar -->
+            <div id="ccPager"></div>
+        </div>
+    </div>
+</div>
+<th:block layout:fragment="script" th:remove="tag">
+    <script th:src="@{/resources/js/inputmask/jquery.inputmask.min.js}"></script>
+    <script th:src="@{/resources/js/jqgrid/grid.locale-fr.js}"></script>
+    <script th:src="@{/resources/js/jqgrid/jquery.jqGrid.min.js}"></script>
+    <script th:inline="javascript">
+        $(function () {
+            var ccTable = $("#tblCc");
+            ccTable.jqGrid({
+                url: 'listeCredits/',
+                mtype: "GET",
+                styleUI: 'Bootstrap4',
+                iconSet: "fontAwesome",
+                postData: {
+                    codeMembre: function () {
+                        return $("#codeMembreCC").val();
+                    },
+                    produit: function () {
+                        return $("#codeProduit").val();
+                    },
+                    typeRecurrent: function () {
+                        return $("#typeRecurrent").val();
+                    },
+                    prk: function () {
+                        return $("#prk").val();
+                    },
+                    deb: function () {
+                        return $("#dateDebCC").val();
+                    },
+                    fin: function () {
+                        return $("#dateFinCC").val();
+                    }
+                },
+                datatype: "json",
+                colModel: [
+                    {label: 'ID', name: 'idCredit', key: true, width: 70},
+                    {label: 'Date', name: 'dateOctroi', width: 90},
+                    {label: 'Code Membre', name: 'codeMembre', width: 190},
+                    {label: 'Type', name: 'euProduit.codeProduit', width: 90},
+                    {label: 'MSBC', name: 'montantPlace', width: 140, summaryTpl: "{0}", summaryType: "sum"},
+                    {label: 'Montant BC', name: 'montantCredit', width: 140, summaryTpl: "{0}", summaryType: "sum"},
+                    {label: 'Debut', name: 'datedeb', width: 90},
+                    {label: 'Fin', name: 'datefin', width: 90},
+                    {label: 'Type Recurrent', name: 'typeRecurrent', width: 120},
+                    {label: 'PRK', name: 'prk', width: 60}
+                ],
+                page: 1,
+                autowidth: true,
+                height: 300,
+                rowNum: 20,
+                rowList: [20, 50, 100],
+                rownumWidth: 25,
+                sortname: 'codeMembre',
+                multiselect: false,
+                viewrecords: true,
+                emptyrecords: 'Pas de lignes trouvees', // the message will be displayed at the bottom
+                pager: "#ccPager",
+                footerrow: true, // set a footer row
+                userDataOnFooter: true, // the calculated sums and/or strings from server are put at footer row.
+                grouping: true,
+                groupingView: {
+                    groupField: ["codeMembre"],
+                    groupColumnShow: [true],
+                    groupText: ["<b>{0}</b>"],
+                    groupOrder: ["desc"],
+                    groupSummary: [true],
+                    groupCollapse: false
+
+                }
+            });
+
+            $("#btnEditCompte").click(function (e) {
+                e.preventDefault();
+                var id = ccTable.jqGrid('getGridParam', 'selrow');
+                if (id) {
+                    var data = ccTable.jqGrid('getRowData', id);
+                    location.replace("cc/" + data.codeMembre);
+                }
+            });
+
+            $("#btnSearchCompte").click(function (e) {
+                e.preventDefault();
+                ccTable.jqGrid().trigger('reloadGrid');
+            });
+        });
+    </script>
+</th:block>
+</body>
+</html>

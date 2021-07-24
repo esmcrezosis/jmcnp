@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4"
+      layout:decorate="layout/admin">
+<head>
+    <title>Budget</title>
+    <th:block th:fragment="style" th:remove="tag">
+        <!--<link rel="stylesheet" th:href="@{/resources/js/jqgrid/ui.jqgrid.css}">-->
+        <link rel="stylesheet" th:href="@{/resources/js/jqgrid/ui.jqgrid-bootstrap4.css}">
+        <link rel="stylesheet" th:href="@{/resources/js/jqgrid/ui.jqgrid-bootstrap-ui.css}">
+        <style type="text/css">
+            input[type='checkbox'], input[type='checkbox']:checked, input[type='checkbox']:not(:checked) {
+                display: inline-block;
+                position: relative;
+                pointer-events: auto;
+                opacity: 1;
+            }
+        </style>
+    </th:block>
+</head>
+<body>
+<ul class="collapsible collapsible-accordion" layout:fragment="navbar">
+    <li><a href="index.html" th:href="@{/home}"> <i
+            class="menu-icon fas fa-home"></i> <span class="menu-text">
+					Accueil </span>
+    </a> <b class="arrow"></b></li>
+    <li><a href="index.html" th:href="@{/home}"> <i
+				class="menu-icon fas fa-home"></i> <span class="menu-text">
+					Reclamations </span>
+		</a> <b class="arrow"></b></li>
+		<li class=""><a href="#"
+			class="collapsible-header waves-effect arrow-r"> <i
+				class="menu-icon fa fa-list"></i> <span class="menu-text">
+					Correction SM</span> <b class="arrow fa fa-angle-down"></b>
+		</a> <b class="arrow"></b>
+			<div class="collapsible-body">
+				<ul>
+					<li><a href="/mcnp/creance/recouvrement.html"
+						th:href="@{/reclamation/mf107}"> <i class="menu-icon fas fa-circle"></i>
+							<span class="menu-text"> MF107</span>
+					</a> <b class="arrow"></b></li>
+					<li><a href="/mcnp/creance/recouvrement.html"
+						th:href="@{/reclamation/mf11000}"> <i class="menu-icon fas fa-circle"></i>
+							<span class="menu-text"> MF11000 </span>
+					</a> <b class="arrow"></b></li>
+					<li><a href="/mcnp/creance/releve.html" th:href="@{/reclamation/gcp}">
+							<i class="menu-icon fas fa-credit-card"></i> <span
+							class="menu-text"> BAn </span>
+					</a> <b class="arrow"></b></li>
+					<li><a href="/jmcnp/reclamation/sousc" th:href="@{/reclamation/sousc}">
+							<i class="menu-icon fas fa-credit-card"></i> <span
+							class="menu-text"> Souscription ReDéMaRe</span>
+					</a> <b class="arrow"></b></li>
+				</ul>
+			</div></li>
+    <li class=""><a href="#"
+                    class="collapsible-header waves-effect arrow-r"> <i
+            class="menu-icon fa fa-list"></i> <span class="menu-text">
+					Désendettement </span> <b class="arrow fa fa-angle-down"></b>
+    </a> <b class="arrow"></b>
+        <div class="collapsible-body">
+            <ul>
+                <li>
+                <a href="/mcnp/creance/recouvrement.html"
+                       th:href="@{/recouvrer}"> <i class="menu-icon fas fa-circle"></i>
+                    <span class="menu-text"> Recouvrement </span>
+                </a> <b class="arrow"></b></li>
+                <li><a href="/mcnp/creance/recouvrement.html"
+                       th:href="@{/payercmfh}"> <i class="menu-icon fas fa-circle"></i>
+                    <span class="menu-text"> Recouvrement CMFH </span>
+                </a> <b class="arrow"></b></li>
+                <li><a href="/mcnp/creance/releve.html"
+                       th:href="@{/releve}"> <i
+                        class="menu-icon fas fa-credit-card"></i> <span class="menu-text">
+								Relevé des Créances </span>
+                </a> <b class="arrow"></b></li>
+            </ul>
+        </div>
+    </li>
+</ul>
+<ul class="breadcrumb" layout:fragment="breadcrumb">
+    <li><i class="ace-icon fa fa-home home-icon"></i> <a
+            th:href="@{/}">Accueil</a></li>
+    <li class="active">Budget</li>
+</ul>
+<!-- /.breadcrumb -->
+<div layout:fragment="content">
+    <div class="card card-cascade narrower z-depth-1">
+        <!-- Card image -->
+        <div class="view view-cascade gradient-card-header blue-gradient narrower py-2 mx-4 mb-3 d-flex justify-content-between align-items-center">
+
+            <a href="" class="white-text mx-3">Liste des Relevés </a>
+
+            <div>
+                <button id="btnEditRel" type="button"
+                        class="btn btn-outline-white btn-rounded btn-sm px-2">
+                    <i class="fas fa-th-list mt-0"></i> Editer
+                </button>
+                <button id="btnRecRel" type="button"
+                        class="btn btn-outline-white btn-rounded btn-sm px-2">
+                    <i class="fas fa-th-list mt-0"></i> Recouvrer
+                </button>
+            </div>
+
+        </div>
+        <!-- /Card image -->
+        <div class="px-4">
+            <div class="container-fluid">
+                <form id="frmSearchRel">
+                    <div class="row">
+                        <div class="col-lg-4">
+                            <div class="md-form">
+                                <input type="text" class="form-control" id="codeMembre" name="codeMembre">
+                                <label>Code Membre</label>
+                            </div>
+                        </div>
+                        <div class="col-lg-4">
+                            <div class="md-form">
+                                <input type="text" class="form-control" id="ancCodeMembre" name="ancCodeMembre">
+                                <label>Ancien Code Membre</label>
+                            </div>
+                        </div>
+                        <div class="col-lg-3">
+                            <select id="typeRessource" class="mdb-select md-form"
+                                    name="typeRessource">
+                                <option value="">Choisir le Support Marchand</option>
+                                <option value="CMFH">CMFH</option>
+                                <option value="CNCS">Bon de Consommation Salaire</option>
+                                <option value="MF107">MF107</option>
+                                <option value="MF11000">MF11000</option>
+                                <option value="CNP">Bon de Consommation</option>
+                                <option value="GCP">GCp</option>
+                            </select>
+                            <label class="mdb-main-label active">Type Support Marchand</label>
+                        </div>
+                        <div class="col-lg-1">
+                            <button type="button" id="btnSearchRel" class="btn btn-outline-blue btn-rounded px-2">
+                                <i class="fas fa-search"></i>
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <table id="releveGrid">
+            </table>
+            <div id="pgReleve"></div>
+        </div>
+    </div>
+    <div id="releveDlg" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+         aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header text-center">
+                    <h4 class="modal-title w-100 font-weight-bold">Edition Détail Relevé</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="container-fluid">
+                        <form id="frmReleve" action="#" method="post">
+                            <div class="md-form row">
+                                <input id="idReleve" name="idReleve" class="form-control"
+                                       readonly="readonly">
+                                <label>ID Releve</label>
+                            </div>
+                            <div class="md-form row">
+                                <input id="releveType" name="releveType" class="form-control"
+                                       readonly="readonly">
+                                <label>Type Relevé</label>
+                            </div>
+                            <div class="md-form row">
+                                <input id="releveMembre" name="releveMembre" class="form-control"
+                                       readonly="readonly">
+                                <label>Ancien Code Membre</label>
+                            </div>
+                            <div class="md-form row">
+                                <input id="newCodeMembre" name="newCodeMembre" class="form-control"
+                                       readonly="readonly">
+                                <label>Code Membre ESMC</label>
+                            </div>
+                            <div class="md-form row">
+                                <input type="text" class="form-control"
+                                       id="montantRec" name="montantRec">
+                                <label>Montant</label>
+                            </div>
+                            <div class="row">
+                                <button id="btnValRec" type="submit" class="btn btn-primary">
+                                    <i class="ace-icon fa fa-check"></i> Valider
+                                </button>
+                                <button id="btnAnRec" type="button" class="btn" onclick="resetForm()">
+                                    <i class="ace-icon fa fa-undo"></i> Annuler
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<th:block layout:fragment="script" th:remove="tag">
+    <script th:src="@{/resources/js/jqgrid/grid.locale-fr.js}"></script>
+    <script th:src="@{/resources/js/jqgrid/jquery.jqGrid.min.js}"></script>
+    <script th:inline="javascript">
+        $.jgrid.defaults.responsive = true;
+        $.jgrid.styleUI.Bootstrap4.base.headerTable = "table table-bordered table-condensed";
+        $.jgrid.styleUI.Bootstrap4.base.rowTable = "table table-bordered table-striped table-condensed";
+        $.jgrid.styleUI.Bootstrap4.base.footerTable = "table table-bordered table-condensed";
+        $.jgrid.styleUI.Bootstrap4.base.pagerTable = "table table-condensed";
+
+        var ctx = /*[[@{/}]]*/
+
+        function resetForm() {
+            $("#frmReleve").trigger("reset");
+            $("#releveGrid").jqGrid('resetSelection');
+            $('#releveDlg').modal('hide');
+        }
+
+        $(document).ready(function () {
+
+            var releveGrid = $('#releveGrid');
+            releveGrid.jqGrid({
+                url: 'listerel',
+                mtype: "GET",
+                styleUI: 'Bootstrap4',
+                iconSet: "fontAwesome",
+                datatype: "json",
+                postData: {
+                    codeMembre: function () {
+                        return $('#codeMembre').val();
+                    },
+                    ancCodeMembre: function () {
+                        return $('#ancCodeMembre').val();
+                    },
+                    typeRessource: function () {
+                        return $('#typeRessource').val();
+                    }
+                },
+                colModel: [
+                    {label: 'ID', name: 'releveId', key: true, width: 50},
+                    {label: 'Date', name: 'releveDate', width: 100},
+                    {label: 'Code Memebre', name: 'newCodeMembre', width: 140},
+                    {label: 'Ancien Code', name: 'releveMembre', width: 140},
+                    {label: 'Type', name: 'releveType', width: 100},
+                    {label: 'Publier', name: 'publier', width: 100},
+                    {label: 'Traiter', name: 'traiter', width: 80, formatter: 'checkbox'}
+                ],
+                page: 1,
+                autowidth: true,
+                height: 370,
+                rowNum: 20,
+                rowList: [20, 50, 100],
+                sortname: 'releveId',
+                viewrecords: true,
+                emptyrecords: 'Pas de Relevés trouvés', // the message will be displayed at the bottom
+                pager: "#pgReleve"
+            });
+
+            $('#btnSearchRel').click(function (e) {
+                e.preventDefault();
+                releveGrid.jqGrid().trigger('reloadGrid');
+            });
+
+            $('#btnRecRel').click(function (event) {
+                var rowKey = releveGrid.jqGrid('getGridParam', "selrow");
+                if (rowKey) {
+                    var row = releveGrid.jqGrid('getRowData', rowKey);
+                    data = {
+                        idReleve: row.releveId
+                    }
+                    $.ajax({
+                        type: 'GET', // define the type of HTTP verb we want to use (POST for our form)
+                        url: ctx + 'releve/relrec', // the url where we want to POST
+                        data: data
+                    }).done(function (data, status) {
+                        $('#idReleve').val(data.idReleve);
+                        $('#idReleve').next("label").addClass('active');
+                        $('#releveType').val(data.typeRessource);
+                        $('#releveType').next("label").addClass('active');
+                        $('#releveMembre').val(data.codeMembre);
+                        $('#releveMembre').next("label").addClass('active');
+                        $('#newCodeMembre').val(data.newCodeMembre);
+                        $('#newCodeMembre').next("label").addClass('active');
+                        $('#montantRec').val(data.montantRec);
+                        $('#montantRec').next("label").addClass('active');
+                        $('#releveDlg').modal('show');
+                    }).fail(function (xhr, status, error) {
+                        var resp = JSON.parse(xhr.responseText);
+                        toastr.error('Erreur d\'execution :' + resp.rep);
+                    });
+                } else {
+                    toastr.info("Aucune ligne sélectionée");
+                }
+                // stop the form from submitting the normal way and refreshing the page
+                event.preventDefault();
+            });
+
+            $('#btnValRec').click(function (event) {
+                // process the form
+                var formdata = {
+                    idReleve: $('#idReleve').val(),
+                    codeMembre: $('#releveMembre').val(),
+                    newCodeMembre: $('#newCodeMembre').val(),
+                    typeRessource: $('#releveType').val(),
+                    typeCreance: ''
+                };
+                $.ajax({
+                    type: 'POST', // define the type of HTTP verb we want to use (POST for our form)
+                    url: ctx + 'rembourser', // the url where we want to POST
+                    data: formdata
+                }).done(function (data, status) {
+                    $('#releveDlg').modal('hide');
+                    releveGrid.jqGrid().trigger('reloadGrid');
+                    toastr.success(data.message);
+                }).fail(function (xhr, status, error) {
+                    var resp = JSON.parse(xhr.responseText);
+                    toastr.error('Erreur d\'execution :' + resp.message);
+                });
+                // stop the form from submitting the normal way and refreshing the page
+                event.preventDefault();
+            });
+
+            $('#btnEditRel').click(
+                function (e) {
+                    e.preventDefault();
+                    var rowKey = releveGrid.jqGrid('getGridParam', "selrow");
+                    if (rowKey) {
+                        var data = releveGrid.jqGrid('getRowData', rowKey);
+                        location.href = ctx + "releve/edit/" + data.releveId;
+                    } else {
+                        toastr.info("Aucune ligne sélectionée");
+                    }
+                }
+            );
+        });
+
+        function myformatter(date) {
+            var y = date.getFullYear();
+            var m = date.getMonth() + 1;
+            var d = date.getDate();
+            return (d < 10 ? ('0' + d) : d) + '/' + (m < 10 ? ('0' + m) : m) + '/' + y;
+        }
+
+        function isoDate(s) {
+            if (!s) return "";
+            var ss = (s.split('/'));
+            var d = parseInt(ss[0], 10);
+            var m = parseInt(ss[1], 10);
+            var y = parseInt(ss[2], 10);
+            return (y + '-' + (m < 10 ? ('0' + m) : m) + '-' + (d < 10 ? ('0' + d) : d));
+        }
+    </script>
+</th:block>
+</body>
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorator="layout/admin">
+<head>
+<meta charset="UTF-8" />
+<title>Souscription du Bon</title>
+</head>
+<body>
+	<th:block layout:fragment="navbar">
+		<div th:include="ksu/menu :: navbar" th:remove="tag"></div>
+	</th:block>
+	<ul class="breadcrumb" layout:fragment="breadcrumb">
+		<li><i class="ace-icon fa fa-home home-icon"></i> <a
+			th:href="@{/}">Accueil</a></li>
+		<li class="active">KSU</li>
+	</ul>
+	<!-- /.breadcrumb -->
+	<div layout:fragment="content"></div>
+</body>
+</html>

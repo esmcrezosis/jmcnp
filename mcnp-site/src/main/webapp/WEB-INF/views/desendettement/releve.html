@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4"
+	layout:decorate="layout/admin">
+<head>
+<title>SMCIPN</title>
+<th:block th:fragment="style" th:remove="tag">
+	<!--<link rel="stylesheet" th:href="@{/resources/js/jqgrid/ui.jqgrid.css}">-->
+	<link rel="stylesheet"
+		th:href="@{/resources/js/jqgrid/ui.jqgrid-bootstrap4.css}">
+	<link rel="stylesheet"
+		th:href="@{/resources/js/jqgrid/ui.jqgrid-bootstrap-ui.css}">
+</th:block>
+</head>
+<body>
+	<ul class="collapsible collapsible-accordion" layout:fragment="navbar">
+		<li><a href="index.html" th:href="@{/home}"> <i
+				class="menu-icon fas fa-home"></i> <span class="menu-text">
+					Accueil </span>
+		</a> <b class="arrow"></b></li>
+		<li><a href="index.html" th:href="@{/home}"> <i
+				class="menu-icon fas fa-home"></i> <span class="menu-text">
+					Reclamations </span>
+		</a> <b class="arrow"></b></li>
+		<li class=""><a href="#"
+			class="collapsible-header waves-effect arrow-r"> <i
+				class="menu-icon fa fa-list"></i> <span class="menu-text">
+					Correction SM</span> <b class="arrow fa fa-angle-down"></b>
+		</a> <b class="arrow"></b>
+			<div class="collapsible-body">
+				<ul>
+					<li><a href="/mcnp/creance/recouvrement.html"
+						th:href="@{/recouvrer}"> <i class="menu-icon fas fa-circle"></i>
+							<span class="menu-text"> MF107</span>
+					</a> <b class="arrow"></b></li>
+					<li><a href="/mcnp/creance/recouvrement.html"
+						th:href="@{/payercmfh}"> <i class="menu-icon fas fa-circle"></i>
+							<span class="menu-text"> MF11000 </span>
+					</a> <b class="arrow"></b></li>
+					<li><a href="/mcnp/creance/releve.html" th:href="@{/releve}">
+							<i class="menu-icon fas fa-credit-card"></i> <span
+							class="menu-text"> BAn </span>
+					</a> <b class="arrow"></b></li>
+				</ul>
+			</div></li>
+		<li class=""><a href="#"
+			class="collapsible-header waves-effect arrow-r"> <i
+				class="menu-icon fa fa-list"></i> <span class="menu-text">
+					Désendettement </span> <b class="arrow fa fa-angle-down"></b>
+		</a> <b class="arrow"></b>
+			<div class="collapsible-body">
+				<ul>
+					<li><a href="/mcnp/creance/recouvrement.html"
+						th:href="@{/recouvrer}"> <i class="menu-icon fas fa-circle"></i>
+							<span class="menu-text"> Recouvrement </span>
+					</a> <b class="arrow"></b></li>
+					<li><a href="/mcnp/creance/recouvrement.html"
+						th:href="@{/payercmfh}"> <i class="menu-icon fas fa-circle"></i>
+							<span class="menu-text"> Recouvrement CMFH </span>
+					</a> <b class="arrow"></b></li>
+					<li><a href="/mcnp/creance/releve.html" th:href="@{/releve}">
+							<i class="menu-icon fas fa-credit-card"></i> <span
+							class="menu-text"> Relevé des Créances </span>
+					</a> <b class="arrow"></b></li>
+				</ul>
+			</div></li>
+	</ul>
+	<!-- /.breadcrumb -->
+	<div layout:fragment="content">
+		<div class="card card-cascade narrower z-depth-1">
+			<!-- Card image -->
+			<div
+				class="view view-cascade gradient-card-header blue-gradient narrower py-2 mx-4 mb-3 d-flex justify-content-between align-items-center">
+				<div>
+					<a id="btnValReleve"
+						class="btn btn-outline-white btn-rounded btn-sm px-2"> <i
+						class="fas fa-th-large mt-0"></i> Valider
+					</a> <a id="btnRecReleve"
+						class="btn btn-outline-white btn-rounded btn-sm px-2"> <i
+						class="fas fa-th-large mt-0"></i> Recouvrer
+					</a>
+				</div>
+				<a href="" class="white-text mx-3">Détails Relevé </a>
+
+				<div>
+					<button id="btnEditRelDet" type="button"
+						class="btn btn-outline-white btn-rounded btn-sm px-2">
+						<i class="fas fa-edit mt-0"></i> Editer
+					</button>
+					<a id="returnLink"
+						class="btn btn-outline-white btn-rounded btn-sm px-2"
+						th:href="@{/releve}"> <i class="fas fa-arrow-left mt-0"></i>
+						Retour
+					</a>
+				</div>
+
+			</div>
+			<!-- /Card image -->
+
+			<div class="px-4">
+				<div class="container-fluid">
+					<form id="frmSearchRel" th:object="${releve}">
+						<div class="row">
+							<div class="col-lg-4">
+								<div class="md-form">
+									<input type="text" id="releveId" class="form-control"
+										th:field="*{releveId}" readonly> <label
+										for="releveDate">ID Releve</label>
+								</div>
+							</div>
+							<div class="col-lg-4">
+								<div class="md-form">
+									<input type="date" id="releveDate" class="form-control"
+										th:value="${releve.releveDate}" readonly> <label
+										for="releveDate">Date Releve</label>
+								</div>
+							</div>
+							<div class="col-lg-4">
+								<div class="md-form">
+									<input type="text" id="publier" class="form-control"
+										th:field="*{publier}" readonly> <label for="publier">Publier</label>
+								</div>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-lg-4">
+								<div class="md-form input-group mb-3">
+									<input type="text" class="form-control" id="codeMembre"
+										th:field="*{newCodeMembre}"> <label>Code
+										Membre</label>
+									<div class="input-group-append">
+										<button class="btn btn-md btn-secondary m-0 px-3"
+											type="button" id="searchNewCode">
+											<i class="fas fa-search-plus"></i>
+										</button>
+									</div>
+								</div>
+							</div>
+							<div class="col-lg-4">
+								<div class="md-form">
+									<input type="text" class="form-control" id="ancCodeMembre"
+										th:field="*{releveMembre}"> <label>Ancien Code
+										Membre</label>
+								</div>
+							</div>
+							<div class="col-lg-4">
+								<select id="typeRessource" class="mdb-select md-form"
+									th:field="*{releveType}">
+									<option value="">Choisir le Support Marchand</option>
+									<option value="CMFH">CMFH</option>
+									<option value="CNCS">Bon de Consommation Salaire</option>
+									<option value="MF107">MF107</option>
+									<option value="MF11000">MF11000</option>
+									<option value="CNP">Bon de Consommation</option>
+									<option value="GCP">GCp</option>
+								</select> <label class="mdb-main-label active">Type Support
+									Marchand</label>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-lg-6">
+								<fieldset class="form-check mt-4">
+									<input class="form-check-input filled-in" type="checkbox"
+										id="traiter" th:checked="*{traiter}" disabled> <label
+										class="form-check-label" for="traiter">Relevé traiter?</label>
+								</fieldset>
+							</div>
+							<div class="col-lg-6">
+								<div class="md-form input-group mb-3">
+									<input type="text" class="form-control" id="montantRec"
+										name="montantRec"> <label>Montant à recouvrer</label>
+									<div class="input-group-append">
+										<button class="btn btn-md btn-secondary m-0 px-3"
+											type="button" id="calcMontRec">
+											<i class="fas fa-plus"></i>
+										</button>
+									</div>
+								</div>
+							</div>
+						</div>
+					</form>
+				</div>
+				<table id="detRelGrid">
+				</table>
+				<div id="pgDetRel"></div>
+			</div>
+		</div>
+		<div id="relDetDlg" class="modal fade" tabindex="-1" role="dialog"
+			aria-labelledby="myModalLabel" aria-hidden="true">
+			<div class="modal-dialog modal-dialog-centered modal-lg"
+				role="document">
+				<div class="modal-content">
+					<div class="modal-header text-center">
+						<h4 class="modal-title w-100 font-weight-bold">Edition Détail
+							Relevé</h4>
+						<button type="button" class="close" data-dismiss="modal"
+							aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+						</button>
+					</div>
+					<div class="modal-body">
+						<div class="container-fluid">
+							<form id="frmRelDet" action="#" method="post">
+								<div class="md-form row">
+									<input id="relevedetailReleve" name="relevedetailReleve"
+										class="form-control" readonly="readonly"> <label>ID
+										Releve</label>
+								</div>
+								<div class="md-form row">
+									<input id="relevedetailId" name="relevedetailId"
+										class="form-control" readonly="readonly"> <label>ID
+										Detail</label>
+								</div>
+								<div class="md-form row">
+									<input id="relevedetailProduit" name="relevedetailProduit"
+										class="form-control" readonly="readonly"> <label>Type
+										SM</label>
+								</div>
+								<div class="md-form row">
+									<input id="relevedetailCredit" name="relevedetailCredit"
+										class="form-control" readonly="readonly"> <label>ID
+										Crédit</label>
+								</div>
+								<div class="md-form row">
+									<input type="text" class="form-control"
+										id="relevedetailMontant" name="relevedetailMontant"> <label>Montant</label>
+								</div>
+								<div class="row">
+									<button id="btnValDetRel" type="submit" class="btn btn-primary">
+										<i class="ace-icon fa fa-check"></i> Valider
+									</button>
+									<button id="btnAnDetRel" type="button" class="btn"
+										onclick="resetForm()">
+										<i class="ace-icon fa fa-undo"></i> Annuler
+									</button>
+								</div>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<th:block layout:fragment="script" th:remove="tag">
+		<script th:src="@{/resources/js/jqgrid/grid.locale-fr.js}"></script>
+		<script th:src="@{/resources/js/jqgrid/jquery.jqGrid.min.js}"></script>
+		<script th:inline="javascript">
+        $.jgrid.defaults.responsive = true;
+        $.jgrid.styleUI.Bootstrap4.base.headerTable = "table table-bordered table-sm";
+        $.jgrid.styleUI.Bootstrap4.base.rowTable = "table table-bordered table-striped table-sm";
+        $.jgrid.styleUI.Bootstrap4.base.footerTable = "table table-bordered table-sm";
+        $.jgrid.styleUI.Bootstrap4.base.pagerTable = "table table-sm";
+
+        function resetForm() {
+            $("#frmRelDet").trigger("reset");
+            $("#detRelGrid").jqGrid('resetSelection');
+            $('#relDetDlg').modal('hide');
+        }
+
+
+        var ctx = /*[[@{/}]]*/
+        
+        $(document).ready(function () {
+
+            var detRelGrid = $('#detRelGrid');
+            detRelGrid.jqGrid({
+                url: ctx + 'listereldet',
+                mtype: "GET",
+                styleUI: 'Bootstrap4',
+                iconSet: "fontAwesome",
+                datatype: "json",
+                postData: {
+                    idReleve: function () {
+                        return parseInt($('#releveId').val());
+                    }
+                },
+                colModel: [
+                    {label: 'ID', name: 'relevedetailId', key: true, width: 50},
+                    {label: 'Date', name: 'relevedetailDate', width: 100},
+                    {label: 'ID SM', name: 'relevedetailCredit', width: 100},
+                    {label: 'Type SM', name: 'relevedetailProduit', width: 100},
+                    {label: 'Montant', name: 'relevedetailMontant', width: 120},
+                    {label: 'Publier', name: 'publier', width: 80},
+                    {label: 'Releve', name: 'relevedetailReleve', width: 80}
+                ],
+                page: 1,
+                autowidth: true,
+                height: 300,
+                rowNum: 20,
+                rowList: [20, 50, 100],
+                sortname: 'relevedetailId',
+                viewrecords: true,
+                emptyrecords: 'Pas de Details Relevés trouvés', // the message will be displayed at the bottom
+                pager: "#pgDetRel"
+            });
+
+            $('#btnSearchRel').click(function (e) {
+                e.preventDefault();
+                detRelGrid.jqGrid().trigger('reloadGrid');
+            });
+
+            $('#btnValReleve').click(function (event) {
+                var codeMembre = $('#codeMembre').val();
+                if (codeMembre !== '' && codeMembre !== null) {
+                    var releve = {
+                        idReleve: $('#releveId').val(),
+                        newCodeMembre: codeMembre
+                    }
+                    $.ajax({
+                        type: 'POST', // define the type of HTTP verb we want to use (POST for our form)
+                        url: ctx + 'releve/valider', // the url where we want to POST
+                        data: releve
+                    }).done(function (data, status) {
+                        $('#detRelGrid').jqGrid().trigger('reloadGrid');
+                        toastr.success(data.message);
+                    }).fail(function (xhr, status, error) {
+                        var resp = JSON.parse(xhr.responseText);
+                        toastr.error('Erreur d\'execution :' + resp.message);
+                    });
+                } else {
+                    toastr.info('Veuillez fournir le Code du Membre');
+                }
+                // stop the form from submitting the normal way and refreshing the page
+                event.preventDefault();
+            });
+
+            $('#searchNewCode').click(function (event) {
+                var odlcodeMembre = $('#ancCodeMembre').val();
+                if (odlcodeMembre !== '' && odlcodeMembre !== null) {
+                    var data = {
+                        oldCodeMembre: odlcodeMembre
+                    }
+                    $.ajax({
+                        type: 'GET', // define the type of HTTP verb we want to use (POST for our form)
+                        url: ctx + 'releve/newCode', // the url where we want to POST
+                        data: data
+                    }).done(function (data, status) {
+                        if (data.rep === '' || data.rep === null) {
+                            toastr.success("Cet ancien membre n'a pas encore reactivé son compte");
+                        } else {
+                            $('#codeMembre').val(data.rep);
+                            $('#codeMembre').next("label").addClass('active');
+                        }
+                    }).fail(function (xhr, status, error) {
+                        var resp = JSON.parse(xhr.responseText);
+                        toastr.error('Erreur d\'execution :' + resp.rep);
+                    });
+                } else {
+                    toastr.info('Veuillez fournir le Code Ancien du Membre');
+                }
+                // stop the form from submitting the normal way and refreshing the page
+                event.preventDefault();
+            });
+
+            $('#calcMontRec').click(function (event) {
+                var idReleve = $('#releveId').val();
+                if (idReleve !== '' && idReleve !== null) {
+                    var data = {
+                        idReleve: idReleve
+                    }
+                    $.ajax({
+                        type: 'GET', // define the type of HTTP verb we want to use (POST for our form)
+                        url: ctx + 'releve/montrec', // the url where we want to POST
+                        data: data
+                    }).done(function (data, status) {
+                        $('#montantRec').val(data);
+                        $('#montantRec').next("label").addClass('active');
+                    }).fail(function (xhr, status, error) {
+                        var resp = JSON.parse(xhr.responseText);
+                        toastr.error('Erreur d\'execution :' + resp.rep);
+                    });
+                } else {
+                    toastr.info('Veuillez fournir le Code Ancien du Membre');
+                }
+                // stop the form from submitting the normal way and refreshing the page
+                event.preventDefault();
+            });
+
+            $('#btnEditRelDet').click(
+                function (e) {
+                    e.preventDefault();
+                    var rowKey = detRelGrid.jqGrid('getGridParam', "selrow");
+                    if (rowKey) {
+                        var data = detRelGrid.jqGrid('getRowData', rowKey);
+                        $('#relevedetailId').val(data.relevedetailId);
+                        $('#relevedetailId').next("label").addClass('active');
+                        $('#relevedetailReleve').val(data.relevedetailReleve);
+                        $('#relevedetailReleve').next("label").addClass('active');
+                        $('#relevedetailProduit').val(data.relevedetailProduit);
+                        $('#relevedetailProduit').next("label").addClass('active');
+                        $('#relevedetailCredit').val(data.relevedetailCredit);
+                        $('#relevedetailCredit').next("label").addClass('active');
+                        $('#relevedetailMontant').val(data.relevedetailMontant);
+                        $('#relevedetailMontant').next("label").addClass('active');
+                        $('#relDetDlg').modal('show');
+                    } else {
+                        toastr.info("Aucune ligne sélectionée");
+                    }
+                }
+            );
+
+            $('#frmRelDet').submit(function (event) {
+                // get the form data
+                // there are many ways to get this data using jQuery (you can use the class or id also)
+                var formData = $(this).serialize();
+                // process the form
+                $.ajax({
+                    type: 'POST', // define the type of HTTP verb we want to use (POST for our form)
+                    url: ctx + 'releve/detail/save', // the url where we want to POST
+                    data: formData, // our data object
+                    dataType: 'json', // what type of data do we expect back from the server
+                    encode: true
+                }).done(function (data, status) {
+                    $('#detRelGrid').jqGrid().trigger('reloadGrid');
+                    $('#relDetDlg').modal('hide');
+                    toastr.success(data.message);
+                }).fail(function (xhr, status, error) {
+                    var resp = JSON.parse(xhr.responseText);
+                    toastr.error('Erreur d\'execution :' + resp.message);
+                });
+                // stop the form from submitting the normal way and refreshing the page
+                event.preventDefault();
+            });
+
+            $('#btnRecReleve').click(function (event) {
+                var codeMembre = $('#codeMembre').val();
+                if (codeMembre !== '' && codeMembre !== null) {
+                    // process the form
+                    var formdata = {
+                        idReleve: $('#releveId').val(),
+                        codeMembre: $('#ancCodeMembre').val(),
+                        newCodeMembre: $('#codeMembre').val(),
+                        typeRessource: $("#typeRessource").val(),
+                        typeCreance: ''
+                    };
+                    $.ajax({
+                        type: 'POST', // define the type of HTTP verb we want to use (POST for our form)
+                        url: ctx + 'rembourser', // the url where we want to POST
+                        data: formdata
+                    }).done(function (data, status) {
+                        toastr.success(data.message);
+                    }).fail(function (xhr, status, error) {
+                        var resp = JSON.parse(xhr.responseText);
+                        toastr.error('Erreur d\'execution :' + resp.message);
+                    });
+                } else {
+                    toastr.info('Veuillez fournir le Code du Membre');
+                }
+                // stop the form from submitting the normal way and refreshing the page
+                event.preventDefault();
+            });
+        });
+
+        function myformatter(date) {
+            var y = date.getFullYear();
+            var m = date.getMonth() + 1;
+            var d = date.getDate();
+            return (d < 10 ? ('0' + d) : d) + '/' + (m < 10 ? ('0' + m) : m) + '/' + y;
+        }
+
+        function isoDate(s) {
+            if (!s) return "";
+            var ss = (s.split('/'));
+            var d = parseInt(ss[0], 10);
+            var m = parseInt(ss[1], 10);
+            var y = parseInt(ss[2], 10);
+            return (y + '-' + (m < 10 ? ('0' + m) : m) + '-' + (d < 10 ? ('0' + d) : d));
+        }
+    </script>
+	</th:block>
+</body>
+</html>

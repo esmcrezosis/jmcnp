@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="layout/admin">
+
+<head>
+    <title>AVR : Achat</title>
+    <th:block th:fragment="style" th:remove="tag">
+        <!--<link rel="stylesheet" th:href="@{/resources/js/jqgrid/ui.jqgrid.css}">-->
+        <link rel="stylesheet"
+              th:href="@{/resources/js/jqgrid/ui.jqgrid-bootstrap4.css}">
+        <link rel="stylesheet"
+              th:href="@{/resources/plugins/toastr/toastr.min.css}"/>
+    </th:block>
+</head>
+
+<body>
+<ul class="collapsible collapsible-accordion" layout:fragment="navbar">
+    <div th:include="layout/menu :: navbar" th:remove="tag"></div>
+</ul>
+<th:block layout:fragment="topbar">
+    <div th:include="oksu/menu :: topnav" th:remove="tag"></div>
+</th:block>
+<!-- /.breadcrumb -->
+<div layout:fragment="content">
+    <div class=" card mt-3">
+        <div class="container">
+            <div class="row">
+                <div class="md-form col-lg-6">
+                    <input type="text" id="codeMembreCompte" class="form-control" th:value="${codeMembre}">
+                    <label for="codeMembreCompte">Code Membre</label>
+                </div>
+                <div class="md-form col-lg-5">
+                    <input type="text" id="referenceAvr" class="form-control">
+                    <label for="referenceAvr">Référence AVR</label>
+                </div>
+                <div class="col-lg-1">
+                    <button id="btnSearchCompte" class="btn btn-primary" type="button">
+                        <i class="fas fa-search-plus"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="card" style="margin-top: 5px;">
+        <div class="card-header">
+            <div class="float-left align-middle">
+                <button id="btnExportCompte" type="button" class="btn btn-sm btn-default">Ajouter</button>
+                <button id="btnEditCompte" type="button" class="btn btn-sm btn-blue-grey">Editer</button>
+            </div>
+            <h5 class="card-title align-middle">AVR Achats</h5>
+        </div>
+        <div class="card-body">
+            <table id="tblAvrAchat"></table>
+            <div id="avrAchatPager"></div>
+            <br/>
+            <table id="tblDetAvrChat"></table>
+            <div id="detAvrAchatPager"></div>
+        </div>
+    </div>
+</div>
+<th:block layout:fragment="script" th:remove="tag">
+    <script th:src="@{/resources/js/jqgrid/grid.locale-fr.js}"></script>
+    <script th:src="@{/resources/js/jqgrid/jquery.jqGrid.min.js}"></script>
+    <script th:src="@{/resources/plugins/toastr/toastr.min.js}"></script>
+    <script type="text/javascript" th:inline="javascript">
+        $(document).ready(function () {
+            var avrGrid = $('#tblAvrAchat');
+            var avrDetGrid = $('#tblDetAvrChat');
+            avrGrid.jqGrid({
+                url: 'listavrachat',
+                mtype: "GET",
+                styleUI: 'Bootstrap4',
+                iconSet: "fontAwesome",
+                datatype: "json",
+                colModel: [
+                    {label: 'ID', name: 'id', key: true, width: 50},
+                    {label: 'Référence', name: 'referenceavr', width: 90},
+                    {label: 'Membre', name: 'codeMembreAcheteur', width: 250},
+                    {label: 'Date', name: 'dateAchat', width: 100},
+                    {label: 'Montant', name: 'montantTotalAvr', width: 100},
+                    {label: 'Mode Paiement', name: 'modePaiement', width: 100}
+                ],
+                page: 1,
+                autowidth: true,
+                height: 200,
+                rowNum: 20,
+                rowList: [20, 50, 100],
+                sortname: 'id',
+                viewrecords: true,
+                emptyrecords: 'Pas de AVR trouvés', // the message will be displayed at the bottom
+                pager: "#avrAchatPager",
+                onSelectRow: function (rowid, selected) {
+                    if (rowid != null) {
+                        avrDetGrid.jqGrid('setGridParam', {
+                            url: ctx + "avr/listdetavrachat?idAchatAvr=" + rowid,
+                            datatype: 'json'
+                        }); // the last setting is for demo only
+                        avrDetGrid.jqGrid('setCaption', 'Details AVR N° ' + rowid);
+                        avrDetGrid.trigger("reloadGrid");
+                    }
+                }, // use the onSelectRow that is triggered on row click to show a details grid
+                onSortCol: clearSelection,
+                onPaging: clearSelection
+            });
+
+            function clearSelection() {
+                avrDetGrid.jqGrid('setGridParam', {
+                    url: ctx + "avr/listdetavrachat?codeMembre=" + $('#codeMembre').val(),
+                    datatype: 'json'
+                }); // the last setting is for demo purpose only
+                avrDetGrid.jqGrid('setCaption', 'Liste des Details AVR');
+                avrDetGrid.trigger("reloadGrid");
+
+            }
+
+            avrDetGrid.jqGrid({
+                mtype: "GET",
+                styleUI: 'Bootstrap4',
+                iconSet: "fontAwesome",
+                postData: {
+                    codeMembre: function () {
+                        return $("#codeMembre").val();
+                    }
+                },
+                datatype: "json",
+                colModel: [
+                    {label: 'ID', name: 'idDetailAchat', key: true, width: 50},
+                    {label: 'Code Fournisseur', name: 'codeMembreFournisseur', width: 70},
+                    {label: 'Reference', name: 'referenceProduit', width: 120},
+                    {label: 'Designation', name: 'designationProduit', width: 180},
+                    {label: 'Quantité', name: 'qteAchat', width: 120},
+                    {label: 'Montant', name: 'prixTotalAchat', width: 120},
+                    {label: 'AVR', name: 'euAchatAvr.id', hidden: true},
+                    {label: 'Code AVR', name: 'euAchatAvr.referenceAvr', width: 80}
+                ],
+                page: 1,
+                autowidth: true,
+                height: 250,
+                rowNum: 20,
+                rowList: [20, 50, 100],
+                caption: "Details AVR",
+                sortname: 'idDetailAchat',
+                viewrecords: true,
+                emptyrecords: 'Pas de Details AVR trouvés', // the message will be displayed at the bottom
+                pager: "#detAvrAchatPager"
+            });
+        });
+    </script>
+</th:block>
+</body>
+
+</html>

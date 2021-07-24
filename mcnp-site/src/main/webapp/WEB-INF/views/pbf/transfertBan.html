@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4"
+      layout:decorate="layout/template">
+<head>
+    <meta charset="UTF-8"/>
+    <title>ESMC: Emission d'OPI</title>
+</head>
+<body>
+<ul layout:fragment="navbar">
+    <li class=""><a href="index.html" th:href="@{/home}"> <i
+            class="menu-icon fa fa-tachometer"></i> <span class="menu-text">
+					Accueil </span>
+    </a> <b class="arrow"></b></li>
+    <li class=""><a href="index.html" th:href="@{/home}"> <i
+            class="menu-icon fa fa-tachometer"></i> <span class="menu-text">
+					Transfert BAn </span>
+    </a> <b class="arrow"></b></li>
+    <li class=""><a href="index.html" th:href="@{/home}"> <i
+            class="menu-icon fa fa-tachometer"></i> <span class="menu-text">
+					Appro BAn </span>
+    </a> <b class="arrow"></b></li>
+
+</ul>
+<ul class="breadcrumb" layout:fragment="breadcrumb">
+    <li><i class="ace-icon fa fa-home home-icon"></i> <a
+            th:href="@{/}">Accueil</a></li>
+    <li class="active">Transfert BAn</li>
+</ul>
+<!-- /.breadcrumb -->
+<div layout:fragment="content">
+    <div class="card">
+        <div class="card-header">
+            <h5 class="card-title">Transfert BAn</h5>
+        </div>
+        <div class="card-body">
+            <form id="frm_opi_Emission" class="form-horizontal" action="#"
+                  th:action="@{/transfertBan}" th:object="${ban}" method="post">
+                <div class="alert alert-info" th:if="${message}">
+                    <button type="button" class="close" data-dismiss="alert">
+                        <i class="ace-icon fa fa-times"></i>
+                    </button>
+                    <p id="opi_message" th:text="${message}"></p>
+                </div>
+                <div class="form-group">
+                    <div id="div_codeMembre" class="form-group col-sm-6 pull-left">
+                        <label for="opi_codeMembre" class="col-sm-4 control-label">Code
+                            Membre *</label>
+                        <div class="col-sm-8">
+                            <input class="form-control" id="opi_codeMembre"
+                                   th:field="*{codeMembre}" required="required"
+                                   th:disabled="${disabled}"/>
+                        </div>
+                    </div>
+                    <div id="div_opi_tegc" class="form-group col-sm-6">
+                        <label for="opi_tegc" class="col-sm-4 control-label">Terminal
+                            d'Echange *</label>
+                        <div class="col-sm-8">
+                            <select id="opi_tegc" th:field="*{codeTegc}"
+                                    class="form-control" required="required">
+                                <option th:if="${not #lists.isEmpty(tegcs)}"
+                                        th:each="te: ${tegcs}" th:value="${te.codeTegc}"
+                                        th:text="${te.nomTegc}">TEGc
+                                </option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="form-group col-sm-6">
+                        <label for="ban_montant" class="control-label col-sm-4">Montant
+                            BAn *</label>
+                        <div class="col-sm-8">
+                            <input class="form-control" id="ban_montant"
+                                   th:field="*{montant}" required="required"/>
+                        </div>
+                    </div>
+                    <div class="form-group col-sm-6">
+
+                    </div>
+                </div>
+                <div class="form-actions">
+                    <button type="submit" class="btn btn-primary" id="opi_btnValider">
+                        <i class="ace-icon fa fa-check bigger-110"></i>Valider
+                    </button>
+                    <button class="btn" type="reset" id="opi_btnReset">
+                        <i class="ace-icon fa fa-undo bigger-110"></i> Réinitialiser
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5"
+      layout:decorate="layout/admin">
+
+<head>
+    <title>Accueil</title>
+    <th:block th:fragment="style" th:remove="tag">
+        <link rel="stylesheet"
+              th:href="@{/resources/js/jquery-easyui/themes/material-teal/easyui.css}">
+        <link rel="stylesheet"
+              th:href="@{/resources/js/jquery-easyui/themes/icon.css}">
+        <link rel="stylesheet"
+              th:href="@{/resources/js/jquery-easyui/themes/color.css}">
+    </th:block>
+</head>
+
+<body>
+<th:block layout:fragment="navbar">
+    <div th:include="admin/menu :: navbar" th:remove="tag"></div>
+</th:block>
+<div layout:fragment="content">
+    <section class="section">
+        <div class="alert alert-info" th:if="${message}">
+            <button type="button" class="close" data-dismiss="alert">
+                <i class="ace-icon fa fa-times"></i>
+            </button>
+            <p th:text="${message}"></p>
+        </div>
+        <table id="agenceGrid" class="easyui-datagrid" title="Agences ODD "
+               style="width: 100%; height: 350px"
+               data-options="rownumbers:true,singleSelect:true,url:'agences',method:'get',toolbar:'#toolbar'">
+            <thead>
+            <tr>
+                <th data-options="field:'id',width:60,hidden:true">ID</th>
+                <th data-options="field:'dateAgencesOdd',width:80,align:'center'">Date</th>
+                <th data-options="field:'referenceAgencesOdd',width:100">Reference</th>
+                <th data-options="field:'libelleAgencesOdd',width:200">Libelle</th>
+                <th data-options="field:'adresseAgencesOdd',width:200">Adresse</th>
+                <th data-options="field:'bpAgencesOdd',width:70,align:'right'">BP</th>
+                <th data-options="field:'telephoneAgencesOdd',width:100,align:'right'">Telephone</th>
+                <th data-options="field:'euOdd.idOdd',formatter:function(value,row){return row.euOdd.idOdd},hidden:true">
+                    ID ODD
+                </th>
+                <th data-options="field:'euOdd.titre',formatter:function(value,row){return row.euOdd.titre},width:150">
+                    ODD
+                </th>
+                <th data-options="field:'canton.idCanton',formatter:function(value,row){return row.canton != null?row.canton.idCanton:''},hidden:true">
+                    Canton
+                </th>
+                <th data-options="field:'centre.id',formatter:function(value,row){return row.centre != null? row.centre.id:''},hidden:true">
+                    ID Centre
+                </th>
+                <th data-options="field:'centre.libelleCentre',formatter:function(value,row){return row.centre != null? row.centre.libelleCentre:''}, width:200">
+                    Centre
+                </th>
+            </tr>
+            </thead>
+        </table>
+        <div id="toolbar">
+            <a href="javascript:void(0)" class="easyui-linkbutton"
+               iconCls="icon-add" plain="true" onclick="newType()">Nouveau</a> <a
+                href="javascript:void(0)" class="easyui-linkbutton"
+                iconCls="icon-edit" plain="true" onclick="editType()">Editer</a> <a
+                href="javascript:void(0)" class="easyui-linkbutton"
+                iconCls="icon-remove" plain="true" onclick="destroyType()">Supprimer</a>
+        </div>
+
+        <div id="dlg" class="easyui-dialog" style="width: 570px"
+             data-options="closed:true,modal:true,border:'thin',buttons:'#dlg-buttons'">
+            <form id="frmAgenceOdd" method="post" th:object="${agence}" novalidate
+                  style="margin: 0; padding: 20px 50px">
+                <h3>Agence ODD</h3>
+                <div style="margin-bottom: 10px">
+                    <input name="id" class="easyui-textbox" readonly="readonly"
+                           label="ID:" style="width: 100%">
+                </div>
+                <div style="margin-bottom: 10px">
+                    <input name="libelleAgencesOdd" class="easyui-textbox" required="true"
+                           label="Libelle:" style="width: 100%">
+                </div>
+                <div style="margin-bottom: 10px">
+                    <input name="adresseAgencesOdd" class="easyui-textbox" required="true"
+                           label="Adresse:" style="width: 100%">
+                </div>
+                <div style="margin-bottom: 10px">
+                    <input name="bpAgencesOdd" class="easyui-textbox" required="true"
+                           label="Code Postal:" style="width: 100%">
+                </div>
+                <div style="margin-bottom: 10px">
+                    <input name="telephoneAgencesOdd" class="easyui-textbox"
+                           required="true" label="Telephone:" style="width: 100%">
+                </div>
+                <div style="margin-bottom: 10px">
+                    <input id="oddIdOdd" class="easyui-combobox" label="ODD"
+                           name="euOdd.idOdd" style="width: 100%;"
+                           data-options="valueField:'idOdd',textField:'titre',method:'get',url:'odd'">
+                </div>
+                <div style="margin-bottom: 10px">
+                    <input id="cantonID" class="easyui-combobox" label="Canton"
+                           name="canton.idCanton" style="width: 100%;"
+                           data-options="valueField:'idCanton',textField:'nomCanton',method:'get',url:'canton'">
+                </div>
+                <div style="margin-bottom: 10px">
+                    <input id="centreId" class="easyui-combobox" label="Centre"
+                           name="centre.id" style="width: 100%;"
+                           data-options="valueField:'id',textField:'libelleCentre',method:'get',url:'listCentres'">
+                </div>
+            </form>
+        </div>
+        <div id="dlg-buttons">
+            <a href="javascript:void(0)" class="easyui-linkbutton c6"
+               iconCls="icon-ok" onclick="saveType()" style="width: 90px">Valider</a>
+            <a href="javascript:void(0)" class="easyui-linkbutton"
+               iconCls="icon-cancel"
+               onclick="javascript:$('#dlg').dialog('close')" style="width: 90px">Annuler</a>
+        </div>
+    </section>
+</div>
+<th:block layout:fragment="script" th:remove="tag">
+    <script th:src="@{/resources/js/jquery-easyui/jquery.easyui.min.js}"></script>
+    <script type="text/javascript">
+        var url;
+
+        function newType() {
+            $('#dlg').dialog('open').dialog('center').dialog('setTitle', 'Nouvelle Agence ODD');
+            $('#frmAgenceOdd').form('clear');
+            url = 'add';
+        }
+
+        function editType() {
+            var row = $('#agenceGrid').datagrid('getSelected');
+            if (row) {
+                $('#dlg').dialog('open').dialog('center').dialog('setTitle', 'Edition Agence ODD');
+                $('#oddIdOdd').combobox('clear', true);
+                if (row.euOdd != null) {
+                    $('#oddIdOdd').combobox('setValue', row.euOdd.idOdd);
+                }
+                $('#centreId').combobox('clear', true);
+                if (row.centre != null) {
+                    $('#centreId').combobox('setValue', row.centre.id);
+                }
+                $('#cantonID').combobox('clear', true);
+                if (row.canton != null) {
+                    $('#cantonID').combobox('setValue', row.canton.idCanton);
+                }
+                $('#frmAgenceOdd').form('load', row);
+                url = 'add';
+            }
+        }
+
+        function saveType() {
+            $('#frmAgenceOdd').form('submit', {
+                url: url,
+                onSubmit: function () {
+                    return $(this).form('validate');
+                },
+                success: function (result) {
+                    var result = eval('(' + result + ')');
+                    if (result.message) {
+                        $.messager.show({
+                            title: 'Error',
+                            msg: result.message
+                        });
+                    } else {
+                        $('#dlg').dialog('close');        // close the dialog
+                        $('#agenceGrid').datagrid('reload');    // reload the user data
+                    }
+                }
+            });
+        }
+
+        function destroyType() {
+            var row = $('#agenceGrid').datagrid('getSelected');
+            if (row) {
+                $.messager.confirm('Confirm', 'Etes-vous sûr de vouloir supprimer cette agence?', function (r) {
+                    if (r) {
+                        $.post('del', {id: row.id}, function (result) {
+                            if (result.success) {
+                                $('#agenceGrid').datagrid('reload');    // reload the user data
+                            } else {
+                                $.messager.show({    // show error message
+                                    title: 'Error',
+                                    msg: result.message
+                                });
+                            }
+                        }, 'json');
+                    }
+                });
+            }
+        }
+
+        function myformatter(date) {
+            var y = date.getFullYear();
+            var m = date.getMonth() + 1;
+            var d = date.getDate();
+            return (d < 10 ? ('0' + d) : d) + '/' + (m < 10 ? ('0' + m) : m) + '/' + y;
+        }
+
+        function myparser(s) {
+            if (!s) return new Date();
+            var ss = (s.split('/'));
+            var d = parseInt(ss[0], 10);
+            var m = parseInt(ss[1], 10);
+            var y = parseInt(ss[2], 10);
+            if (!isNaN(y) && !isNaN(m) && !isNaN(d)) {
+                return new Date(y, m - 1, d);
+            } else {
+                return new Date();
+            }
+        }
+    </script>
+</th:block>
+</body>
+
+</html>

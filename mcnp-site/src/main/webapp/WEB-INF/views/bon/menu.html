@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="layout/admin">
+<head>
+<title>Espace Bancaire</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+	<th:block th:fragment="navbar">
+		<li><a href="index.html" th:href="@{/home}"
+			class="collapsible-header waves-effect"> <i
+				class="menu-icon fa fa-home"></i> <span class="menu-text">
+					Accueil </span>
+		</a> <b class="arrow"></b></li>
+		<li><a class="collapsible-header waves-effect arrow-r"> <i
+				class="menu-icon fa fa-list"></i> <span class="menu-text">
+					Bon d'Achat </span> <b class="arrow fa fa-angle-down"></b>
+		</a> <b class="arrow"></b>
+			<div class="collapsible-body">
+				<ul>
+					<li><a href="/mcnp/ba" th:href="@{/ba}" class="waves-effect">
+							<i class="menu-icon fa fa-edit"></i> <span class="menu-text">
+								Etablissement Bon d'Achat </span>
+					</a> <b class="arrow"></b></li>
+					<li class=""><a href="/mcnp/ba" th:href="@{/transfertba}"
+						class="waves-effect"> <i class="menu-icon fa fa-address-card"></i>
+							<span class="menu-text">Emission </span>
+					</a> <b class="arrow"></b></li>
+				</ul>
+			</div></li>
+		<li><a class="collapsible-header waves-effect arrow-r"> <i
+				class="menu-icon fa fa-list"></i> <span class="menu-text">
+					Etablissement BC </span> <b class="arrow fa fa-angle-down"></b>
+		</a> <b class="arrow"></b>
+			<div class="collapsible-body">
+				<ul>
+				<li class=""><a href="/bon/bc.html"
+						th:href="@{/bc}"
+						class="collapsible-header waves-effect"> <i
+							class="menu-icon fa fa-book"></i> <span class="menu-text">
+								Liste des BC</span>
+					</a> <b class="arrow"></b></li>
+					<li><a href="/mcnp/bcr" th:href="@{/bcr}" class="waves-effect">
+							<i class="menu-icon fa fa-edit"></i> <span class="menu-text">
+								BCr Par Bon d'Achat (BA)</span>
+					</a> <b class="arrow"></b></li>
+					<li><a href="/mcnp/bcr" th:href="@{/bcr}" class="waves-effect">
+							<i class="menu-icon fa fa-edit"></i> <span class="menu-text">
+								BCnr par BA</span>
+					</a> <b class="arrow"></b></li>
+					<li><a href="/mcnp/bcr" th:href="@{/bcr}" class="waves-effect">
+							<i class="menu-icon fa fa-edit"></i> <span class="menu-text">
+								BCnr PRE par BA</span>
+					</a> <b class="arrow"></b></li>
+
+					<li><a href="/mcnp/bcban" th:href="@{/bcban}"
+						class="waves-effect"> <i class="menu-icon fa fa-edit"></i> <span
+							class="menu-text"> BCr par Bon d'Achat Neutre </span>
+					</a> <b class="arrow"></b></li>
+					<li><a href="/mcnp/bcban" th:href="@{/bcbannr}"
+						class="waves-effect"> <i class="menu-icon fa fa-edit"></i> <span
+							class="menu-text"> BCnr par BAn </span>
+					</a> <b class="arrow"></b></li>
+					<li><a href="/mcnp/bcban" th:href="@{/bcbannrpre}"
+						class="waves-effect"> <i class="menu-icon fa fa-edit"></i> <span
+							class="menu-text"> BCnr PRE par BAn </span>
+					</a> <b class="arrow"></b></li>
+					<li class=""><a href="/bon/bcFormation.html"
+						th:href="@{/bcFormation}" class="collapsible-header waves-effect">
+							<i class="menu-icon fa fa-book"></i> <span class="menu-text">
+								BCnr PRE Formation</span>
+					</a> <b class="arrow"></b></li>
+					<li class=""><a href="/bon/activation.html"
+						th:href="@{/activatebcr}"
+						class="collapsible-header waves-effect"> <i
+							class="menu-icon fa fa-book"></i> <span class="menu-text">
+								Activation BC Récurrent</span>
+					</a> <b class="arrow"></b></li>
+					<li><a href="/mcnp/creances" th:href="@{/transfertbc}"
+						class="waves-effect"> <i class="menu-icon fa fa-address-card"></i>
+							<span class="menu-text"> Emission </span>
+					</a> <b class="arrow"></b></li>
+				</ul>
+			</div></li>
+	</th:block>
+</body>
+</html>

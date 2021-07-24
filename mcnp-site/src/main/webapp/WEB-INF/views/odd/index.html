@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="layout/admin">
+<head>
+    <title>Fiche ODD</title>
+    <th:block th:fragment="style" th:remove="tag">
+        <!--<link rel="stylesheet" th:href="@{/resources/js/jqgrid/ui.jqgrid.css}">-->
+        <link rel="stylesheet" th:href="@{/resources/js/jqgrid/ui.jqgrid-bootstrap4.css}">
+    </th:block>
+</head>
+<body>
+<th:block layout:fragment="navbar">
+    <div th:include="odd/menu :: navbar" th:remove="tag"></div>
+</th:block>
+<ul class="breadcrumb" layout:fragment="breadcrumb">
+    <li><i class="ace-icon fa fa-home home-icon"></i> <a
+            th:href="@{/}">Accueil</a></li>
+    <li class="active">ODD</li>
+</ul>
+<!-- /.breadcrumb -->
+<div layout:fragment="content">
+    <section class="section card mt-1">
+            <!-- /widget-header -->
+            <div class="card-body">
+                <div class="form-header">
+                    <div class="btn-toolbar" role="toolbar" aria-label="Basic example">
+                        <a th:href="@{/odd/fiche}" class="btn btn-green btn-sm">Ajout</a>
+                        <a th:href="@{/odd/listeGen}" class="btn btn-default btn-sm">Fiche Générale ODD</a>
+                    </div>
+                </div>
+                <h3 class="card-title">Ma Fiche ODD</h3>
+                <table id="listOdd">
+                </table>
+            </div>
+    </section>
+</div>
+<th:block layout:fragment="script" th:remove="tag">
+    <script th:src="@{/resources/js/jqgrid/grid.locale-fr.js}"></script>
+    <script th:src="@{/resources/js/jqgrid/jquery.jqGrid.min.js}"></script>
+    <script type="text/javascript" th:inline="javascript">
+        $(document)
+            .ready(
+                function () {
+                    "use strict";
+                    var oddGrid = $("#listOdd");
+                    oddGrid.jqGrid({
+                        url: 'malisteodd/',
+                        datatype: 'json',
+                        mtype: 'GET',
+                        styleUI: 'Bootstrap4',
+                        colNames: ['ID', 'Nom', 'Prenoms', 'Lieu Naissance'],
+                        colModel: [
+                            {name: 'id', index: 'id', width: 70},
+                            {name: 'nomMembre', index: 'nomMembre', width: 200},
+                            {index: 'prenomMembre', width: 200},
+                            {name: 'lieuNaisMembre', index: 'lieuNaisMembre', width: 200}
+                        ],
+                        cmTemplate: {autoResizable: true},
+                        height:370,
+                        autowidth: true,
+                        iconSet: "fontAwesome",
+                        sortname: "id",
+                        threeStateSort: true,
+                        sortIconsBeforeText: true,
+                        headertitles: true,
+                        pager: true,
+                        multiselect: false,
+                        toppager: true,
+                        rowNum: 5
+                    });
+                });
+    </script>
+</th:block>
+</body>
+</html>

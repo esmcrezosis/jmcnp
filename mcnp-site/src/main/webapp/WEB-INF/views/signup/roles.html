@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorator="layout/admin">
+<head>
+    <title>Utilisateurs</title>
+    <th:block th:fragment="style" th:remove="tag">
+        <!--<link rel="stylesheet" th:href="@{/resources/js/jqgrid/ui.jqgrid.css}">-->
+        <link rel="stylesheet" th:href="@{/resources/js/jqgrid/ui.jqgrid-bootstrap4.css}">
+        <link rel="stylesheet" th:href="@{/resources/js/jqgrid/ui.jqgrid-bootstrap-ui.css}">
+    </th:block>
+</head>
+<body>
+<ul layout:fragment="navbar">
+    <div th:include="signup/menu :: navbar" th:remove="tag"></div>
+</ul>
+<ul class="breadcrumb" layout:fragment="breadcrumb">
+    <li><i class="ace-icon fa fa-home home-icon active"></i>Accueil</li>
+</ul>
+<div layout:fragment="content">
+    <div class="card card-cascade narrower z-depth-1">
+        <!-- Card image -->
+        <div class="view view-cascade gradient-card-header blue-gradient narrower py-2 mx-4 mb-3 d-flex justify-content-between align-items-center">
+
+            <div>
+                <a id="btnImp" th:href="@{/admin/role}"
+                   class="btn btn-outline-white btn-rounded btn-sm px-2">
+                    <i class="fas fa-plus-square mt-0"></i> Ajouter
+                </a>
+            </div>
+
+            <a href="" class="white-text mx-3">Liste des Rôles</a>
+
+            <div>
+                <button id="btnEditRole" type="button" class="btn btn-outline-white btn-rounded btn-sm px-2">
+                    <i class="fas fa-edit mt-0"></i> Editer
+                </button>
+            </div>
+
+        </div>
+        <!-- /Card image -->
+
+        <div class="px-4">
+            <div class="table-responsive">
+                <table id="roleGrid"></table>
+                <div id="roleGridPager"></div>
+            </div>
+        </div>
+    </div>
+    <div id="roleDlg" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+         aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header text-center">
+                    <h4 class="modal-title w-100 font-weight-bold">Edition Role</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="container-fluid">
+                        <form id="frmEditRole">
+                            <input type="hidden" class="form-control" id="_csrf"
+                                   name="_csrf" th:value="${_csrf.token}" readonly="readonly"/>
+                            <div class="md-form">
+                                <input type="text" class="form-control" id="idRole"
+                                       name="id" readonly="readonly"/>
+                                <label for="idRole">ID</label>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <select id="idGroupeRole" name="groupeRoles.id" class="mdb-select md-form"
+                                            searchable="Rechercher ici">
+                                        <option th:each="gr : ${groupeRoles}" th:value="${gr.idGroupeRoles}"
+                                                th:text="${gr.libelleGroupeRoles}">GROUPE
+                                        </option>
+                                    </select>
+                                    <label class="mdb-main-label">Groupe Role</label>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <select id="idRoleParent" name="roleParent.id" class="mdb-select md-form"
+                                            searchable="Rechercher ici">
+                                        <option value="" selected>Choisir un rôle</option>
+                                        <option th:each="role : ${roles}" th:value="${role.idRoles}"
+                                                th:text="${role.libelleRoles}">ROLE
+                                        </option>
+                                    </select>
+                                    <label class="mdb-main-label">Role Parent</label>
+                                </div>
+                            </div>
+                            <div class="md-form">
+                                <input type="text" class="form-control" id="txtCodeRoles"
+                                       name="codeRoles"/>
+                                <label for="txtCodeRoles">Code Rôle</label>
+                            </div>
+                            <div class="md-form">
+                                <input type="text" class="form-control" id="txtLibelleRoles"
+                                       placeholder="Libelle Rôle" name="libelleRoles"/>
+                                <label for="txtLibelleRoles">Libellé Rôle</label>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-lg-offset-3 col-lg-9">
+                                    <button id="btnValiderRole" class="btn btn-sm btn-primary">Enregistrer</button>
+                                    <button id="btnCloseDlgRole" type="button" onclick="resetForm()" class="btn btn-sm btn-default">Annuler</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<th:block layout:fragment="script" th:remove="tag">
+    <script th:src="@{/resources/js/jqgrid/grid.locale-fr.js}"></script>
+    <script th:src="@{/resources/js/jqgrid/jquery.jqGrid.min.js}"></script>
+    <script th:inline="javascript">
+
+        function resetForm() {
+            $("#frmEditRole").trigger("reset");
+            $("#roleGrid").jqGrid('resetSelection');
+            $('#roleDlg').modal('hide');
+        }
+
+        $(document).ready(function () {
+            $("#roleGrid").jqGrid({
+                url: 'listroles/',
+                mtype: "GET",
+                styleUI: 'Bootstrap4',
+                iconSet: "fontAwesome",
+                datatype: "json",
+                colModel: [
+                    {label: 'ID', name: 'id', key: true, width: 75},
+                    {label: 'Code', name: 'codeRoles', width: 100},
+                    {label: 'Libellé', name: 'libelleRoles', width: 440},
+                    {label: 'Date', name: 'dateRoles', width: 120},
+                    {label: 'Parent', name: 'roleParent.id', width: 100, hidden:true},
+                    {label: 'Parent', name: 'roleParent.codeRoles', width: 100},
+                    {label: 'Groupe', name: 'groupeRoles.id', width: 270, hidden:true},
+                    {label: 'Groupe', name: 'groupeRoles.libelleGroupeRoles', width: 270}
+                ],
+                page: 1,
+                autowidth: true,
+                shrinkToFit: false,
+                height: 390,
+                rowNum: 20,
+                rowList: [20, 50, 100],
+                sortname: 'idRoles',
+                viewrecords: true,
+                emptyrecords: 'Pas de rôles trouves', // the message will be displayed at the bottom
+                pager: "#roleGridPager"
+            });
+
+            $('#btnEditRole').click(
+                function (e) {
+                    e.preventDefault();
+                    var grid = $("#roleGrid");
+                    var rowKey = grid.jqGrid('getGridParam', "selrow");
+                    if (rowKey) {
+                        var data = grid.jqGrid('getRowData', rowKey);
+                        $('#idRole').val(data.id);
+                        $('#idRole').next("label").addClass('active');
+                        $('#idGroupeRole').val(data['groupeRoles.id']);
+                        $('#idGroupeRole').next("label").addClass('active');
+                        $('#idRoleParent').val(data['roleParent.id']);
+                        $('#idRoleParent').next("label").addClass('active');
+                        $('#txtCodeRoles').val(data.codeRoles);
+                        $('#txtCodeRoles').next("label").addClass('active');
+                        $('#txtLibelleRoles').val(data.libelleRoles);
+                        $('#txtLibelleRoles').next("label").addClass('active');
+                        $('#roleDlg').modal('show');
+                    } else {
+                        toastr.info("Aucune ligne sélectionée");
+                    }
+                }
+            );
+
+            $('#frmEditRole').submit(function (event) {
+                // get the form data
+                // there are many ways to get this data using jQuery (you can use the class or id also)
+                var formData = $(this).serialize();
+                // process the form
+                $.ajax({
+                    type: 'POST', // define the type of HTTP verb we want to use (POST for our form)
+                    url: 'edit', // the url where we want to POST
+                    data: formData, // our data object
+                    dataType: 'json', // what type of data do we expect back from the server
+                    encode: true
+                }).done(function (data, status) {
+                    $('#roleGrid').jqGrid().trigger('reloadGrid');
+                    $('#roleDlg').modal('hide');
+                    toastr.success(data.message);
+                }).fail(function (xhr, status, error) {
+                    let resp = JSON.parse(xhr.responseText);
+                    toastr.error('Erreur d\'execution :' + resp.message);
+                });
+
+                // stop the form from submitting the normal way and refreshing the page
+                event.preventDefault();
+            });
+        });
+    </script>
+</th:block>
+</body>
+</html>

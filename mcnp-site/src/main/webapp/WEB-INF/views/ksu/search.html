@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sd="http://io.github.jpenren/sd"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="layout/admin">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Recherche de KSU</title>
+</head>
+<body>
+<th:block layout:fragment="navbar">
+    <div th:include="ksu/menu :: navbar" th:remove="tag"></div>
+</th:block>
+<ul class="breadcrumb" layout:fragment="breadcrumb">
+    <li><i class="ace-icon fa fa-home home-icon"></i> <a
+            th:href="@{/}">Accueil</a></li>
+    <li class="active">KSU</li>
+</ul>
+<!-- /.breadcrumb -->
+<div layout:fragment="content">
+    <section>
+        <h5 class="my-1 dark-grey-text font-weight-bold">Recherche KSU</h5>
+        <!-- Top Table UI -->
+        <div class="card p-2 mb-5">
+            <!-- Grid row -->
+            <form th:method="get" th:action="@{/ksu/search}">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-lg-5 col-md-4">
+                            <div class="md-form input-group" style="margin-top: 1.5rem">
+                                <input type="text" id="codeMembre" name="codeMembre" th:value="${codeMembre}"
+                                       class="form-control">
+                                <div class="input-group-append">
+                                    <button class="btn btn-md btn-secondary m-0 px-3" type="button"
+                                            id="qrCodeReadBut">QrCode
+                                    </button>
+                                </div>
+                                <label for="codeMembre" class="active">Code Membre</label>
+                            </div>
+                        </div>
+                        <div class="md-form col-lg-3 col-md-3" style="margin-top: 1.5rem">
+                                <input type="date" id="dateDeb" th:value="${deb}"
+                                       name="deb" class="form-control">
+                            <label for="dateDeb">Du</label>
+                        </div>
+                        <!-- Grid column -->
+
+                        <!-- Grid column -->
+                        <div class="md-form col-lg-3 col-md-3" style="margin-top: 1.5rem">
+                                <input type="date" id="dateFin"
+                                       name="fin" th:value="${fin}" class="form-control">
+                                <label for="dateFin">A</label>
+                        </div>
+                        <!-- Grid column -->
+
+                        <!-- Grid column -->
+                        <div class="col-lg-1 col-md-2" style="margin-top: 1.5rem">
+                            <div class="md-form">
+                                <button type="submit" class="btn btn-sm btn-primary ml-2 px-1">
+                                    <i class="fas fa-search"></i> Valider
+                                </button>
+                            </div>
+                        </div>
+                        <!-- Grid column -->
+                    </div>
+                </div>
+            </form>
+            <!-- Grid row -->
+
+        </div>
+        <!-- Top Table UI -->
+        <div class="card card-cascade narrower z-depth-1">
+
+            <!-- Card image -->
+            <div
+                    class="view view-cascade gradient-card-header blue-gradient narrower py-2 mx-4 mb-3 d-flex justify-content-between align-items-center">
+
+                <div>
+                    <button type="button" id="btnImp"
+                            class="btn btn-outline-white btn-rounded btn-sm px-2"> Imprimer
+                        <i class="fas fa-th-large mt-0"></i>
+                    </button>
+                    <button type="button" id="btnImpAll"
+                            class="btn btn-outline-white btn-rounded btn-sm px-2">
+                        <i class="fas fa-columns mt-0"></i> Imprimer Toutes
+                    </button>
+                </div>
+
+                <a href="" class="white-text mx-3">KSU</a>
+
+                <div>
+                    <!--<button type="button" id="btnEditCarte"
+                            class="btn btn-outline-white btn-rounded btn-sm px-2">
+                        <i class="fas fa-pencil-alt mt-0"></i> Editer
+                    </button>-->
+
+                </div>
+
+            </div>
+            <!-- /Card image -->
+
+            <div class="px-4">
+                <!-- Table -->
+                <div th:if="${not #lists.isEmpty(cartes)}">
+                    <div class="table-responsive">
+                        <table id="tbcartes" class="table table-sm table-condensed table-hover mb-0">
+                            <thead>
+                            <tr>
+                                <th><input class="form-check-input" type="checkbox"
+                                           id="selectAll"> <label for="selectAll"
+                                                                  class="form-check-label mr-2 label-table"></label>
+                                </th>
+                                <th style="display: none">ID</th>
+                                <th class="th-lg"><a class="sorted"
+                                                     sd:pagination-sort="dateDemande">Date <i
+                                        class="fas fa-sort ml-1"></i></a></th>
+                                <th class="th-lg"><a class="sorted"
+                                                     sd:pagination-sort="euMembre.codeMembre">Code Membre <i
+                                        class="fas fa-sort ml-1"></i></a></th>
+                                <th class="th-lg">Imprimer</th>
+                                <th class="th-lg">Date Impression</th>
+                                <th class="th-lg">Livrer</th>
+                                <th class="th-lg" style="width: 20px;">Date Livraison</th>
+                                <th class="th-lg">Actions</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr th:each="row,rowStat : ${cartes}">
+                                <th scope="row"><input class="select form-check-input"
+                                                       type="checkbox" th:id="${'checkbox' + rowStat.count}">
+                                    <label th:for="${'checkbox' + rowStat.count}"
+                                           class="form-check-label label-table"></label></th>
+                                <td style="display: none" th:text="${row.idCarte}">id</td>
+                                <td th:text="${row.dateDemande}">Date</td>
+                                <td><a th:href="@{|/ksu/edit/${row.idCarte}|}"
+                                       th:text="( (${row.euMembre} != null)? ${row.euMembre.codeMembre} : ${row.euMembreMorale.codeMembreMorale})">Code
+                                    Membre</a></td>
+                                <td th:text="( (${row.imprimer} == true)? 'OUI' : 'NON')">OUI</td>
+                                <td th:text="${row.dateImpression}">Montant Bc</td>
+                                <td th:text="( (${row.livrer} == true)? 'OUI' : 'NON')">OUI</td>
+                                <td th:text="${row.dateLivraison}">NON</td>
+                                <td>
+                                    <button id="btImprimerKsu" type="button"
+                                            class="btn btn-green btnSelect btn-sm m-0"
+                                            th:if="${row.imprimer  == null or row.imprimer == false}">A
+                                        Imprimer
+                                    </button>
+                                    <button id="btLivrerKsu" type="button"
+                                            class="btn btnSelect btn-indigo btn-sm m-0"
+                                            th:if="${(row.imprimer == true && (row.livrer  == null or row.livrer == false))}">
+                                        A Livrer
+                                    </button>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div sd:pagination-summary="">info</div>
+                        </div>
+                        <div class="col-sm-6">
+                            <nav class="pull-right">
+                                <ul class="pagination" sd:pagination-split="7"
+                                    sd:pagination="full">
+                                    <!-- Pagination created by SpringDataDialect, this content is just for mockup -->
+                                    <li class="disabled"><a href="#" aria-label="Previous"><span
+                                            aria-hidden="true">&laquo;</span></a></li>
+                                    <li class="active"><a href="#">1 <span
+                                            class="sr-only">(current)</span></a></li>
+                                </ul>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+<th:block layout:fragment="script" th:remove="tag">
+    <script type="text/javascript">
+
+        $(function () {
+            //Assign Click event to Button.
+            $("#btnImp").click(function () {
+                var ids = Array();
+                //Loop through all checked CheckBoxes in GridView.
+                $("#tbcartes input[type=checkbox]:checked").each(function () {
+                    var row = $(this).closest("tr")[0];
+                    ids.push(row.cells[1].innerHTML);
+                });
+                if (ids.length > 0) {
+                    $.ajax({
+                        url: 'download?cartes=' + ids,
+                        type: 'GET',
+                        xhrFields: {
+                            responseType: 'blob'
+                        },
+                        success: function (data, statut) { // code_html contient le HTML renvoyé
+                            var a = document.createElement('a');
+                            var url = window.URL.createObjectURL(data);
+                            a.href = url;
+                            a.download = 'cartes.zip';
+                            document.body.append(a);
+                            a.click();
+                            a.remove();
+                            window.URL.revokeObjectURL(url);
+                            location.reload();
+                        },
+                        error: function (data, status) {
+                            alert('Error - certains cartes ne sont pas bien enregistées ou n\' existent pas');
+                        }
+                    });
+                } else {
+                    alert("Pas de cartes sélectionées");
+                }
+                return false;
+            });
+        });
+        $("#btnImpAll").click(function () {
+            var membre = $('#codeMembre').val();
+            var deb = $('#dateDeb').val();
+            var fin = $('#dateFin').val();
+            $.ajax({
+                url: 'download?codeMembre=' + membre + '&deb=' + deb + "&fin=" + fin,
+                type: 'GET',
+                xhrFields: {
+                    responseType: 'blob'
+                }
+            }).done(function (data, status) {
+                var a = document.createElement('a');
+                var url = window.URL.createObjectURL(data);
+                a.href = url;
+                a.download = 'cartes.zip';
+                document.body.append(a);
+                a.click();
+                a.remove();
+                window.URL.revokeObjectURL(url);
+                location.reload();
+            }).fail(function (xhr, status, error) {
+                //var resp = JSON.parse(xhr.responseText);
+                alert('Error - certains cartes ne sont pas bien enregistées ou n\' existent pas');
+            });
+        });
+
+        $('#btnEditCarte').click(function () {
+            var rows = $("#tbcartes input[type=checkbox]:checked");
+            if (rows.lenght > 1) {
+                alert("Veuillez sélectionner une ligne");
+            }
+            if (rows.lenght <= 0) {
+                alert("Veuillez sélectionner une ligne");
+            }
+        });
+
+        $("#selectAll").click(function () {
+            if (this.checked) {
+                // Iterate each checkbox
+                $(':checkbox').each(function () {
+                    this.checked = true;
+                });
+            } else {
+                $(':checkbox').each(function () {
+                    this.checked = false;
+                });
+            }
+        });
+
+        $(".select").click(function () {
+            if ($(".select").length == $(".select:checked").length) {
+                $("input#selectAll").checked = true;
+            } else {
+                $("#selectAll").checked = false;
+            }
+
+        });
+
+        // code to read selected table row cell data (values).
+        $("table#tbcartes").on('click', '.btnSelect', function (event) {
+            // get the current row
+            var currentRow = $(this).closest("tr");
+            var id = currentRow.find("td:eq(0)").text();
+            var action = "imp";
+            var btn = $(event.target).text();
+            if (btn.indexOf("Livrer") > 0) {
+                action = "liv";
+            }
+            $.ajax({
+                url: 'edit/' + id + '/' + action,
+                type: 'GET',
+                dataType: 'html', // On désire recevoir du HTML
+                success: function (data, statut) { // code_html contient le HTML renvoyé
+                    alert(data);
+                    location.reload();
+                }
+            });
+        });
+    </script>
+</th:block>
+</body>
+</html>

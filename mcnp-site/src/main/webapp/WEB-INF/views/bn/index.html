@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorator="layout/admin">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Etat des BAn</title>
+</head>
+<body>
+<th:block layout:fragment="navbar">
+    <div th:include="fgfn/menu :: navbar" th:remove="tag"></div>
+</th:block>
+<ul class="breadcrumb" layout:fragment="breadcrumb">
+    <li><i class="ace-icon fa fa-home home-icon"></i> <a
+            th:href="@{/}">Accueil</a></li>
+    <li class="active">Etat BAn</li>
+</ul>
+<!-- /.breadcrumb -->
+<div layout:fragment="content">
+    <div class=" card">
+        <div class="container">
+            <div class="row">
+                <div class="md-form col-lg-4">
+                    <input type="text" id="codeMembreBan" class="form-control">
+                    <label for="codeMembreBan">Code Membre</label>
+                </div>
+                <div class="md-form col-lg-4">
+                    <input type="text" id="nomMembreBan" class="form-control">
+                    <label for="nomMembreBan">Nom Membre</label>
+                </div>
+                <div class="md-form col-lg-4">
+                    <input type="text" id="prenomMembreBan" class="form-control">
+                    <label for="prenomMembreBan">Prenoms Membre</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="md-form col-lg-4" style="margin-top: 11px;">
+                    <select type="text" id="typeBan" class="mdb-select">
+                        <option value="" selected>Choisir le Type BAn</option>
+                        <option value="BAn">Banque</option>
+                        <option value="OPI">OPI</option>
+                        <option value="ELI">ELI</option>
+                    </select>
+                    <label class="mdb-main-label" for="typeBan">Code Membre</label>
+                </div>
+                <div class="md-form col-lg-4">
+                    <input type="text" id="dateDebutBan" class="form-control" data-inputmask-alias="datetime"
+                           data-inputmask-inputformat="dd/mm/yyyy" data-inputmask-placeholder="jj/mm/aaaa">
+                    <label for="dateDebutBan" class="active">Date Debut</label>
+                </div>
+                <div class="md-form input-group mb-3 col-lg-4">
+                    <input type="text" id="dateFinBan" class="form-control" data-inputmask-alias="datetime"
+                           data-inputmask-inputformat="dd/mm/yyyy" data-inputmask-placeholder="jj/mm/aaaa">
+                    <div class="input-group-append">
+                        <button class="btn btn-md btn-secondary m-0 px-3" type="button" id="btnSearchBan">
+                            Rechercher
+                        </button>
+                    </div>
+                    <label for="dateFinBan" class="active">Date Fin</label>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="card" style="margin-top: 5px;">
+        <div class="card-header">
+            <div class="float-left align-middle">
+                <button id="btnExportBan" type="button" class="btn btn-sm btn-default">Export</button>
+                <!--<button id="btnEditGcp" type="button" class="btn btn-sm btn-blue-grey">Editer</button>-->
+            </div>
+            <h5 class="card-title align-middle">Etat des BAn</h5>
+        </div>
+        <div class="card-body">
+            <table id="tblBan"></table>
+            <!-- Pagination Bar -->
+            <div id="banPager"></div>
+        </div>
+    </div>
+</div>
+<th:block layout:fragment="script" th:remove="tag">
+    <script th:src="@{/resources/js/inputmask/jquery.inputmask.min.js}"></script>
+    <script th:src="@{/resources/js/jqgrid/grid.locale-fr.js}"></script>
+    <script th:src="@{/resources/js/jqgrid/jquery.jqGrid.min.js}"></script>
+    <script th:inline="javascript">
+        $(function () {
+            $(":input").inputmask();
+
+            var banTable = $("#tblBan");
+            banTable.jqGrid({
+                url: 'bonNeutre/bans',
+                mtype: "GET",
+                styleUI: 'Bootstrap4',
+                iconSet: "fontAwesome",
+                postData: {
+                    codeMembre: function () {
+                        return $("#codeMembreBan").val();
+                    },
+                    nomMembre: function () {
+                        return $("#nomMembreBan").val();
+                    },
+                    prenomMembre: function () {
+                        return $("#prenomMembreBan").val();
+                    },
+                    typeBan: function () {
+                        return $("#typeBan").val();
+                    },
+                    deb: function () {
+                        return $("input#dateDebutBan").val();
+                    },
+                    fin: function () {
+                        return $("input#dateFinBan").val();
+                    }
+                },
+                datatype: "json",
+                colModel: [
+                    {label: 'ID', name: 'bonNeutreId', key: true, width: 50},
+                    {label: 'Code Membre', name: 'codeMembre', width: 140, hidden: true},
+                    {label: 'Date', name: 'bonNeutreDate', width: 100},
+                    {label: 'Montant', name: 'montGcp', width: 100, summaryTpl: "Total: {0}", summaryType: "sum"},
+                    {
+                        label: 'Montant Preleve',
+                        name: 'montPreleve',
+                        width: 100,
+                        summaryTpl: "Total: {0}",
+                        summaryType: "sum"
+                    },
+                    {label: 'Solde GCp', name: 'reste', width: 100, summaryTpl: "Total: {0}", summaryType: "sum"},
+                    {label: 'ID Credit', name: 'idCredit', width: 70},
+                    {label: 'Source', name: 'source', width: 150},
+                    {label: 'Type GCp', name: 'typeGcp', width: 80}
+                ],
+                page: 1,
+                autowidth: true,
+                height: 400,
+                rowNum: 100,
+                rowList: [100, 250, 500],
+                rownumWidth: 25,
+                sortname: 'codeMembre',
+                multiselect: false,
+                viewrecords: true,
+                emptyrecords: 'Pas de lignes trouvees', // the message will be displayed at the bottom
+                pager: "#gcpPager",
+                footerrow: true, // set a footer row
+                userDataOnFooter: true, // the calculated sums and/or strings from server are put at footer row.
+                grouping: true,
+                groupingView: {
+                    groupField: ["codeMembre"],
+                    groupColumnShow: [true],
+                    groupText: ["<b>{0}</b>"],
+                    groupOrder: ["desc"],
+                    groupSummary: [true],
+                    groupCollapse: false
+
+                }
+            });
+
+            /*$("#btnEditGcp").click(function (e) {
+                e.preventDefault();
+                var id = gcpTable.jqGrid('getGridParam', 'selrow');
+                if (id) {
+                    var data = gcpTable.jqGrid('getRowData', id);
+                    //location.href = "traite?id=" + data.idGcp;
+                }
+            });*/
+
+            $("#btnSearchGcp").click(function (e) {
+                e.preventDefault();
+                gcpTable.jqGrid().trigger('reloadGrid');
+            });
+        });
+    </script>
+</th:block>
+</body>
+</html>

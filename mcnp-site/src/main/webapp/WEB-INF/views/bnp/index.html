@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorator="layout/template">
+<head>
+<meta charset="UTF-8" />
+<title>Souscription Pour Tiers</title>
+</head>
+<body>
+	<ul layout:fragment="navbar">
+		<li class=""><a href="index.html" th:href="@{/home}"> <i
+				class="menu-icon fa fa-tachometer"></i> <span class="menu-text">
+					Accueil </span>
+		</a> <b class="arrow"></b></li>
+		 <li class=""><a href="/mcnp/bnp/sbnp.html" th:href="@{/sbnp}">
+                    <i class="menu-icon fa fa-list"></i> <span class="menu-text">
+                        Souscription / Tiers </span>
+                </a> <b class="arrow"></b></li>
+		<li class=""><a href="/mcnp/bnp/bnp.html" th:href="@{/bnp}">
+				<i class="menu-icon fa fa-tachometer"></i> <span class="menu-text">
+					Souscription / Tiers BAn</span>
+		</a> <b class="arrow"></b></li>
+	</ul>
+	<ul class="breadcrumb" layout:fragment="breadcrumb">
+		<li><i class="ace-icon fa fa-home home-icon"></i> <a
+			th:href="@{/}">Accueil</a></li>
+		<li class="active">BNP</li>
+	</ul>
+	<!-- /.breadcrumb -->
+	<div layout:fragment="content"></div>
+</body>
+</html>

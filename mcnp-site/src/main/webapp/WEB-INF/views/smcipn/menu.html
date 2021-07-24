@@ -1,0 +1,90 @@
+<th:block xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5"
+	th:fragment="navbar">
+	<li><a class="collapsible-header waves-effect" href="index.html"
+		th:href="@{/home}"> <i class="menu-icon fa fa-home"></i> <span
+			class="menu-text"> Accueil </span>
+	</a> <b class="arrow"></b></li>
+	<li sec:authorize="hasAnyAuthority('smc_tesmcipnwi')"><a
+		href="/mcnp/smcipn/charge" th:href="@{/salaire}"
+		class="collapsible-header waves-effect"> <i
+			class="menu-icon fa fa-list"></i> <span class="menu-text">
+				Salaire </span>
+	</a> <b class="arrow"></b></li>
+	<li sec:authorize="hasAnyAuthority('detentrice')"
+		th:if="${#strings.equalsIgnoreCase(role,'SOURCE')}"><a
+		href="/mcnp/smcipn/budget" th:href="@{/budget}"
+		class="collapsible-header waves-effect"> <i
+			class="menu-icon fa fa-list"></i> <span class="menu-text">
+				Budget En Nature</span>
+	</a> <b class="arrow"></b></li>
+	<li sec:authorize="hasAnyAuthority('FDD')"><a
+		href="/mcnp/ban" th:href="@{/ban}"
+		class="collapsible-header waves-effect"> <i
+			class="menu-icon fa fa-list"></i> <span class="menu-text">
+				Emission de BAn </span>
+	</a> <b class="arrow"></b></li>
+	<li sec:authorize="hasAnyAuthority('detentrice')"><a
+		href="/mcnp/banque/affectationBan" th:href="@{/affectban}"
+		class="collapsible-header waves-effect"> <i
+			class="menu-icon fa fa-list"></i> <span class="menu-text">
+				Affectation de BAn </span>
+	</a> <b class="arrow"></b></li>
+	<li><a href="#" class="collapsible-header waves-effect arrow-r">
+			<i class="menu-icon fa fa-list"></i> <span class="menu-text">
+				SMCIPN </span><b class="arrow fa fa-angle-down"></b>
+	</a> <b class="arrow"></b>
+		<div class="collapsible-body">
+			<ul>
+				<li sec:authorize="hasAnyAuthority('detentrice')"
+					th:if="${#strings.equalsIgnoreCase(role,'SOURCE')}"><a
+					href="/mcnp/smcipn/smci" th:href="@{/smcipn/technopole}"
+					class="collapsible-header waves-effect"> <i
+						class="menu-icon fa fa-plus"></i> <span class="menu-text">
+							KIT Technopole </span>
+				</a> <b class="arrow"></b></li>
+				<li sec:authorize="hasAnyAuthority('detentrice')"
+					th:if="${#strings.equalsIgnoreCase(role,'SOURCE')}"><a
+					href="/mcnp/smcipn/charge" th:href="@{/smcipn/payerCharge}"
+					class="collapsible-header waves-effect"> <i
+						class="menu-icon fa fa-plus"></i> <span class="menu-text">
+							Budget </span>
+				</a> <b class="arrow"></b></li>
+				<li sec:authorize="hasAnyAuthority('detentrice')"
+					th:if="${#strings.equalsIgnoreCase(role,'SOURCE')}"><a
+					href="/mcnp/smcipn/smcipn" th:href="@{/smcipn/payer}"
+					class="collapsible-header waves-effect"> <i
+						class="menu-icon fa fa-plus"></i> <span class="menu-text">
+							Payement de Charges </span>
+				</a> <b class="arrow"></b></li>
+				<li sec:authorize="hasAnyAuthority('detentrice')"
+					th:if="${#strings.equalsIgnoreCase(role,'SOURCE')}"><a
+					href="/mcnp/smcipn/smci" th:href="@{/smcipn/payerSmcipn}"
+					class="collapsible-header waves-effect"> <i
+						class="menu-icon fa fa-plus"></i> <span class="menu-text">
+							Reglement Par SMCIPN </span>
+				</a> <b class="arrow"></b></li>
+				<li class=""><a href="/mcnp/smcipn/transfert_smcipn"
+					th:href="@{/smcipn/transfertSmcipn}"
+					class="collapsible-header waves-effect"> <i
+						class="menu-icon fa fa-plus"></i> Transfert SMCIPN
+				</a> <b class="arrow"></b></li>
+				<li class=""><a href="/mcnp/smcipn/liaison"
+					th:href="@{/liaison}" class="collapsible-header waves-effect">
+						<i class="menu-icon fa fa-plus"></i> Liaison de Compte d'Anim
+				</a> <b class="arrow"></b></li>
+				<li class=""><a href="/mcnp/smcipn/transfert_bai"
+					th:href="@{/smcipn/transfertBai}" class="collapsible-header waves-effect">
+						<i class="menu-icon fa fa-plus"></i> Affectation BAi
+				</a> <b class="arrow"></b></li>
+			</ul>
+		</div></li>
+	<li class=""><a href="/mcnp/smcipn/transfert_recu"
+		th:href="@{/smcipn/transfertrec}" class="collapsible-header waves-effect">
+			<i class="menu-icon fa fa-plus"></i> SMCIPN Reçus
+	</a> <b class="arrow"></b></li>
+	<li class=""><a href="/mcnp/smcipn/transfert_eff"
+		th:href="@{/smcipn/transferteff}" class="collapsible-header waves-effect">
+			<i class="menu-icon fa fa-plus"></i> SMCIPN Transférés
+	</a> <b class="arrow"></b></li>
+</th:block>

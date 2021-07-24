@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4"
+	layout:decorator="layout/template">
+<head>
+<title>Offreur de projets</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+	<ul layout:fragment="navbar">
+		<li class=""><a href="index.html" th:href="@{/home}"> <i
+				class="menu-icon fa fa-tachometer"></i> <span class="menu-text">
+					Accueil </span>
+		</a> <b class="arrow"></b></li>
+		<!-- <li><a href="/mcnp/smcipn/charge" th:href="@{/psalaire}"> <i
+				class="menu-icon fa fa-tachometer"></i> <span class="menu-text">
+					Salaire </span>
+		</a> <b class="arrow"></b></li> -->
+		<li><a href="#" class="dropdown-toggle"> <i
+				class="menu-icon fa fa-tachometer"></i> <span class="menu-text">
+					Prestataires </span>
+		</a> <b class="arrow"></b>
+			<ul class="submenu">
+				<li class=""><a href="/mcnp/paiement/offreurp"
+					th:href="@{/offreurp}"> <i class="menu-icon fa fa-plus purple"></i>Offreurs
+						de Projet
+				</a> <b class="arrow"></b></li>
+				<!-- <li class=""><a href="/mcnp/paiement/offreurt"
+					th:href="@{/offreurt}"> <i class="menu-icon fa fa-plus purple"></i>Offreurs
+						de Travail
+				</a> <b class="arrow"></b></li> -->
+				<li class=""><a href="/mcnp/paiement/prestataires"
+					th:href="@{/prestataires}"> <i
+						class="menu-icon fa fa-plus purple"></i>Mes Prestataires
+				</a> <b class="arrow"></b></li>
+			</ul></li>
+		<li><a href="/mcnp/smcipn/budget" th:href="@{/reglement}"> <i
+				class="menu-icon fa fa-tachometer"></i> <span class="menu-text">Reglement
+					Prestataire</span>
+		</a> <b class="arrow"></b></li>
+	</ul>
+	<ul class="breadcrumb" layout:fragment="breadcrumb">
+		<li><i class="ace-icon fa fa-home home-icon"></i> <a
+			th:href="@{/}">Accueil</a></li>
+		<li class="active">Offreurs de projet</li>
+	</ul>
+	<!-- /.breadcrumb -->
+	<div layout:fragment="content">
+		<div class="widget-box widget-color-blue">
+			<div class="widget-header widget-header-small">
+				<h5 class="widget-title">Ajout de Prestataires</h5>
+			</div>
+			<div class="widget-body">
+				<div class="widget-main">
+					<form id="frm_prestataire" action="#"
+						th:action="@{/addPrestataire}" th:object="${prestataire}"
+						method="post" class="form-horizontal">
+						<div class="alert alert-info" th:if="${message}">
+							<button type="button" class="close" data-dismiss="alert">
+								<i class="ace-icon fa fa-times"></i>
+							</button>
+							<p th:text="${message}"></p>
+						</div>
+						<div id="opi-widget" class="widget-box">
+							<div id="opi-widget-header"
+								class="widget-header widget-header-small">
+								<h6>Ajout de Prestataires</h6>
+							</div>
+							<div id="opi-widget-body" class="widget-body">
+								<div class="widget-main">
+									<div class="row">
+										<div class="col-md-6">
+											<div class="form-group">
+												<label for="codeMembrePrestataire"
+													class="control-label col-md-4">N° Membre
+													Prestataire</label>
+												<div class="col-md-8">
+													<input class="form-control" id="codeMembrePrestataire"
+														th:field="*{codeMembrePrestataire}" required="required" />
+												</div>
+											</div>
+										</div>
+										<div class="col-md-6">
+											<div class="form-group">
+												<label for="nomMembrePrestataire"
+													class="col-md-4 control-label">Nom Prestataire </label>
+												<div class="col-md-8">
+													<input id="nomMembrePrestataire" class="form-control"
+														th:field="*{nomMembrePrestataire}" />
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="row">
+										<div class="col-md-6">
+											<div class="form-group">
+												<label for="modePaiement" class="control-label col-md-4">Mode
+													de Paiement</label>
+												<div class="col-md-8">
+													<select class="form-control" id="modePaiement"
+														th:field="*{modePaiement}" required="required">
+														<option value=""></option>
+														<option value="BL">Bon de Livraison</option>
+														<option value="OPI">OPI</option>
+													</select>
+												</div>
+											</div>
+										</div>
+										<div class="col-md-6">
+											<div class="form-group">
+												<label for="numeroCompte" class="col-md-4 control-label">N°
+													de Compte</label>
+												<div class="col-md-8">
+													<input id="numeroCompte" class="form-control"
+														th:field="*{numeroCompte}" required="required" />
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="row">
+										<div class="col-md-6">
+											<div class="form-group">
+												<label for="typeCompte" class="control-label col-md-4">Type
+													de Compte</label>
+												<div class="col-md-8">
+													<select class="form-control" id="typeCompte"
+														th:field="*{typeCompte}" disabled="disabled">
+														<option value="BAI">Bon d'Achat Interne(BAi)</option>
+														<option value="SCMI">SMCIPN</option>
+													</select>
+												</div>
+											</div>
+										</div>
+										<div class="col-md-6">
+											<div class="form-group">
+												<label for="pMarge" class="col-md-4 control-label">Marge</label>
+												<div class="col-md-8">
+													<input id="pMarge" type="checkbox"
+														class="form-control" style="text-align: left"
+														th:field="*{marge}" value="1" />
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="row">
+										<div class="col-md-6">
+											<div class="form-group">
+												<label for="nombreOpi" class="col-md-4 control-label">Nombre
+													d'OPI</label>
+												<div class="col-md-8">
+													<input id="nombreOpi" class="form-control"
+														th:field="*{nombreOpi}" />
+												</div>
+											</div>
+										</div>
+										<div class="col-md-6">
+											<label for="smc_montant" class="control-label col-md-4">Montant
+												Prestation</label>
+											<div class="col-md-8">
+												<input class="form-control" id="montantCreance"
+													th:field="*{montantPrestation}" required="required" />
+											</div>
+										</div>
+									</div>
+									<div class="form-actions">
+										<button type="submit" id="btn-val-kit-techno"
+											class="btn btn-primary">
+											<i class="ace-icon fa fa-check bigger-110"></i>Valider
+										</button>
+										&nbsp; &nbsp; &nbsp;
+										<button id="btn-reset-kit-techno" class="btn" type="reset">
+											<i class="ace-icon fa fa-undo bigger-110"></i> Réinitialiser
+										</button>
+									</div>
+								</div>
+							</div>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

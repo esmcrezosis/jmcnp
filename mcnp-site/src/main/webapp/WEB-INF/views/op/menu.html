@@ -1,0 +1,52 @@
+<!-- Navbar -->
+<th:block th:fragment="topnav">
+    <nav class="navbar navbar-expand-lg navbar-dark pink darken-4">
+        <div class="container-fluid">
+            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle waves-effect" id="navbarDropdownMenuLink1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">KSU OT</a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                            <a class="dropdown-item" href="">Convention de Collaboration</a>
+                            <a class="dropdown-item" href="">ELI</a>
+                        </div>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle waves-effect" id="navbarDropdownMenuLink1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">SM OI</a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                            <a class="dropdown-item" href="">BCi BL GCp</a>
+                            <a class="dropdown-item" href="">BC OPI 12p BL GCp </a>
+                            <a class="dropdown-item" href="">BAi OPI 12p BL GCp</a>
+                            <a class="dropdown-item" href="">BAn OPI 12p BL GCp</a>
+                            <a class="dropdown-item" href="">MPRg OPI 12p BL GCp</a>
+                        </div>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle waves-effect" id="navbarDropdownMenuLink1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">SM OI Anticipés</a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                            <a class="dropdown-item" href="">BL GCsc</a>
+                            <a class="dropdown-item" href="">SMCIPN</a>
+                            <a class="dropdown-item" href="">BCi BL GCsc</a>
+                            <a class="dropdown-item" href="">BAn OPI 12p-np BL GCsc</a>
+                            <a class="dropdown-item" href="">BAi OPI 12p-np BL GCsc</a>
+                            <a class="dropdown-item" href="">BC OPI 12p-np BL GCsc </a>
+                        </div>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle waves-effect" id="navbarDropdownMenuLink1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">TE OI</a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                            <a class="dropdown-item" th:href="@{/gcp}">BL GCp</a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="#">Home</a></li>
+                    <li class="breadcrumb-item"><a href="#">OT</a></li>
+                    <li class="breadcrumb-item active" aria-current="page"><a href="#">PP</a></li>
+                </ol>
+            </nav>
+        </div>
+    </nav>
+</th:block>

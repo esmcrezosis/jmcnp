@@ -1,0 +1,69 @@
+<!-- Topbar -->
+<th:block th:fragment="topnav">
+    <nav class="navbar navbar-expand-lg navbar-dark pink darken-2">
+        <div class="container-fluid">
+            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle waves-effect" id="navbarDropdownMenuLink1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">KSU</a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                            <a class="dropdown-item" href="">Convention de Collaboration</a>
+                            <a class="dropdown-item" href="">ELI</a>
+                            <a class="dropdown-item" th:href="@{/avr/achat}">AVR: Achat</a>
+                            <a class="dropdown-item" th:href="@{/avr/vente}">AVR: Vente</a>
+                            <a class="dropdown-item" th:href="@{/ticket}">Reclamation</a>
+                        </div>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle waves-effect" id="bonConsoMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Bons</a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                            <a class="dropdown-item" th:href="@{/oksu/bcri}">Bon Consommation</a>
+                            <a class="dropdown-item" th:href="@{/oksu/ban}">Bon d'Achat Neutre</a>
+                            <a class="dropdown-item" th:href="@{/oksu/bai}">Bon d'Achat Interne</a>
+                        </div>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle waves-effect" id="navbarDropdownMenuSmMf" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">SM MF</a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                            <a class="dropdown-item" th:href="@{/oksu/cmfh}">CMFH</a>
+                            <a class="dropdown-item" th:href="@{/cmfh/mf107}">MF107</a>
+                            <a class="dropdown-item" th:href="@{/cmfh/mf11000}">MF11000</a>
+                        </div>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle waves-effect" id="smAnticipeMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">SM Anticipés</a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                            <a class="dropdown-item" href="">BL GCsc</a>
+                            <a class="dropdown-item" href="">SMCIPN</a>
+                            <a class="dropdown-item" href="">BCi BL GCsc</a>
+                            <a class="dropdown-item" href="">BAn OPI 12p-np BL GCsc</a>
+                            <a class="dropdown-item" href="">BAi OPI 12p-np BL GCsc</a>
+                            <a class="dropdown-item" href="">BC OPI 12p-np BL GCsc </a>
+                        </div>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle waves-effect" id="teMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">TE</a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                            <a class="dropdown-item" th:href="@{/oksu/gcp}">TE GCp</a>
+                            <a class="dropdown-item" th:href="@{/oksu/opi}">OPI</a>
+                            <a class="dropdown-item" th:href="@{/bcr}">Acheter BCr avec BA</a>
+                            <a class="dropdown-item" th:href="@{/bcban}">Acheter BCr avec BAn</a>
+                            <a class="dropdown-item" th:href="@{/bcbannr}">Acheter BCnr</a>
+                            <a class="dropdown-item" th:href="@{/bcbannrpre}">Acheter BCnr PRE</a>
+                            <a class="dropdown-item" th:href="@{/oksu/getbci}">Obtenir BCi avec BC</a>
+                            <a class="dropdown-item" th:href="@{/oksu/getbcibai}">Obtenir BCi avec BAi</a>
+                            <a class="dropdown-item" th:href="@{/oksu/getban}">Obtenir BAn</a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="#">Home</a></li>
+                    <li class="breadcrumb-item"><a href="#">OKSU</a></li>
+                    <li class="breadcrumb-item active" aria-current="page"><a href="#">PP</a></li>
+                </ol>
+            </nav>
+        </div>
+    </nav>
+</th:block>

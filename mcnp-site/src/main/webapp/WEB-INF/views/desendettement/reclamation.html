@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorator="layout/admin">
+
+<head>
+<meta charset="UTF-8" />
+<title>Souscription Pour Tiers</title>
+</head>
+
+<body>
+	<ul class="collapsible collapsible-accordion" layout:fragment="navbar">
+		<li><a href="index.html" th:href="@{/home}"> <i
+				class="fas fa-home"></i> <span class="menu-text"> Accueil </span>
+		</a> <b class="arrow"></b></li>
+		<!--<li class="">
+			<a href="index.html" th:href="@{/addCreance}">
+				<i class="fas fa-circle"></i>
+				<span class="menu-text">
+					Ajout de Créances </span>
+			</a>
+			<b class="arrow"></b>
+		</li>
+		<li class="">
+			<a href="index.html" th:href="@{/addbps}">
+				<i class="fas fa-circle"></i>
+				<span class="menu-text">
+					Ajout de BPS </span>
+			</a>
+			<b class="arrow"></b>
+		</li>
+		<li><a href="/mcnp/creance" th:href="@{/ordre}"> <i
+						class="fas fa-eye"></i> Ordre de payement
+				</a> <b class="arrow"></b></li>-->
+		<li><a href="index.html" th:href="@{/home}"> <i
+				class="menu-icon fas fa-home"></i>
+					Reclamations
+		</a> <b class="arrow"></b></li>
+		<li><a href="#"
+			class="collapsible-header waves-effect arrow-r"> <i
+				class="menu-icon fa fa-list"></i> <span class="menu-text">
+					Correction SM</span> <b class="arrow fa fa-angle-down"></b>
+		</a> <b class="arrow"></b>
+			<div class="collapsible-body">
+				<ul>
+					<li><a href="/mcnp/creance/recouvrement.html"
+						th:href="@{/reclamation/mf107}"> <i class="menu-icon fas fa-circle"></i>
+							<span class="menu-text"> MF107</span>
+					</a> <b class="arrow"></b></li>
+					<li><a href="/mcnp/creance/recouvrement.html"
+						th:href="@{/reclamation/mf11000}"> <i class="menu-icon fas fa-circle"></i>
+							<span class="menu-text"> MF11000 </span>
+					</a> <b class="arrow"></b></li>
+					<li><a href="/mcnp/creance/releve.html" th:href="@{/reclamation/gcp}">
+							<i class="menu-icon fas fa-credit-card"></i> <span
+							class="menu-text"> BAn </span>
+					</a> <b class="arrow"></b></li>
+					<li><a href="/jmcnp/reclamation/sousc" th:href="@{/reclamation/sousc}">
+							<i class="menu-icon fas fa-credit-card"></i> <span
+							class="menu-text"> Souscription ReDéMaRe</span>
+					</a> <b class="arrow"></b></li>
+				</ul>
+			</div></li>
+		<li class=""><a href="#"
+			class="collapsible-header waves-effect arrow-r"> <i
+				class="menu-icon fa fa-list"></i> <span class="menu-text">
+					Désendettement </span> <b class="arrow fa fa-angle-down"></b>
+		</a> <b class="arrow"></b>
+			<div class="collapsible-body">
+				<ul>
+					<li><a href="/mcnp/creance/recouvrement.html"
+						th:href="@{/recouvrer}"> <i class="menu-icon fas fa-circle"></i>
+							<span class="menu-text"> Recouvrement </span>
+					</a> <b class="arrow"></b></li>
+					<li><a href="/mcnp/creance/recouvrement.html"
+						th:href="@{/payercmfh}"> <i class="menu-icon fas fa-circle"></i>
+							<span class="menu-text"> Recouvrement CMFH </span>
+					</a> <b class="arrow"></b></li>
+					<li><a href="/mcnp/creance/releve.html" th:href="@{/releve}">
+							<i class="menu-icon fas fa-credit-card"></i> <span
+							class="menu-text"> Relevé des Créances </span>
+					</a> <b class="arrow"></b></li>
+				</ul>
+			</div></li>
+	</ul>
+	<ul class="breadcrumb" layout:fragment="breadcrumb">
+		<li><i class="ace-icon fa fa-home home-icon"></i> <a
+			th:href="@{/}">Accueil</a></li>
+		<li class="active">Reclamation</li>
+	</ul>
+	<!-- /.breadcrumb -->
+	<div layout:fragment="content">
+	    <div class="card">
+			<div class="card-body">
+				<form id="frm_addRec" action="#" th:action="@{/ticket/reclamer}"
+					th:object="${reclamation}" method="post">
+					<div class="form-header">
+						<h5>Reclamation</h5>
+					</div>
+					<div class="alert alert-info" th:if="${message}">
+						<button type="button" class="close" data-dismiss="alert">
+							<i class="ace-icon fa fa-times"></i>
+						</button>
+						<p id="opi_message" th:text="${message}"></p>
+					</div>
+					<div>
+						<select id="typePassif" class="md-form mdb-select"
+							th:field="*{typePassif}">
+							<option value=""></option>
+							<option value="ESMC">ESMC</option>
+							<option value="MCNP">MCNP</option>
+							<option value="REDEMARE">ReDeMaRe</option>
+						</select> <label class="mdb-main-label" for="typePassif">Type
+							Créance</label>
+					</div>
+					<div>
+						<select id="idCasPassif" class="md-form mdb-select"
+							th:field="*{idCasPassif}">
+							<option value=""></option>
+							<option th:each="c : ${cas}" th:value="${c.id}"
+								th:text="${c.libelleCas}">GCP</option>
+						</select> <label class="mdb-main-label" for="idCasPassif">Cas
+							Passif</label>
+					</div>
+					<div class="md-form">
+						<input id="codeMembre" type="text" class="form-control"
+							name="codeMembre" th:value="${codeMembre}" required="required">
+						<label class="control-label" for="codeMembre">Code Membre</label>
+					</div>
+					<div class="md-form">
+						<input id="ancienCodeMembre" type="text" class="form-control"
+							th:field="*{ancienCodeMembre}" /> <label class="control-label"
+							for="ancienCodeMembre">Ancien Code Membre</label>
+					</div>
+					<div class="md-form">
+						<input type="text" class="form-control" id="numeroBonMf"
+							th:field="*{numeroBonMf}"
+							placeholder="Numéro du Bon si c'est MF11000" /> <label
+							class="active" for="numeroBonMf">Numéro Bon Mmbre
+							Fondateur 11000</label>
+					</div>
+					<div class="md-form">
+						<input type="text" class="form-control" id="libelleReclamation"
+							th:field="*{libelleReclamation}" /> <label class="control-label"
+							for="libelleReclamation">Libellé</label>
+					</div>
+					<div class="md-form">
+						<textarea id="descriptionRec"
+							class="md-textarea form-control" th:field="*{descriptionRec}"></textarea>
+						<label class="control-label" for="descriptionRec">Description</label>
+					</div>
+					<div class="md-form">
+						<input type="text" class="form-control" id="montantReclamation"
+							th:field="*{montantReclamation}" /> <label class="control-label"
+							for="montantReclamation">Montant Réclamé</label>
+					</div>
+					<div class="md-form">
+						<input type="text" class="form-control" id="montantValide"
+							th:field="*{montantValide}" /> <label class="control-label"
+							for="montantReclamation">Montant Valide</label>
+					</div>
+					<div class="form-check">
+						<input type="checkbox" class="form-check-input"
+							id="validerCkb" th:value="${reclamation.valider}"> 
+							<label class="form-check-label" for="validerCkb">Validé</label>
+					</div>
+						<select id="statut" class="md-form mdb-select"
+							th:field="*{statut}">
+							<option value=""></option>
+							<option th:each="s : ${T(com.esmc.mcnp.model.pc.StatutReclamation).values()}" th:value="${s}"
+								th:text="${s}">GCP</option>
+						</select> <label class="mdb-main-label" for="statut">Cas
+							Passif</label>
+					<div class="form-actions">
+						<button id="btnValRec" type="submit" class="btn btn-primary">
+							<i class="fas fa-check"></i> Valider
+						</button>
+						<button class="btn" type="reset">
+							<i class="fas fa-undo"></i> Réinitialiser
+						</button>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+</body>
+
+</html>

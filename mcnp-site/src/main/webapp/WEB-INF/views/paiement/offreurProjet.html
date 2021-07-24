@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4"
+	xmlns:sd="http://www.thymeleaf.org/spring-data"
+	layout:decorator="layout/template">
+<head>
+<title>Offreur de projets</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+	<ul layout:fragment="navbar">
+		<li class=""><a href="index.html" th:href="@{/home}"> <i
+				class="menu-icon fa fa-tachometer"></i> <span class="menu-text">
+					Accueil </span>
+		</a> <b class="arrow"></b></li>
+		<!-- <li><a href="/mcnp/smcipn/charge" th:href="@{/psalaire}"> <i
+				class="menu-icon fa fa-tachometer"></i> <span class="menu-text">
+					Salaire </span>
+		</a> <b class="arrow"></b></li> -->
+		<li><a href="#" class="dropdown-toggle"> <i
+				class="menu-icon fa fa-tachometer"></i> <span class="menu-text">
+					Prestataires </span>
+		</a> <b class="arrow"></b>
+			<ul class="submenu">
+				<li class=""><a href="/mcnp/paiement/offreurp"
+					th:href="@{/offreurp}"> <i class="menu-icon fa fa-plus purple"></i>Offreurs
+						de Projet
+				</a> <b class="arrow"></b></li>
+				<!-- <li class=""><a href="/mcnp/paiement/offreurt"
+					th:href="@{/offreurt}"> <i class="menu-icon fa fa-plus purple"></i>Offreurs
+						de Travail
+				</a> <b class="arrow"></b></li> -->
+				<li class=""><a href="/mcnp/paiement/prestataires"
+					th:href="@{/prestataires}"> <i
+						class="menu-icon fa fa-plus purple"></i>Mes Prestataires
+				</a> <b class="arrow"></b></li>
+			</ul></li>
+		<li><a href="/mcnp/smcipn/budget" th:href="@{/reglement}"> <i
+				class="menu-icon fa fa-tachometer"></i> <span class="menu-text">Reglement
+					Prestataire</span>
+		</a> <b class="arrow"></b></li>
+	</ul>
+	<ul class="breadcrumb" layout:fragment="breadcrumb">
+		<li><i class="ace-icon fa fa-home home-icon"></i> <a
+			th:href="@{/}">Accueil</a></li>
+		<li class="active">Prestataires de la Production Commune</li>
+	</ul>
+	<!-- /.breadcrumb -->
+	<div layout:fragment="content">
+		<div class="alert alert-info" th:if="${message}">
+			<button type="button" class="close" data-dismiss="alert">
+				<i class="ace-icon fa fa-times"></i>
+			</button>
+			<p th:text="${message}"></p>
+		</div>
+		<div class="widget-box widget-color-blue">
+			<div class="widget-header widget-header-small">
+				<h5 class="widget-title">Prestataires de la Production Commune</h5>
+			</div>
+			<div class="widget-body">
+				<div class="widget-main">
+					<form id="frm_rechOfProjet" class="form-horizontal" method="get"
+						action="#" th:action="@{/offreurp}" th:object="${offreur}">
+						<div class="container-fluid">
+							<div class="row">
+								<div class="col-md-6 col-sm-6 col-xs-12">
+									<div class="form-group form-group-sm">
+										<label for="ofRechCodeMembre"
+											class="control-label col-md-4 col-sm-4 col-xs-12">Code
+											Membre</label>
+										<div class="col-md-8 col-sm-8 col-xs-12">
+											<input id="ofRechCodeMembre" class="form-control"
+												th:field="*{codeMembre}" />
+										</div>
+									</div>
+									<div class="form-group form-group-sm">
+										<label for="ofRechRaisonSociale"
+											class="control-label col-md-4 col-sm-4 col-xs-12">Raison
+											Sociale</label>
+										<div class="col-md-8 col-sm-8 col-xs-12">
+											<input id="ofRechRaisonSociale" type="text"
+												class="form-control" th:field="*{raisonSociale}" />
+										</div>
+									</div>
+								</div>
+								<div class="col-md-6 col-sm-6 col-xs-12">
+									<div class="form-group form-group-sm">
+										<label for="ofRechProduit"
+											class="control-label col-md-4 col-sm-4 col-xs-12">Produit</label>
+										<div class="col-md-8 col-sm-8 col-xs-12">
+											<input id="ofRechProduit" class="form-control"
+												th:field="*{produit}" />
+										</div>
+									</div>
+									<div class="form-group form-group-sm">
+										<label for="ofRechDescription"
+											class="control-label col-md-4 col-sm-4 col-xs-12">Description</label>
+										<div class="col-md-8 col-sm-8 col-xs-12">
+											<input id="ofRechDescription" type="text"
+												class="form-control" th:field="*{description}" />
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="form-actions">
+								<button type="submit" id="btn-ValRechOf"
+									class="btn btn-primary btn-sm">
+									<i class="ace-icon fa fa-check bigger-110"></i>Valider
+								</button>
+								&nbsp; &nbsp; &nbsp;
+								<button id="btn-reset-salaire" class="btn btn-sm" type="reset">
+									<i class="ace-icon fa fa-undo bigger-110"></i> Réinitialiser
+								</button>
+							</div>
+
+							<table id="offreurProjetTable"
+								class="table table-striped table-bordered table-hover">
+								<!-- Header Table -->
+								<thead>
+									<tr>
+										<th class="sorted" sd:pagination-sort="id">ID</th>
+										<th class="sorted" sd:pagination-sort="codeMembre">Code
+											Membre</th>
+										<th class="sorted" sd:pagination-sort="raisonSociale">Raison
+											Sociale</th>
+										<th class="sorted" sd:pagination-sort="produit">Produit</th>
+										<th class="sorted" sd:pagination-sort="descriptionProjet">Description</th>
+										<th class="sorted" sd:pagination-sort="canton">Canton</th>
+										<th class="sorted" sd:pagination-sort="operationnel">Operationnel</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr th:each="row : ${page}">
+										<td th:text="${row.id}">1</td>
+										<td><a href="/mcnp/paiement/prestataire"
+											th:href="@{/addPrestataire(id=${row?.codeMembre})}"
+											th:text="${row?.codeMembre}">0010010010010000000P</a></td>
+										<td th:text="${row.raisonSociale}">Raison</td>
+										<td th:text="${row.produit}">Produit</td>
+										<td th:text="${row.descriptionProjet}">Description</td>
+										<td th:text="${row.canton}">Canton</td>
+										<td th:text="${row.operationnel}">1</td>
+									</tr>
+								</tbody>
+							</table>
+							<div class="row">
+								<div class="col-sm-6">
+									<div sd:pagination-summary="">info</div>
+								</div>
+								<div class="col-sm-6">
+									<nav class="pull-right">
+										<ul class="pagination" sd:pagination="full">
+											<!-- Pagination created by SpringDataDialect, this content is just for mockup -->
+											<li class="disabled"><a href="#" aria-label="Previous"><span
+													aria-hidden="true">&laquo;</span></a></li>
+											<li class="active"><a href="#">1 <span
+													class="sr-only">(current)</span></a></li>
+										</ul>
+									</nav>
+								</div>
+							</div>
+							<!-- // basic example -->
+
+							<!-- pager and aligned-links -->
+							<div>
+								<nav>
+									<ul class="pagination" sd:pagination="aligned-links">
+										<!-- Pagination created by SpringDataDialect, this content is just for mockup -->
+										<li class="disabled"><a href="#" aria-label="Previous"><span
+												aria-hidden="true">&laquo;</span></a></li>
+										<li class="active"><a href="#">1 <span
+												class="sr-only">(current)</span></a></li>
+									</ul>
+								</nav>
+							</div>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

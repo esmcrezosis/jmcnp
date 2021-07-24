@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="layout/admin">
+
+<head>
+    <title>AVR : Vente</title>
+    <th:block th:fragment="style" th:remove="tag">
+        <!--<link rel="stylesheet" th:href="@{/resources/js/jqgrid/ui.jqgrid.css}">-->
+        <link rel="stylesheet"
+              th:href="@{/resources/js/jqgrid/ui.jqgrid-bootstrap4.css}">
+        <link rel="stylesheet"
+              th:href="@{/resources/plugins/toastr/toastr.min.css}" />
+    </th:block>
+</head>
+
+<body>
+<ul class="collapsible collapsible-accordion" layout:fragment="navbar">
+    <div th:include="layout/menu :: navbar" th:remove="tag"></div>
+</ul>
+<th:block layout:fragment="topbar">
+    <div th:include="oksu/menu :: topnav" th:remove="tag"></div>
+</th:block>
+<!-- /.breadcrumb -->
+<div layout:fragment="content">
+    <section class="section card mt-4"></section>
+</div>
+<th:block layout:fragment="script" th:remove="tag">
+    <script th:src="@{/resources/js/jqgrid/grid.locale-fr.js}"></script>
+    <script th:src="@{/resources/js/jqgrid/jquery.jqGrid.min.js}"></script>
+    <script th:src="@{/resources/plugins/toastr/toastr.min.js}"></script>
+    <script type="text/javascript" th:inline="javascript">
+    </script>
+</th:block>
+</body>
+
+</html>

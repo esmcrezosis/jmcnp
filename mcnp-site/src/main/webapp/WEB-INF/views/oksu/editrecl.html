@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="layout/admin">
+
+<head>
+<title>Fiche ODD</title>
+<th:block th:fragment="style" th:remove="tag">
+</th:block>
+</head>
+
+<body>
+	<ul class="collapsible collapsible-accordion" layout:fragment="navbar">
+		<div th:include="layout/menu :: navbar" th:remove="tag"></div>
+	</ul>
+	<th:block layout:fragment="topbar">
+		<div th:include="oksu/menu :: topnav" th:remove="tag"></div>
+	</th:block>
+	<!-- /.breadcrumb -->
+	<div layout:fragment="content" class="mt-4">
+		<div class="card">
+			<div class="card-body">
+				<form id="frm_editRec" action="#" th:action="@{/ticket/reclamer}"
+					th:object="${reclamation}" method="post">
+					<div class="form-header">
+						<h5>Reclamation</h5>
+					</div>
+					<div class="alert alert-info" th:if="${message}">
+						<button type="button" class="close" data-dismiss="alert">
+							<i class="ace-icon fa fa-times"></i>
+						</button>
+						<p id="opi_message" th:text="${message}"></p>
+					</div>
+					<div>
+						<select id="typePassif" class="md-form mdb-select"
+							th:field="*{typePassif}">
+							<option value=""></option>
+							<option value="ESMC">ESMC</option>
+							<option value="MCNP">MCNP</option>
+							<option value="REDEMARE">ReDeMaRe</option>
+						</select> <label class="mdb-main-label" for="typePassif">Type
+							Créance</label>
+					</div>
+					<div>
+						<select id="idCasPassif" class="md-form mdb-select"
+							th:field="*{idCasPassif}">
+							<option value=""></option>
+							<option th:each="c : ${cas}" th:value="${c.id}"
+								th:text="${c.libelleCas}">GCP</option>
+						</select> <label class="mdb-main-label" for="idCasPassif">Cas
+							Passif</label>
+					</div>
+					<div class="md-form">
+						<input id="codeMembre" type="text" class="form-control"
+							name="codeMembre" th:value="${codeMembre}" readonly="readonly">
+						<label class="control-label" for="codeMembre">Code Membre</label>
+					</div>
+					<div class="md-form">
+						<input id="ancienCodeMembre" type="text" class="form-control"
+							th:field="*{ancienCodeMembre}" /> <label class="control-label"
+							for="ancienCodeMembre">Ancien Code Membre</label>
+					</div>
+					<div class="md-form">
+						<input type="text" class="form-control" id="numeroBonMf"
+							th:field="*{numeroBonMf}"
+							placeholder="Numéro du Bon si c'est MF11000" /> <label
+							class="active" for="numeroBonMf">Numéro Bon Mmbre
+							Fondateur 11000</label>
+					</div>
+					<div class="md-form">
+						<input type="text" class="form-control" id="libelleReclamation"
+							th:field="*{libelleReclamation}" /> <label class="control-label"
+							for="libelleReclamation">Libellé</label>
+					</div>
+					<div class="md-form">
+						<textarea id="descriptionRec"
+							class="md-textarea form-control" th:field="*{descriptionRec}"></textarea>
+						<label class="control-label" for="descriptionRec">Description</label>
+					</div>
+					<div class="md-form">
+						<input type="text" class="form-control" id="montantReclamation"
+							th:field="*{montantReclamation}" /> <label class="control-label"
+							for="montantReclamation">Montant Réclamé</label>
+					</div>
+					<div class="md-form">
+						<input type="text" class="form-control" id="montantValide"
+							th:field="*{montantValide}" readonly="readonly" /> <label class="control-label"
+							for="montantReclamation">Montant Valide</label>
+					</div>
+					<div class="form-check">
+						<input type="checkbox" class="form-check-input"
+							id="validerCkb" th:value="${reclamation.valider}"> 
+							<label class="form-check-label" for="validerCkb">Validé</label>
+					</div>
+					<div class="form-actions">
+						<button id="btnValRec" type="submit" class="btn btn-primary">
+							<i class="fas fa-check"></i> Valider
+						</button>
+						<button class="btn" type="reset">
+							<i class="fas fa-undo"></i> Réinitialiser
+						</button>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+	<th:block layout:fragment="script" th:remove="tag">
+		<script type="text/javascript" th:inline="javascript">
+        var contextRoot = /*[[@{/}]]*/
+        $('#frm_editRec').submit(function (event) {
+        	var form = $('#frm_editRec')[0];
+
+            // Create an FormData object 
+            var data = new FormData(form);
+
+            // disabled the submit button
+            $("#btnValRec").prop("disabled", true);
+
+            // process the form
+            $.ajax({
+                type: 'POST', // define the type of HTTP verb we want to use (POST for our form)
+                url: contextRoot + 'ticket/edit', // the url where we want to POST
+                enctype: 'multipart/form-data',
+                data: data, // our data object
+                processData: false,
+                contentType: false,
+                cache: false,
+                timeout: 600000,
+                dataType: 'json', // what type of data do we expect back from the server
+                encode: true
+            }).done(function (data, status) {
+            	$("#btnValRec").prop("disabled", false);
+            	toastr.info(data.message);
+                location.href = contextRoot + 'ticket';
+            }).fail(function (xhr, status, error) {
+            	$("#btnValRec").prop("disabled", false);
+                var resp = JSON.parse(xhr.responseText);
+                toastr.error(resp.message);
+            });
+
+            // stop the form from submitting the normal way and refreshing the page
+            event.preventDefault();
+        });
+        </script>
+	</th:block>
+</body>
+
+</html>

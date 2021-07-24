@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorator="layout/admin">
+
+<head>
+<meta charset="UTF-8" />
+<title>Réclamation</title>
+<th:block th:fragment="style" th:remove="tag">
+		<!--<link rel="stylesheet" th:href="@{/resources/js/jqgrid/ui.jqgrid.css}">-->
+		<link rel="stylesheet" th:href="@{/resources/js/jqgrid/ui.jqgrid-bootstrap4.css}">
+		<link rel="stylesheet" th:href="@{/resources/js/jqgrid/ui.jqgrid-bootstrap-ui.css}">
+		<style type="text/css">
+			input[type='checkbox'],
+			input[type='checkbox']:checked,
+			input[type='checkbox']:not(:checked) {
+				display: inline-block;
+				position: relative;
+				pointer-events: auto;
+				opacity: 1;
+			}
+		</style>
+	</th:block>
+</head>
+
+<body>
+	<ul class="collapsible collapsible-accordion" layout:fragment="navbar">
+		<li class=""><a href="index.html" th:href="@{/home}"> <i
+				class="fas fa-home"></i> <span class="menu-text"> Accueil </span>
+		</a> <b class="arrow"></b></li>
+		<!--<li class="">
+			<a href="index.html" th:href="@{/addCreance}">
+				<i class="fas fa-circle"></i>
+				<span class="menu-text">
+					Ajout de Créances </span>
+			</a>
+			<b class="arrow"></b>
+		</li>
+		<li class="">
+			<a href="index.html" th:href="@{/addbps}">
+				<i class="fas fa-circle"></i>
+				<span class="menu-text">
+					Ajout de BPS </span>
+			</a>
+			<b class="arrow"></b>
+		</li>
+		<li class=""><a href="/mcnp/creance" th:href="@{/ordre}"> <i
+						class="fas fa-eye"></i> Ordre de payement
+				</a> <b class="arrow"></b></li>-->
+		<li><a href="index.html" th:href="@{/reclamation}"> <i
+				class="menu-icon fas fa-home"></i> <span class="menu-text">
+					Reclamations </span>
+		</a> <b class="arrow"></b></li>
+		<li class=""><a href="#"
+			class="collapsible-header waves-effect arrow-r"> <i
+				class="menu-icon fa fa-list"></i> <span class="menu-text">
+					Correction SM</span> <b class="arrow fa fa-angle-down"></b>
+		</a> <b class="arrow"></b>
+			<div class="collapsible-body">
+				<ul>
+					<li><a href="/mcnp/creance/recouvrement.html"
+						th:href="@{/reclamation/mf107}"> <i class="menu-icon fas fa-circle"></i>
+							<span class="menu-text"> MF107</span>
+					</a> <b class="arrow"></b></li>
+					<li><a href="/mcnp/creance/recouvrement.html"
+						th:href="@{/reclamation/mf11000}"> <i class="menu-icon fas fa-circle"></i>
+							<span class="menu-text"> MF11000 </span>
+					</a> <b class="arrow"></b></li>
+					<li><a href="/mcnp/creance/releve.html" th:href="@{/reclamation/gcp}">
+							<i class="menu-icon fas fa-credit-card"></i> <span
+							class="menu-text"> BAn </span>
+					</a> <b class="arrow"></b></li>
+					<li><a href="/jmcnp/reclamation/sousc" th:href="@{/reclamation/sousc}">
+							<i class="menu-icon fas fa-credit-card"></i> <span
+							class="menu-text"> Souscription ReDéMaRe</span>
+					</a> <b class="arrow"></b></li>
+				</ul>
+			</div></li>
+		<li class=""><a href="#"
+			class="collapsible-header waves-effect arrow-r"> <i
+				class="menu-icon fa fa-list"></i> <span class="menu-text">
+					Désendettement </span> <b class="arrow fa fa-angle-down"></b>
+		</a> <b class="arrow"></b>
+			<div class="collapsible-body">
+				<ul>
+					<li><a href="/mcnp/creance/recouvrement.html"
+						th:href="@{/recouvrer}"> <i class="menu-icon fas fa-circle"></i>
+							<span class="menu-text"> Recouvrement </span>
+					</a> <b class="arrow"></b></li>
+					<li><a href="/mcnp/creance/recouvrement.html"
+						th:href="@{/payercmfh}"> <i class="menu-icon fas fa-circle"></i>
+							<span class="menu-text"> Recouvrement CMFH </span>
+					</a> <b class="arrow"></b></li>
+					<li><a href="/mcnp/creance/releve.html" th:href="@{/releve}">
+							<i class="menu-icon fas fa-credit-card"></i> <span
+							class="menu-text"> Relevé des Créances </span>
+					</a> <b class="arrow"></b></li>
+				</ul>
+			</div></li>
+	</ul>
+	<ul class="breadcrumb" layout:fragment="breadcrumb">
+		<li><i class="ace-icon fa fa-home home-icon"></i> <a
+			th:href="@{/}">Accueil</a></li>
+		<li class="active">Créances</li>
+	</ul>
+	<!-- /.breadcrumb -->
+	<div layout:fragment="content" class="mt-2">
+		<div class="card ">
+			<div class="container">
+				<div class="row">
+					<div class="md-form col-lg-5">
+						<input type="text" id="anccodeMembre" class="form-control" >
+						<label for="anccodeMembre">Ancien Code Membre</label>
+					</div>
+					<div class="md-form col-lg-6">
+						<input type="text" id="lib" class="form-control" >
+						<label for="lib">Libelle Souscription</label>
+					</div>
+					<div class="col-lg-1">
+					    <button id="btnSearchRec" type="button" class="btn btn-secondary">
+					       <i class="fas fa-search"></i>
+					    </button>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="card" style="margin-top: 5px;">
+			<div class="card-header">
+				<div class="float-left align-middle">
+					<a id="btnAddRec" th:href="@{reclamation/place}"
+						class="btn btn-sm btn-default">Ajout</a>
+					<button id="btnEditPlace" type="button"
+						class="btn btn-sm btn-blue-grey">Editer</button>
+				</div>
+				<h5 class="card-title align-middle">Souscription ReDéMaRe</h5>
+			</div>
+			<div class="card-body">
+				<table id="tblSousRed"></table>
+				<!-- Pagination Bar -->
+				<div id="sousRedPager"></div>
+			</div>
+		</div>
+	</div>
+	<th:block layout:fragment="script" th:remove="tag">
+		<script th:src="@{/resources/js/inputmask/jquery.inputmask.min.js}"></script>
+		<script th:src="@{/resources/js/jqgrid/grid.locale-fr.js}"></script>
+		<script th:src="@{/resources/js/jqgrid/jquery.jqGrid.min.js}"></script>
+		<script th:inline="javascript">
+			var contextRoot = /*[[@{/}]]*/
+					$(function() {
+						var sousTable = $("#tblSousRed");
+						sousTable.jqGrid({
+							url: contextRoot + 'reclamation/places/',
+							mtype: "GET",
+							styleUI: 'Bootstrap4',
+							iconSet: "fontAwesome",
+							postData: {
+								codeMembre: function() {
+									return $("#anccodeMembre").val();
+								},
+								lib: function() {
+									return $("#lib").val();
+								}
+							},
+							datatype: "json",
+							colModel: [
+								{ label: 'ID', name: 'num', key: true, width: 70 },
+								{ label: 'Date', name: 'datedepot', width: 90 },
+								{ label: 'Heure', name: 'heureid', width: 90 },
+								{ label: 'Agence', name: 'agence', width: 100 },
+								{ label: 'Caisse', name: 'cais', width: 120},
+								{ label: 'Code Membre', name: 'membre', width: 140 },
+								{ label: 'Libellé', name: 'lib', width: 200},
+								{ label: 'Montant', name: 'montant', width: 120},
+								{ label: 'Rembourser', name: 'rembourser',formatter:'checkbox', width: 90 }
+							],
+							page: 1,
+							autowidth: true,
+							height: 370,
+							rowNum: 20,
+							rowList: [20, 50, 100],
+							rownumWidth: 25,
+							sortname: 'membre',
+							multiselect: false,
+							viewrecords: true,
+							emptyrecords: 'Pas de lignes trouvees', // the message will be displayed at the bottom
+							pager: "#sousRedPager"
+						});
+
+						$("#btnSearchRec").click(function(e) {
+							e.preventDefault();
+							sousTable.jqGrid().trigger('reloadGrid');
+						});
+
+						$("#btnEditPlace").click(function(e) {
+							e.preventDefault();
+							var rowKey = sousTable.jqGrid('getGridParam', "selrow");
+		                    if (rowKey) {
+		                        var data = sousTable.jqGrid('getRowData', rowKey);
+		                        location.href = contextRoot + "reclamation/place/" + data.num;
+		                    } else {
+		                        toastr.info("Aucune ligne sélectionée");
+		                    }
+						});
+					});
+		</script>
+	</th:block>
+</body>
+
+</html>

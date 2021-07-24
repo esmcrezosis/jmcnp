@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="layout/admin">
+
+<head>
+    <title>Fiche ODD</title>
+    <th:block th:fragment="style" th:remove="tag">
+        <!--<link rel="stylesheet" th:href="@{/resources/js/jqgrid/ui.jqgrid.css}">-->
+        <link rel="stylesheet" th:href="@{/resources/js/jqgrid/ui.jqgrid-bootstrap4.css}">
+        <link rel="stylesheet" th:href="@{/resources/plugins/toastr/toastr.min.css}"/>
+        <style type="text/css">
+            input[type='checkbox'],
+            input[type='checkbox']:checked,
+            input[type='checkbox']:not(:checked) {
+                display: inline-block;
+                position: relative;
+                pointer-events: auto;
+                opacity: 1;
+            }
+        </style>
+    </th:block>
+</head>
+
+<body>
+<th:block layout:fragment="topbar">
+    <div th:include="oksu/menu :: topnav" th:remove="tag"></div>
+</th:block>
+<!-- /.breadcrumb -->
+<div layout:fragment="content" class="mt-1">
+    <div class=" card card-default">
+        <div class="card-header">
+            <div class="card-tools float-right">
+                <button class="btn btn-sm btn-default" id="valBci">
+                    <i class="fas fa-check"></i>
+                    Obtenir BCi
+                </button>
+            </div>
+            <h2 class="card-title">CMFH</h2>
+        </div>
+        <div class="card-body">
+            <div class="container">
+                <div class="row mt-2">
+                    <div class="col-lg-6">
+                        <div class="md-form">
+                            <input id="codeMembre" type="text" class="form-control" th:value="${codeMembre}" readonly>
+                            <label class="control-label" for="codeMembre">Code Membre</label>
+                        </div>
+                    </div>
+                    <div class="col-lg-5">
+                        <div class="md-form">
+                            <input id="montantBci" type="text" class="form-control" readonly>
+                            <label class="control-label" for="montantBci">Montant</label>
+                        </div>
+                    </div>
+                    <div class="col-lg-1">
+                        <button id="btnSearchCompte" class="btn btn-sm btn-primary" type="button">
+                            <i class="fas fa-search-plus"></i> Afficher
+                        </button>
+                    </div>
+                </div>
+                <table id="tblBci" class="table"></table>
+            </div>
+        </div>
+    </div>
+</div>
+<th:block layout:fragment="script" th:remove="tag">
+    <script th:src="@{/resources/js/jqgrid/grid.locale-fr.js}"></script>
+    <script th:src="@{/resources/js/jqgrid/jquery.jqGrid.min.js}"></script>
+    <script th:src="@{/resources/plugins/toastr/toastr.min.js}"></script>
+    <script type="text/javascript" th:inline="javascript">
+        var contextRoot = /*[[@{/}]]*/
+        $(function () {
+            var bciTable = $("#tblBci");
+            bciTable.jqGrid({
+                url: contextRoot + 'cmfh/liste/',
+                mtype: "GET",
+                styleUI: 'Bootstrap4',
+                iconSet: "fontAwesome",
+                postData: {
+                    codeMembre: function () {
+                        return $("#codeMembre").val();
+                    }
+                },
+                datatype: "json",
+                colModel: [
+                    {label: 'ID', name: 'idDepot', key: true, width: 70},
+                    {label: 'dateDepot', name: 'dateDepot', width: 90},
+                    {label: 'Code Membre', name: 'codeMembre', width: 120},
+                    {label: 'MS CMFH', name: 'montDepot', width: 130, summaryTpl: "{0}", summaryType: "sum"},
+                    {label: 'Type', name: 'typeDepot', width: 90},
+                    {label: 'Payer', name: 'payer', formatter: 'checkbox', width: 90}
+                ],
+                page: 1,
+                autowidth: true,
+                height: 370,
+                rowNum: 20,
+                rowList: [20, 50, 100],
+                rownumWidth: 25,
+                sortname: 'idDepot',
+                multiselect: true,
+                multiboxonly: true,
+                onSelectRow: function (rowId, status, e) {
+                    var ids = bciTable.jqGrid('getGridParam', 'selarrrow');
+                    var montant = 0;
+                    if (status && ids.length > 0) {
+                        ids.forEach(row => {
+                            var data = bciTable.jqGrid('getRowData', row);
+                            montant += parseFloat(data.montDepot);
+                        });
+                        $('#montantBci').val(montant);
+                        $('#montantBci').next("label").addClass('active');
+                    } else {
+                        $('#montantBci').val(0);
+                        $('#montantBci').next("label").addClass('active');
+                    }
+                },
+                onSelectAll: function (rowids, status) {
+                    var montant = 0;
+                    if (status && rowids.length > 0) {
+                        rowids.forEach(row => {
+                            var data = bciTable.jqGrid('getRowData', row);
+                            montant += parseFloat(data.montDepot);
+                        });
+                        $('#montantBci').val(montant);
+                        $('#montantBci').next("label").addClass('active');
+                    } else {
+                        $('#montantBci').val(0);
+                        $('#montantBci').next("label").addClass('active');
+                    }
+                },
+                viewrecords: true,
+                emptyrecords: 'Pas de lignes trouvees', // the message will be displayed at the bottom
+
+            });
+
+            $("#btnSearchCompte").click(function (e) {
+                e.preventDefault();
+                bciTable.jqGrid().trigger('reloadGrid');
+            });
+            $("#valBci").click(function (e) {
+                e.preventDefault();
+                var sm = {};
+                var ids = [];
+                var selectedRows = bciTable.jqGrid('getGridParam', 'selarrrow');
+                var i = 0;
+                selectedRows.forEach(row => {
+                    var data = bciTable.jqGrid('getRowData', row);
+                    ids[i] = data.idDepot;
+                    i++;
+                });
+                sm.codeMembre = $('#codeMembre').val();
+                sm.type = "CMFH";
+                sm.montant = $('#montantBci').val();
+                sm.ids = ids;
+                $.ajax({
+                    type: 'POST',
+                    url: contextRoot + 'bc/cmfh',
+                    data: JSON.stringify(sm),
+                    dataType: 'json',
+                    contentType: 'application/json',
+                }).done(function (data, status) {
+                    bciTable.jqGrid().trigger('reloadGrid');
+                    toastr.info(data.message);
+                }).fail(function (xhr, status, error) {
+                    var resp = JSON.parse(xhr.responseText);
+                    toastr.error(resp.message);
+                });
+            });
+        });
+    </script>
+</th:block>
+</body>
+
+</html>

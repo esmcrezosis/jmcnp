@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorator="layout/admin">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Souscription du Bon</title>
+</head>
+<body>
+<th:block layout:fragment="navbar">
+    <div th:include="ksu/menu :: navbar" th:remove="tag"></div>
+</th:block>
+<ul class="breadcrumb" layout:fragment="breadcrumb">
+    <li><i class="ace-icon fa fa-home home-icon"></i> <a
+            th:href="@{/}">Accueil</a></li>
+    <li class="active">KSU</li>
+</ul>
+<!-- /.breadcrumb -->
+<div layout:fragment="content">
+    <section class="section">
+        <div class="card mt-3">
+
+            <div class="card-body">
+                <!--Header -->
+                <div class="form-header narrower blue accent-1">
+                    <h3>
+                        <i class="fas fa-card"></i> Reception de KSU
+                    </h3>
+                </div>
+
+                <!--Body -->
+                <form th:method="post" th:action="@{/carte/reception}"
+                      th:object="${livraison}">
+
+                    <div class="md-form input-group mb-3">
+                        <input type="text" id="codeSuiviLiv" th:field="*{codeSuivi}"
+                               class="form-control">
+                        <label for="codeSuiviLiv">Code Suivi</label>
+                        <div class="input-group-append">
+                            <button class="btn btn-md btn-secondary m-0 px-3" type="button"
+                                    id="btnAfficherLiv">Afficher
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="md-form col-lg-6">
+                            <input type="text" id="idLivraison"
+                                   th:field="*{id}"
+                                   class="form-control" readonly="readonly" placeholder="ID Livraison">
+                        </div>
+
+                        <div class="md-form col-lg-6">
+                            <input type="text" id="nombre" th:field="*{nombre}"
+                                   class="form-control" placeholder="Nombre de KSU" readonly="readonly">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="md-form col-lg-6">
+                            <input type="date" id="dateDemandeLiv" th:name="dateDemande"
+                                   th:value="${#temporals.format(livraison.dateDemande, 'yyyy-MM-dd')}"
+                                   class="form-control" placeholder="dd/MM/yyyy" readonly="readonly"> <label
+                                for="dateDemandeLiv">Date Demande</label>
+                        </div>
+                        <div class="md-form col-lg-6">
+                            <input type="date" id="dateLivraisonKsu" th:name="dateLivraison"
+                                   th:value="${#temporals.format(livraison.dateLivraison, 'yyyy-MM-dd')}"
+                                   class="form-control" readonly="readonly"><label
+                                for="dateLivraisonKsu">Date d'Envoi</label>
+                        </div>
+                    </div>
+                    <div class="md-form">
+                        <select id="statutLivraison" th:field="*{status}"
+                                class="mdb-select md-form">
+                            <option value="ENCOURS">ENCOURS</option>
+                            <option value="ENVOYE">ENVOYE</option>
+                            <option value="RECU">RECU</option>
+                        </select>
+                        <!-- <label class="mdb-main-label">Status</label> -->
+                    </div>
+
+                    <div>
+                        <button type="submit" class="btn btn-primary">Valider</button>
+                        <button type="reset" class="btn btn-default">Annuler</button>
+                    </div>
+                </form>
+            </div>
+
+        </div>
+        <!--Form with header -->
+    </section>
+</div>
+<th:block layout:fragment="script">
+    <script type="text/javascript">
+        function myparser(s) {
+            if (!s) return "";
+            var ss = s.split("/");
+            var d = parseInt(ss[0], 10);
+            var m = parseInt(ss[1], 10);
+            var y = parseInt(ss[2], 10);
+            if (!isNaN(y) && !isNaN(m) && !isNaN(d)) {
+                var mon = m.toString();
+                if (mon.length == 1) {
+                    mon = "0" + mon;
+                }
+                var jour = d.toString();
+                if (jour.length == 1) {
+                    jour = "0" + jour;
+                }
+                return (y.toString() + "-" + mon + "-" + jour);
+            } else {
+                return "";
+            }
+        }
+
+        $('#btnAfficherLiv').click(function () {
+            $.ajax({
+                url: 'findKsu?code=' + $('#codeSuiviLiv').val(),
+                type: 'GET',
+                datatype: 'json',
+            }).done(function (data, status) {
+                if (status === 'success') {
+                    $('#idLivraison').val(data.id);
+                    $('#dateDemandeLiv').val(myparser(data.dateDemande));
+                    $('#nombre').val(data.nombre);
+                    $('#dateLivraisonKsu').val(myparser(data.dateLivraison));
+                    $('#statutLivraison').val(data.status);
+                }
+            }).fail(function (xhr, status, error) {
+                //var resp = JSON.parse(xhr.responseText);
+                alert('Error - cette carte n\'existe pas');
+            });
+        });
+    </script>
+</th:block>
+</body>
+</html>

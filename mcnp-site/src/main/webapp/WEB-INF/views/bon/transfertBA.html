@@ -1,0 +1,85 @@
+<!DOCTYPE HTML>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="layout/admin">
+<head>
+<title>Transfert de Bons</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+	<th:block layout:fragment="navbar">
+		<div th:include="bon/menu :: navbar" th:remove="tag"></div>
+	</th:block>
+	<ul class="breadcrumb" layout:fragment="breadcrumb">
+		<li><i class="ace-icon fa fa-home home-icon"></i> <a
+			th:href="@{/}">Accueil</a></li>
+		<li class="active">Transfert de Bons</li>
+	</ul>
+	<!-- /.breadcrumb -->
+	<div layout:fragment="content">
+		<section class="section card mt-3">
+			<div class="card-body">
+				<div class="form-header purple accent-1">
+					<h5>Transfert de Bon d'Achat</h5>
+				</div>
+				<form id="frm_transfertba" action="#" th:action="@{/transfertba}"
+					th:object="${bon}" method="post">
+					<div class="message">
+						<p th:text="${message}"></p>
+					</div>
+					<div class="md-form input-group mb-3">
+						<input id="codeMembre" type="text" class="form-control"
+							th:field="*{codeMembre}" required="required"
+							placeholder="Code Membre" aria-label="Code Membre"
+							aria-describedby="MaterialButton-addon2">
+						<div class="input-group-append">
+							<button class="btn btn-md btn-secondary m-0 px-3" type="button"
+								id="MaterialButton-addon2">QrCode</button>
+						</div>
+					</div>
+					<div class="md-form">
+						<input id="nom_membre" type="text" class="form-control"
+							placeholder="Nom du Membre" readonly="readonly" />
+					</div>
+					<div class="md-form">
+						<select class="mdb-select" id="typeBon" th:field="*{typeBon}"
+							required="required">
+							<option value="" selected="selected">Selectionner un
+								type de Bon d'Achat</option>
+							<option value="BAN">Bon Achat Neutre</option>
+							<option value="NN">Interne</option>
+						</select>
+					</div>
+					<div class="md-form">
+						<select class="mdb-select" id="catBon" th:field="*{catBon}">
+							<option value="">Choisir la catégorie du Bon d'Achat</option>
+						</select>
+					</div>
+					<div class="md-form">
+						<input type="text" class="form-control" id="montant"
+							th:field="*{montant}" required="required" /> <label
+							for="montant">Montant transfert</label>
+					</div>
+					<div class="form-actions">
+						<button type="submit" class="btn btn-primary">
+							<i class="ace-icon fa fa-check bigger-110"></i> Valider
+						</button>
+						&nbsp; &nbsp; &nbsp;
+						<button class="btn" type="reset">
+							<i class="ace-icon fa fa-undo bigger-110"></i> Réinitialiser
+						</button>
+					</div>
+				</form>
+			</div>
+		</section>
+	</div>
+	<th:block layout:fragment="script" th:remove="tag">
+		<script th:src="@{/resources/app/qrcode-decoder/qcode-decoder.min.js}"></script>
+		<script th:src="@{/resources/app/outil-qr.js}"></script>
+		<script type="text/javascript">
+   	       outilqrbouton_cm("frm_transfertba", "MaterialButton-addon2", "codeMembre");
+        </script>
+	</th:block>
+</body>
+</html>

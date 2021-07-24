@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="layout/admin">
+<head>
+    <title>Chaine de Distribution</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+</head>
+<body>
+<th:block layout:fragment="navbar">
+    <div th:include="admin/menu :: navbar" th:remove="tag"></div>
+</th:block>
+<ul class="breadcrumb" layout:fragment="breadcrumb">
+    <li><i class="ace-icon fa fa-home home-icon"></i> <a
+            th:href="@{/}">Accueil</a></li>
+    <li class="active">Chaine de Distribution</li>
+</ul>
+<!-- /.breadcrumb -->
+<div layout:fragment="content">
+    <form id="frmChaineDist" method="post" th:action="@{/chaine/add}" th:object="${chaine}">
+        <div class="alert alert-info" th:if="${message}">
+            <button type="button" class="close" data-dismiss="alert">
+                <i class="ace-icon fa fa-times"></i>
+            </button>
+            <p th:text="${message}"></p>
+        </div>
+        <div class="card">
+            <div class="card-header">
+                <h5 class="card-title align-middle">Ajout d'une Chaine de Distribution</h5>
+            </div>
+            <div class="card-body">
+                <div class="container">
+                    <div class="row">
+                        <div class="md-form col-lg-6">
+                            <input type="text" id="txtNomChaine" class="form-control" th:field="*{nom}">
+                            <label for="txtNomChaine">Nom</label>
+                        </div>
+                        <div class="md-form col-lg-6">
+                            <div class="form-check">
+                                <input id="chbAutonome" type="checkbox" class="form-check-input" name="autonome"
+                                       value="true">
+                                <label for="chbAutonome" class="form-check-label-left">Chaine de Distribution Autonome
+                                    ?</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="dvChaineParent" class="row">
+                        <div class="col-lg-12">
+                            <select type="text" id="slChaineParent" class="md-form mdb-select" th:field="*{idChaineParent}">
+                                <option value="" selected>Choisir la Chaine de distribution</option>
+                                <option th:each="c : ${chaines}" th:value="${c.id}" th:text="${c.nom}">Distributeur
+                                </option>
+                            </select>
+                            <label class="mdb-main-label" for="typeGcp">Chaine Distribution</label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="md-form input-group mb-3 col-lg-12">
+                            <input type="text" id="txtCodeMembreMorale" class="form-control"
+                                   aria-label="Code Membre" aria-describedby="btnArCode" th:field="*{codeMembreMorale}">
+                            <div class="input-group-append">
+                                <button class="btn btn-md btn-secondary m-0 px-3" type="button"
+                                        id="btnQrCode">QrCode
+                                </button>
+                            </div>
+                            <label for="txtCodeMembreMorale" class="active">Code Membre</label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="md-form col-lg-6">
+                            <input type="text" id="txtAdresseCh" class="form-control" th:field="*{adresse}">
+                            <label for="txtAdresseCh">Adresse</label>
+                        </div>
+                        <div class="md-form col-lg-6">
+                            <input type="text" id="txtCodePostalCh" class="form-control" th:field="*{codePostal}">
+                            <label for="txtCodePostalCh">Code Postal</label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="md-form col-lg-6">
+                            <input type="text" id="txtTelephone" class="form-control" th:field="*{telephone}">
+                            <label for="txtTelephone">Telephone</label>
+                        </div>
+                        <div class="md-form col-lg-6">
+                            <input type="text" id="txtVilleCh" class="form-control" th:field="*{ville}">
+                            <label for="txtVilleCh">Ville</label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <select type="text" id="slCanton" class="md-form mdb-select" th:field="*{typeChaine}">
+                                <option value="" selected>Choisir le Type Chaine de Distribution</option>
+                                <option th:each="t : ${types}" th:value="${t}" th:text="${t}">Distributeur</option>
+                            </select>
+                            <label class="mdb-main-label" for="typeGcp">Type Chaine Distribution</label>
+                        </div>
+                        <div class="col-lg-6">
+                            <select type="text" id="typeGcp" class="md-form mdb-select" th:field="*{idCanton}" searchable="Rechercher ici..">
+                                <option value="" selected>Choisir le Canton</option>
+                                <option th:each="c : ${cantons}" th:value="${c.idCanton}" th:text="${c.nomCanton}">
+                                    Distributeur
+                                </option>
+                            </select>
+                            <label class="mdb-main-label" for="typeGcp">Canton</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card-footer">
+                <button id="btValChaine" type="submit" class="btn btn-primary">Valider</button>
+                <button id="btAnnulChaine" type="button" class="btn btn-default">Annuler</button>
+            </div>
+        </div>
+    </form>
+</div>
+<th:block layout:fragment="script" th:remove="tag">
+    <script th:src="@{/resources/app/qrcode-decoder/qcode-decoder.min.js}"></script>
+    <script th:src="@{/resources/app/outil-qr.js}"></script>
+    <script th:inline="javascript">
+        $('#chbAutonome').change(function () {
+            if ($(this).is(":checked")) {
+                $('#dvChaineParent').hide();
+            } else {
+                $('#dvChaineParent').show();
+            }
+        });
+        outilqrbouton_cm("frmChaineDist", "btnQrCode", "txtCodeMembreMorale");
+    </script>
+</th:block>
+</body>
+</html>

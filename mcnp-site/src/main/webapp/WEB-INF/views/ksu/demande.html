@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sd="http://io.github.jpenren/sd"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="layout/admin">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Recherche de KSU</title>
+</head>
+<body>
+<th:block layout:fragment="navbar">
+    <div th:include="ksu/menu :: navbar" th:remove="tag"></div>
+</th:block>
+<ul class="breadcrumb" layout:fragment="breadcrumb">
+    <li><i class="ace-icon fa fa-home home-icon"></i> <a
+            th:href="@{/}">Accueil</a></li>
+    <li class="active">KSU</li>
+</ul>
+<!-- /.breadcrumb -->
+<div layout:fragment="content">
+    <section>
+        <h5 class="my-1 dark-grey-text font-weight-bold">Demande de KSU</h5>
+        <!-- Top Table UI -->
+        <div class="card p-2 mb-5">
+            <div class="container-fluid">
+                <!-- Grid row -->
+                <form th:method="get" th:action="@{/carte/demande}">
+                    <div class="row">
+
+                        <!-- Grid column -->
+                        <div class="col-lg-5 col-md-12">
+                            <div class="md-form" style="margin-top: 1.5rem">
+                                <input placeholder="Date Début" type="date" id="dateDeb"
+                                       name="deb" th:value="${deb}" class="form-control">
+                                <label for="dateDeb">De</label>
+                            </div>
+                        </div>
+                        <!-- Grid column -->
+
+                        <!-- Grid column -->
+                        <div class="col-lg-5 col-md-12">
+                            <div class="md-form" style="margin-top: 1.5rem">
+                                <input placeholder="Date Fin" type="date" id="dateFin"
+                                       name="fin" th:value="${fin}" class="form-control">
+                                <label for="dateFin">A</label>
+                            </div>
+                        </div>
+                        <!-- Grid column -->
+
+                        <!-- Grid column -->
+                        <div class="col-lg-2 col-md-12" style="margin-top: 1.5rem">
+                            <button type="submit" class="btn btn-sm btn-primary ml-2 px-1">
+                                <i class="fas fa-search"></i> Rechercher
+                            </button>
+                        </div>
+                        <!-- Grid column -->
+                    </div>
+                </form>
+            </div>
+            <!-- Grid row -->
+
+        </div>
+        <!-- Top Table UI -->
+        <div class="card card-cascade narrower z-depth-1">
+            <!-- Card image -->
+            <div
+                    class="view view-cascade gradient-card-header blue-gradient narrower py-2 mx-4 mb-3 d-flex justify-content-between align-items-center">
+                <div>
+                    <button type="button" id="btnDemande"
+                            class="btn btn-outline-white btn-rounded btn-sm px-2">
+                        <i class="fas fa-th-large mt-0"></i> Valider
+                    </button>
+                    <button type="button" id="btnDemandeAll"
+                            class="btn btn-outline-white btn-rounded btn-sm px-2">
+                        <i class="fas fa-columns mt-0"></i> Valider Toutes
+                    </button>
+                </div>
+                <a href="" class="white-text mx-3">KSU</a>
+                <div>
+                    <br/>
+                </div>
+            </div>
+            <!-- /Card image -->
+
+            <div class="px-4">
+
+                <div class="table-responsive">
+                    <!-- Table -->
+                    <table class="table table-hover "></table>
+                    <div th:if="${not #lists.isEmpty(cartes)}">
+                        <table id="tbcartes" class="table table-sm table-hover mb-0">
+                            <thead>
+                            <tr>
+                                <th><input class="form-check-input" type="checkbox"
+                                           id="selectAll"> <label for="selectAll"
+                                                                  class="form-check-label mr-2 label-table"></label>
+                                </th>
+                                <th style="display: none">ID</th>
+                                <th class="th-lg"><a class="sorted"
+                                                     sd:pagination-sort="dateDemande">Date <i
+                                        class="fas fa-sort ml-1"></i></a></th>
+                                <th class="th-lg"><a class="sorted"
+                                                     sd:pagination-sort="euMembre.codeMembre">Code Membre <i
+                                        class="fas fa-sort ml-1"></i></a></th>
+                                <!--<th class="th-lg">Imprimer</th>-->
+                                <th class="th-lg">Date Impression</th>
+                                <th class="th-lg">Livrer</th>
+                                <th class="th-lg" style="width: 20px;">Date Livraison</th>
+                                <th class="th-lg">Actions</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr th:each="row,rowStat : ${cartes}">
+                                <th><input class="select form-check-input"
+                                           type="checkbox" th:id="${'checkbox' + rowStat.count}">
+                                    <label th:for="${'checkbox' + rowStat.count}"
+                                           class="form-check-label label-table"></label></th>
+                                <td style="display: none" th:text="${row.idCarte}">id</td>
+                                <td th:text="${row.dateDemande}">Date</td>
+                                <td><a th:href="@{|/ksu/edit/${row.idCarte}|}"
+                                       th:text="( (${row.euMembre} != null)? ${row.euMembre.codeMembre} : '')">Code
+                                    Membre</a></td>
+                                <!--<td th:text="( (${row.imprimer} == true)? 'OUI' : 'NON')">OUI</td>-->
+                                <td th:text="${row.dateImpression}">Montant Bc</td>
+                                <td th:text="( (${row.livrer} == true)? 'OUI' : 'NON')">OUI</td>
+                                <td th:text="${row.dateLivraison}">NON</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-6">
+                        <div sd:pagination-summary="">info</div>
+                    </div>
+                    <div class="col-sm-6">
+                        <nav class="pull-right">
+                            <ul class="pagination" sd:pagination-split="7"
+                                sd:pagination="full">
+                                <!-- Pagination created by SpringDataDialect, this content is just for mockup -->
+                                <li class="disabled"><a href="#" aria-label="Previous"><span
+                                        aria-hidden="true">&laquo;</span></a></li>
+                                <li class="active"><a href="#">1 <span
+                                        class="sr-only">(current)</span></a></li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+<th:block layout:fragment="script" th:remove="tag">
+    <script type="text/javascript">
+        $("#selectAll").click(function () {
+            if (this.checked) {
+                // Iterate each checkbox
+                $(':checkbox').each(function () {
+                    this.checked = true;
+                });
+            } else {
+                $(':checkbox').each(function () {
+                    this.checked = false;
+                });
+            }
+        });
+
+        $(".select").click(function () {
+            if ($(".select").length == $(".select:checked").length) {
+                $("input#selectAll").checked = true;
+            } else {
+                console.log("Unchecked selectAll");
+                $("#selectAll").checked = false;
+            }
+
+        });
+
+        $(function () {
+            //Assign Click event to Button.
+            $("#btnDemande").click(function () {
+                var ids = Array();
+                var action = "imp";
+                //Loop through all checked CheckBoxes in GridView.
+                $("#tbcartes input[type=checkbox]:checked").each(function () {
+                    var row = $(this).closest("tr")[0];
+                    if (!isNaN(row.cells[1].innerHTML)) {
+                        ids.push(row.cells[1].innerHTML);
+                    }
+                });
+                $.ajax({
+                    url: 'addDemande?cartes=' + ids,
+                    type: 'GET',
+                    dataType: 'html',
+                    success: function (data, statut) { // code_html contient le HTML renvoyé
+                        alert(data);
+                        location.reload();
+                    }
+                });
+                return false;
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4"
+	layout:decorator="layout/admin">
+<head>
+<title>Espace Bancaire</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+	<ul class="collapsible collapsible-accordion" layout:fragment="navbar">
+		<li class=""><a href="index.html" th:href="@{/home}"> <i
+				class="menu-icon fa fa-tachometer"></i> <span class="menu-text">
+					Accueil </span>
+		</a> <b class="arrow"></b></li>
+		<li sec:authorize="hasAnyAuthority('surveillance_filiere')"><a
+			href="/mcnp/banque/affectationBan" th:href="@{/affectban}"> <i
+				class="menu-icon fa fa-tachometer"></i> <span class="menu-text">
+					Affecter BAn </span>
+		</a> <b class="arrow"></b></li>
+	</ul>
+	<ul class="breadcrumb" layout:fragment="breadcrumb">
+		<li><i class="ace-icon fa fa-home home-icon"></i> <a
+			th:href="@{/}">Accueil</a></li>
+		<li class="active">Affectation de BAn</li>
+	</ul>
+	<!-- /.breadcrumb -->
+	<div layout:fragment="content">
+		<div class="widget-box widget-color-blue">
+			<div class="widget-header widget-header-small">
+				<h5 class="widget-title">Affectation de BAn</h5>
+			</div>
+			<div class="widget-body">
+				<div class="widget-main">
+					<form id="frm_ban" action="#" th:action="@{/affectban}"
+						th:object="${ban}" method="post">
+						<div class="alert alert-info" th:if="${message}">
+							<button type="button" class="close" data-dismiss="alert">
+								<i class="ace-icon fa fa-times"></i>
+							</button>
+							<p id="ban_message" th:text="${message}"></p>
+						</div>
+						<div>
+							<label for="codeMembreBanAff">Code Membre</label> <input
+								class="form-control" id="codeMembreBanAff" th:field="*{codeMembre}"
+								required="required" />
+						</div>
+						<div>
+							<label for="typeBanAff">Code Membre</label> <select
+								class="form-control" id="typeBanAff" th:field="*{type}"
+								required="required" >
+								      <option value="KCM">Carte Bio</option>
+								      <option value="CM">Compte Marchand</option>
+								      <option value="BC">Bon de consommation</option>
+								</select>
+						</div>
+						<div>
+							<label for="raisonSocialeBanAff">Nom / Raison Sociale</label> <input
+								class="form-control" id="raisonSocialeBanAff" />
+						</div>
+						<div>
+							<label for="montantBan">Montant BAn</label> <input
+								class="form-control" id="montantBan" th:field="*{montant}"
+								required="required" />
+						</div>
+						<div class="form-actions">
+							<button type="submit" class="btn btn-primary">
+								<i class="ace-icon fa fa-check bigger-110"></i>Valider
+							</button>
+							&nbsp; &nbsp; &nbsp;
+							<button class="btn" type="reset">
+								<i class="ace-icon fa fa-undo bigger-110"></i> Annuler
+							</button>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

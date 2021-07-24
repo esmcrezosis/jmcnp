@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4"
+	layout:decorator="layout/template">
+<head>
+<title>SMCIPN</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+	<ul layout:fragment="navbar">
+		<li class=""><a href="index.html" th:href="@{/home}"> <i
+				class="menu-icon fa fa-tachometer"></i> <span class="menu-text">
+					Accueil </span>
+		</a> <b class="arrow"></b></li>
+		<li><a href="#" class="dropdown-toggle"> <i
+				class="menu-icon fa fa-tachometer"></i> <span class="menu-text">
+					SMCIPN </span>
+		</a> <b class="arrow"></b>
+			<ul class="submenu">
+				<li sec:authorize="hasAnyAuthority('detentrice')"
+					th:if="${#strings.equalsIgnoreCase(role,'SOURCE')}"><a
+					href="/mcnp/smcipn/smci" th:href="@{/technopole}"> <i
+						class="menu-icon fa fa-tachometer"></i> <span class="menu-text">
+							KIT Technopôle </span>
+				</a> <b class="arrow"></b></li>
+				<li sec:authorize="hasAnyAuthority('detentrice')"
+					th:if="${#strings.equalsIgnoreCase(role,'SOURCE')}"><a
+					href="/mcnp/smcipn/smcipn" th:href="@{/payer}"> <i
+						class="menu-icon fa fa-tachometer"></i> <span class="menu-text">
+							Payement de Charges </span>
+				</a> <b class="arrow"></b></li>
+				<li class=""><a href="/mcnp/smcipn/transfert_smcipn"
+					th:href="@{/transfertSmcipn}"> <i
+						class="menu-icon fa fa-plus purple"></i>Transfert SMCIPN
+				</a> <b class="arrow"></b></li>
+				<li class=""><a href="/mcnp/smcipn/liaison"
+					th:href="@{/liaison}"> <i class="menu-icon fa fa-plus purple"></i>Liaison
+						de Compte d'Anim
+				</a> <b class="arrow"></b></li>
+			</ul></li>
+		<li class=""><a href="/mcnp/smcipn/transfert_recu"
+			th:href="@{/transfertrec}"> <i
+				class="menu-icon fa fa-plus purple"></i>SMCIPN Reçus
+		</a> <b class="arrow"></b></li>
+		<li class=""><a href="/mcnp/smcipn/transfert_eff"
+			th:href="@{/transferteff}"> <i
+				class="menu-icon fa fa-plus purple"></i>SMCIPN Transférés
+		</a> <b class="arrow"></b></li>
+	</ul>
+	<ul class="breadcrumb" layout:fragment="breadcrumb">
+		<li><i class="ace-icon fa fa-home home-icon"></i> <a
+			th:href="@{/}">Accueil</a></li>
+		<li class="active">SMCIPN</li>
+	</ul>
+	<!-- /.breadcrumb -->
+	<div layout:fragment="content">
+		<div class="widget-box widget-color-blue">
+			<div class="widget-header widget-header-small">
+				<h5 class="widget-title">SMCIPN KIT TECHNOPÔLE</h5>
+			</div>
+			<div class="widget-body">
+				<div class="widget-main">
+					<form id="frm_smcipnkittech" action="#" th:action="@{/payerSmcipn}"
+						th:object="${smcipn}" method="post" class="form-horizontal">
+						<div class="alert alert-info" th:if="${message}">
+							<button type="button" class="close" data-dismiss="alert">
+								<i class="ace-icon fa fa-times"></i>
+							</button>
+							<p th:text="${message}"></p>
+						</div>
+						<div id="opi-widget" class="widget-box">
+							<div id="opi-widget-header"
+								class="widget-header widget-header-small">
+								<h6>SMCIPN Kit Technopôle</h6>
+							</div>
+							<div id="opi-widget-body" class="widget-body">
+								<div class="widget-main">
+									<div class="row">
+										<div class="col-md-6">
+											<div class="form-group">
+												<label for="type_paiement" class="control-label col-md-4">Type
+													Paiement</label>
+												<div class="col-md-8">
+													<select class="form-control" id="type_paiement"
+														th:field="*{typePaiement}" required="required">
+														<option value=""></option>
+														<option value="PS">Prestataires</option>
+														<option value="AVPC">Achat et Vente de la
+															Production Commune</option>
+													</select>
+												</div>
+											</div>
+										</div>
+										<div class="col-md-6">
+											<div class="form-group">
+												<label for="smcipn_type" class="col-md-4 control-label">Type
+													SMCIPN</label>
+												<div class="col-md-8">
+													<select class="form-control" id="smcipn_type"
+														th:field="*{type}" required="required">
+														<option value="I">Investissement</option>
+														<option value="TPN">Salaire</option>
+													</select>
+												</div>
+											</div>
+										</div>
+									</div>
+									<br />
+									<div class="row">
+										<div class="col-md-6">
+											<div class="form-group">
+												<label for="codeMembreBenef" class="control-label col-md-4">Code
+													Membre Vendeur</label>
+												<div class="col-md-8">
+													<input class="form-control" id="codeMembreBenef"
+														th:field="*{codeMembre}" required="required" />
+												</div>
+											</div>
+										</div>
+										<div class="col-md-6">
+											<div class="form-group">
+												<label for="smcipn_tegc" class="col-md-4 control-label">Terminal
+													de Vente</label>
+												<div class="col-md-8">
+													<select id="smcipn_tegc" th:field="*{codeTe}"
+														class="form-control" required="required"></select>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div>
+										<label for="typeProduit">Type Produit </label> <select
+											class="form-control" id="typeProduit"
+											th:field="*{typeProduit}" required="required">
+											<option value="PO">Ordinaire</option>
+											<option value="PS">Spécial</option>
+										</select>
+									</div>
+									<div>
+										<label for="codeMembreSmcipn">Code Membre Demandeur
+											SMCIPN </label> <input id="codeMembreSmcipn" class="form-control"
+											th:field="*{codeMembreSmcipn}" required="required" />
+									</div>
+									<div>
+										<label for="numAppelOffre">Numéro Contrat ou de la
+											Demande</label> <input id="numAppelOffre" class="form-control"
+											th:field="*{numAppelOffre}" required="required" />
+									</div>
+									<div>
+										<label for="nomAppelOffre">Nom SMCIPN</label> <input
+											id="nomAppelOffre" class="form-control"
+											th:field="*{nomAppelOffre}" required="required" />
+									</div>
+									<!-- <div>
+                                            <label for="codeMembreBenef">Code Membre Beneficiaire</label>
+                                            <input class="form-control" id="codeMembreBenef"
+                                                   th:field="*{codeMembre}" required="required" />
+                                        </div>
+                                        <div>
+										<label for="dureeAppelOffre">Durée SMCIPN</label> <input
+											id="dureeAppelOffre" class="form-control" th:field="*{duree}" />
+									     </div>
+                                        -->
+									<div>
+										<label for="description">Description SMCIPN</label> <input
+											id="description" class="form-control"
+											th:field="*{description}" required="required" />
+									</div>
+									<div>
+										<label for="smc_montant">Montant SMCIPN</label> <input
+											class="form-control" id="smc_montant" th:field="*{montant}"
+											required="required" />
+									</div>
+									<div class="form-actions">
+										<button type="submit" id="btn-val-kit-techno"
+											class="btn btn-primary">
+											<i class="ace-icon fa fa-check bigger-110"></i>Valider
+										</button>
+										&nbsp; &nbsp; &nbsp;
+										<button id="btn-reset-kit-techno" class="btn" type="reset">
+											<i class="ace-icon fa fa-undo bigger-110"></i> Réinitialiser
+										</button>
+									</div>
+								</div>
+							</div>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

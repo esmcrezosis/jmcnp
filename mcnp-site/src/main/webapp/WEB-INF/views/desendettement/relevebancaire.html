@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorator="layout/admin">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Recouvrement</title>
+</head>
+<body>
+<ul class="collapsible collapsible-accordion" layout:fragment="navbar">
+    <li><a href="index.html" th:href="@{/home}"> <i
+            class="menu-icon fas fa-home"></i> <span class="menu-text">
+					Accueil </span>
+    </a> <b class="arrow"></b></li>
+    <li class=""><a href="#"
+                    class="collapsible-header waves-effect arrow-r"> <i
+            class="menu-icon fa fa-list"></i> <span class="menu-text">
+					Désendettement </span> <b class="arrow fa fa-angle-down"></b>
+    </a> <b class="arrow"></b>
+        <div class="collapsible-body">
+            <ul>
+                <li><a href="/mcnp/creance/recouvrement.html"
+                       th:href="@{/recouvrer}"> <i class="menu-icon fas fa-circle"></i>
+                    <span class="menu-text"> Recouvrement </span>
+                </a> <b class="arrow"></b></li>
+                <li><a href="/mcnp/creance/recouvrement.html"
+                       th:href="@{/payercmfh}"> <i class="menu-icon fas fa-circle"></i>
+                    <span class="menu-text"> Recouvrement CMFH </span>
+                </a> <b class="arrow"></b></li>
+                <li><a href="/mcnp/creance/releve.html"
+                       th:href="@{/releve}"> <i
+                        class="menu-icon fas fa-credit-card"></i> <span class="menu-text">
+								Relevé des Créances </span>
+                </a> <b class="arrow"></b></li>
+            </ul>
+        </div>
+    </li>
+</ul>
+<ul class="breadcrumb" layout:fragment="breadcrumb">
+    <li><i class="ace-icon fa fa-home home-icon"></i> <a
+            th:href="@{/}">Accueil</a></li>
+    <li class="active">Recouvrement</li>
+</ul>
+<!-- /.breadcrumb -->
+<div layout:fragment="content">
+    <div class="card">
+        <div class="card-body">
+            <form id="frm_addCreance" action="#" th:action="@{/recouvrer}"
+                  th:object="${recouvrementDto}" method="post">
+                <div class="form-header">
+                    <h5>Recouvrement</h5>
+                </div>
+                <div class="alert alert-info" th:if="${message}">
+                    <button type="button" class="close" data-dismiss="alert">
+                        <i class="ace-icon fa fa-times"></i>
+                    </button>
+                    <p id="opi_message" th:text="${message}"></p>
+                </div>
+                <div class="md-form">
+                   <label class="control-label" for="typeCreance">Type
+                        Créance</label> 
+                  <select id="typeCreance" class="mdb-select" th:field="*{typeCreance}">
+                    <option value="MCNP">MCNP</option>
+                    <option value="ReDeMaRe">ReDeMaRe</option>
+                </select>
+                </div>
+                <div class="md-form">
+                    <label class="control-label" for="typeRessource">Type
+                        Ressource</label> <select id="typeRessource" class="mdb-select"
+                                                  th:field="*{typeRessource}">
+                    <option value="CNP">Bon de Consommation</option>
+                    <option value="GCP">GCP</option>
+                    <option value="CNCS">Salaire</option>
+                    <option value="MF11000">MF11000</option>
+                    <option value="MF107">MF107</option>
+                </select>
+                </div>
+                <div class="md-form input-group mb-3">
+                    <input id="newCodeMembre" type="text" class="form-control"
+                           th:field="*{newCodeMembre}" required="required"
+                           placeholder="Code Membre ESMC" aria-label="Code Membre"
+                           aria-describedby="MaterialButton-addon2">
+                    <div class="input-group-append">
+                        <button class="btn btn-md btn-secondary m-0 px-3" type="button"
+                                id="btnNewCodeMembre">QrCode
+                        </button>
+                    </div>
+                    <label class="control-label" for="newCodeMembre">Nouveau
+                        Code Membre</label>
+                </div>
+                <div class="md-form">
+                    <input type="text" class="form-control" id="nom_membre" placeholder="Nom"/> <label
+                        class="active" for="nom_membre">Nom Membre</label>
+                </div>
+                <div class="md-form">
+                    <input type="text" class="form-control" id="prenom_membre" placeholder="Prénoms"/> <label
+                        class="active" for="prenom_membre">Prénoms Membre</label>
+                </div>
+                <div class="md-form">
+                    <label class="control-label" for="ancCodeMembre">Ancien
+                        Code Membre</label> <input id="ancCodeMembre" type="text"
+                                                   class="form-control" th:field="*{codeMembre}"/>
+                </div>
+                <div class="md-form">
+                    <label class="control-label" for="nomMembreAnc">Nom Membre</label>
+                    <input type="text" class="form-control" id="nomMembreAnc"/>
+                </div>
+                <div class="md-form">
+                    <label class="control-label" for="idReleve">Numéro Relevé</label>
+                    <input id="idReleve" type="text" class="form-control"
+                           th:field="*{idReleve}"/>
+                </div>
+                <div class="form-actions">
+                    <button type="submit" class="btn btn-primary">
+                        <i class="fas fa-check"></i> Valider
+                    </button>
+                    <button class="btn" type="reset">
+                        <i class="fas fa-undo"></i> Réinitialiser
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<th:block layout:fragment="script" th:remove="tag">
+    <script th:src="@{/resources/app/qrcode-decoder/qcode-decoder.min.js}"></script>
+    <script th:src="@{/resources/app/outil-qr.js}"></script>
+    <script type="text/javascript" th:inline="javascript">
+        outilqrbouton_cm("frm_addCreance", "btnNewCodeMembre", "newCodeMembre");
+        var contextRoot = /*[[@{/}]]*/
+            $(function () {
+
+            });
+    </script>
+</th:block>
+</body>
+</html>

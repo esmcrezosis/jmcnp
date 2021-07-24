@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4"
+      layout:decorate="layout/admin">
+<head>
+    <title>SMCIPN</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+</head>
+<body>
+<ul class="collapsible collapsible-accordion" layout:fragment="navbar">
+		<div th:include="budget/menu :: navbar" th:remove="tag"></div>
+	</ul>
+<ul class="breadcrumb" layout:fragment="breadcrumb">
+    <li><i class="ace-icon fa fa-home home-icon"></i> <a
+            th:href="@{/}">Accueil</a></li>
+    <li class="active">SMCIPN</li>
+</ul>
+<!-- /.breadcrumb -->
+<div layout:fragment="content">
+    <section class="section card">
+        <div class="card-header">
+            <h4 class="card-title w-100 font-weight-bold">Ajout de Budget</h4>
+        </div>
+        <div class="card-body">
+            <form id="frm_sousbc" action="#" th:action="@{/budget/add}"
+                  th:object="${budget}" method="post" class="form-horizontal">
+                <div class="alert alert-info" th:if="${message}">
+                    <button type="button" class="close" data-dismiss="alert">
+                        <i class="ace-icon fa fa-times"></i>
+                    </button>
+                    <p th:text="${message}"></p>
+                </div>
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="md-form">
+                            <input type="date" class="form-control"
+                                   id="txtDateBudget" th:field="*{dateBudget}">
+                            <label
+                                    for="txtDateBudget">Date Budget</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-12">
+                        <select id="slTypeBudget" class="mdb-select md-form" th:field="*{typeBudget.id}">
+                            <option th:each="t : ${types}" th:value="${t.id}"
+                                    th:text="${t.libelleBudget}"></option>
+                        </select>
+                        <label class="mdb-main-label">Type Budget</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="md-form">
+                            <input type="text" class="form-control"
+                                   id="txtCodeBudget" th:field="*{codeBudget}">
+                            <label
+                                    for="txtCodeBudget">Code Budget</label>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="md-form">
+                            <input type="text" class="form-control"
+                                   id="txtNomBudget" th:field="*{nomBudget}">
+                            <label
+                                    for="txtNomBudget">Nom Budget</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="md-form">
+                            <input type="text" class="form-control"
+                                   id="txtMontantDem" th:field="*{montantDemande}">
+                            <label
+                                    for="txtMontantDem">Montant Budget</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-12">
+                        <select id="statutBudgetSlt" class="mdb-select md-form" th:field="*{statutBudget}">
+                            <option th:each=" s : ${statuts}" th:value="${s}" th:text="${s}"></option>
+                        </select>
+                        <label class="mdb-main-label">Statut</label>
+                    </div>
+                </div>
+
+                <div class="form-actions">
+                    <button type="submit" class="btn btn-primary">
+                        <i class="ace-icon fa fa-check"></i> Valider
+                    </button>
+                    <a class="btn" th:href="@{/budget/list}">
+                        <i class="ace-icon fa fa-undo"></i> Réinitialiser
+                    </a>
+                </div>
+            </form>
+        </div>
+    </section>
+</div>
+<th:block layout:fragment="script" th:remove="tag">
+    <script type="text/javascript">
+    </script>
+</th:block>
+</body>
+</html>

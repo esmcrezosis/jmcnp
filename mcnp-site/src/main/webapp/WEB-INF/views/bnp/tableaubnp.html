@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorator="layout/template">
+<head>
+
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="description" content="" />
+<meta name="author" content="" />
+
+<title>MCNP</title>
+
+</head>
+
+<body>
+	<ul layout:fragment="navbar">
+		<li class=""><a href="index.html" th:href="@{/home}"> <i
+				class="menu-icon fa fa-tachometer"></i> <span class="menu-text">
+					Accueil </span>
+		</a> <b class="arrow"></b></li>
+		<li class=""><a href="mcnp/bnp/bnp.html" th:href="@{/bnp}"> <i
+				class="menu-icon fa fa-tachometer"></i> <span class="menu-text">
+					Souscription / Tiers </span>
+		</a> <b class="arrow"></b></li>
+		<li class=""><a href="mcnp/bnp/tableaubnp.html"
+			th:href="@{/tbnp}"> <i class="menu-icon fa fa-tachometer"></i> <span
+				class="menu-text"> Tableau des BNP </span>
+		</a> <b class="arrow"></b></li>
+	</ul>
+	<ul class="breadcrumb" layout:fragment="breadcrumb">
+		<li><i class="ace-icon fa fa-home home-icon"></i> <a
+			th:href="@{/}">Home</a></li>
+		<li><a th:href="@{/bindex}">BNP</a></li>
+		<li class="active">Tableau du BNP</li>
+	</ul>
+	<!-- /.breadcrumb -->
+	<div layout:fragment="content">
+		<div class="widget-box widget-color-dark">
+			<div class="widget-header widget-header-small">
+				<h5 class="widget-title">Tableau des BNP</h5>
+			</div>
+			<div class="widget-body">
+				<div class="widget-main">
+					<form class="form-inline" method="post" action="#"
+						th:action="@{/tbnp}" th:object="${bnpForm}">
+						<label for="id_type_bnp">Type BNP:</label> <select
+							id="id_type_bnp" th:field="*{typeBnp}"
+							style="margin-right: 10px;">
+							<option value="CMIT">CAIPC</option>
+							<option value="CMIT">CAPU</option>
+							<option value="CMIT">CMIT</option>
+						</select> <span class="width:7px;"></span> <label for="id_bnp">Enroller:</label>
+						<input type="checkbox" th:field="*{fs}" value="1"
+							style="margin-right: 15px;" /> <label for="id_type_bnp">Montant
+							BNP:</label> <input type="text" th:field="*{montantBnp}"
+							style="margin-right: 5px;" />
+						<button class="btn btn-sm btn-primary" type="submit">
+							<i class="ace-icon fa fa-check"></i>Valider
+						</button>
+					</form>
+					<br />
+					<table id="simple-table"
+						class="table table-striped table-bordered table-hover no-margin-bottom no-border-top">
+						<thead>
+							<tr>
+								<th>Période</th>
+								<th>ID Crédit</th>
+								<th>Type BNP</th>
+								<th>Montant BNP</th>
+								<th>Montant BC</th>
+								<th>ConUs</th>
+								<th>PaR</th>
+								<th>PaNu</th>
+								<th>Fs</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr th:each="bnp : ${bnps}">
+								<td th:text="${bnp.periode}"></td>
+								<td th:text="${bnp.idCredit}"></td>
+								<td th:text="${bnp.codeBnp}"></td>
+								<td th:text="${bnp.montBnp}"></td>
+								<td th:text="${bnp.montCredit}"></td>
+								<td th:text="${bnp.montConus}"></td>
+								<td th:text="${bnp.montPar}"></td>
+								<td th:text="${bnp.montPanu}"></td>
+								<td th:text="${bnp.montFs}"></td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

@@ -1,0 +1,143 @@
+/* Your custom styles */
+
+.form-horizontal .form-group {
+    margin-right: 2px;
+    margin-left: 2px;
+}
+
+.form-group {
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.ui-button {
+    margin-top: 3px !important;
+}
+
+.box {
+    margin-bottom: 8px;
+}
+
+.box-header {
+    padding: 7px 10px;
+}
+
+.form-header {
+    padding-top: 0.1rem;
+    padding-bottom: 0.1rem;
+    margin-top: -2.5rem;
+    margin-bottom: 1rem;
+}
+
+.modal-header {
+    padding: 0.5rem 0.7rem;
+}
+
+.modal-body {
+    padding: 0.5rem;
+}
+
+.md-form {
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.modal-footer {
+    padding-bottom: 0.2rem;
+    border-top: none;
+}
+
+.col-xs-1,.col-sm-1,.col-md-1,.col-lg-1,
+.col-xs-2,.col-sm-2,.col-md-2,.col-lg-2,
+.col-xs-3,.col-sm-3,.col-md-3,.col-lg-3,
+.col-xs-4,.col-sm-4,.col-md-4,.col-lg-4,
+.col-xs-5,.col-sm-5,.col-md-5,.col-lg-5,
+.col-sm-6,.col-md-6,.col-lg-6,.col-xs-7,
+.col-sm-7,.col-md-7,.col-lg-7,.col-xs-8,
+.col-sm-8,.col-md-8,.col-lg-8,.col-xs-9,
+.col-sm-9,.col-md-9,.col-lg-9,.col-xs-10,
+.col-sm-10,.col-md-10,.col-lg-10,.col-xs-11,
+.col-sm-11,.col-md-11,.col-lg-11,.col-xs-12,
+.col-sm-12,.col-md-12,.col-lg-12,.col-xs-6 {
+    position: relative;
+    min-height: 1px;
+    padding-right: 5px;
+    padding-left: 5px;
+}
+
+.ui-jqgrid tr.jqgrow td {
+    height: 20px;
+    padding: 5px;
+}
+
+.card-header {
+    padding: 0;
+    text-align: center;
+}
+
+.card-header>.card-tools [data-toggle='tooltip'] {
+    position: relative;
+}
+
+.card-title {
+    font-size: 1.1rem;
+    font-weight: 400;
+    margin-top: 0.7rem;
+}
+
+
+/*The shade (overlay) behind jQuery UI dialogs does not work on mobile devices, and is switched off.*/
+
+.ui-widget-overlay {
+    background: none;
+}
+
+
+/*This rule makes jqGrid work with the CSS reset.*/
+
+.b-center-panel .ui-jqgrid table {
+    border-collapse: separate;
+}
+
+
+/*a data grid cell*/
+
+.b-center-panel .grid-col {
+    padding-right: 2px !important;
+    padding-left: 2px !important;
+    vertical-align: middle;
+}
+
+
+/*This rule make scrollbars look better in IE.*/
+
+.b-center-panel .ui-jqgrid-bdiv {
+    scrollbar-arrow-color: black;
+    scrollbar-base-color: white;
+    scrollbar-face-color: white;
+}
+
+
+/*The page number in the data grid bottom bar.*/
+
+.b-center-panel .ui-pg-input {
+    border: 1px solid #A6C9E2;
+    border-radius: 4px;
+}
+
+
+/*The page size in the data grid bottom bar.*/
+
+html:not(.browser-android) .b-center-panel .ui-pg-selbox {
+    border: 1px solid #A6C9E2;
+    border-radius: 4px;
+    background-color: white;
+}
+
+table.table td,
+table.table th {
+    padding-top: 0.5rem;
+    padding-bottom: 0.4rem;
+}
+
+ui-th-div {}

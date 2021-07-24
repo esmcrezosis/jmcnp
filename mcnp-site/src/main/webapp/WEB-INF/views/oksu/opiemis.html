@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="layout/admin">
+<head>
+<title>Espace Bancaire</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<th:block th:fragment="style" th:remove="tag">
+	<!--<link rel="stylesheet" th:href="@{/resources/js/jqgrid/ui.jqgrid.css}">-->
+	<link rel="stylesheet"
+		th:href="@{/resources/js/jqgrid/ui.jqgrid-bootstrap4.css}">
+	<link rel="stylesheet"
+		th:href="@{/resources/js/jqgrid/ui.jqgrid-bootstrap-ui.css}">
+	<style type="text/css">
+input[type='checkbox'], input[type='checkbox']:checked, input[type='checkbox']:not(:checked)
+	{
+	display: inline-block;
+	position: relative;
+	pointer-events: auto;
+	opacity: 1;
+}
+</style>
+</th:block>
+</head>
+<body>
+	<ul class="collapsible collapsible-accordion" layout:fragment="navbar">
+		<div th:include="layout/menu :: navbar" th:remove="tag"></div>
+	</ul>
+	<ul class="breadcrumb" layout:fragment="breadcrumb">
+		<li><i class="ace-icon fa fa-home home-icon"></i> <a
+			th:href="@{/}">Accueil</a></li>
+		<li class="active">OPI Emis</li>
+	</ul>
+	<th:block layout:fragment="topbar">
+		<div th:include="oksu/menu :: topnav" th:remove="tag"></div>
+	</th:block>
+	<!-- /.breadcrumb -->
+	<div layout:fragment="content" class="mt-2">
+		<div class=" card">
+			<div class="container">
+				<div class="row">
+					<div class="md-form col-lg-4">
+						<input type="text" id="codeMembre" th:value="${codeMembre}"
+							class="form-control" readonly="readonly"> <label for="codeMembre">Code
+							Membre</label>
+					</div>
+					<div class="md-form col-lg-4">
+						<input type="text" id="dateDebutTpa" class="form-control"
+							data-inputmask-alias="datetime"
+							data-inputmask-inputformat="dd/mm/yyyy"
+							data-inputmask-placeholder="jj/mm/aaaa"> <label
+							for="dateDebutTpa" class="active">Date Debut</label>
+					</div>
+					<div class="md-form input-group mb-3 col-lg-4">
+						<input type="text" id="dateFinTpa" class="form-control"
+							data-inputmask-alias="datetime"
+							data-inputmask-inputformat="dd/mm/yyyy"
+							data-inputmask-placeholder="jj/mm/aaaa">
+						<div class="input-group-append">
+							<button class="btn btn-md btn-secondary m-0 px-3" type="button"
+								id="btnSearchTpa">Actualiser</button>
+						</div>
+						<label for="dateFinTpa" class="active">Date Fin</label>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="card" style="margin-top: 5px;">
+			<div class="card-header">
+				<div class="float-left align-middle">
+					<button type="button" class="btn btn-sm btn-default">Export</button>
+				</div>
+				<h5 class="card-title align-middle">Liste des OPI Emis</h5>
+			</div>
+			<div class="card-body">
+				<table id="tblTpagcp"></table>
+				<!-- Pagination Bar -->
+				<div id="tpagcpPager"></div>
+				<br />
+				<table id="tbDetOpiEmis"></table>
+				<!-- Pagination Bar -->
+				<div id="pgDetOpiEmis"></div>
+			</div>
+		</div>
+	</div>
+	<th:block layout:fragment="script" th:remove="tag">
+		<script th:src="@{/resources/js/inputmask/jquery.inputmask.min.js}"></script>
+		<script th:src="@{/resources/js/jqgrid/grid.locale-fr.js}"></script>
+		<script th:src="@{/resources/js/jqgrid/jquery.jqGrid.min.js}"></script>
+		<script th:inline="javascript">
+        var contextRoot = /*[[@{/}]]*/
+        $(function () {
+            $(":input").inputmask();
+
+            var tpagcpTable = $("#tblTpagcp");
+            var opiTable = $("#tbDetOpiEmis");
+            
+            tpagcpTable.jqGrid({
+                url: contextRoot + 'tpagcps',
+                mtype: "GET",
+                styleUI: 'Bootstrap4',
+                iconSet: "fontAwesome",
+                postData: {
+                    codeMembre: function () {
+                        return $("#codeMembre").val();
+                    },
+                    deb: function () {
+                        return $("input#dateDebutTpa").val();
+                    },
+                    fin: function () {
+                        return $("input#dateFinTpa").val();
+                    }
+                },
+                datatype: "json",
+                colModel: [
+                    {label: 'ID', name: 'idTpagcp', key: true, width: 80, hidden:true},
+                    {label: 'Code Membre', name: 'codeMembre'},
+                    {label: 'Date', name: 'dateDeb', width: 80},
+                    {label: 'Montant', name: 'montGcp', width: 110, summaryTpl: "Total: {0}", summaryType: "sum"},
+                    {label: 'Montant Maj', name: 'montGcpMaj', width: 110},
+                    {label: 'Tranche', name: 'montTranche', width: 120, summaryTpl: "Total: {0}", summaryType: "sum"},
+                    {label: 'Echu', name: 'montEchu', width: 110, summaryTpl: "Total: {0}", summaryType: "sum"},
+                    {label: 'Solde', name: 'solde', width: 110, summaryTpl: "Total: {0}", summaryType: "sum"},
+                    {label: 'Nombre', name: 'ntf', width: 70},
+                    {label: 'Nombre Restant', name: 'resteNtf', width: 90}
+                ],
+                page: 1,
+                autowidth: true,
+                height: 200,
+                rowNum: 100,
+                rowList: [100, 250, 500],
+                rownumWidth: 25,
+                sortname: 'codeMembre',
+                multiselect: false,
+                viewrecords: true,
+                emptyrecords: 'Pas de lignes trouvees', // the message will be displayed at the bottom
+                pager: "#tpagcpPager",
+                onSelectRow: function (rowid, selected) {
+                    if (rowid != null) {
+                    	opiTable.jqGrid('setGridParam', {
+                            url: contextRoot + "listopi?tpagcp=" + rowid,
+                            datatype: 'json'
+                        }); // the last setting is for demo only
+                        opiTable.jqGrid('setCaption', 'Détails de Mon OPI N° ' + rowid);
+                        opiTable.trigger("reloadGrid");
+                    }
+                }, // use the onSelectRow that is triggered on row click to show a details grid
+                onSortCol: clearSelection,
+                onPaging: clearSelection,
+                footerrow: true, // set a footer row
+                userDataOnFooter: true, // the calculated sums and/or strings from server are put at footer row.
+                grouping: true,
+                groupingView: {
+                    groupField: ["codeMembre"],
+                    groupColumnShow: [false],
+                    groupText: ["<b>{0}</b>"],
+                    groupOrder: ["desc"],
+                    groupSummary: [true],
+                    groupCollapse: false
+
+                },
+                ondblClickRow: function (id, irow, icol, event) {
+                    if (id) {
+                        var data = tpagcpTable.jqGrid('getRowData', id);
+                        //location.href = "traite?id=" + data.idTpagcp;
+                    }
+                },
+            });
+
+            function clearSelection() {
+            	opiTable.jqGrid('setGridParam', {
+                    url: contextRoot + "listopi?codeMembre=" + $("#codeMembre").val(),
+                    datatype: 'json'
+                }); // the last setting is for demo only
+                opiTable.jqGrid('setCaption', 'Détails de Mes OPI');
+                opiTable.trigger("reloadGrid");
+
+            }
+
+            $("#btnEditTpa").click(function (e) {
+                e.preventDefault();
+                var id = tpagcpTable.jqGrid('getGridParam', 'selrow');
+                if (id) {
+                    var data = tpagcpTable.jqGrid('getRowData', id);
+                    location.href = "traite?id=" + data.idTpagcp;
+                }
+            });
+
+            $("#btnSearchTpa").click(function (e) {
+                e.preventDefault();
+                tpagcpTable.jqGrid().trigger('reloadGrid');
+                opiTable.jqGrid('setCaption', 'Détails de Mes OPI');
+                opiTable.jqGrid('setGridParam', {
+                    url: contextRoot + "listopi",
+                    datatype: 'json'
+                });
+                opiTable.trigger("reloadGrid");
+            });
+
+           
+            opiTable.jqGrid({
+                url: contextRoot + 'listopi',
+                mtype: "GET",
+                styleUI: 'Bootstrap4',
+                iconSet: "fontAwesome",
+                postData: {
+                    codeMembre: function () {
+                        return $("#codeMembre").val();
+                    },
+                    deb: function () {
+                        return $("input#dateDebut").val();
+                    },
+                    fin: function () {
+                        return $("input#dateFin").val();
+                    },
+                    echu: function () {
+                        return $("select#ckbOpiEchu").val();
+                    },
+                    payer: function () {
+                        return $("select#ckbOpiPaye").val();
+                    }
+                },
+                datatype: "json",
+                colModel: [
+                    {label: 'ID', name: 'traiteId', key: true, width: 80},
+                    {label: 'Banque', name: 'traiteCodeBanque', width: 100},
+                    {label: 'TPA', name: 'traiteTegcp', width: 100},
+                    {label: 'Date Debut', name: 'traiteDateDebut', width: 120},
+                    {label: 'Date Fin', name: 'traiteDateFin', width: 120},
+                    {label: 'Montant', name: 'traiteMontant', width: 120, summaryTpl: "Sum: {0}", summaryType: "sum"},
+                    {label: 'Mode Paiement', name: 'modePaiement', width: 120},
+                    {label: 'Imprimer', name: 'traiteImprimer', formatter: intformatter, width: 90},
+                    {label: 'Payer', name: 'traitePayer', formatter: intformatter, width: 90}
+                ],
+                page: 1,
+                caption: 'Détails de Mes OPI',
+                autowidth: true,
+                height: 370,
+                rowNum: 100,
+                rowList: [100, 250, 500],
+                rownumWidth: 25,
+                sortname: 'traiteId',
+                multiselect: false,
+                viewrecords: true,
+                emptyrecords: 'Pas d\'OPI trouves', // the message will be displayed at the bottom
+                pager: "#pgDetOpiEmis",
+                footerrow: true, // set a footer row
+                userDataOnFooter: true, // the calculated sums and/or strings from server are put at footer row.
+                grouping: true,
+                groupingView: {
+                    groupField: ["traiteTegcp"],
+                    groupColumnShow: [false],
+                    groupText: ["<b>{0}</b>"],
+                    groupOrder: ["desc"],
+                    groupSummary: [true],
+                    groupCollapse: false
+
+                }
+            });
+
+            function intformatter(cellValue, options, rowObject) {
+                if (cellValue === 0) {
+                    return '<input name="" type="checkbox" disabled>';
+                } else {
+                    return '<input type="checkbox" checked disabled>';
+                }
+            }
+        });
+    </script>
+	</th:block>
+</body>
+</html>

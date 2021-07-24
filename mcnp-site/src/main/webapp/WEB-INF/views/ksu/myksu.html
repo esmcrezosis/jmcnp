@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorator="layout/admin">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Souscription du Bon</title>
+    <th:block th:fragment="style" th:remove="tag">
+        <!--<link rel="stylesheet" th:href="@{/resources/js/jqgrid/ui.jqgrid.css}">-->
+        <link rel="stylesheet"
+              th:href="@{/resources/js/jqgrid/ui.jqgrid-bootstrap4.css}">
+        <link rel="stylesheet"
+              th:href="@{/resources/js/jqgrid/ui.jqgrid-bootstrap-ui.css}">
+        <style type="text/css">
+            input[type='checkbox'], input[type='checkbox']:checked, input[type='checkbox']:not(:checked) {
+                display: inline-block;
+                position: relative;
+                pointer-events: auto;
+                opacity: 1;
+            }
+        </style>
+    </th:block>
+</head>
+<body>
+<th:block layout:fragment="navbar">
+    <div th:include="ksu/menu :: navbar" th:remove="tag"></div>
+</th:block>
+<ul class="breadcrumb" layout:fragment="breadcrumb">
+    <li><i class="ace-icon fa fa-home home-icon"></i> <a
+            th:href="@{/}">Accueil</a></li>
+    <li class="active">KSU</li>
+</ul>
+<!-- /.breadcrumb -->
+<div layout:fragment="content">
+    <section>
+        <h5 class="my-1 dark-grey-text font-weight-bold">Recherche KSU</h5>
+        <!-- Top Table UI -->
+        <div class="card p-2 mb-5">
+            <!-- Grid row -->
+            <form>
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-lg-5 col-md-4">
+                            <div class="md-form input-group" style="margin-top: 1.5rem">
+                                <input type="text" id="codeMembre" name="codeMembre"
+                                       class="form-control">
+                                <div class="input-group-append">
+                                    <button class="btn btn-md btn-secondary m-0 px-3"
+                                            type="button" id="qrCodeReadBut">QrCode
+                                    </button>
+                                </div>
+                                <label for="codeMembre" class="active">Code Membre</label>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-3">
+                            <div class="md-form" style="margin-top: 1.5rem">
+                                <input placeholder="Date Début" type="date" id="dateDeb"
+                                       name="deb" class="form-control">
+                                <label for="dateDeb">Du</label>
+                            </div>
+                        </div>
+                        <!-- Grid column -->
+
+                        <!-- Grid column -->
+                        <div class="col-lg-3 col-md-3">
+                            <div class="md-form" style="margin-top: 1.5rem">
+                                <input placeholder="Date Fin" type="date" id="dateFin"
+                                       name="fin" class="form-control">
+                                <label for="dateFin">A</label>
+                            </div>
+                        </div>
+                        <!-- Grid column -->
+
+                        <!-- Grid column -->
+                        <div class="col-lg-1 col-md-2">
+                            <div class="md-form" style="margin-top: 1.5rem">
+                                <button id="btnSearchCarte" type="button"
+                                        class="btn btn-sm btn-primary ml-2 px-1">
+                                    <i class="fas fa-search"></i> Valider
+                                </button>
+                            </div>
+                        </div>
+                        <!-- Grid column -->
+                    </div>
+                </div>
+            </form>
+            <!-- Grid row -->
+
+        </div>
+        <!-- Top Table UI -->
+        <div class="card card-cascade narrower z-depth-1">
+
+            <!-- Card image -->
+            <div
+                    class="view view-cascade gradient-card-header blue-gradient narrower py-2 mx-4 mb-3 d-flex justify-content-between align-items-center">
+
+                <div>
+                    <button id="btnEditCarte" class="btn btn-sm btn-primary">Editer</button>
+                </div>
+
+                <a href="" class="white-text mx-3">Mes KSU</a>
+
+                <div>
+                    <button id="btnReimpCarte" class="btn btn-sm btn-primary">Reimprimer</button>
+                </div>
+
+            </div>
+            <!-- /Card image -->
+
+            <div class="px-4">
+
+                <div class="table-responsive">
+                    <!-- Table -->
+                    <table id="cartesGrid"></table>
+                    <div id="cartesPager"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+<th:block layout:fragment="script" th:remove="tag">
+    <script th:src="@{/resources/js/jqgrid/grid.locale-fr.js}"></script>
+    <script th:src="@{/resources/js/jqgrid/jquery.jqGrid.min.js}"></script>
+    <script type="text/javascript">
+
+        $(function () {
+            var carteTable = $("#cartesGrid");
+            carteTable.jqGrid({
+                url: 'listksu/',
+                mtype: "GET",
+                styleUI: 'Bootstrap4',
+                iconSet: "fontAwesome",
+                postData: {
+                    codeMembre: function () {
+                        return $("#codeMembre").val();
+                    },
+                    deb: function () {
+                        return $("input#dateDeb").val();
+                    },
+                    fin: function () {
+                        return $("input#dateFin").val();
+                    }
+                },
+                datatype: "json",
+                colModel: [
+                    {label: 'ID', name: 'idCarte', key: true, width: 80},
+                    {label: 'Physique', name: 'euMembre.codeMembre', width: 200},
+                    {label: 'Morale', name: 'codeMembreMorale', width: 200},
+                    {label: 'Date', name: 'dateDemande', width: 120},
+                    {
+                        label: 'Imprimer', name: 'imprimer', formatter: 'checkbox',
+                        formatoptions: {
+                            disabled: true
+                        }, width: 90
+                    },
+                    {label: 'Date Impression', name: 'dateImpression', width: 130},
+                    {
+                        label: 'Livrer', name: 'livrer', formatter: 'checkbox',
+                        formatoptions: {
+                            disabled: true
+                        }, width: 90
+                    },
+                    {label: 'Date Livraison', name: 'dateLivraison', width: 130}
+                ],
+                page: 1,
+                autowidth: true,
+                height: 300,
+                rowNum: 20,
+                rowList: [20, 50, 100],
+                sortname: 'idCarte',
+                multiselect: true,
+                viewrecords: true,
+                emptyrecords: 'Pas de cartes trouves', // the message will be displayed at the bottom
+                pager: "#cartesPager"
+            });
+            carteTable.setGroupHeaders(
+                {
+                    useColSpanStyle: true,
+                    groupHeaders: [
+                        {"numberOfColumns": 2, "titleText": "Code Membre", "startColumnName": "codeMembre"}]
+                });
+
+            $("#btnSearchCarte").click(function (e) {
+                e.preventDefault();
+                carteTable.jqGrid().trigger('reloadGrid');
+            });
+
+            //Assign Click event to Button.
+            $("#btnEdit").click(function (e) {
+                e.preventDefault();
+                var selectedRow = carteTable.jqGrid('getGridParam', 'selrow');
+                var data = carteTable.jqGrid('getRowData', selectedRow);
+                $.ajax({
+                    url: 'edit?carte=' + data.idCarte,
+                    type: 'GET',
+                    datatype: 'json'
+                }).done(function (data, status) {
+
+                }).fail(function (xhr, status, error) {
+                    var resp = JSON.parse(xhr.responseText);
+                    alert('Echec du Chagement de la carte :' + resp.description);
+                });
+                return false;
+            });
+        });
+    </script>
+</th:block>
+</body>
+</html>

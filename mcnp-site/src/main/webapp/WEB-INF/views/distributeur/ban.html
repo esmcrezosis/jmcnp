@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4"
+	layout:decorator="layout/template">
+<head>
+<meta charset="UTF-8" />
+<title>ESMC: Emission d'OPI</title>
+</head>
+<body>
+	<ul layout:fragment="navbar">
+		<li class=""><a href="index.html" th:href="@{/home}"> <i
+				class="menu-icon fa fa-tachometer"></i> <span class="menu-text">
+					Accueil </span>
+		</a> <b class="arrow"></b></li>
+		<li class="" sec:authorize="hasAuthority('cnp_tegcp')"><a
+			href="#" class="dropdown-toggle"> <i
+				class="menu-icon fa fa-desktop"></i> <span class="menu-text">
+					Consommations </span> <b class="arrow fa fa-angle-down"></b>
+		</a> <b class="arrow"></b>
+
+			<ul class="submenu">
+				<li class=""><a href="mcnp/distributeur/boutique.html"
+					th:href="@{/boutique}"> <i class="menu-icon fa fa-caret-right"></i>
+						<span class="menu-text"> BPS</span>
+
+				</a></li>
+
+				<li class=""><a href="mcnp/distributeur/boutique_reappro.html"
+					th:href="@{/boutiquereappro}"> <i
+						class="menu-icon fa fa-caret-right"></i> <span class="menu-text">
+							Reapprovisionnement </span>
+
+				</a></li>
+
+			</ul></li>
+		<li><a href="#" class="dropdown-toggle"> <i
+				class="menu-icon fa fa-tachometer"></i> <span class="menu-text">
+					OPI </span><b class="arrow fa fa-angle-down"></b>
+		</a>
+			<ul class="submenu">
+				<li class=""><a href="/mcnp/distributeur/opi" th:href="@{/opi}">
+						<i class="menu-icon fa fa-plus purple"></i>Emission
+				</a> <b class="arrow"></b></li>
+				<li class=""><a href="/mcnp/distributeur/confirmeropi"
+					th:href="@{/confirmeropi}"> <i
+						class="menu-icon fa fa-plus purple"></i>Confirmation
+				</a> <b class="arrow"></b></li>
+				<li class=""><a href="mcnp/distributeur/ban.html"
+					th:href="@{/banGcp}"> <i class="menu-icon fa fa-caret-right"></i>
+						<span class="menu-text"> Echange du GCp/BAn </span>
+				</a></li>
+			</ul></li>
+	</ul>
+	<ul class="breadcrumb" layout:fragment="breadcrumb">
+		<li><i class="ace-icon fa fa-home home-icon"></i> <a
+			th:href="@{/}">Accueil</a></li>
+		<li class="active">Echange de GCp contre BAn</li>
+	</ul>
+	<!-- /.breadcrumb -->
+	<div layout:fragment="content">
+		<div class="widget-box widget-color-blue">
+			<div class="widget-header widget-header-small">
+				<h5 class="widget-title">Echange de GCp contre BAn</h5>
+			</div>
+			<div class="widget-body">
+				<div class="widget-main">
+					<form id="frm_opi_Emission" class="form-horizontal" action="#"
+						th:action="@{/opi}" th:object="${ban}" method="post">
+						<div class="alert alert-info" th:if="${message}">
+							<button type="button" class="close" data-dismiss="alert">
+								<i class="ace-icon fa fa-times"></i>
+							</button>
+							<p id="opi_message" th:text="${message}"></p>
+						</div>
+						<div class="form-group">
+							<div id="div_codeMembre" class="form-group col-sm-6 pull-left">
+								<label for="opi_codeMembre" class="col-sm-4 control-label">Code
+									Membre *</label>
+								<div class="col-sm-8">
+									<input class="form-control" id="opi_codeMembre"
+										th:field="*{codeMembre}" required="required"
+										th:readonly="${disabled}" />
+								</div>
+							</div>
+							<div id="div_opi_tegc" class="form-group col-sm-6">
+								<label for="opi_tegc" class="col-sm-4 control-label">Terminal
+									de Vente *</label>
+								<div class="col-sm-8">
+									<select id="opi_tegc" th:field="*{codeTegc}"
+										class="form-control" required="required">
+										<option th:if="${not #lists.isEmpty(tegcs)}"
+											th:each="te: ${tegcs}" th:value="${te.codeTegc}"
+											th:text="${te.nomTegc}">TEGc</option>
+									</select>
+								</div>
+							</div>
+						</div>
+						<div class="form-group">
+							<div class="form-group col-sm-6">
+								<label for="bangcp_montant" class="control-label col-sm-4">Montant
+									GCp *</label>
+								<div class="col-sm-8">
+									<input class="form-control" id="bangcp_montant"
+										th:field="*{montant}" required="required" />
+								</div>
+							</div>
+							<div class="form-group col-sm-6">
+								<label for="ban_Mode_Paiement" class="control-label col-sm-4">Type
+									OPI</label>
+								<div class="col-sm-8">
+									<select id="ban_Mode_Paiement" class="form-control"
+										th:field="*{modePaiement}">
+										<option value="BL">Bon de Livraison</option>
+										<option value="OPI">Ordre de Prélevement Irrévocable</option>
+										<option value="BAi">Bon d'Achat interne</option>
+									</select>
+								</div>
+							</div>
+						</div>
+						<div class="form-actions">
+							<button type="submit" class="btn btn-primary"
+								id="bangcp_btnValider">
+								<i class="ace-icon fa fa-check bigger-110"></i>Valider
+							</button>
+							&nbsp; &nbsp; &nbsp;
+							<button class="btn" type="reset" id="bangcp_btnReset">
+								<i class="ace-icon fa fa-undo bigger-110"></i> Réinitialiser
+							</button>
+						</div>
+					</form>
+
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

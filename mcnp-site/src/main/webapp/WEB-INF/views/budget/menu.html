@@ -1,0 +1,58 @@
+<th:block xmlns:th="http://www.thymeleaf.org"
+          xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
+          th:fragment="navbar">
+    <li>
+        <a class="collapsible-header waves-effect" href="index.html"
+           th:href="@{/home}">
+            <i class="fa fa-home"></i>
+            Accueil
+        </a>
+    </li>
+
+    <li>
+        <a href="#" class="collapsible-header waves-effect arrow-r">
+            <i class="fas fa-list"></i>
+            Budget
+            <i class="fas fa-angle-down rotate-icon"></i>
+        </a>
+        <div class="collapsible-body">
+            <ul>
+                <li>
+                    <a href="/mcnp/smcipn/smci" th:href="@{/budget/type}"
+                       class="collapsible-header waves-effect">
+                        <i class="fas fa-plus"></i>
+                        <span class="menu-text">Lancement Budget</span>
+                    </a>
+                </li>
+                <li><a href="/mcnp/smcipn/charge" th:href="@{/budget/list}"
+                       class="collapsible-header waves-effect"> <i
+                        class="fas fa-plus"></i> <span class="menu-text">
+							Budget </span>
+                </a> <b class="arrow"></b></li>
+                <li><a href="/mcnp/smcipn/charge" th:href="@{/budget/validation}"
+                       class="collapsible-header waves-effect"> <i
+                        class="fas fa-plus"></i> <span class="menu-text">
+							Validation Budget </span>
+                </a> <b class="arrow"></b></li>
+                <li><a href="/mcnp/smcipn/charge" th:href="@{/budget/detail}"
+                       class="collapsible-header waves-effect"> <i
+                        class="fas fa-plus"></i> <span class="menu-text">
+							Detail Budget </span>
+                </a> <b class="arrow"></b></li>
+            </ul>
+        </div>
+    </li>
+
+    <li>
+        <a href="/mcnp/smcipn/transfert_recu"
+           th:href="@{/transfertrec}" class="collapsible-header waves-effect">
+            <i class="fa fa-plus"></i> Budgets Reçus
+        </a>
+    </li>
+    <li>
+        <a href="/mcnp/smcipn/transfert_eff"
+           th:href="@{/transferteff}" class="collapsible-header waves-effect">
+            <i class="fa fa-plus"></i> Budgets Transférés
+        </a>
+    </li>
+</th:block>

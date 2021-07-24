@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorator="layout/admin">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Etat des Details BAn</title>
+    <th:block th:fragment="style" th:remove="tag">
+        <!--<link rel="stylesheet" th:href="@{/resources/js/jqgrid/ui.jqgrid.css}">-->
+        <link rel="stylesheet"
+              th:href="@{/resources/js/jqgrid/ui.jqgrid-bootstrap4.css}">
+        <link rel="stylesheet"
+              th:href="@{/resources/js/jqgrid/ui.jqgrid-bootstrap-ui.css}">
+        <style type="text/css">
+            input[type='checkbox'], input[type='checkbox']:checked, input[type='checkbox']:not(:checked) {
+                display: inline-block;
+                position: relative;
+                pointer-events: auto;
+                opacity: 1;
+            }
+        </style>
+    </th:block>
+</head>
+<body>
+<th:block layout:fragment="navbar">
+    <div th:include="fgfn/menu :: navbar" th:remove="tag"></div>
+</th:block>
+<ul class="breadcrumb" layout:fragment="breadcrumb">
+    <li><i class="ace-icon fa fa-home home-icon"></i> <a
+            th:href="@{/}">Accueil</a></li>
+    <li class="active">Etat BAn</li>
+</ul>
+<!-- /.breadcrumb -->
+<div layout:fragment="content">
+    <div class=" card">
+        <div class="container">
+            <div class="row">
+                <div class="md-form col-lg-4">
+                    <input type="text" id="codeMembreBan" class="form-control">
+                    <label for="codeMembreBan">Code Membre</label>
+                </div>
+                <div class="md-form col-lg-4">
+                    <input type="text" id="nomMembreBan" class="form-control">
+                    <label for="nomMembreBan">Nom Membre</label>
+                </div>
+                <div class="md-form col-lg-4">
+                    <input type="text" id="prenomMembreBan" class="form-control">
+                    <label for="prenomMembreBan">Prenoms Membre</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="md-form col-lg-4" style="margin-top: 11px;">
+                    <select type="text" id="typeBan" class="mdb-select">
+                        <option value="" selected>Choisir le Type BAn</option>
+                        <option value="BAn">Banque</option>
+                        <option value="OPI">OPI</option>
+                        <option value="ELI">ELI</option>
+                    </select>
+                    <label class="mdb-main-label" for="typeBan">Code Membre</label>
+                </div>
+                <div class="md-form col-lg-4">
+                    <input type="text" id="dateDebutBan" class="form-control" data-inputmask-alias="datetime"
+                           data-inputmask-inputformat="dd/mm/yyyy" data-inputmask-placeholder="jj/mm/aaaa">
+                    <label for="dateDebutBan" class="active">Date Debut</label>
+                </div>
+                <div class="md-form input-group mb-3 col-lg-4">
+                    <input type="text" id="dateFinBan" class="form-control" data-inputmask-alias="datetime"
+                           data-inputmask-inputformat="dd/mm/yyyy" data-inputmask-placeholder="jj/mm/aaaa">
+                    <div class="input-group-append">
+                        <button class="btn btn-md btn-sm btn-secondary" type="button" id="btnSearchDetBan">
+                            Rechercher
+                        </button>
+                    </div>
+                    <label for="dateFinBan" class="active">Date Fin</label>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="card" style="margin-top: 5px;">
+        <div class="card-header">
+            <div class="float-left align-middle">
+                <button id="btnExportBan" type="button" class="btn btn-sm btn-default">Export</button>
+                <!--<button id="btnEditGcp" type="button" class="btn btn-sm btn-blue-grey">Editer</button>-->
+            </div>
+            <h5 class="card-title align-middle">Etat des Details BAn</h5>
+        </div>
+        <div class="card-body">
+            <table id="tblDetBan"></table>
+            <!-- Pagination Bar -->
+            <div id="detBanPager"></div>
+        </div>
+    </div>
+</div>
+<th:block layout:fragment="script" th:remove="tag">
+    <script th:src="@{/resources/js/inputmask/jquery.inputmask.min.js}"></script>
+    <script th:src="@{/resources/js/jqgrid/grid.locale-fr.js}"></script>
+    <script th:src="@{/resources/js/jqgrid/jquery.jqGrid.min.js}"></script>
+    <script th:inline="javascript">
+        $(function () {
+            $(":input").inputmask();
+
+            var detBanTable = $("#tblDetBan");
+            detBanTable.jqGrid({
+                url: 'detailBans/',
+                mtype: "GET",
+                styleUI: 'Bootstrap4',
+                iconSet: "fontAwesome",
+                postData: {
+                    codeMembre: function () {
+                        return $("#codeMembreBan").val();
+                    },
+                    nomMembre: function () {
+                        return $("#nomMembreBan").val();
+                    },
+                    prenomMembre: function () {
+                        return $("#prenomMembreBan").val();
+                    },
+                    typeBan: function () {
+                        return $("#typeBan").val();
+                    },
+                    deb: function () {
+                        return $("input#dateDebutBan").val();
+                    },
+                    fin: function () {
+                        return $("input#dateFinBan").val();
+                    }
+                },
+                datatype: "json",
+                colModel: [
+                    {label: 'ID', name: 'bonNeutreDetailId', key: true, width: 50},
+                    {label: 'Date', name: 'bonNeutreDetailDate', width: 100},
+                    {label: 'Code Membre', name: 'euBonNeutre.bonNeutreCodeMembre', width: 140},
+                    {label: 'Code', name: 'bonNeutreDetailCode', width: 150},
+                    {label: 'Montant', name: 'bonNeutreDetailMontant', width: 100, summaryTpl: "Total: {0}", summaryType: "sum"},
+                    {
+                        label: 'Montant Utilise',
+                        name: 'bonNeutreDetailMontantUtilise',
+                        width: 100,
+                        summaryTpl: "Total: {0}",
+                        summaryType: "sum"
+                    },
+                    {label: 'Solde', name: 'bonNeutreDetailMontantSolde', width: 100, summaryTpl: "Total: {0}", summaryType: "sum"},
+                    {label: 'Banque', name: 'bonNeutreDetailBanque', width: 70},
+                    {label: 'Type', name: 'bonNeutreDetailType', width: 80}
+                ],
+                page: 1,
+                autowidth: true,
+                viewrecords: true,
+                height: 400,
+                rowNum: 100,
+                rowList: [100, 250, 500],
+                sortname: 'bonNeutreDetailDate',
+                emptyrecords: 'Pas de lignes trouvees',
+                pager: "#detBanPager",
+                footerrow: true, // set a footer row
+                userDataOnFooter: true, // the calculated sums and/or strings from server are put at footer row.
+                grouping: true,
+                groupingView: {
+                    groupField: ["euBonNeutre.bonNeutreCodeMembre"],
+                    groupColumnShow: [false],
+                    groupText: ["Code Membre: <b>{0}</b>"],
+                    groupOrder: ["asc"],
+                    groupSummary: [true],
+                    groupCollapse: false
+                }
+            });
+
+            /*$("#btnEditGcp").click(function (e) {
+                e.preventDefault();
+                var id = detBanTable.jqGrid('getGridParam', 'selrow');
+                if (id) {
+                    var data = gcpTable.jqGrid('getRowData', id);
+                    //location.href = "traite?id=" + data.idGcp;
+                }
+            });*/
+
+            $("#btnSearchDetBan").click(function (e) {
+                e.preventDefault();
+                detBanTable.jqGrid().trigger('reloadGrid');
+            });
+        });
+    </script>
+</th:block>
+</body>
+</html>

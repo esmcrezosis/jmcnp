@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="layout/admin">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Souscription du Bon</title>
+</head>
+
+<body>
+    <ul class="breadcrumb" layout:fragment="breadcrumb">
+        <li><i class="ace-icon fa fa-home home-icon"></i> <a th:href="@{/}">Accueil</a></li>
+        <li class="active">Espace des Bons</li>
+    </ul>
+    <!-- /.breadcrumb -->
+    <th:block layout:fragment="topbar">
+        <div th:if="${agr == 'OI'}" th:include="oi/menu :: topnav" th:remove="tag"></div>
+        <div th:if="${agr == 'OKSU'}" th:include="oksu/menu :: topnav" th:remove="tag"></div>
+        <div th:if="${agr == 'OBPS'}" th:include="obps/menu :: topnav" th:remove="tag"></div>
+        <div th:if="${agr == 'OBPSD'}" th:include="obpsd/menu :: topnav" th:remove="tag"></div>
+        <div th:if="${agr == 'OP'}" th:include="op/menu :: topnav" th:remove="tag"></div>
+        <div th:if="${agr == 'OT'}" th:include="ot/menu" th:remove="tag"></div>
+    </th:block>
+    <div layout:fragment="content"></div>
+</body>
+
+</html>

@@ -1,0 +1,107 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="layout/admin">
+
+<head>
+    <title>Formation</title>
+    <th:block th:fragment="style" th:remove="tag">
+        <!--<link rel="stylesheet" th:href="@{/resources/js/jqgrid/ui.jqgrid.css}">-->
+        <link rel="stylesheet" th:href="@{/resources/js/jqgrid/ui.jqgrid-bootstrap4.css}">
+        <link rel="stylesheet" th:href="@{/resources/plugins/toastr/toastr.min.css}"/>
+    </th:block>
+</head>
+
+<body>
+<ul layout:fragment="navbar">
+    <li class=""><a href="index.html" th:href="@{/home}"> <i
+            class="menu-icon fa fa-tachometer"></i> <span class="menu-text">
+					Dashboard </span>
+    </a> <b class="arrow"></b></li>
+    <li sec:authorize="hasAnyAuthority('FDD', 'FDS', 'FDE')">
+        <a class="collapsible-header waves-effect arrow-r">
+            <i class="fas fa-image"></i> Formation <i class="fas fa-angle-down rotate-icon"></i>
+        </a>
+        <div class="collapsible-body">
+            <ul>
+                <li>
+                    <a th:href="@{/formation}" class="waves-effect">Formations</a>
+                </li>
+                <li>
+                    <a th:href="@{/formation/add}" class="waves-effect">Ajout de Formations</a>
+                </li>
+                <li>
+                    <a th:href="@{/formation/inscrit}" class="waves-effect">Les inscriptions</a>
+                </li>
+            </ul>
+        </div>
+    </li>
+</ul>
+<ul class="breadcrumb" layout:fragment="breadcrumb">
+    <li><i class="ace-icon fa fa-home home-icon"></i> <a
+            th:href="@{/}">Accueil</a></li>
+    <li class="active">Ajout de Formation</li>
+</ul>
+<!-- /.breadcrumb -->
+<div layout:fragment="content">
+    <div class="card">
+        <div class="card-header">
+            <h5 class="card-title">Ajout de Formation</h5>
+        </div>
+        <div class="card-body">
+            <form id="frm_addCreance" action="#" th:action="@{/formation/add}"
+                  th:object="${formation}" method="post">
+                <div class="md-form">
+                    <input type="text" class="form-control"
+                           id="libelleFormation" th:field="*{libelleFormation}"/>
+                    <label for="libelleFormation">Libelle</label>
+                </div>
+                <div>
+                    <select id="typeFormation" class="md-form mdb-select" th:field="*{typeFormation}">
+                        <option value="ligne">En Ligne</option>
+                        <option value="diff">En Ligne (Différé)</option>
+                        <option value="salle">En Présentielle</option>
+                    </select>
+                    <label class="mdb-main-label" for="typeFormation">Type Formation</label>
+                </div>
+                <div class="md-form">
+                    <input id="dateDeb" type="date" class="form-control" th:field="*{dateDeb}"/>
+                    <label for="dateDeb">Date Début</label>
+                </div>
+                <div class="md-form">
+                    <input id="datefin" type="date" class="form-control" th:field="*{datefin}" />
+                    <label for="datefin">Date Fin</label>
+                </div>
+                <div class="md-form">
+                    <input id="heureDeb" type="time" class="form-control" th:field="*{heureDeb}"/>
+                    <label for="heureDeb">Heure Debut</label>
+                </div>
+                <div class="md-form">
+                    <input id="heureFin" type="time" class="form-control" th:field="*{heureFin}" />
+                    <label for="heureFin">Heure Fin</label>
+                </div>
+                <div class="md-form">
+                    <input id="codeZoom" type="text" class="form-control" th:field="*{codeZoom}" />
+                    <label for="codeZoom">Code Zoom</label>
+                </div>
+                <div class="md-form">
+                    <input id="codeMeet" type="text" class="form-control" th:field="*{codeMeet}" />
+                    <label for="codeMeet">Code Meet</label>
+                </div>
+                <div class="md-form">
+                    <select class="mdb-select" id="statut" th:field="*{statut}"></select>
+                    <label class="mdb-main-label" for="statut">Statut</label>
+                </div>
+                <div class="form-actions">
+                    <button type="submit" class="btn btn-primary">
+                        <i class="ace-icon fa fa-check bigger-110"></i>Valider
+                    </button>
+                    <button class="btn" type="reset">
+                        <i class="ace-icon fa fa-undo bigger-110"></i> Réinitialiser
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

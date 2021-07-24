@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="layout/admin">
+
+<head>
+<title>Formation</title>
+<th:block th:fragment="style" th:remove="tag">
+	<!--<link rel="stylesheet" th:href="@{/resources/js/jqgrid/ui.jqgrid.css}">-->
+	<link rel="stylesheet"
+		th:href="@{/resources/js/jqgrid/ui.jqgrid-bootstrap4.css}">
+	<link rel="stylesheet"
+		th:href="@{/resources/plugins/toastr/toastr.min.css}" />
+</th:block>
+</head>
+
+<body>
+	<ul class="collapsible collapsible-accordion" layout:fragment="navbar">
+		<li><a href="index.html" th:href="@{/home}"> <i
+				class="menu-icon fas fa-home"></i> <span class="menu-text">
+					Accueil </span>
+		</a> <b class="arrow"></b></li>
+		<li><a href="index.html" th:href="@{/home}"> <i
+				class="menu-icon fas fa-home"></i> <span class="menu-text">
+					Reclamations </span>
+		</a> <b class="arrow"></b></li>
+		<li class=""><a href="#"
+			class="collapsible-header waves-effect arrow-r"> <i
+				class="menu-icon fa fa-list"></i> <span class="menu-text">
+					Correction SM</span> <b class="arrow fa fa-angle-down"></b>
+		</a> <b class="arrow"></b>
+			<div class="collapsible-body">
+				<ul>
+					<li><a href="/mcnp/creance/recouvrement.html"
+						th:href="@{/reclamation/mf107}"> <i class="menu-icon fas fa-circle"></i>
+							<span class="menu-text"> MF107</span>
+					</a> <b class="arrow"></b></li>
+					<li><a href="/mcnp/creance/recouvrement.html"
+						th:href="@{/reclamation/mf11000}"> <i class="menu-icon fas fa-circle"></i>
+							<span class="menu-text"> MF11000 </span>
+					</a> <b class="arrow"></b></li>
+					<li><a href="/mcnp/creance/releve.html" th:href="@{/reclamation/gcp}">
+							<i class="menu-icon fas fa-credit-card"></i> <span
+							class="menu-text"> BAn </span>
+					</a> <b class="arrow"></b></li>
+					<li><a href="/jmcnp/reclamation/sousc" th:href="@{/reclamation/sousc}">
+							<i class="menu-icon fas fa-credit-card"></i> <span
+							class="menu-text"> Souscription ReDéMaRe</span>
+					</a> <b class="arrow"></b></li>
+				</ul>
+			</div></li>
+		<li class=""><a href="#"
+			class="collapsible-header waves-effect arrow-r"> <i
+				class="menu-icon fa fa-list"></i> <span class="menu-text">
+					Désendettement </span> <b class="arrow fa fa-angle-down"></b>
+		</a> <b class="arrow"></b>
+			<div class="collapsible-body">
+				<ul>
+					<li><a href="/mcnp/creance/recouvrement.html"
+						th:href="@{/recouvrer}"> <i class="menu-icon fas fa-circle"></i>
+							<span class="menu-text"> Recouvrement </span>
+					</a> <b class="arrow"></b></li>
+					<li><a href="/mcnp/creance/recouvrement.html"
+						th:href="@{/payercmfh}"> <i class="menu-icon fas fa-circle"></i>
+							<span class="menu-text"> Recouvrement CMFH </span>
+					</a> <b class="arrow"></b></li>
+					<li><a href="/mcnp/creance/releve.html" th:href="@{/releve}">
+							<i class="menu-icon fas fa-credit-card"></i> <span
+							class="menu-text"> Relevé des Créances </span>
+					</a> <b class="arrow"></b></li>
+				</ul>
+			</div></li>
+	</ul>
+	<ul class="breadcrumb" layout:fragment="breadcrumb">
+		<li><i class="ace-icon fa fa-home home-icon"></i> <a
+			th:href="@{/}">Accueil</a></li>
+		<li class="active">Membre Fondateur 107</li>
+	</ul>
+	<!-- /.breadcrumb -->
+	<div layout:fragment="content">
+		<div class="card mt-3">
+			<div class="card-header">
+				<h5 class="card-title">Membre Fondateur 107</h5>
+			</div>
+			<div class="card-body">
+				<form id="frmMf107">
+					<div class="row">
+						<div class="col-lg-6">
+							<div class="md-form">
+								<input type="text" class="form-control" id="numident" /> <label
+									for="numident">ID</label>
+							</div>
+						</div>
+						<div class="col-lg-6">
+							<div class="md-form">
+								<input id="codeMembre" type="text" class="form-control">
+								<label for="codeMembre">Ancien Code Membre</label>
+							</div>
+						</div>
+					</div>
+					<div class="row mt-3">
+						<div class="col-lg-6">
+							<div class="md-form">
+								<input id="nomMf" type="text" class="form-control" /> <label
+									for="nomMf">Nom</label>
+							</div>
+						</div>
+						<div class="col-lg-5">
+							<div class="md-form">
+								<input id="prenomMf" type="text" class="form-control" /> <label
+									for="prenomMf">Prénoms</label>
+							</div>
+						</div>
+						<div class="col-lg-1">
+							<button id="btnSearchMf107"
+								class="btn btn-outline-blue btn-rounded px-2">
+								<i class="fas fa-search"></i>
+							</button>
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+		<div class="card card-cascade narrower z-depth-1 mt-4">
+			<!-- Card image -->
+			<div
+				class="view view-cascade gradient-card-header blue-gradient narrower py-2 mx-4 mb-3 d-flex justify-content-between align-items-center">
+
+
+				<a href="" class="white-text mx-3">Membre Fondateur 107 </a>
+
+			</div>
+			<!-- /Card image -->
+
+			<div class="px-4">
+				<table id="tblMf107"></table>
+				<div id="pgMf107"></div>
+				<br />
+				<table id="tblDetailMf107"></table>
+				<div id="pgDetailMf107"></div>
+			</div>
+		</div>
+	</div>
+	<th:block layout:fragment="script" th:remove="tag">
+		<script th:src="@{/resources/js/inputmask/jquery.inputmask.min.js}"></script>
+		<script th:src="@{/resources/js/jqgrid/grid.locale-fr.js}"></script>
+		<script th:src="@{/resources/js/jqgrid/jquery.jqGrid.min.js}"></script>
+		<script th:inline="javascript">
+        $.jgrid.defaults.responsive = true;
+        $.jgrid.styleUI.Bootstrap4.base.headerTable = "table table-bordered table-sm";
+        $.jgrid.styleUI.Bootstrap4.base.rowTable = "table table-bordered table-striped table-sm";
+        $.jgrid.styleUI.Bootstrap4.base.footerTable = "table table-bordered table-sm";
+        $.jgrid.styleUI.Bootstrap4.base.pagerTable = "table table-sm";
+
+        var contextRoot = /*[[@{/}]]*/
+            $(function () {
+                var mf107Table = $("#tblMf107");
+                var detMf107Table = $("#tblDetailMf107");
+                
+                mf107Table.jqGrid({
+                    url: contextRoot + 'cmfh/listeMf107',
+                    mtype: "GET",
+                    styleUI: 'Bootstrap4',
+                    iconSet: "fontAwesome",
+                    postData: {
+                        idMf107: function () {
+                            return $("#numident").val();
+                        },
+                        codeMembre: function () {
+                            return $("#codeMembre").val();
+                        },
+                        nom: function () {
+                            return $("#nomMf").val();
+                        },
+                        prenom: function () {
+                            return $("#prenomMf").val();
+                        }
+                    },
+                    datatype: "json",
+                    colModel: [
+                        {label: 'ID', name: 'numident', key: true, width: 90},
+                        {label: 'Membre', name: 'codeMembre', width: 180},
+                        {label: 'Nom', name: 'nom', width: 200},
+                        {label: 'Prénoms', name: 'prenom', width: 200},
+                        {label: 'Mobile', name: 'cel', width: 100},
+                        {label: 'Téléphone', name: 'tel', width: 100},
+                        {label: 'Montant', name: 'solde', width: 100},
+                        {label: 'Nombre Rep', name: 'nbRepartition', width: 80}
+                    ],
+                    page: 1,
+                    autowidth: true,
+                    height: 370,
+                    rowNum: 20,
+                    rowList: [20, 50, 100],
+                    rownumWidth: 25,
+                    sortname: 'numident',
+                    multiselect: false,
+                    viewrecords: true,
+                    emptyrecords: 'Pas de lignes trouvees', // the message will be displayed at the bottom
+                    pager: "#pgMf107",
+                    onSelectRow: function (rowid, selected) {
+                        if (rowid != null) {
+                        	detMf107Table.jqGrid('setGridParam', {
+                                url: contextRoot + "cmfh/listeDetMf107?numIdent=" + rowid,
+                                datatype: 'json'
+                            }); // the last setting is for demo only
+                            detMf107Table.jqGrid('setCaption', 'Détails MF 107 N°' + rowid);
+                            detMf107Table.trigger("reloadGrid");
+                        }
+                    }, // use the onSelectRow that is triggered on row click to show a details grid
+                    onSortCol: clearSelection,
+                    onPaging: clearSelection
+                });
+
+                function clearSelection() {
+                	detMf107Table.jqGrid('setCaption', 'Liste des Details');
+                	detMf107Table.trigger("reloadGrid");
+                }
+
+                $('#btnSearchMf107').click(function (e) {
+                    e.preventDefault();
+                    mf107Table.jqGrid().trigger('reloadGrid');
+                });
+                
+                detMf107Table.jqGrid({
+                    url: contextRoot + 'cmfh/listeDetMf107',
+                    mtype: "GET",
+                    styleUI: 'Bootstrap4',
+                    iconSet: "fontAwesome",
+                    datatype: "json",
+                    colModel: [
+                        {label: 'ID', name: 'idMf107', key: true, width: 90},
+                        {label: 'ID MF107', name: 'numident', key: true, width: 90},
+                        {label: 'Date', name: 'dateMf107', width: 100},
+                        {label: 'Membre', name: 'codeMembre', width: 150},
+                        {label: 'Montant', name: 'montApport', width: 100},
+                        {label: 'Pourcentage', name: 'pourcentage', width: 100},
+                        {label: 'Code Credit', name: 'creditcode', width: 100},
+                        {label: 'Proprietaire', name: 'proprietaire', width: 100}
+                    ],
+                    page: 1,
+                    autowidth: true,
+                    height: 370,
+                    rowNum: 20,
+                    rowList: [20, 50, 100],
+                    rownumWidth: 25,
+                    sortname: 'idMf107',
+                    multiselect: false,
+                    viewrecords: true,
+                    emptyrecords: 'Pas de lignes trouvees', // the message will be displayed at the bottom
+                    pager: "#pgDetailMf107"
+                });
+            });
+    </script>
+	</th:block>
+</body>
+</html>

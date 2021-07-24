@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="layout/admin">
+
+<head>
+    <title>Fiche ODD</title>
+    <th:block th:fragment="style" th:remove="tag">
+        <!--<link rel="stylesheet" th:href="@{/resources/js/jqgrid/ui.jqgrid.css}">-->
+        <link rel="stylesheet" th:href="@{/resources/js/jqgrid/ui.jqgrid-bootstrap4.css}">
+        <link rel="stylesheet" th:href="@{/resources/plugins/toastr/toastr.min.css}"/>
+        <style type="text/css">
+            input[type='checkbox'],
+            input[type='checkbox']:checked,
+            input[type='checkbox']:not(:checked) {
+                display: inline-block;
+                position: relative;
+                pointer-events: auto;
+                opacity: 1;
+            }
+        </style>
+    </th:block>
+</head>
+
+<body>
+<th:block layout:fragment="topbar">
+    <div th:include="oksu/menu :: topnav" th:remove="tag"></div>
+</th:block>
+<!-- /.breadcrumb -->
+<div layout:fragment="content" class="mt-1">
+    <div class=" card">
+        <div class="card-header">
+            <h2 class="card-title">Obtenir du Bon d'Achat interne avec BAi</h2>
+        </div>
+        <div class="card-body">
+            <form id="frmBciBai">
+                <div class="md-form">
+                    <input type="text" id="codeMembre" class="form-control" th:value="${codeMembre}" readonly>
+                    <label for="codeMembre">Code Membre</label>
+                </div>
+                <div class="md-form" style="margin-top: 11px;">
+                    <select type="text" id="origineBai" class="mdb-select">
+                        <option value="" selected>Choisir le type BAi</option>
+                        <option value="MF11000">MF11000</option>
+                        <option value="MF107">MF107</option>
+                        <option value="CMFH">CMFH</option>
+                        <option value="OPI">OPI</option>
+                        <option value="BC">Bon de Consommation</option>
+                    </select>
+                    <label class="mdb-main-label" for="origineBai">Origine BAi</label>
+                </div>
+                <div class="md-form" style="margin-top: 11px;">
+                    <input type="text" id="montantBai" class="form-control">
+                    <label class="mdb-main-label" for="montantBai">Montant</label>
+                </div>
+                <div>
+                    <button id="btnValBai" class="btn btn-primary" type="submit">
+                        <i class="fas fa-check"></i> Valider
+                    </button>
+                    <button id="btnResetBai" class="btn btn-secondary" type="button">
+                        <i class="fas fa-undo"></i> Annuler
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<th:block layout:fragment="script" th:remove="tag">
+    <script th:src="@{/resources/js/jqgrid/grid.locale-fr.js}"></script>
+    <script th:src="@{/resources/js/jqgrid/jquery.jqGrid.min.js}"></script>
+    <script th:src="@{/resources/plugins/toastr/toastr.min.js}"></script>
+    <script type="text/javascript" th:inline="javascript">
+        var contextRoot = /*[[@{/}]]*/
+            $(function () {
+                $('#frmBciBai').submit(function (event) {
+                    var obt = {};
+                    obt.type = "BAi";
+                    obt.origine = $("#origineBai").val();
+                    obt.codeMembre = $('#codeMembre').val();
+                    obt.montant = $('#montantBai').val();
+                    $.ajax({
+                        type: 'POST',
+                        url: contextRoot + 'bc/interne',
+                        data: JSON.stringify(obt),
+                        dataType: 'json',
+                        contentType: 'application/json',
+                        encode: true
+                    }).done(function (data, status) {
+                        toastr.info(data.message);
+                    }).fail(function (xhr, status, error) {
+                        var resp = JSON.parse(xhr.responseText);
+                        toastr.error(resp.message);
+                    });
+
+                    // stop the form from submitting the normal way and refreshing the page
+                    event.preventDefault();
+                });
+            });
+    </script>
+</th:block>
+</body>
+
+</html>

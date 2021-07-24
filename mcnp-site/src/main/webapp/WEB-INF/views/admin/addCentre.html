@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5"
+      layout:decorate="layout/admin">
+
+<head>
+
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <meta name="description" content=""/>
+    <meta name="author" content=""/>
+
+    <title>Accueil</title>
+
+</head>
+
+<body>
+<th:block layout:fragment="navbar">
+    <div th:include="admin/menu :: navbar" th:remove="tag"></div>
+</th:block>
+
+<div layout:fragment="content">
+    <section class="section card">
+        <div class="card-header">
+            <h4 class="card-title w-100 font-weight-bold">Ajout de Centre</h4>
+        </div>
+        <div class="card-body">
+            <form id="frmAjoutCentre" action="#" th:action="@{/centre/ajout}"
+                  th:object="${centre}" method="post" class="form-horizontal">
+                <div class="alert alert-info" th:if="${message}">
+                    <button type="button" class="close" data-dismiss="alert">
+                        <i class="ace-icon fa fa-times"></i>
+                    </button>
+                    <p th:text="${message}"></p>
+                </div>
+                <input type="hidden" id="idCentres" th:field="*{id}"/>
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="md-form">
+                            <input type="text" class="form-control"
+                                   id="txtLibelleCentre" th:field="*{libelleCentre}">
+                            <label for="txtLibelleCentre">Libelle</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="md-form">
+                            <input id="txtSurfaceCentre" type="text" th:field="*{surfaceCentre}" class="form-control" >
+                            <label for="txtSurfaceCentre">Surface</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="md-form">
+                            <input id="txtAdresseCentre" type="text" th:field="*{adresseCentre}" class="form-control"
+                                   required="true">
+                            <label for="txtAdresseCentre">Adresse</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="md-form">
+                            <input type="text" class="form-control"
+                                   id="txtBpCentre" th:field="*{bpCentre}">
+                            <label for="txtBpCentre">BP</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="md-form">
+                            <input type="text" class="form-control"
+                                   id="txtTelephone" th:field="*{telephoneCentre}">
+                            <label for="txtTelephone">Telephone</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-6">
+                        <select id="slTypeCentre" class="mdb-select md-form" th:field="*{typeCentre}">
+                            <option value="" selected>Choisir le Type Centre</option>
+                            <option th:each="t : ${typeCentres}" th:value="${t}"
+                                    th:text="${t}"></option>
+                        </select>
+                        <label class="mdb-main-label">Type Centre</label>
+                    </div>
+                    <div class="col-lg-6">
+                        <select id="slLocalite" class="mdb-select md-form" th:name="idlocal" searchable>
+                            <option value="" selected>Choisir la localité</option>
+                        </select>
+                        <label class="mdb-main-label active">Localité Centre</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="md-form">
+                            <input type="text" id="txtLogin" name="login" class="form-control"/>
+                            <label for="txtLogin">Login Responsable</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="md-form">
+                            <input type="password" id="txtPassword" name="password" class="form-control"/>
+                            <label for="txtPassword">Mot de Passe Responsable</label>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="md-form">
+                            <input type="password" id="txtPasswordConf" name="passwordConf" class="form-control"/>
+                            <label for="txtPasswordConf">Confirmer le Mot de Passe</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="md-form">
+                            <textarea id="txtDescCentre" th:field="*{descriptionCentre}" class="md-textarea form-control"
+                                      ></textarea>
+                            <label for="txtDescCentre">Description</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-actions">
+                    <button type="submit" class="btn btn-primary">
+                        <i class="ace-icon fa fa-check"></i> Valider
+                    </button>
+                    <a class="btn" th:href="@{/centre/list}">
+                        <i class="ace-icon fa fa-undo"></i> Réinitialiser
+                    </a>
+                </div>
+            </form>
+        </div>
+    </section>
+</div>
+<th:block layout:fragment="script" th:remove="tag">
+    <script th:inline="javascript">
+        $('#slTypeCentre').change(function () {
+            var typeCentre = $(this).val();
+            if (typeCentre){
+                $.ajax({
+                    url: 'local/',
+                    type: 'get',
+                    data: {typeCentre: typeCentre},
+                    dataType: 'json',
+                    success: function (response) {
+                        var len = response.length;
+                        var slLocalite = $('#slLocalite');
+                        slLocalite.empty();
+                        slLocalite.append("<option value=\"\" selected>Choisir la Localite du centre</option>");
+                        if (len > 0) {
+                            for (var i = 0; i < len; i++) {
+                                slLocalite.append("<option value='" + response[i]['id'] + "'>" +  response[i]['valeur'] + "</option>");
+                            }
+                        }
+                    }
+                });
+            }
+        })
+    </script>
+</th:block>
+</body>
+
+</html>

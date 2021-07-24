@@ -1,0 +1,149 @@
+<div xmlns:th="http://www.thymeleaf.org"
+     xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
+     th:fragment="navbar">
+    <li>
+        <a class="collapsible-header waves-effect" href="index.html" th:href="@{/home}">
+            <i class="fa fa-home"></i>
+            Accueil
+        </a>
+    </li>
+    <li sec:authorize="hasAnyAuthority('CA', 'ADMIN')">
+        <a href="#" class="collapsible-header waves-effect arrow-r">
+            <i class="fa fa-hotel"></i>
+            Centres <b class="arrow fa fa-angle-down"></b>
+        </a>
+        <b class="arrow"></b>
+        <div class="collapsible-body">
+            <ul class="submenu">
+                <li>
+                    <a href="mcnp/ksu/index.html" th:href="@{/centre/list}">
+                        <i class="fa fa-book"></i>
+                        Centres
+                    </a>
+                </li>
+                <li>
+                    <a href="mcnp/signup/register.html" th:href="@{/centre/ajout}">
+                        <i class="fa fa-plus-square"></i>
+                        Ajouter Un Centre
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </li>
+    <li sec:authorize="hasAnyAuthority('CA', 'ADMIN')">
+        <a href="#" class="collapsible-header waves-effect arrow-r">
+            <i class="fa fa-hotel"></i>
+            Agences ODD <b class="arrow fa fa-angle-down"></b>
+        </a>
+        <b class="arrow"></b>
+        <div class="collapsible-body">
+            <ul class="submenu">
+                <li>
+                    <a href="mcnp/ksu/index.html" th:href="@{/agence/list}">
+                        <i class="fa fa-book"></i>
+                        Liste des Agences ODD
+                    </a>
+                </li>
+                <li>
+                    <a href="mcnp/signup/register.html" th:href="@{/agence/ajout}">
+                        <i class="fa fa-plus-square"></i>
+                        Ajouter Une Agence ODD
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </li>
+    <li sec:authorize="hasAnyAuthority('CA', 'ADMIN')">
+        <a href="#" class="collapsible-header waves-effect arrow-r">
+            <i class="fa fa-hotel"></i>
+            Centrales <b class="arrow fa fa-angle-down"></b>
+        </a>
+        <b class="arrow"></b>
+        <div class="collapsible-body">
+            <ul class="submenu">
+                <li>
+                    <a href="mcnp/centrale/list" th:href="@{/centrale/list}">
+                        <i class="fa fa-list"></i>
+                        Liste des Centrales
+                    </a>
+                </li>
+                <li>
+                    <a href="mcnp/centrale/ajout" th:href="@{/centrale/ajout}">
+                        <i class="fa fa-plus-square"></i>
+                        Ajouter Une Centrale
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </li>
+    <li sec:authorize="hasAnyAuthority('CA', 'ADMIN')">
+        <a href="#" class="collapsible-header waves-effect arrow-r">
+            <i class="fa fa-hotel"></i>
+            Agents <b class="arrow fa fa-angle-down"></b>
+        </a>
+        <b class="arrow"></b>
+        <div class="collapsible-body">
+            <ul class="submenu">
+                <li>
+                    <a href="mcnp/agent/agents" th:href="@{/admin/agents}">
+                        <i class="fa fa-user-plus"></i>
+                        Liste de Mes Agents
+                    </a>
+                </li>
+                <li>
+                    <a href="mcnp/agent/add" th:href="@{/agent/add}">
+                        <i class="fa fa-plus-square"></i>
+                        Ajouter Un Agent
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </li>
+    <li>
+        <a class="collapsible-header waves-effect" href="mcnp/chaine/liste" th:href="@{/chaine/liste}">
+            <i class="fa fa-hotel"></i>
+            Chaines de Distribution
+        </a>
+    </li>
+    <li sec:authorize="hasAnyAuthority('ADMIN')">
+        <a href="#" class="collapsible-header waves-effect arrow-r">
+            <i class="fa fa-users"></i>
+            Utilisateurs <b class="arrow fa fa-angle-down"></b>
+        </a>
+        <b class="arrow"></b>
+        <div class="collapsible-body">
+            <ul class="submenu">
+                <li>
+                    <a href="mcnp/signup/register.html" th:href="@{/admin/register}">
+                        <i class="fa fa-user-plus"></i>
+                        Ajouter Utilisateur
+                    </a>
+                </li>
+                <li>
+                    <a href="/mcnp/user" th:href="@{/admin/utilisateur}">
+                        <i class="fa fa-user"></i>
+                        Utilisateurs
+                    </a>
+                </li>
+                <li>
+                    <a href="/mcnp/role" th:href="@{/admin/role}">
+                        <i class="fa fa-concierge-bell"></i>
+                        Ajout de Rôles et Permissions
+                    </a>
+                </li>
+                <li>
+                    <a href="/mcnp/roles" th:href="@{/admin/roles}">
+                        <i class="fa fa-bell"></i>
+                        Rôles et Permissions
+                    </a>
+                </li>
+                <li>
+                    <a href="/mcnp/grouperoles" th:href="@{/admin/groupes}">
+                        <i class="fa fa-bell"></i>
+                        Groupes de Rôles
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </li>
+</div>
