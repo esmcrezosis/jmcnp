@@ -3,15 +3,15 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.esmc.mcnp.services.obpsd;
+package com.esmc.mcnp.infrastructure.services.obpsd;
 
 import java.util.List;
 
-import com.esmc.mcnp.services.base.BaseService;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
-import com.esmc.mcnp.model.obpsd.EuDetailFgfn;
+import com.esmc.mcnp.domain.entity.obpsd.EuDetailFgfn;
+import com.esmc.mcnp.infrastructure.services.base.BaseService;
 
 /**
  *

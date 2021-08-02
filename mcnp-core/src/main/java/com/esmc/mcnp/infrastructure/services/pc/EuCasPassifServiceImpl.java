@@ -1,9 +1,10 @@
-package com.esmc.mcnp.services.pc;
+package com.esmc.mcnp.infrastructure.services.pc;
 
-import com.esmc.mcnp.model.pc.EuCasPassif;
-import com.esmc.mcnp.repositories.base.BaseRepository;
-import com.esmc.mcnp.repositories.pc.EuCasPassifRepository;
-import com.esmc.mcnp.services.base.CrudServiceImpl;
+import com.esmc.mcnp.dao.repository.base.BaseRepository;
+import com.esmc.mcnp.dao.repository.pc.EuCasPassifRepository;
+import com.esmc.mcnp.domain.entity.pc.EuCasPassif;
+import com.esmc.mcnp.infrastructure.services.base.CrudServiceImpl;
+
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 

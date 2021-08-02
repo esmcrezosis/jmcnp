@@ -1,9 +1,10 @@
-package com.esmc.mcnp.services.obpsd;
+package com.esmc.mcnp.infrastructure.services.obpsd;
 
-import com.esmc.mcnp.model.obpsd.EuTpagcp;
-import com.esmc.mcnp.repositories.base.BaseRepository;
-import com.esmc.mcnp.repositories.obpsd.EuTpagcpRepository;
-import com.esmc.mcnp.services.base.BaseServiceImpl;
+import com.esmc.mcnp.dao.repository.base.BaseRepository;
+import com.esmc.mcnp.dao.repository.obpsd.EuTpagcpRepository;
+import com.esmc.mcnp.domain.entity.obpsd.EuTpagcp;
+import com.esmc.mcnp.infrastructure.services.base.BaseServiceImpl;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;

@@ -11,15 +11,15 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.esmc.mcnp.model.odd.EuMstierListecm;
-import com.esmc.mcnp.model.security.EuUtilisateur;
-import com.esmc.mcnp.services.common.EuReligionService;
-import com.esmc.mcnp.services.odd.EuAgenceOddService;
-import com.esmc.mcnp.services.odd.EuOddService;
-import com.esmc.mcnp.services.oi.EuMstierListebcService;
-import com.esmc.mcnp.services.oi.EuMstierListecmService;
-import com.esmc.mcnp.services.org.EuCantonService;
-import com.esmc.mcnp.services.org.EuPaysService;
+import com.esmc.mcnp.domain.entity.odd.EuMstierListecm;
+import com.esmc.mcnp.domain.entity.security.EuUtilisateur;
+import com.esmc.mcnp.infrastructure.services.common.EuReligionService;
+import com.esmc.mcnp.infrastructure.services.odd.EuAgenceOddService;
+import com.esmc.mcnp.infrastructure.services.odd.EuOddService;
+import com.esmc.mcnp.infrastructure.services.oi.EuMstierListebcService;
+import com.esmc.mcnp.infrastructure.services.oi.EuMstierListecmService;
+import com.esmc.mcnp.infrastructure.services.org.EuCantonService;
+import com.esmc.mcnp.infrastructure.services.org.EuPaysService;
 import com.esmc.mcnp.web.mvc.dto.Result;
 import com.esmc.mcnp.web.mvc.utils.BaseRestController;
 

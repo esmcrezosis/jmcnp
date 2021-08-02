@@ -3,12 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.esmc.mcnp.repositories.cmfh;
+package com.esmc.mcnp.dao.repository.cmfh;
 
 import java.util.List;
 
-import com.esmc.mcnp.model.cmfh.EuCmfh;
-import com.esmc.mcnp.repositories.base.BaseRepository;
+import com.esmc.mcnp.dao.repository.base.BaseRepository;
+import com.esmc.mcnp.domain.entity.cmfh.EuCmfh;
 
 /**
  * Objet d'accés aux données de la table eu_cmfh représentée par l'entité

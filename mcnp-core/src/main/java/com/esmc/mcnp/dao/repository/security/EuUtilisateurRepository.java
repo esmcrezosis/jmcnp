@@ -3,10 +3,11 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.esmc.mcnp.repositories.security;
+package com.esmc.mcnp.dao.repository.security;
 
-import com.esmc.mcnp.model.security.EuUtilisateur;
-import com.esmc.mcnp.repositories.base.BaseRepository;
+import com.esmc.mcnp.dao.repository.base.BaseRepository;
+import com.esmc.mcnp.domain.entity.security.EuUtilisateur;
+
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.EntityGraph;
@@ -39,6 +40,11 @@ public interface EuUtilisateurRepository extends BaseRepository<EuUtilisateur, L
 
     @EntityGraph(attributePaths = {"euUserGroup", "centre", "agencesOdd"})
     EuUtilisateur getByIdUtilisateur(Long id);
+    
+    @EntityGraph(attributePaths = {"euUserGroup", "centre", "agencesOdd"})
+    EuUtilisateur findByEmail(String email);
+    
+    EuUtilisateur findByLogin(String login);
 
     @Query("select u from EuUtilisateur  u left join fetch u.euUserGroup left join fetch u.centre c left join fetch c.pays left join fetch c.region left join c.prefecture left join fetch c.canton left join fetch u.agencesOdd a left join fetch a.euCanton")
     List<EuUtilisateur> loadAll();

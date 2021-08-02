@@ -1,10 +1,10 @@
-package com.esmc.mcnp.model.org;
+package com.esmc.mcnp.domain.entity.org;
 
 import java.io.Serializable;
 import javax.persistence.*;
 
-import com.esmc.mcnp.model.others.EuDevise;
-import com.esmc.mcnp.model.security.EuUtilisateur;
+import com.esmc.mcnp.domain.entity.others.EuDevise;
+import com.esmc.mcnp.domain.entity.security.EuUtilisateur;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import java.util.Date;

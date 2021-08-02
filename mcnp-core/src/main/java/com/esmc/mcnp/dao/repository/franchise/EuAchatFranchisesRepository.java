@@ -1,11 +1,11 @@
-package com.esmc.mcnp.repositories.franchise;
+package com.esmc.mcnp.dao.repository.franchise;
 
 import java.util.List;
 
 import org.springframework.data.jpa.repository.EntityGraph;
 
-import com.esmc.mcnp.model.franchise.EuAchatFranchises;
-import com.esmc.mcnp.repositories.base.BaseRepository;
+import com.esmc.mcnp.dao.repository.base.BaseRepository;
+import com.esmc.mcnp.domain.entity.franchise.EuAchatFranchises;
 
 public interface EuAchatFranchisesRepository extends BaseRepository<EuAchatFranchises, Long> {
 

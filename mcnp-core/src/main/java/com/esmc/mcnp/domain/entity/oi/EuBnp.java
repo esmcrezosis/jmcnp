@@ -1,6 +1,4 @@
-package com.esmc.mcnp.model.oi;
-
-import com.esmc.mcnp.model.others.EuOperation;
+package com.esmc.mcnp.domain.entity.oi;
 
 import java.io.Serializable;
 import java.util.List;
@@ -14,6 +12,8 @@ import javax.persistence.ManyToOne;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+
+import com.esmc.mcnp.domain.entity.others.EuOperation;
 
 /**
  * The persistent class for the eu_bnp database table.

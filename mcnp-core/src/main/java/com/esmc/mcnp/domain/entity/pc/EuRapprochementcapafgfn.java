@@ -1,6 +1,4 @@
-package com.esmc.mcnp.model.pc;
-
-import com.esmc.mcnp.model.cm.EuMembreMorale;
+package com.esmc.mcnp.domain.entity.pc;
 
 import java.io.Serializable;
 import javax.persistence.Column;
@@ -11,6 +9,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
+
+import com.esmc.mcnp.domain.entity.cm.EuMembreMorale;
 
 /**
  * The persistent class for the eu_rapprochementcapafgfn database table.

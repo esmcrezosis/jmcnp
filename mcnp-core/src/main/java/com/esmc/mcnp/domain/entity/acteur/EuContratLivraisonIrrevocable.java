@@ -1,9 +1,10 @@
-package com.esmc.mcnp.model.acteur;
-
-import com.esmc.mcnp.model.acteur.EuDetailContratLivraisonIrrevocable;
+package com.esmc.mcnp.domain.entity.acteur;
 
 import java.io.Serializable;
 import javax.persistence.*;
+
+import com.esmc.mcnp.domain.entity.acteur.EuDetailContratLivraisonIrrevocable;
+
 import java.util.Date;
 import java.util.List;
 

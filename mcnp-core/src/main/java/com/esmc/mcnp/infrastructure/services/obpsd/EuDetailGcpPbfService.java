@@ -1,9 +1,9 @@
-package com.esmc.mcnp.services.obpsd;
+package com.esmc.mcnp.infrastructure.services.obpsd;
 
 import java.util.List;
 
-import com.esmc.mcnp.model.obpsd.EuDetailGcpPbf;
-import com.esmc.mcnp.services.base.BaseService;
+import com.esmc.mcnp.domain.entity.obpsd.EuDetailGcpPbf;
+import com.esmc.mcnp.infrastructure.services.base.BaseService;
 
 public interface EuDetailGcpPbfService extends BaseService<EuDetailGcpPbf, Long> {
 	public Long getLastInsertedId();

@@ -3,13 +3,13 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.esmc.mcnp.components;
+package com.esmc.mcnp.infrastructure.components;
 
 import java.util.List;
 
-import com.esmc.mcnp.model.obpsd.EuTpagcp;
-import com.esmc.mcnp.dto.desendettement.Compensation;
-import com.esmc.mcnp.dto.obps.LGcp;
+import com.esmc.mcnp.domain.dto.desendettement.Compensation;
+import com.esmc.mcnp.domain.dto.obps.LGcp;
+import com.esmc.mcnp.domain.entity.obpsd.EuTpagcp;
 
 /**
  *

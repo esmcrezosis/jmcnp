@@ -1,10 +1,11 @@
-package com.esmc.mcnp.dto.ksu;
+package com.esmc.mcnp.domain.dto.ksu;
 
-import com.esmc.mcnp.model.enums.LivraisonEnum;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.experimental.Accessors;
 import org.springframework.format.annotation.DateTimeFormat;
+
+import com.esmc.mcnp.domain.enums.LivraisonEnum;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;

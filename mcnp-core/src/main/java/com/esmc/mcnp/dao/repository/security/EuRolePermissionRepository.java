@@ -1,7 +1,7 @@
-package com.esmc.mcnp.repositories.security;
+package com.esmc.mcnp.dao.repository.security;
 
-import com.esmc.mcnp.model.security.EuRolePermission;
-import com.esmc.mcnp.repositories.base.BaseRepository;
+import com.esmc.mcnp.dao.repository.base.BaseRepository;
+import com.esmc.mcnp.domain.entity.security.EuRolePermission;
 
 public interface EuRolePermissionRepository extends BaseRepository<EuRolePermission, Integer> {
 }

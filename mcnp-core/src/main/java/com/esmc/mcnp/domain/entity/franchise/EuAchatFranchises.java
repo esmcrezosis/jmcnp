@@ -1,4 +1,4 @@
-package com.esmc.mcnp.model.franchise;
+package com.esmc.mcnp.domain.entity.franchise;
 
 import java.time.LocalDate;
 
@@ -12,14 +12,14 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
-import com.esmc.mcnp.model.acteur.EuAssociation;
-import com.esmc.mcnp.model.odd.EuOdd;
-import com.esmc.mcnp.model.odd.EuTypeCentres;
-import com.esmc.mcnp.model.org.EuCanton;
-import com.esmc.mcnp.model.org.EuPays;
-import com.esmc.mcnp.model.org.EuPrefecture;
-import com.esmc.mcnp.model.org.EuRegion;
-import com.esmc.mcnp.model.org.EuZone;
+import com.esmc.mcnp.domain.entity.acteur.EuAssociation;
+import com.esmc.mcnp.domain.entity.odd.EuOdd;
+import com.esmc.mcnp.domain.entity.odd.EuTypeCentres;
+import com.esmc.mcnp.domain.entity.org.EuCanton;
+import com.esmc.mcnp.domain.entity.org.EuPays;
+import com.esmc.mcnp.domain.entity.org.EuPrefecture;
+import com.esmc.mcnp.domain.entity.org.EuRegion;
+import com.esmc.mcnp.domain.entity.org.EuZone;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -31,7 +31,7 @@ import lombok.experimental.Accessors;
 @Accessors(chain = true)
 @NoArgsConstructor
 @Entity
-@Table(name = "eu_achat_franchise")
+@Table(name = "eu_achat_franchises")
 public class EuAchatFranchises {
 
 	@Id
@@ -44,7 +44,7 @@ public class EuAchatFranchises {
 	@JoinColumn(name = "id_association")
 	private EuAssociation association;
 	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "id_type_franchises")
+	@JoinColumn(name = "id_type_franchise")
 	private EuTypeFranchises typeFranchise;
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "id_groupe_franchise")
@@ -56,10 +56,10 @@ public class EuAchatFranchises {
 	@JoinColumn(name = "id_canton")
 	private EuCanton canton;
 	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "id_prefecture")
+	@JoinColumn(name = "id_prefectures")
 	private EuPrefecture prefecture;
 	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "id_region")
+	@JoinColumn(name = "id_regions")
 	private EuRegion region;
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "id_pays")

@@ -1,4 +1,4 @@
-package com.esmc.mcnp.model.org;
+package com.esmc.mcnp.domain.entity.org;
 
 import java.io.Serializable;
 import java.util.List;
@@ -12,11 +12,11 @@ import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
-import com.esmc.mcnp.model.cm.EuAncienMembre;
-import com.esmc.mcnp.model.acteur.EuContrat;
-import com.esmc.mcnp.model.others.EuTaxe;
-import com.esmc.mcnp.model.cm.EuMembre;
-import com.esmc.mcnp.model.cm.EuMembreMorale;
+import com.esmc.mcnp.domain.entity.acteur.EuContrat;
+import com.esmc.mcnp.domain.entity.cm.EuAncienMembre;
+import com.esmc.mcnp.domain.entity.cm.EuMembre;
+import com.esmc.mcnp.domain.entity.cm.EuMembreMorale;
+import com.esmc.mcnp.domain.entity.others.EuTaxe;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 /**

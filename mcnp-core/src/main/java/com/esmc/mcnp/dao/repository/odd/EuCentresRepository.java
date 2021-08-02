@@ -1,8 +1,9 @@
-package com.esmc.mcnp.repositories.odd;
+package com.esmc.mcnp.dao.repository.odd;
 
-import com.esmc.mcnp.dto.projections.CentreVO;
-import com.esmc.mcnp.model.odd.EuCentres;
-import com.esmc.mcnp.repositories.base.BaseRepository;
+import com.esmc.mcnp.dao.repository.base.BaseRepository;
+import com.esmc.mcnp.domain.dto.projections.CentreVO;
+import com.esmc.mcnp.domain.entity.odd.EuCentres;
+
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.EntityGraph;
@@ -12,7 +13,7 @@ import org.springframework.data.repository.query.Param;
 import java.util.List;
 
 public interface EuCentresRepository extends BaseRepository<EuCentres, Integer> {
-    @Query("select new com.esmc.mcnp.dto.projections.CentreVO(c.idCentres, c.libelleCentre, c.referenceCentre) from EuCentres c")
+    @Query("select new com.esmc.mcnp.domain.dto.projections.CentreVO(c.idCentres, c.libelleCentre, c.referenceCentre) from EuCentres c")
     List<CentreVO> getAllVO();
 
     @EntityGraph(attributePaths={"pays", "region", "prefecture", "canton"})

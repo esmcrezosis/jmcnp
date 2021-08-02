@@ -1,4 +1,4 @@
-package com.esmc.mcnp.dto.bc;
+package com.esmc.mcnp.domain.dto.bc;
 
 public class CalculBonInfo {
 

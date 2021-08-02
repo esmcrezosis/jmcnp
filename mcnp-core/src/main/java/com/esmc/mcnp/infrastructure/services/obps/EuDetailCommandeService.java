@@ -1,9 +1,9 @@
-package com.esmc.mcnp.services.obps;
+package com.esmc.mcnp.infrastructure.services.obps;
 
 import java.util.List;
 
-import com.esmc.mcnp.model.obps.EuDetailCommande;
-import com.esmc.mcnp.services.base.BaseService;
+import com.esmc.mcnp.domain.entity.obps.EuDetailCommande;
+import com.esmc.mcnp.infrastructure.services.base.BaseService;
 
 public interface EuDetailCommandeService extends BaseService<EuDetailCommande, Long> {
 

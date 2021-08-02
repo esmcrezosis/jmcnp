@@ -2,7 +2,7 @@ package com.esmc.mcnp.web.dto.op;
 
 import java.io.Serializable;
 
-import com.esmc.mcnp.model.op.EuOffreurProjet;
+import com.esmc.mcnp.domain.entity.op.EuOffreurProjet;
 
 public class OffreurProjet implements Serializable {
 

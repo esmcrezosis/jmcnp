@@ -1,12 +1,12 @@
-package com.esmc.mcnp.repositories.cm;
+package com.esmc.mcnp.dao.repository.cm;
 
 import java.util.List;
 
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
-import com.esmc.mcnp.model.cm.EuMembreMorale;
-import com.esmc.mcnp.repositories.base.BaseRepository;
+import com.esmc.mcnp.dao.repository.base.BaseRepository;
+import com.esmc.mcnp.domain.entity.cm.EuMembreMorale;
 
 public interface EuMembreMoraleRepository extends BaseRepository<EuMembreMorale, String> {
 

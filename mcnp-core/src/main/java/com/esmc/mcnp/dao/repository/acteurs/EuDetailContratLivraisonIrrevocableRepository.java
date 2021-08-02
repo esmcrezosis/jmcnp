@@ -1,4 +1,4 @@
-package com.esmc.mcnp.repositories.acteurs;
+package com.esmc.mcnp.dao.repository.acteurs;
 
 import java.util.List;
 import java.util.Optional;
@@ -6,8 +6,8 @@ import java.util.Optional;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
-import com.esmc.mcnp.model.acteur.EuDetailContratLivraisonIrrevocable;
-import com.esmc.mcnp.repositories.base.BaseRepository;
+import com.esmc.mcnp.dao.repository.base.BaseRepository;
+import com.esmc.mcnp.domain.entity.acteur.EuDetailContratLivraisonIrrevocable;
 
 /**
  * Created by USER on 13/03/2017.

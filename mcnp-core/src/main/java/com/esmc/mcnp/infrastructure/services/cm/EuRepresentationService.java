@@ -1,8 +1,8 @@
-package com.esmc.mcnp.services.cm;
+package com.esmc.mcnp.infrastructure.services.cm;
 
-import com.esmc.mcnp.model.cm.EuRepresentation;
-import com.esmc.mcnp.model.cm.EuRepresentationPK;
-import com.esmc.mcnp.services.base.BaseService;
+import com.esmc.mcnp.domain.entity.cm.EuRepresentation;
+import com.esmc.mcnp.domain.entity.cm.EuRepresentationPK;
+import com.esmc.mcnp.infrastructure.services.base.BaseService;
 
 public interface EuRepresentationService extends BaseService<EuRepresentation, EuRepresentationPK> {
 

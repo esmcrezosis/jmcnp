@@ -2,26 +2,23 @@ package com.esmc.mcnp.web.controller.ot;
 
 import java.util.Objects;
 
-import com.esmc.mcnp.core.utils.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.esmc.mcnp.dto.ot.EuFormationDto;
-import com.esmc.mcnp.mapper.ot.EuFormationMapper;
-import com.esmc.mcnp.model.ot.EuFormation;
-import com.esmc.mcnp.services.ot.EuFormationService;
+import com.esmc.mcnp.commons.util.StringUtils;
+import com.esmc.mcnp.domain.dto.ot.EuFormationDto;
+import com.esmc.mcnp.domain.entity.ot.EuFormation;
+import com.esmc.mcnp.domain.mapper.ot.EuFormationMapper;
+import com.esmc.mcnp.infrastructure.services.ot.EuFormationService;
 import com.esmc.mcnp.util.JqGrid;
-import com.esmc.mcnp.util.Reponse;
 import com.esmc.mcnp.web.controller.base.BaseController;
 import com.google.common.collect.Lists;
 

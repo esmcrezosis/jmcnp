@@ -1,14 +1,14 @@
-package com.esmc.mcnp.services.common;
+package com.esmc.mcnp.infrastructure.services.common;
 
 import java.util.List;
 
-import com.esmc.mcnp.services.base.BaseServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.esmc.mcnp.model.obps.EuCodebarre;
-import com.esmc.mcnp.repositories.base.BaseRepository;
-import com.esmc.mcnp.repositories.common.EuCodebarreRepository;
+import com.esmc.mcnp.dao.repository.base.BaseRepository;
+import com.esmc.mcnp.dao.repository.common.EuCodebarreRepository;
+import com.esmc.mcnp.domain.entity.obps.EuCodebarre;
+import com.esmc.mcnp.infrastructure.services.base.BaseServiceImpl;
 
 @Service("euCodebarreService")
 public class EuCodebarreServiceImpl extends BaseServiceImpl<EuCodebarre, String> implements  EuCodebarreService{

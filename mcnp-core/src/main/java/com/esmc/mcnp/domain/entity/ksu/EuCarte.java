@@ -3,10 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.esmc.mcnp.model.ksu;
+package com.esmc.mcnp.domain.entity.ksu;
 
-import com.esmc.mcnp.model.cm.EuMembre;
-import com.esmc.mcnp.model.cm.EuMembreMorale;
+import com.esmc.mcnp.domain.entity.cm.EuMembre;
+import com.esmc.mcnp.domain.entity.cm.EuMembreMorale;
 import com.fasterxml.jackson.annotation.JsonFormat;
 
 import java.io.Serializable;

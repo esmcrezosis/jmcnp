@@ -3,7 +3,7 @@ package com.esmc.mcnp.web.dto.ot;
 import java.io.Serializable;
 import java.util.Date;
 
-import com.esmc.mcnp.model.ot.EuTravailleur;
+import com.esmc.mcnp.domain.entity.ot.EuTravailleur;
 
 public class Travailleur implements Serializable {
 

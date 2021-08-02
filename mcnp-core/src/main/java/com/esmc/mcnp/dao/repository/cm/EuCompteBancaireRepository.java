@@ -1,4 +1,4 @@
-package com.esmc.mcnp.repositories.cm;
+package com.esmc.mcnp.dao.repository.cm;
 
 import java.util.List;
 
@@ -6,8 +6,8 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
-import com.esmc.mcnp.model.cm.EuCompteBancaire;
-import com.esmc.mcnp.repositories.base.BaseRepository;
+import com.esmc.mcnp.dao.repository.base.BaseRepository;
+import com.esmc.mcnp.domain.entity.cm.EuCompteBancaire;
 
 @Repository
 public interface EuCompteBancaireRepository extends BaseRepository<EuCompteBancaire, Long> {

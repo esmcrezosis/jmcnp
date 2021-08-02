@@ -1,4 +1,4 @@
-package com.esmc.mcnp.model.others;
+package com.esmc.mcnp.domain.entity.others;
 
 import javax.persistence.*;
 import java.sql.Timestamp;

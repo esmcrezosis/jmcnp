@@ -1,7 +1,8 @@
-package com.esmc.mcnp.services.ba;
+package com.esmc.mcnp.infrastructure.services.ba;
 
-import com.esmc.mcnp.model.obpsd.EuBonNeutreUtilise;
-import com.esmc.mcnp.services.base.CrudService;
+import com.esmc.mcnp.domain.entity.obpsd.EuBonNeutreUtilise;
+import com.esmc.mcnp.infrastructure.services.base.CrudService;
+
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 

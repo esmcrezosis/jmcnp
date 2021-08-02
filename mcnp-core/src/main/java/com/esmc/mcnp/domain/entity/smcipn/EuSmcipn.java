@@ -1,4 +1,4 @@
-package com.esmc.mcnp.model.smcipn;
+package com.esmc.mcnp.domain.entity.smcipn;
 
 import java.io.Serializable;
 import java.time.LocalDate;
@@ -15,11 +15,11 @@ import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
-import com.esmc.mcnp.model.cm.EuCompte;
-import com.esmc.mcnp.model.acteur.EuGac;
-import com.esmc.mcnp.model.cm.EuMembre;
-import com.esmc.mcnp.model.cm.EuMembreMorale;
-import com.esmc.mcnp.model.security.EuUtilisateur;
+import com.esmc.mcnp.domain.entity.acteur.EuGac;
+import com.esmc.mcnp.domain.entity.cm.EuCompte;
+import com.esmc.mcnp.domain.entity.cm.EuMembre;
+import com.esmc.mcnp.domain.entity.cm.EuMembreMorale;
+import com.esmc.mcnp.domain.entity.security.EuUtilisateur;
 import com.google.common.collect.Lists;
 
 import lombok.Data;

@@ -1,4 +1,4 @@
-package com.esmc.mcnp.domain.entity.enums;
+package com.esmc.mcnp.domain.enums;
 
 public enum NiveauValidation {
     CANTON("canton"),

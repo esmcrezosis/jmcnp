@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.esmc.mcnp.components;
+package com.esmc.mcnp.infrastructure.components;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -16,31 +16,31 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.esmc.mcnp.core.utils.ServerUtil;
-import com.esmc.mcnp.dto.desendettement.Collect;
-import com.esmc.mcnp.model.acteur.EuActeur;
-import com.esmc.mcnp.model.op.EuAppelNn;
-import com.esmc.mcnp.model.op.EuAppelOffre;
-import com.esmc.mcnp.model.ba.EuCapa;
-import com.esmc.mcnp.model.ba.EuCapaTs;
-import com.esmc.mcnp.model.cm.EuCategorieCompte;
-import com.esmc.mcnp.model.cm.EuCompte;
-import com.esmc.mcnp.model.op.EuDetailAppelNn;
-import com.esmc.mcnp.model.others.EuFrais;
-import com.esmc.mcnp.model.acteur.EuGac;
-import com.esmc.mcnp.model.others.EuProposition;
-import com.esmc.mcnp.model.obpsd.EuTransfertNn;
-import com.esmc.mcnp.model.cm.EuTypeCompte;
-import com.esmc.mcnp.repositories.others.EuAppelNnRepository;
-import com.esmc.mcnp.repositories.cm.EuCompteRepository;
-import com.esmc.mcnp.repositories.common.EuFraisRepository;
-import com.esmc.mcnp.repositories.others.EuDetailAppelNnRepository;
-import com.esmc.mcnp.repositories.others.EuGacRepository;
-import com.esmc.mcnp.repositories.acteurs.EuActeurRepository;
-import com.esmc.mcnp.repositories.ba.EuCapaRepository;
-import com.esmc.mcnp.repositories.ba.EuCapaTsRepository;
-import com.esmc.mcnp.repositories.obpsd.EuTransfertNnRepository;
-import com.esmc.mcnp.repositories.smcipn.EuAppelOffreRepository;
-import com.esmc.mcnp.repositories.smcipn.EuPropositionRepository;
+import com.esmc.mcnp.dao.repository.acteurs.EuActeurRepository;
+import com.esmc.mcnp.dao.repository.ba.EuCapaRepository;
+import com.esmc.mcnp.dao.repository.ba.EuCapaTsRepository;
+import com.esmc.mcnp.dao.repository.cm.EuCompteRepository;
+import com.esmc.mcnp.dao.repository.common.EuFraisRepository;
+import com.esmc.mcnp.dao.repository.obpsd.EuTransfertNnRepository;
+import com.esmc.mcnp.dao.repository.others.EuAppelNnRepository;
+import com.esmc.mcnp.dao.repository.others.EuDetailAppelNnRepository;
+import com.esmc.mcnp.dao.repository.others.EuGacRepository;
+import com.esmc.mcnp.dao.repository.smcipn.EuAppelOffreRepository;
+import com.esmc.mcnp.dao.repository.smcipn.EuPropositionRepository;
+import com.esmc.mcnp.domain.dto.desendettement.Collect;
+import com.esmc.mcnp.domain.entity.acteur.EuActeur;
+import com.esmc.mcnp.domain.entity.acteur.EuGac;
+import com.esmc.mcnp.domain.entity.ba.EuCapa;
+import com.esmc.mcnp.domain.entity.ba.EuCapaTs;
+import com.esmc.mcnp.domain.entity.cm.EuCategorieCompte;
+import com.esmc.mcnp.domain.entity.cm.EuCompte;
+import com.esmc.mcnp.domain.entity.cm.EuTypeCompte;
+import com.esmc.mcnp.domain.entity.obpsd.EuTransfertNn;
+import com.esmc.mcnp.domain.entity.op.EuAppelNn;
+import com.esmc.mcnp.domain.entity.op.EuAppelOffre;
+import com.esmc.mcnp.domain.entity.op.EuDetailAppelNn;
+import com.esmc.mcnp.domain.entity.others.EuFrais;
+import com.esmc.mcnp.domain.entity.others.EuProposition;
 
 /**
  *

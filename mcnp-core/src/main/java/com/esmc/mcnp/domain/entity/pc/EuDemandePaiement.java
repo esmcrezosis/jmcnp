@@ -1,6 +1,4 @@
-package com.esmc.mcnp.model.pc;
-
-import com.esmc.mcnp.model.pc.EuPaiement;
+package com.esmc.mcnp.domain.entity.pc;
 
 import java.io.Serializable;
 import java.lang.Double;
@@ -9,6 +7,8 @@ import java.lang.String;
 import java.util.Date;
 import java.util.List;
 import javax.persistence.*;
+
+import com.esmc.mcnp.domain.entity.pc.EuPaiement;
 
 /**
  * Entity implementation class for Entity: EuDemandePaiement

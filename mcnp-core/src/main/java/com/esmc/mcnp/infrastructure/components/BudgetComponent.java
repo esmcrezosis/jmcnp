@@ -1,12 +1,12 @@
-package com.esmc.mcnp.components;
+package com.esmc.mcnp.infrastructure.components;
 
 import org.springframework.stereotype.Component;
 
-import com.esmc.mcnp.model.smcipn.EuBudget;
-import com.esmc.mcnp.services.smcipn.EuBudgetService;
-import com.esmc.mcnp.services.smcipn.EuFnService;
-import com.esmc.mcnp.services.smcipn.EuSmcService;
-import com.esmc.mcnp.services.smcipn.EuSmcipnService;
+import com.esmc.mcnp.domain.entity.smcipn.EuBudget;
+import com.esmc.mcnp.infrastructure.services.smcipn.EuBudgetService;
+import com.esmc.mcnp.infrastructure.services.smcipn.EuFnService;
+import com.esmc.mcnp.infrastructure.services.smcipn.EuSmcService;
+import com.esmc.mcnp.infrastructure.services.smcipn.EuSmcipnService;
 
 @Component
 public class BudgetComponent {

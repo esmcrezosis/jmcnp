@@ -3,12 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.esmc.mcnp.dto.ksu;
+package com.esmc.mcnp.domain.dto.ksu;
 
 import java.io.Serializable;
 
-import com.esmc.mcnp.dto.acteur.Membre;
-import com.esmc.mcnp.dto.acteur.MembreMorale;
+import com.esmc.mcnp.domain.dto.acteur.Membre;
+import com.esmc.mcnp.domain.dto.acteur.MembreMorale;
 
 /**
  *

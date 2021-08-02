@@ -1,11 +1,12 @@
-package com.esmc.mcnp.model.others;
-
-import com.esmc.mcnp.model.bc.EuDomiciliation;
-import com.esmc.mcnp.model.op.EuAppelNn;
-import com.esmc.mcnp.model.op.EuAppelOffre;
+package com.esmc.mcnp.domain.entity.others;
 
 import java.io.Serializable;
 import javax.persistence.*;
+
+import com.esmc.mcnp.domain.entity.bc.EuDomiciliation;
+import com.esmc.mcnp.domain.entity.op.EuAppelNn;
+import com.esmc.mcnp.domain.entity.op.EuAppelOffre;
+
 import java.util.Date;
 import java.util.List;
 

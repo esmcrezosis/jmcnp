@@ -1,8 +1,9 @@
-package com.esmc.mcnp.services.ot;
+package com.esmc.mcnp.infrastructure.services.ot;
 
-import com.esmc.mcnp.model.ot.EuFormation;
-import com.esmc.mcnp.repositories.ot.EuFormationRepository;
-import com.esmc.mcnp.services.base.CrudServiceImpl;
+import com.esmc.mcnp.dao.repository.ot.EuFormationRepository;
+import com.esmc.mcnp.domain.entity.ot.EuFormation;
+import com.esmc.mcnp.infrastructure.services.base.CrudServiceImpl;
+
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;

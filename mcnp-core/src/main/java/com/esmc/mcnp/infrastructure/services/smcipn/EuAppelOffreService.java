@@ -1,8 +1,8 @@
-package com.esmc.mcnp.services.smcipn;
+package com.esmc.mcnp.infrastructure.services.smcipn;
 
-import com.esmc.mcnp.model.op.EuAppelOffre;
-import com.esmc.mcnp.model.others.EuProposition;
-import com.esmc.mcnp.services.base.BaseService;
+import com.esmc.mcnp.domain.entity.op.EuAppelOffre;
+import com.esmc.mcnp.domain.entity.others.EuProposition;
+import com.esmc.mcnp.infrastructure.services.base.BaseService;
 
 public interface EuAppelOffreService extends BaseService<EuAppelOffre, Long> {
 

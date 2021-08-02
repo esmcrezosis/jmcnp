@@ -3,16 +3,16 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.esmc.mcnp.repositories.obpsd;
+package com.esmc.mcnp.dao.repository.obpsd;
 
 import java.util.List;
 
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
-import com.esmc.mcnp.model.obpsd.EuBonNeutreApproDetail;
-import com.esmc.mcnp.model.obpsd.EuBonNeutreApproDetailPK;
-import com.esmc.mcnp.repositories.base.BaseRepository;
+import com.esmc.mcnp.dao.repository.base.BaseRepository;
+import com.esmc.mcnp.domain.entity.obpsd.EuBonNeutreApproDetail;
+import com.esmc.mcnp.domain.entity.obpsd.EuBonNeutreApproDetailPK;
 
 /**
  *

@@ -1,12 +1,12 @@
-package com.esmc.mcnp.repositories.security;
+package com.esmc.mcnp.dao.repository.security;
 
 import java.util.Optional;
 
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
-import com.esmc.mcnp.model.security.EuUser;
-import com.esmc.mcnp.repositories.base.BaseRepository;
+import com.esmc.mcnp.dao.repository.base.BaseRepository;
+import com.esmc.mcnp.domain.entity.security.EuUser;
 
 public interface UserRepository extends
 BaseRepository<EuUser, Integer> {

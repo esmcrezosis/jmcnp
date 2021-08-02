@@ -1,4 +1,4 @@
-package com.esmc.mcnp.model.obps;
+package com.esmc.mcnp.domain.entity.obps;
 
 import java.io.Serializable;
 import java.lang.Double;

@@ -1,17 +1,17 @@
 package com.esmc.mcnp.web.controller.smcipn;
 
-import com.esmc.mcnp.dto.smcipn.DetailBudget;
-import com.esmc.mcnp.exception.NotFoundException;
-import com.esmc.mcnp.mapper.smcipn.BudgetMapper;
-import com.esmc.mcnp.mapper.smcipn.DetailBudgetMapper;
-import com.esmc.mcnp.model.enums.StatutBudget;
-import com.esmc.mcnp.model.security.EuUtilisateur;
-import com.esmc.mcnp.model.smcipn.EuBudget;
-import com.esmc.mcnp.model.smcipn.EuDetailBudget;
-import com.esmc.mcnp.model.smcipn.EuTypeBudget;
-import com.esmc.mcnp.services.smcipn.EuBudgetService;
-import com.esmc.mcnp.services.smcipn.EuDetailBudgetService;
-import com.esmc.mcnp.services.smcipn.EuTypeBudgetService;
+import com.esmc.mcnp.domain.dto.smcipn.DetailBudget;
+import com.esmc.mcnp.domain.enums.StatutBudget;
+import com.esmc.mcnp.domain.entity.security.EuUtilisateur;
+import com.esmc.mcnp.domain.entity.smcipn.EuBudget;
+import com.esmc.mcnp.domain.entity.smcipn.EuDetailBudget;
+import com.esmc.mcnp.domain.entity.smcipn.EuTypeBudget;
+import com.esmc.mcnp.domain.mapper.smcipn.BudgetMapper;
+import com.esmc.mcnp.domain.mapper.smcipn.DetailBudgetMapper;
+import com.esmc.mcnp.commons.exception.business.NotFoundException;
+import com.esmc.mcnp.infrastructure.services.smcipn.EuBudgetService;
+import com.esmc.mcnp.infrastructure.services.smcipn.EuDetailBudgetService;
+import com.esmc.mcnp.infrastructure.services.smcipn.EuTypeBudgetService;
 import com.esmc.mcnp.web.controller.base.BaseController;
 import com.esmc.mcnp.web.dto.util.Result;
 import com.esmc.mcnp.web.model.budget.Budget;
@@ -121,7 +121,7 @@ public class Budgetcontroller extends BaseController {
                                        @RequestParam(name = "montantInitial") Double montant) {
         try {
             Optional<Double> somDetailOpt = detailBudgetService.getSumInitByBudget(codeBudget);
-            com.esmc.mcnp.dto.smcipn.Budget budget = budgetMapper.fromEuBudget(budgetService.findByCodeBudget(codeBudget));
+            com.esmc.mcnp.domain.dto.smcipn.Budget budget = budgetMapper.fromEuBudget(budgetService.findByCodeBudget(codeBudget));
             if (somDetailOpt.isEmpty() || (somDetailOpt.isPresent() && ((somDetailOpt.get() + montant) <= budget.getMontantDemande()))) {
                 if (StringUtils.isNumeric(id)) {
                     DetailBudget detailBudget = detailBudgetMapper.fromEuDetailBudget(detailBudgetService.getById(Long.valueOf(id)));
@@ -342,7 +342,7 @@ public class Budgetcontroller extends BaseController {
             Optional<EuDetailBudget> opDetailBudget = detailBudgetService.fetchById(Long.parseLong(id));
             if (opDetailBudget.isPresent() && !opDetailBudget.get().isValider()) {
                 Optional<Double> somDetailOpt = detailBudgetService.getSumByBudget(codeBudget);
-                com.esmc.mcnp.dto.smcipn.Budget budget = budgetMapper.fromEuBudget(budgetService.findByCodeBudget(codeBudget));
+                com.esmc.mcnp.domain.dto.smcipn.Budget budget = budgetMapper.fromEuBudget(budgetService.findByCodeBudget(codeBudget));
                 if (somDetailOpt.isEmpty() || budget.getMontantBudget() == null || budget.getMontantBudget() == 0.0 ||
                         (somDetailOpt.get() < budget.getMontantBudget())) {
                     if (StringUtils.isNumeric(id)) {

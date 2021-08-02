@@ -1,4 +1,4 @@
-package com.esmc.mcnp.services.ot;
+package com.esmc.mcnp.infrastructure.services.ot;
 
 import java.time.LocalDate;
 import java.util.List;
@@ -8,9 +8,9 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.esmc.mcnp.model.ot.EuCandidature;
-import com.esmc.mcnp.repositories.ot.EuCandidatureRepository;
-import com.esmc.mcnp.services.base.CrudServiceImpl;
+import com.esmc.mcnp.dao.repository.ot.EuCandidatureRepository;
+import com.esmc.mcnp.domain.entity.ot.EuCandidature;
+import com.esmc.mcnp.infrastructure.services.base.CrudServiceImpl;
 
 @Service
 @Transactional(readOnly = true)

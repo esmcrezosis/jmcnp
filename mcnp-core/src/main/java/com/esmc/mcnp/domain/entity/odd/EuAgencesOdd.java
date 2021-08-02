@@ -1,4 +1,4 @@
-package com.esmc.mcnp.model.odd;
+package com.esmc.mcnp.domain.entity.odd;
 
 import java.io.Serializable;
 import java.time.LocalDate;
@@ -6,9 +6,9 @@ import java.util.List;
 
 import javax.persistence.*;
 
-import com.esmc.mcnp.model.cm.EuMembreMorale;
-import com.esmc.mcnp.model.org.EuCanton;
-import com.esmc.mcnp.model.security.EuUtilisateur;
+import com.esmc.mcnp.domain.entity.cm.EuMembreMorale;
+import com.esmc.mcnp.domain.entity.org.EuCanton;
+import com.esmc.mcnp.domain.entity.security.EuUtilisateur;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
 import lombok.NoArgsConstructor;

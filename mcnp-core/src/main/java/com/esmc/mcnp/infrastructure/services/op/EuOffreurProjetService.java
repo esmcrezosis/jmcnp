@@ -1,10 +1,10 @@
-package com.esmc.mcnp.services.op;
+package com.esmc.mcnp.infrastructure.services.op;
 
-import com.esmc.mcnp.services.base.BaseService;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
-import com.esmc.mcnp.model.op.EuOffreurProjet;
+import com.esmc.mcnp.domain.entity.op.EuOffreurProjet;
+import com.esmc.mcnp.infrastructure.services.base.BaseService;
 
 public interface EuOffreurProjetService extends BaseService<EuOffreurProjet, Integer> {
 

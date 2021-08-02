@@ -1,9 +1,10 @@
-package com.esmc.mcnp.model.cm;
-
-import com.esmc.mcnp.model.cm.EuMembreMorale;
+package com.esmc.mcnp.domain.entity.cm;
 
 import java.io.Serializable;
 import javax.persistence.*;
+
+import com.esmc.mcnp.domain.entity.cm.EuMembreMorale;
+
 import java.util.Date;
 
 

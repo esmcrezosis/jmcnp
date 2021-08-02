@@ -1,6 +1,4 @@
-package com.esmc.mcnp.model.others;
-
-import com.esmc.mcnp.model.cm.EuMembre;
+package com.esmc.mcnp.domain.entity.others;
 
 import java.io.Serializable;
 import java.util.List;
@@ -13,6 +11,8 @@ import javax.persistence.ManyToOne;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+
+import com.esmc.mcnp.domain.entity.cm.EuMembre;
 
 /**
  * The persistent class for the eu_stand database table.

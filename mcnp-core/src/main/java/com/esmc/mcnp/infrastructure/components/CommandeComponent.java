@@ -1,4 +1,4 @@
-package com.esmc.mcnp.components;
+package com.esmc.mcnp.infrastructure.components;
 
 import java.util.List;
 import java.util.Objects;
@@ -8,28 +8,28 @@ import org.apache.commons.lang3.StringUtils;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.esmc.mcnp.dto.bc.CalculBonInfo;
-import com.esmc.mcnp.dto.obps.ArticleVendu;
-import com.esmc.mcnp.exception.CompteNonTrouveException;
-import com.esmc.mcnp.model.ba.EuCapa;
-import com.esmc.mcnp.model.bc.EuBon;
-import com.esmc.mcnp.model.cm.EuCompte;
-import com.esmc.mcnp.model.cm.EuCompteCredit;
-import com.esmc.mcnp.model.obps.EuAnnulationCommande;
-import com.esmc.mcnp.model.obps.EuCommande;
-import com.esmc.mcnp.model.obps.EuDetailCommande;
-import com.esmc.mcnp.model.obps.EuTegc;
-import com.esmc.mcnp.model.obpsd.EuBonNeutre;
-import com.esmc.mcnp.model.obpsd.EuBonNeutreDetail;
-import com.esmc.mcnp.services.ba.EuBonNeutreDetailService;
-import com.esmc.mcnp.services.ba.EuBonNeutreService;
-import com.esmc.mcnp.services.ba.EuCapaService;
-import com.esmc.mcnp.services.cm.EuCompteCreditService;
-import com.esmc.mcnp.services.cm.EuCompteService;
-import com.esmc.mcnp.services.obps.EuAnnulationCommandeService;
-import com.esmc.mcnp.services.obps.EuDetailCommandeService;
-import com.esmc.mcnp.services.obps.EuPrkService;
-import com.esmc.mcnp.services.obps.EuTegcService;
+import com.esmc.mcnp.domain.dto.bc.CalculBonInfo;
+import com.esmc.mcnp.domain.dto.obps.ArticleVendu;
+import com.esmc.mcnp.domain.entity.ba.EuCapa;
+import com.esmc.mcnp.domain.entity.bc.EuBon;
+import com.esmc.mcnp.domain.entity.cm.EuCompte;
+import com.esmc.mcnp.domain.entity.cm.EuCompteCredit;
+import com.esmc.mcnp.domain.entity.obps.EuAnnulationCommande;
+import com.esmc.mcnp.domain.entity.obps.EuCommande;
+import com.esmc.mcnp.domain.entity.obps.EuDetailCommande;
+import com.esmc.mcnp.domain.entity.obps.EuTegc;
+import com.esmc.mcnp.domain.entity.obpsd.EuBonNeutre;
+import com.esmc.mcnp.domain.entity.obpsd.EuBonNeutreDetail;
+import com.esmc.mcnp.commons.exception.business.CompteNonTrouveException;
+import com.esmc.mcnp.infrastructure.services.ba.EuBonNeutreDetailService;
+import com.esmc.mcnp.infrastructure.services.ba.EuBonNeutreService;
+import com.esmc.mcnp.infrastructure.services.ba.EuCapaService;
+import com.esmc.mcnp.infrastructure.services.cm.EuCompteCreditService;
+import com.esmc.mcnp.infrastructure.services.cm.EuCompteService;
+import com.esmc.mcnp.infrastructure.services.obps.EuAnnulationCommandeService;
+import com.esmc.mcnp.infrastructure.services.obps.EuDetailCommandeService;
+import com.esmc.mcnp.infrastructure.services.obps.EuPrkService;
+import com.esmc.mcnp.infrastructure.services.obps.EuTegcService;
 import com.google.common.collect.Lists;
 
 @Component

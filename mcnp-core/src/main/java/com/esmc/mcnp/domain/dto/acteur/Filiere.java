@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.esmc.mcnp.dto.acteur;
+package com.esmc.mcnp.domain.dto.acteur;
 
 import java.io.Serializable;
 

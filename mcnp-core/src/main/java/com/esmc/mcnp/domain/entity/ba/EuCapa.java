@@ -1,12 +1,13 @@
-package com.esmc.mcnp.model.ba;
-
-import com.esmc.mcnp.model.cm.EuCompte;
-import com.esmc.mcnp.model.cm.EuCompteCreditCapa;
-import com.esmc.mcnp.model.bc.EuCnp;
-import com.esmc.mcnp.model.smcipn.EuFn;
+package com.esmc.mcnp.domain.entity.ba;
 
 import java.io.Serializable;
 import javax.persistence.*;
+
+import com.esmc.mcnp.domain.entity.bc.EuCnp;
+import com.esmc.mcnp.domain.entity.cm.EuCompte;
+import com.esmc.mcnp.domain.entity.cm.EuCompteCreditCapa;
+import com.esmc.mcnp.domain.entity.smcipn.EuFn;
+
 import java.util.Date;
 import java.util.List;
 

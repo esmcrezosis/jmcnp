@@ -1,7 +1,7 @@
-package com.esmc.mcnp.repositories.odd;
+package com.esmc.mcnp.dao.repository.odd;
 
-import com.esmc.mcnp.model.odd.EuCentrales;
-import com.esmc.mcnp.repositories.base.BaseRepository;
+import com.esmc.mcnp.dao.repository.base.BaseRepository;
+import com.esmc.mcnp.domain.entity.odd.EuCentrales;
 
 public interface EuCentralesRepository extends BaseRepository<EuCentrales, Integer> {
 

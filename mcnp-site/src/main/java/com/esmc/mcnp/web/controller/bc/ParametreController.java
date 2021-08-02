@@ -1,6 +1,6 @@
 package com.esmc.mcnp.web.controller.bc;
 
-import com.esmc.mcnp.services.setting.EuParametresService;
+import com.esmc.mcnp.infrastructure.services.setting.EuParametresService;
 import com.esmc.mcnp.web.controller.base.BaseController;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;

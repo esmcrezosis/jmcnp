@@ -1,4 +1,4 @@
-package com.esmc.mcnp.model.cmfh;
+package com.esmc.mcnp.domain.entity.cmfh;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 

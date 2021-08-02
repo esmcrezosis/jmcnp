@@ -1,16 +1,16 @@
-package com.esmc.mcnp.services.oi;
+package com.esmc.mcnp.infrastructure.services.oi;
 
 import java.util.List;
 
-import com.esmc.mcnp.services.base.BaseServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.esmc.mcnp.model.odd.EuMstierListebc;
-import com.esmc.mcnp.repositories.base.BaseRepository;
-import com.esmc.mcnp.repositories.odd.EuMstierListebcRepository;
+import com.esmc.mcnp.dao.repository.base.BaseRepository;
+import com.esmc.mcnp.dao.repository.odd.EuMstierListebcRepository;
+import com.esmc.mcnp.domain.entity.odd.EuMstierListebc;
+import com.esmc.mcnp.infrastructure.services.base.BaseServiceImpl;
 
 @Service
 @Transactional(readOnly = true, propagation = Propagation.REQUIRED)

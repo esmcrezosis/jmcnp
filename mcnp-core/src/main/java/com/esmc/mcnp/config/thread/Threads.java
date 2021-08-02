@@ -1,4 +1,4 @@
-package com.kreatech.config.thread;
+package com.esmc.mcnp.config.thread;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

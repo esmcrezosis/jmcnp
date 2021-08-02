@@ -1,9 +1,10 @@
-package com.esmc.mcnp.model.smcipn;
-
-import com.esmc.mcnp.model.acteur.EuBpsVenduAvr;
+package com.esmc.mcnp.domain.entity.smcipn;
 
 import java.io.Serializable;
 import javax.persistence.*;
+
+import com.esmc.mcnp.domain.entity.acteur.EuBpsVenduAvr;
+
 import java.util.List;
 
 /**

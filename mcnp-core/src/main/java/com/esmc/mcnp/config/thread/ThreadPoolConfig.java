@@ -1,4 +1,4 @@
-package com.kreatech.config.thread;
+package com.esmc.mcnp.config.thread;
 
 import org.apache.commons.lang3.concurrent.BasicThreadFactory;
 import org.springframework.context.annotation.Bean;

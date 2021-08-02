@@ -1,7 +1,8 @@
-package com.esmc.mcnp.mapper.security;
+package com.esmc.mcnp.domain.mapper.security;
 
-import com.esmc.mcnp.dto.security.Permission;
-import com.esmc.mcnp.model.security.EuPermission;
+import com.esmc.mcnp.domain.dto.security.Permission;
+import com.esmc.mcnp.domain.entity.security.EuPermission;
+
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 

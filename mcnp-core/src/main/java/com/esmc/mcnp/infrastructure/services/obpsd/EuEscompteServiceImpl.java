@@ -1,16 +1,16 @@
-package com.esmc.mcnp.services.obpsd;
+package com.esmc.mcnp.infrastructure.services.obpsd;
 
 import java.util.List;
 
-import com.esmc.mcnp.services.base.BaseServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.esmc.mcnp.model.obpsd.EuEscompte;
-import com.esmc.mcnp.repositories.base.BaseRepository;
-import com.esmc.mcnp.repositories.obpsd.EuEscompteRepository;
+import com.esmc.mcnp.dao.repository.base.BaseRepository;
+import com.esmc.mcnp.dao.repository.obpsd.EuEscompteRepository;
+import com.esmc.mcnp.domain.entity.obpsd.EuEscompte;
+import com.esmc.mcnp.infrastructure.services.base.BaseServiceImpl;
 
 @Service("euEscompteService")
 @Transactional(readOnly = true, propagation = Propagation.REQUIRED)

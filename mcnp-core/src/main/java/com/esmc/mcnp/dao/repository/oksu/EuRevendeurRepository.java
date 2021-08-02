@@ -1,11 +1,11 @@
-package com.esmc.mcnp.repositories.oksu;
+package com.esmc.mcnp.dao.repository.oksu;
 
 import java.util.List;
 
 import org.springframework.data.jpa.repository.Query;
 
-import com.esmc.mcnp.model.oksu.EuRevendeur;
-import com.esmc.mcnp.repositories.base.BaseRepository;
+import com.esmc.mcnp.dao.repository.base.BaseRepository;
+import com.esmc.mcnp.domain.entity.oksu.EuRevendeur;
 
 public interface EuRevendeurRepository extends BaseRepository<EuRevendeur, Long> {
 

@@ -1,12 +1,12 @@
-package com.esmc.mcnp.services.smcipn;
+package com.esmc.mcnp.infrastructure.services.smcipn;
 
 import java.util.List;
 
-import com.esmc.mcnp.services.base.BaseService;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
-import com.esmc.mcnp.model.smcipn.EuTransfertNr;
+import com.esmc.mcnp.domain.entity.smcipn.EuTransfertNr;
+import com.esmc.mcnp.infrastructure.services.base.BaseService;
 
 public interface EuTransfertNrService extends BaseService<EuTransfertNr, Long> {
 	public Long getLastInsertedId();

@@ -1,4 +1,4 @@
-package com.esmc.mcnp.infrastructure.exception.business;
+package com.esmc.mcnp.commons.exception.business;
 
 import java.text.MessageFormat;
 import java.util.Optional;

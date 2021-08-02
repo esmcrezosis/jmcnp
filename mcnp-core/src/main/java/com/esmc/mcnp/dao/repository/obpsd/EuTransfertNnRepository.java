@@ -1,12 +1,12 @@
-package com.esmc.mcnp.repositories.obpsd;
+package com.esmc.mcnp.dao.repository.obpsd;
 
 import java.util.List;
 
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
-import com.esmc.mcnp.model.obpsd.EuTransfertNn;
-import com.esmc.mcnp.repositories.base.BaseRepository;
+import com.esmc.mcnp.dao.repository.base.BaseRepository;
+import com.esmc.mcnp.domain.entity.obpsd.EuTransfertNn;
 
 public interface EuTransfertNnRepository extends BaseRepository<EuTransfertNn, Long> {
 

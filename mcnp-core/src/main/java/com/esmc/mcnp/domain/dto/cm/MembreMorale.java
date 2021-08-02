@@ -1,9 +1,5 @@
-package com.esmc.mcnp.dto.cm;
+package com.esmc.mcnp.domain.dto.cm;
 
-import com.esmc.mcnp.dto.odd.AgencesOdd;
-import com.esmc.mcnp.dto.org.Pays;
-import com.esmc.mcnp.dto.org.AgenceDTO;
-import com.esmc.mcnp.dto.org.Canton;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.experimental.Accessors;
@@ -11,6 +7,11 @@ import lombok.experimental.Accessors;
 import java.io.Serializable;
 import java.time.LocalTime;
 import java.util.Date;
+
+import com.esmc.mcnp.domain.dto.odd.AgencesOdd;
+import com.esmc.mcnp.domain.dto.org.AgenceDTO;
+import com.esmc.mcnp.domain.dto.org.Canton;
+import com.esmc.mcnp.domain.dto.org.Pays;
 
 @Data
 @Accessors(chain = true)

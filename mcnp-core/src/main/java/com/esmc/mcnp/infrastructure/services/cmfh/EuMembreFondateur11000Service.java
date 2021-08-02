@@ -1,10 +1,10 @@
-package com.esmc.mcnp.services.cmfh;
+package com.esmc.mcnp.infrastructure.services.cmfh;
 
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
-import com.esmc.mcnp.model.cmfh.EuMembreFondateur11000;
-import com.esmc.mcnp.services.base.CrudService;
+import com.esmc.mcnp.domain.entity.cmfh.EuMembreFondateur11000;
+import com.esmc.mcnp.infrastructure.services.base.CrudService;
 
 public interface EuMembreFondateur11000Service extends CrudService<EuMembreFondateur11000, Long> {
 	EuMembreFondateur11000 findByMembre(String codeMembre);

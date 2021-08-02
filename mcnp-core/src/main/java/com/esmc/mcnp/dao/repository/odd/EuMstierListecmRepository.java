@@ -1,4 +1,4 @@
-package com.esmc.mcnp.repositories.odd;
+package com.esmc.mcnp.dao.repository.odd;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
@@ -10,8 +10,8 @@ import org.springframework.data.domain.Sort;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
-import com.esmc.mcnp.model.odd.EuMstierListecm;
-import com.esmc.mcnp.repositories.base.BaseRepository;
+import com.esmc.mcnp.dao.repository.base.BaseRepository;
+import com.esmc.mcnp.domain.entity.odd.EuMstierListecm;
 
 public interface EuMstierListecmRepository extends BaseRepository<EuMstierListecm, Integer> {
 

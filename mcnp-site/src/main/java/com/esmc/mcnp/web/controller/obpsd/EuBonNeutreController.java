@@ -1,11 +1,11 @@
 package com.esmc.mcnp.web.controller.obpsd;
 
-import com.esmc.mcnp.model.obpsd.EuBonNeutre;
-import com.esmc.mcnp.model.obpsd.EuBonNeutreDetail;
-import com.esmc.mcnp.model.obpsd.EuBonNeutreUtilise;
-import com.esmc.mcnp.services.ba.EuBonNeutreDetailService;
-import com.esmc.mcnp.services.ba.EuBonNeutreService;
-import com.esmc.mcnp.services.ba.EuBonNeutreUtiliseService;
+import com.esmc.mcnp.domain.entity.obpsd.EuBonNeutre;
+import com.esmc.mcnp.domain.entity.obpsd.EuBonNeutreDetail;
+import com.esmc.mcnp.domain.entity.obpsd.EuBonNeutreUtilise;
+import com.esmc.mcnp.infrastructure.services.ba.EuBonNeutreDetailService;
+import com.esmc.mcnp.infrastructure.services.ba.EuBonNeutreService;
+import com.esmc.mcnp.infrastructure.services.ba.EuBonNeutreUtiliseService;
 import com.esmc.mcnp.web.controller.base.BaseController;
 import com.esmc.mcnp.util.JqGrid;
 import com.google.common.collect.Lists;

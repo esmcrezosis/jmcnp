@@ -1,10 +1,10 @@
-package com.esmc.mcnp.services.smcipn;
+package com.esmc.mcnp.infrastructure.services.smcipn;
 
 import org.springframework.stereotype.Service;
 
-import com.esmc.mcnp.model.smcipn.EuDemandeSmcipn;
-import com.esmc.mcnp.repositories.smcipn.EuDemandeSmcipnRepository;
-import com.esmc.mcnp.services.base.CrudServiceImpl;
+import com.esmc.mcnp.dao.repository.smcipn.EuDemandeSmcipnRepository;
+import com.esmc.mcnp.domain.entity.smcipn.EuDemandeSmcipn;
+import com.esmc.mcnp.infrastructure.services.base.CrudServiceImpl;
 
 @Service
 public class EuDemandeSmcipnServiceImplImpl extends CrudServiceImpl<EuDemandeSmcipn, Long>

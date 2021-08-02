@@ -1,4 +1,4 @@
-package com.esmc.mcnp.model.security;
+package com.esmc.mcnp.domain.entity.security;
 
 import lombok.Data;
 
@@ -9,7 +9,11 @@ import java.io.Serializable;
 @Table(name = "eu_roles_permissions")
 @Data
 public class EuRolePermission implements Serializable {
-    @Id
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_roles_permissions")
     private Integer idRolesPermissions;

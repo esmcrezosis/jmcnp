@@ -1,8 +1,4 @@
-package com.esmc.mcnp.model.obpsd;
-
-import com.esmc.mcnp.model.cm.EuCompte;
-import com.esmc.mcnp.model.cm.EuMembreMorale;
-import com.esmc.mcnp.model.others.EuOperation;
+package com.esmc.mcnp.domain.entity.obpsd;
 
 import java.io.Serializable;
 import java.time.LocalDate;
@@ -14,6 +10,10 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
+
+import com.esmc.mcnp.domain.entity.cm.EuCompte;
+import com.esmc.mcnp.domain.entity.cm.EuMembreMorale;
+import com.esmc.mcnp.domain.entity.others.EuOperation;
 
 /**
  * The persistent class for the EU_COMPENSATION database table.

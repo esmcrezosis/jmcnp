@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.esmc.mcnp.components;
+package com.esmc.mcnp.infrastructure.components;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -17,47 +17,47 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.esmc.mcnp.exception.CompteNonIntegreException;
-import com.esmc.mcnp.exception.CompteNonTrouveException;
 import com.esmc.mcnp.core.utils.SMSUtil;
 import com.esmc.mcnp.core.utils.ServerUtil;
-import com.esmc.mcnp.exception.SoldeInsuffisantException;
-import com.esmc.mcnp.dto.bn.TransfertSMS;
-import com.esmc.mcnp.dto.smcipn.Transfert;
-import com.esmc.mcnp.model.acteur.EuActeur;
-import com.esmc.mcnp.model.op.EuAppelOffre;
-import com.esmc.mcnp.model.ba.EuCapa;
-import com.esmc.mcnp.model.ba.EuDetailSmsmoney;
-import com.esmc.mcnp.model.ba.EuDetailVentesms;
-import com.esmc.mcnp.model.acteur.EuGac;
-import com.esmc.mcnp.model.ba.EuNn;
-import com.esmc.mcnp.model.sms.EuSms;
-import com.esmc.mcnp.model.cm.EuCategorieCompte;
-import com.esmc.mcnp.model.cm.EuCompte;
-import com.esmc.mcnp.model.cm.EuMembre;
-import com.esmc.mcnp.model.cm.EuMembreMorale;
-import com.esmc.mcnp.model.cm.EuTypeCompte;
-import com.esmc.mcnp.model.obpsd.EuDetailFgfn;
-import com.esmc.mcnp.model.obpsd.EuFgfn;
-import com.esmc.mcnp.model.obpsd.EuSmsmoney;
-import com.esmc.mcnp.model.obpsd.EuTransfertNn;
-import com.esmc.mcnp.model.obpsd.EuTypeNn;
-import com.esmc.mcnp.repositories.others.EuGacRepository;
-import com.esmc.mcnp.repositories.others.EuSmsmoneyRepository;
-import com.esmc.mcnp.repositories.acteurs.EuActeurRepository;
-import com.esmc.mcnp.repositories.ba.EuCapaRepository;
-import com.esmc.mcnp.repositories.cm.EuCompteRepository;
-import com.esmc.mcnp.repositories.cmfh.EuCmfhRepository;
-import com.esmc.mcnp.repositories.common.EuSmsRepository;
-import com.esmc.mcnp.repositories.obpsd.EuDetailFgfnRepository;
-import com.esmc.mcnp.repositories.obpsd.EuDetailSmsmoneyRepository;
-import com.esmc.mcnp.repositories.obpsd.EuDetailVentesmsRepository;
-import com.esmc.mcnp.repositories.obpsd.EuFgfnRepository;
-import com.esmc.mcnp.repositories.obpsd.EuNnRepository;
-import com.esmc.mcnp.repositories.obpsd.EuTransfertNnRepository;
-import com.esmc.mcnp.repositories.smcipn.EuAppelOffreRepository;
-import com.esmc.mcnp.services.obpsd.EuNnService;
-import com.esmc.mcnp.services.setting.EuParametresService;
+import com.esmc.mcnp.dao.repository.acteurs.EuActeurRepository;
+import com.esmc.mcnp.dao.repository.ba.EuCapaRepository;
+import com.esmc.mcnp.dao.repository.cm.EuCompteRepository;
+import com.esmc.mcnp.dao.repository.cmfh.EuCmfhRepository;
+import com.esmc.mcnp.dao.repository.common.EuSmsRepository;
+import com.esmc.mcnp.dao.repository.obpsd.EuDetailFgfnRepository;
+import com.esmc.mcnp.dao.repository.obpsd.EuDetailSmsmoneyRepository;
+import com.esmc.mcnp.dao.repository.obpsd.EuDetailVentesmsRepository;
+import com.esmc.mcnp.dao.repository.obpsd.EuFgfnRepository;
+import com.esmc.mcnp.dao.repository.obpsd.EuNnRepository;
+import com.esmc.mcnp.dao.repository.obpsd.EuTransfertNnRepository;
+import com.esmc.mcnp.dao.repository.others.EuGacRepository;
+import com.esmc.mcnp.dao.repository.others.EuSmsmoneyRepository;
+import com.esmc.mcnp.dao.repository.smcipn.EuAppelOffreRepository;
+import com.esmc.mcnp.domain.dto.bn.TransfertSMS;
+import com.esmc.mcnp.domain.dto.smcipn.Transfert;
+import com.esmc.mcnp.domain.entity.acteur.EuActeur;
+import com.esmc.mcnp.domain.entity.acteur.EuGac;
+import com.esmc.mcnp.domain.entity.ba.EuCapa;
+import com.esmc.mcnp.domain.entity.ba.EuDetailSmsmoney;
+import com.esmc.mcnp.domain.entity.ba.EuDetailVentesms;
+import com.esmc.mcnp.domain.entity.ba.EuNn;
+import com.esmc.mcnp.domain.entity.cm.EuCategorieCompte;
+import com.esmc.mcnp.domain.entity.cm.EuCompte;
+import com.esmc.mcnp.domain.entity.cm.EuMembre;
+import com.esmc.mcnp.domain.entity.cm.EuMembreMorale;
+import com.esmc.mcnp.domain.entity.cm.EuTypeCompte;
+import com.esmc.mcnp.domain.entity.obpsd.EuDetailFgfn;
+import com.esmc.mcnp.domain.entity.obpsd.EuFgfn;
+import com.esmc.mcnp.domain.entity.obpsd.EuSmsmoney;
+import com.esmc.mcnp.domain.entity.obpsd.EuTransfertNn;
+import com.esmc.mcnp.domain.entity.obpsd.EuTypeNn;
+import com.esmc.mcnp.domain.entity.op.EuAppelOffre;
+import com.esmc.mcnp.domain.entity.sms.EuSms;
+import com.esmc.mcnp.commons.exception.business.CompteNonIntegreException;
+import com.esmc.mcnp.commons.exception.business.CompteNonTrouveException;
+import com.esmc.mcnp.commons.exception.business.SoldeInsuffisantException;
+import com.esmc.mcnp.infrastructure.services.obpsd.EuNnService;
+import com.esmc.mcnp.infrastructure.services.setting.EuParametresService;
 
 /**
  *

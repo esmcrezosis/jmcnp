@@ -1,4 +1,4 @@
-package com.esmc.mcnp.services.obps;
+package com.esmc.mcnp.infrastructure.services.obps;
 
 import java.util.Date;
 import java.util.List;
@@ -7,12 +7,12 @@ import org.springframework.dao.DataAccessException;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
-import com.esmc.mcnp.exception.CompteNonIntegreException;
-import com.esmc.mcnp.model.bc.EuBon;
-import com.esmc.mcnp.model.cm.EuCompte;
-import com.esmc.mcnp.model.obps.EuGcp;
-import com.esmc.mcnp.model.obps.EuTegc;
-import com.esmc.mcnp.services.base.CrudService;
+import com.esmc.mcnp.domain.entity.bc.EuBon;
+import com.esmc.mcnp.domain.entity.cm.EuCompte;
+import com.esmc.mcnp.domain.entity.obps.EuGcp;
+import com.esmc.mcnp.domain.entity.obps.EuTegc;
+import com.esmc.mcnp.commons.exception.business.CompteNonIntegreException;
+import com.esmc.mcnp.infrastructure.services.base.CrudService;
 
 public interface EuGcpService extends CrudService<EuGcp, Long> {
 

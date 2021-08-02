@@ -1,10 +1,10 @@
-package com.esmc.mcnp.model.others;
-
-import com.esmc.mcnp.model.acteur.EuBpsAcheteAvr;
-import com.esmc.mcnp.model.acteur.EuBpsVenduAvr;
+package com.esmc.mcnp.domain.entity.others;
 
 import java.io.Serializable;
 import javax.persistence.*;
+
+import com.esmc.mcnp.domain.entity.acteur.EuBpsAcheteAvr;
+import com.esmc.mcnp.domain.entity.acteur.EuBpsVenduAvr;
 
 
 /**

@@ -1,4 +1,4 @@
-package com.esmc.mcnp.util;
+package com.esmc.mcnp.commons.util;
 
 /**
  * Outils de type de média

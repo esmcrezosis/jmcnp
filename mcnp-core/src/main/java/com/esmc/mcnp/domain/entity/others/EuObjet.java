@@ -1,6 +1,4 @@
-package com.esmc.mcnp.model.others;
-
-import com.esmc.mcnp.model.pc.EuCreance;
+package com.esmc.mcnp.domain.entity.others;
 
 import java.io.Serializable;
 import java.util.Date;
@@ -14,6 +12,8 @@ import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+
+import com.esmc.mcnp.domain.entity.pc.EuCreance;
 
 /**
  * The persistent class for the eu_objet database table.

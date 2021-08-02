@@ -3,9 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.esmc.mcnp.components;
+package com.esmc.mcnp.infrastructure.components;
 
-import com.esmc.mcnp.dto.smcipn.Transfert;
+import com.esmc.mcnp.domain.dto.smcipn.Transfert;
 
 /**
  *

@@ -1,7 +1,7 @@
-package com.esmc.mcnp.repositories.cm;
+package com.esmc.mcnp.dao.repository.cm;
 
-import com.esmc.mcnp.model.cm.EuTypeCompte;
-import com.esmc.mcnp.repositories.base.BaseRepository;
+import com.esmc.mcnp.dao.repository.base.BaseRepository;
+import com.esmc.mcnp.domain.entity.cm.EuTypeCompte;
 
 public interface EuTypeCompteRepository extends BaseRepository<EuTypeCompte, String> {
 }

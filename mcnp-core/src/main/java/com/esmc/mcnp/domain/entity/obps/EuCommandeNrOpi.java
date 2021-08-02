@@ -1,6 +1,4 @@
-package com.esmc.mcnp.model.obps;
-
-import com.esmc.mcnp.model.obpsd.EuTraite;
+package com.esmc.mcnp.domain.entity.obps;
 
 import java.io.Serializable;
 
@@ -11,6 +9,8 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+
+import com.esmc.mcnp.domain.entity.obpsd.EuTraite;
 
 @Entity
 @Table(name="eu_commande_nr_opi")

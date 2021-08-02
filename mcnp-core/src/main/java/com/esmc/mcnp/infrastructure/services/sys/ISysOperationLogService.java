@@ -1,11 +1,10 @@
-package com.kreatech.api.module.sys.service;
+package com.esmc.mcnp.infrastructure.services.sys;
 
-import java.util.Map;
-
+import com.esmc.mcnp.domain.entity.sys.SysOperationLog;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
-import com.kreatech.data.entity.sys.SysOperationLog;
+import java.util.Map;
 
 public interface ISysOperationLogService {
 

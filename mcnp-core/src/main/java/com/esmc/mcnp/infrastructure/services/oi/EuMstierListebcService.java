@@ -1,9 +1,9 @@
-package com.esmc.mcnp.services.oi;
+package com.esmc.mcnp.infrastructure.services.oi;
 
 import java.util.List;
 
-import com.esmc.mcnp.model.odd.EuMstierListebc;
-import com.esmc.mcnp.services.base.BaseService;
+import com.esmc.mcnp.domain.entity.odd.EuMstierListebc;
+import com.esmc.mcnp.infrastructure.services.base.BaseService;
 
 public interface EuMstierListebcService extends BaseService<EuMstierListebc, Integer> {
 

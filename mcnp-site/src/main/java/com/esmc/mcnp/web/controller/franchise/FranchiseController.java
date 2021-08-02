@@ -5,13 +5,13 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.esmc.mcnp.services.ba.EuBonNeutreDetailService;
-import com.esmc.mcnp.services.ba.EuBonNeutreService;
-import com.esmc.mcnp.services.cm.EuMembreMoraleService;
-import com.esmc.mcnp.services.cm.EuMembreService;
-import com.esmc.mcnp.services.cmfh.EuAssociationService;
-import com.esmc.mcnp.services.franchise.EuAchatFranchisesService;
-import com.esmc.mcnp.services.franchise.EuFranchisesService;
+import com.esmc.mcnp.infrastructure.services.ba.EuBonNeutreDetailService;
+import com.esmc.mcnp.infrastructure.services.ba.EuBonNeutreService;
+import com.esmc.mcnp.infrastructure.services.cm.EuMembreMoraleService;
+import com.esmc.mcnp.infrastructure.services.cm.EuMembreService;
+import com.esmc.mcnp.infrastructure.services.cmfh.EuAssociationService;
+import com.esmc.mcnp.infrastructure.services.franchise.EuAchatFranchisesService;
+import com.esmc.mcnp.infrastructure.services.franchise.EuFranchisesService;
 import com.esmc.mcnp.web.controller.base.BaseController;
 
 @Controller

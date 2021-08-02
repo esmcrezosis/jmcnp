@@ -1,13 +1,13 @@
-package com.esmc.mcnp.repositories.smcipn;
+package com.esmc.mcnp.dao.repository.smcipn;
 
 import java.util.List;
 
-import com.esmc.mcnp.dto.projections.BudgetVO;
+import com.esmc.mcnp.dao.repository.base.BaseRepository;
+import com.esmc.mcnp.domain.dto.projections.BudgetVO;
+import com.esmc.mcnp.domain.entity.smcipn.EuBudget;
+
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
-
-import com.esmc.mcnp.model.smcipn.EuBudget;
-import com.esmc.mcnp.repositories.base.BaseRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
@@ -47,7 +47,7 @@ public interface EuBudgetRepository extends BaseRepository<EuBudget, Long> {
     @Query("select b from EuBudget b join fetch b.typeBudget where b.id = :id")
     EuBudget findWithId(@Param("id") Long id);
 
-    @Query("select new com.esmc.mcnp.dto.projections.BudgetVO(b.id, b.codeBudget, b.nomBudget) from EuBudget b")
+    @Query("select new com.esmc.mcnp.domain.dto.projections.BudgetVO(b.id, b.codeBudget, b.nomBudget) from EuBudget b")
     List<BudgetVO> getAll();
 
 }

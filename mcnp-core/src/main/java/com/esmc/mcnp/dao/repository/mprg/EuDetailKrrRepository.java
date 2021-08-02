@@ -1,9 +1,9 @@
-package com.esmc.mcnp.repositories.mprg;
+package com.esmc.mcnp.dao.repository.mprg;
 
 import java.util.List;
 
-import com.esmc.mcnp.model.mprg.EuDetailKrr;
-import com.esmc.mcnp.repositories.base.BaseRepository;
+import com.esmc.mcnp.dao.repository.base.BaseRepository;
+import com.esmc.mcnp.domain.entity.mprg.EuDetailKrr;
 
 public interface EuDetailKrrRepository extends BaseRepository<EuDetailKrr, Long> {
 

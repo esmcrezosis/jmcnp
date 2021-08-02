@@ -1,4 +1,4 @@
-package com.esmc.mcnp.repositories.obps;
+package com.esmc.mcnp.dao.repository.obps;
 
 import java.util.Date;
 import java.util.List;
@@ -11,8 +11,8 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
-import com.esmc.mcnp.model.obps.EuGcp;
-import com.esmc.mcnp.repositories.base.BaseRepository;
+import com.esmc.mcnp.dao.repository.base.BaseRepository;
+import com.esmc.mcnp.domain.entity.obps.EuGcp;
 
 @Repository
 public interface EuGcpRepository extends BaseRepository<EuGcp, Long> {

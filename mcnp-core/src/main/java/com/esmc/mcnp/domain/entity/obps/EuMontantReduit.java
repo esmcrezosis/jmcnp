@@ -1,10 +1,11 @@
-package com.esmc.mcnp.model.obps;
+package com.esmc.mcnp.domain.entity.obps;
 
-import com.esmc.mcnp.model.obps.EuGcp;
 import java.io.Serializable;
 import java.lang.Double;
 import java.lang.Integer;
 import javax.persistence.*;
+
+import com.esmc.mcnp.domain.entity.obps.EuGcp;
 
 /**
  * Entity implementation class for Entity: EuMontantReduit

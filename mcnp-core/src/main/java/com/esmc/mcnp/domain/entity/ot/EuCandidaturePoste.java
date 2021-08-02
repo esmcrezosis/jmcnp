@@ -1,4 +1,4 @@
-package com.esmc.mcnp.model.ot;
+package com.esmc.mcnp.domain.entity.ot;
 
 import java.io.Serializable;
 
@@ -14,7 +14,7 @@ import javax.persistence.Table;
 import org.hibernate.annotations.DynamicInsert;
 import org.hibernate.annotations.DynamicUpdate;
 
-import com.esmc.mcnp.model.security.EuRoles;
+import com.esmc.mcnp.domain.entity.security.EuRoles;
 
 import lombok.Data;
 import lombok.experimental.Accessors;

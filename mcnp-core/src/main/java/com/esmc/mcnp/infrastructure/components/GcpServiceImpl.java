@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.esmc.mcnp.components;
+package com.esmc.mcnp.infrastructure.components;
 
 import java.time.LocalDate;
 import java.util.Date;
@@ -14,40 +14,40 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.esmc.mcnp.core.utils.ServerUtil;
-import com.esmc.mcnp.dto.desendettement.Compensation;
-import com.esmc.mcnp.dto.echange.Escompte;
-import com.esmc.mcnp.dto.obps.LGcp;
-import com.esmc.mcnp.dto.obps.TpaGcpView;
-import com.esmc.mcnp.model.acteur.EuActeur;
-import com.esmc.mcnp.model.bc.EuCnp;
-import com.esmc.mcnp.model.bc.EuCnpEntree;
-import com.esmc.mcnp.model.bc.EuCreditEchange;
-import com.esmc.mcnp.model.cm.EuCategorieCompte;
-import com.esmc.mcnp.model.cm.EuCompte;
-import com.esmc.mcnp.model.cm.EuMembreMorale;
-import com.esmc.mcnp.model.cm.EuTypeCompte;
-import com.esmc.mcnp.model.obps.EuGcp;
-import com.esmc.mcnp.model.obps.EuGcpPrelever;
-import com.esmc.mcnp.model.obpsd.EuCompensation;
-import com.esmc.mcnp.model.obpsd.EuDetailGcpPbf;
-import com.esmc.mcnp.model.obpsd.EuEchange;
-import com.esmc.mcnp.model.obpsd.EuEscompte;
-import com.esmc.mcnp.model.obpsd.EuGcpPbf;
-import com.esmc.mcnp.model.obpsd.EuTpagcp;
-import com.esmc.mcnp.repositories.acteurs.EuActeurRepository;
-import com.esmc.mcnp.repositories.bc.EuCnpEntreeRepository;
-import com.esmc.mcnp.repositories.bc.EuCnpRepository;
-import com.esmc.mcnp.repositories.bc.EuCreditEchangeRepository;
-import com.esmc.mcnp.repositories.cm.EuCompteRepository;
-import com.esmc.mcnp.repositories.cm.EuMembreMoraleRepository;
-import com.esmc.mcnp.repositories.obps.EuGcpPreleverRepository;
-import com.esmc.mcnp.repositories.obpsd.EuDetailGcpPbfRepository;
-import com.esmc.mcnp.repositories.obpsd.EuEchangeRepository;
-import com.esmc.mcnp.repositories.obpsd.EuEscompteRepository;
-import com.esmc.mcnp.repositories.obpsd.EuGcpPbfRepository;
-import com.esmc.mcnp.repositories.obpsd.EuTpagcpRepository;
-import com.esmc.mcnp.repositories.others.EuCompensationRepository;
-import com.esmc.mcnp.services.setting.EuParametresService;
+import com.esmc.mcnp.dao.repository.acteurs.EuActeurRepository;
+import com.esmc.mcnp.dao.repository.bc.EuCnpEntreeRepository;
+import com.esmc.mcnp.dao.repository.bc.EuCnpRepository;
+import com.esmc.mcnp.dao.repository.bc.EuCreditEchangeRepository;
+import com.esmc.mcnp.dao.repository.cm.EuCompteRepository;
+import com.esmc.mcnp.dao.repository.cm.EuMembreMoraleRepository;
+import com.esmc.mcnp.dao.repository.obps.EuGcpPreleverRepository;
+import com.esmc.mcnp.dao.repository.obpsd.EuDetailGcpPbfRepository;
+import com.esmc.mcnp.dao.repository.obpsd.EuEchangeRepository;
+import com.esmc.mcnp.dao.repository.obpsd.EuEscompteRepository;
+import com.esmc.mcnp.dao.repository.obpsd.EuGcpPbfRepository;
+import com.esmc.mcnp.dao.repository.obpsd.EuTpagcpRepository;
+import com.esmc.mcnp.dao.repository.others.EuCompensationRepository;
+import com.esmc.mcnp.domain.dto.desendettement.Compensation;
+import com.esmc.mcnp.domain.dto.echange.Escompte;
+import com.esmc.mcnp.domain.dto.obps.LGcp;
+import com.esmc.mcnp.domain.dto.obps.TpaGcpView;
+import com.esmc.mcnp.domain.entity.acteur.EuActeur;
+import com.esmc.mcnp.domain.entity.bc.EuCnp;
+import com.esmc.mcnp.domain.entity.bc.EuCnpEntree;
+import com.esmc.mcnp.domain.entity.bc.EuCreditEchange;
+import com.esmc.mcnp.domain.entity.cm.EuCategorieCompte;
+import com.esmc.mcnp.domain.entity.cm.EuCompte;
+import com.esmc.mcnp.domain.entity.cm.EuMembreMorale;
+import com.esmc.mcnp.domain.entity.cm.EuTypeCompte;
+import com.esmc.mcnp.domain.entity.obps.EuGcp;
+import com.esmc.mcnp.domain.entity.obps.EuGcpPrelever;
+import com.esmc.mcnp.domain.entity.obpsd.EuCompensation;
+import com.esmc.mcnp.domain.entity.obpsd.EuDetailGcpPbf;
+import com.esmc.mcnp.domain.entity.obpsd.EuEchange;
+import com.esmc.mcnp.domain.entity.obpsd.EuEscompte;
+import com.esmc.mcnp.domain.entity.obpsd.EuGcpPbf;
+import com.esmc.mcnp.domain.entity.obpsd.EuTpagcp;
+import com.esmc.mcnp.infrastructure.services.setting.EuParametresService;
 
 /**
  *

@@ -1,6 +1,4 @@
-package com.esmc.mcnp.model.acteur;
-
-import com.esmc.mcnp.model.acteur.EuGac;
+package com.esmc.mcnp.domain.entity.acteur;
 
 import java.io.Serializable;
 import java.util.List;
@@ -10,6 +8,8 @@ import javax.persistence.Id;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+
+import com.esmc.mcnp.domain.entity.acteur.EuGac;
 
 /**
  * The persistent class for the eu_type_gac database table.

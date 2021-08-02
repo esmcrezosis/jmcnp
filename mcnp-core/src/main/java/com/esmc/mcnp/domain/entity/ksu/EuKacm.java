@@ -1,4 +1,4 @@
-package com.esmc.mcnp.model.ksu;
+package com.esmc.mcnp.domain.entity.ksu;
 
 import java.io.Serializable;
 import java.lang.Double;

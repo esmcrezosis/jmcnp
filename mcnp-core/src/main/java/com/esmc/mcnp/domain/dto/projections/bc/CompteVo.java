@@ -1,4 +1,4 @@
-package com.esmc.mcnp.dto.projections.bc;
+package com.esmc.mcnp.domain.dto.projections.bc;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;

@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.esmc.mcnp.services.pc.EuRecouvrementMcnpService;
+import com.esmc.mcnp.infrastructure.services.pc.EuRecouvrementMcnpService;
 import com.esmc.mcnp.web.mvc.dto.RecouvrementDto;
 import com.esmc.mcnp.web.mvc.dto.Result;
 

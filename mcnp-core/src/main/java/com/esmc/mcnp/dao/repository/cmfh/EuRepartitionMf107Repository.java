@@ -1,4 +1,4 @@
-package com.esmc.mcnp.repositories.cmfh;
+package com.esmc.mcnp.dao.repository.cmfh;
 
 import java.util.List;
 
@@ -7,8 +7,8 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
-import com.esmc.mcnp.model.cmfh.EuRepartitionMf107;
-import com.esmc.mcnp.repositories.base.BaseRepository;
+import com.esmc.mcnp.dao.repository.base.BaseRepository;
+import com.esmc.mcnp.domain.entity.cmfh.EuRepartitionMf107;
 
 public interface EuRepartitionMf107Repository extends BaseRepository<EuRepartitionMf107, Long> {
 	List<EuRepartitionMf107> findByCodeMembre(String codeMembre);

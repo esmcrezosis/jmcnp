@@ -1,4 +1,4 @@
-package com.esmc.mcnp.services.ot;
+package com.esmc.mcnp.infrastructure.services.ot;
 
 import java.time.LocalDate;
 import java.util.List;
@@ -6,8 +6,9 @@ import java.util.List;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
-import com.esmc.mcnp.model.ot.EuCandidature;
-import com.esmc.mcnp.services.base.CrudService;
+import com.esmc.mcnp.domain.entity.ot.EuCandidature;
+import com.esmc.mcnp.infrastructure.services.base.CrudService;
+
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 

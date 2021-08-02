@@ -1,7 +1,4 @@
-package com.esmc.mcnp.model.others;
-
-import com.esmc.mcnp.model.org.EuAgence;
-import com.esmc.mcnp.model.org.EuSecteur;
+package com.esmc.mcnp.domain.entity.others;
 
 import java.io.Serializable;
 import javax.persistence.Column;
@@ -12,6 +9,9 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
+
+import com.esmc.mcnp.domain.entity.org.EuAgence;
+import com.esmc.mcnp.domain.entity.org.EuSecteur;
 
 /**
  * The persistent class for the eu_sub_secteur database table.

@@ -1,9 +1,10 @@
-package com.esmc.mcnp.repositories.org;
+package com.esmc.mcnp.dao.repository.org;
 
-import com.esmc.mcnp.dto.projections.ChaineDistributionVO;
-import com.esmc.mcnp.model.enums.ChaineDistributionEnum;
-import com.esmc.mcnp.model.obps.EuChaineDistribution;
-import com.esmc.mcnp.repositories.base.BaseRepository;
+import com.esmc.mcnp.dao.repository.base.BaseRepository;
+import com.esmc.mcnp.domain.dto.projections.ChaineDistributionVO;
+import com.esmc.mcnp.domain.enums.ChaineDistributionEnum;
+import com.esmc.mcnp.domain.entity.obps.EuChaineDistribution;
+
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.EntityGraph;

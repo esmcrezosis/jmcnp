@@ -1,4 +1,4 @@
-package com.esmc.mcnp.core.utils;
+package com.esmc.mcnp.commons.util;
 
 import java.io.ByteArrayInputStream;
 import java.io.File;
@@ -25,7 +25,7 @@ import org.springframework.lang.NonNull;
 import org.springframework.lang.Nullable;
 import org.springframework.util.Assert;
 
-import com.esmc.mcnp.exception.ForbiddenException;
+import com.esmc.mcnp.commons.exception.system.ForbiddenException;
 
 import lombok.extern.slf4j.Slf4j;
 

@@ -3,26 +3,26 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.esmc.mcnp.services.obpsd;
+package com.esmc.mcnp.infrastructure.services.obpsd;
 
 import java.util.Date;
 import java.util.List;
 
-import com.esmc.mcnp.services.base.BaseServiceImpl;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.esmc.mcnp.model.cm.EuCompteGeneral;
-import com.esmc.mcnp.model.cm.EuCompteGeneralPK;
-import com.esmc.mcnp.dto.bn.Nn;
-import com.esmc.mcnp.model.ba.EuNn;
-import com.esmc.mcnp.model.obpsd.EuTypeNn;
-import com.esmc.mcnp.repositories.cm.EuCompteGeneralRepository;
-import com.esmc.mcnp.repositories.obpsd.EuNnRepository;
-import com.esmc.mcnp.repositories.base.BaseRepository;
+import com.esmc.mcnp.dao.repository.base.BaseRepository;
+import com.esmc.mcnp.dao.repository.cm.EuCompteGeneralRepository;
+import com.esmc.mcnp.dao.repository.obpsd.EuNnRepository;
+import com.esmc.mcnp.domain.dto.bn.Nn;
+import com.esmc.mcnp.domain.entity.ba.EuNn;
+import com.esmc.mcnp.domain.entity.cm.EuCompteGeneral;
+import com.esmc.mcnp.domain.entity.cm.EuCompteGeneralPK;
+import com.esmc.mcnp.domain.entity.obpsd.EuTypeNn;
+import com.esmc.mcnp.infrastructure.services.base.BaseServiceImpl;
 
 /**
  *

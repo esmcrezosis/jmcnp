@@ -1,7 +1,7 @@
-package com.esmc.mcnp.dto.desendettement;
+package com.esmc.mcnp.domain.dto.desendettement;
 
-import com.esmc.mcnp.model.pc.StatutReclamation;
-import com.esmc.mcnp.model.pc.TypePassif;
+import com.esmc.mcnp.domain.entity.pc.StatutReclamation;
+import com.esmc.mcnp.domain.entity.pc.TypePassif;
 import com.fasterxml.jackson.annotation.JsonFormat;
 
 import lombok.Data;

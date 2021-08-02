@@ -1,4 +1,4 @@
-package com.esmc.mcnp.model.cmfh;
+package com.esmc.mcnp.domain.entity.cmfh;
 
 import java.io.Serializable;
 import javax.persistence.*;

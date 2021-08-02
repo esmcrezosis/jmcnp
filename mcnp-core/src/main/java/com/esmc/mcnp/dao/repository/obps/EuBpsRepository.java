@@ -1,11 +1,11 @@
-package com.esmc.mcnp.repositories.obps;
+package com.esmc.mcnp.dao.repository.obps;
 
 import java.util.List;
 
 import org.springframework.data.jpa.repository.Query;
 
-import com.esmc.mcnp.model.obps.EuBps;
-import com.esmc.mcnp.repositories.base.BaseRepository;
+import com.esmc.mcnp.dao.repository.base.BaseRepository;
+import com.esmc.mcnp.domain.entity.obps.EuBps;
 
 public interface EuBpsRepository extends BaseRepository<EuBps, Integer> {
 	@Query("select b from EuBps b")

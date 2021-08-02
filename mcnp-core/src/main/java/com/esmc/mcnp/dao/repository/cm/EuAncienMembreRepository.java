@@ -1,7 +1,8 @@
-package com.esmc.mcnp.repositories.cm;
+package com.esmc.mcnp.dao.repository.cm;
 
-import com.esmc.mcnp.model.cm.EuAncienMembre;
-import com.esmc.mcnp.repositories.base.BaseRepository;
+import com.esmc.mcnp.dao.repository.base.BaseRepository;
+import com.esmc.mcnp.domain.entity.cm.EuAncienMembre;
+
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 

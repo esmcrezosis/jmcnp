@@ -1,7 +1,8 @@
-package com.esmc.mcnp.mapper.odd;
+package com.esmc.mcnp.domain.mapper.odd;
 
-import com.esmc.mcnp.dto.odd.Centrales;
-import com.esmc.mcnp.model.odd.EuCentrales;
+import com.esmc.mcnp.domain.dto.odd.Centrales;
+import com.esmc.mcnp.domain.entity.odd.EuCentrales;
+
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import org.mapstruct.ReportingPolicy;

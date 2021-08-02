@@ -1,10 +1,10 @@
-package com.esmc.mcnp.services.odd;
+package com.esmc.mcnp.infrastructure.services.odd;
 
 import org.springframework.stereotype.Service;
 
-import com.esmc.mcnp.model.odd.EuTypeCentrale;
-import com.esmc.mcnp.repositories.odd.EuTypeCentraleRepository;
-import com.esmc.mcnp.services.base.CrudServiceImpl;
+import com.esmc.mcnp.dao.repository.odd.EuTypeCentraleRepository;
+import com.esmc.mcnp.domain.entity.odd.EuTypeCentrale;
+import com.esmc.mcnp.infrastructure.services.base.CrudServiceImpl;
 
 @Service
 public class EuTypeCentraleServiceImplImpl extends CrudServiceImpl<EuTypeCentrale, Integer>

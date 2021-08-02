@@ -1,12 +1,12 @@
-package com.esmc.mcnp.services.ba;
+package com.esmc.mcnp.infrastructure.services.ba;
 
 import java.util.List;
 
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
-import com.esmc.mcnp.model.ba.EuCapa;
-import com.esmc.mcnp.services.base.BaseService;
+import com.esmc.mcnp.domain.entity.ba.EuCapa;
+import com.esmc.mcnp.infrastructure.services.base.BaseService;
 
 public interface EuCapaService extends BaseService<EuCapa, String> {
 	List<EuCapa> findByCodeMembre(String codeMembre);

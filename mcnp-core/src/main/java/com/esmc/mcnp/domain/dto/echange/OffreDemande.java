@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 
-package com.esmc.mcnp.dto.echange;
+package com.esmc.mcnp.domain.dto.echange;
 
 import java.io.Serializable;
 

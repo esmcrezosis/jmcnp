@@ -1,10 +1,10 @@
-package com.esmc.mcnp.model.oi;
-
-import com.esmc.mcnp.model.cm.EuCompteCredit;
-import com.esmc.mcnp.model.oi.EuBnp;
+package com.esmc.mcnp.domain.entity.oi;
 
 import java.io.Serializable;
 import javax.persistence.*;
+
+import com.esmc.mcnp.domain.entity.cm.EuCompteCredit;
+import com.esmc.mcnp.domain.entity.oi.EuBnp;
 
 /**
  * The persistent class for the eu_detail_bnp database table.

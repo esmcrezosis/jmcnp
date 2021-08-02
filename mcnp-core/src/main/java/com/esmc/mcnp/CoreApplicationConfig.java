@@ -4,7 +4,9 @@ import java.time.format.DateTimeFormatter;
 import java.util.Properties;
 import java.util.concurrent.Executor;
 
-import com.esmc.mcnp.core.utils.MD5PasswordEncoder;
+import javax.persistence.EntityManager;
+
+import com.esmc.mcnp.infrastructure.security.ActiveUserStore;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.aop.interceptor.AsyncUncaughtExceptionHandler;
@@ -26,14 +28,15 @@ import org.springframework.scheduling.annotation.EnableScheduling;
 import org.springframework.scheduling.annotation.SchedulingConfigurer;
 import org.springframework.scheduling.concurrent.ThreadPoolTaskScheduler;
 import org.springframework.scheduling.config.ScheduledTaskRegistrar;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 import com.esmc.mcnp.config.AppProperties;
-import com.esmc.mcnp.repositories.base.BaseRepositoryImpl;
+import com.esmc.mcnp.core.utils.MD5PasswordEncoder;
+import com.esmc.mcnp.dao.repository.base.BaseRepositoryImpl;
 import com.fasterxml.jackson.datatype.jsr310.ser.LocalDateSerializer;
 import com.fasterxml.jackson.datatype.jsr310.ser.LocalDateTimeSerializer;
+import com.querydsl.jpa.impl.JPAQueryFactory;
 
 /**
  * Created with Eclipse User: Mawuli AKLASSOU Date: 21/7/16 Time: 11:20 AM
@@ -43,8 +46,8 @@ import com.fasterxml.jackson.datatype.jsr310.ser.LocalDateTimeSerializer;
 @EnableScheduling
 @EnableTransactionManagement
 @ComponentScan(basePackages = "com.esmc.mcnp")
-@EntityScan(basePackages = "com.esmc.mcnp.model")
-@EnableJpaRepositories(basePackages = "com.esmc.mcnp.repositories", repositoryBaseClass = BaseRepositoryImpl.class)
+@EntityScan(basePackages = "com.esmc.mcnp.domain.entity")
+@EnableJpaRepositories(basePackages = "com.esmc.mcnp.dao.repository", repositoryBaseClass = BaseRepositoryImpl.class)
 @EnableConfigurationProperties(AppProperties.class)
 @PropertySource("classpath:application.properties")
 public class CoreApplicationConfig implements AsyncConfigurer, SchedulingConfigurer {
@@ -117,10 +120,20 @@ public class CoreApplicationConfig implements AsyncConfigurer, SchedulingConfigu
 	public AsyncUncaughtExceptionHandler getAsyncUncaughtExceptionHandler() {
 		return (ex, method, params) -> log.error("Uncaught async error", ex);
 	}
+	
+	@Bean
+	@Autowired
+	public JPAQueryFactory jpaQueryFactory(EntityManager entityManager) {
+		return new JPAQueryFactory(entityManager);
+	}
 
 	@Bean
 	public PasswordEncoder passwordEncoder() {
 		return new MD5PasswordEncoder();
 	}
 
+	@Bean
+	public ActiveUserStore activeUserStore() {
+		return new ActiveUserStore();
+	}
 }

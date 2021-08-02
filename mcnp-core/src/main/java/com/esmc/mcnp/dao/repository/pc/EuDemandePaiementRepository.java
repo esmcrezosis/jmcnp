@@ -1,4 +1,4 @@
-package com.esmc.mcnp.repositories.pc;
+package com.esmc.mcnp.dao.repository.pc;
 
 import java.util.List;
 
@@ -6,8 +6,8 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
-import com.esmc.mcnp.model.pc.EuDemandePaiement;
-import com.esmc.mcnp.repositories.base.BaseRepository;
+import com.esmc.mcnp.dao.repository.base.BaseRepository;
+import com.esmc.mcnp.domain.entity.pc.EuDemandePaiement;
 
 public interface EuDemandePaiementRepository extends BaseRepository<EuDemandePaiement, Integer> {
 

@@ -1,4 +1,4 @@
-package com.esmc.mcnp.dto.security;
+package com.esmc.mcnp.domain.dto.security;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.AllArgsConstructor;

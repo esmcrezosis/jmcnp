@@ -2,8 +2,8 @@ package com.esmc.mcnp.web.mvc.utils;
 
 import org.springframework.stereotype.Component;
 
-import com.esmc.mcnp.model.bc.EuBon;
-import com.esmc.mcnp.model.obpsd.EuDetailBonOpi;
+import com.esmc.mcnp.domain.entity.bc.EuBon;
+import com.esmc.mcnp.domain.entity.obpsd.EuDetailBonOpi;
 import com.esmc.mcnp.web.mvc.dto.PayerOpi;
 
 @Component

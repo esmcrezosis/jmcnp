@@ -1,13 +1,13 @@
-package com.esmc.mcnp.services.org;
+package com.esmc.mcnp.infrastructure.services.org;
 
-import com.esmc.mcnp.dto.projections.CantonVO;
+import com.esmc.mcnp.dao.repository.org.EuCantonRepository;
+import com.esmc.mcnp.domain.dto.projections.CantonVO;
+import com.esmc.mcnp.domain.entity.org.EuCanton;
+import com.esmc.mcnp.infrastructure.services.base.CrudServiceImpl;
+
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
-
-import com.esmc.mcnp.model.org.EuCanton;
-import com.esmc.mcnp.repositories.org.EuCantonRepository;
-import com.esmc.mcnp.services.base.CrudServiceImpl;
 
 import java.util.List;
 

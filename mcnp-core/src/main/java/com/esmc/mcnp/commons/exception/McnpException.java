@@ -1,7 +1,7 @@
 /**
  * 
  */
-package com.esmc.mcnp.infrastructure.exception;
+package com.esmc.mcnp.commons.exception;
 
 /**
  * @author Siva

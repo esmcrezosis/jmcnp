@@ -1,4 +1,4 @@
-package com.esmc.mcnp.model.security;
+package com.esmc.mcnp.domain.entity.security;
 
 import java.io.Serializable;
 import javax.persistence.EmbeddedId;

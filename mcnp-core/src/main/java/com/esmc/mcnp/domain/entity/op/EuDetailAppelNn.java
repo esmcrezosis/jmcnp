@@ -1,4 +1,4 @@
-package com.esmc.mcnp.model.op;
+package com.esmc.mcnp.domain.entity.op;
 
 import java.io.Serializable;
 import javax.persistence.*;

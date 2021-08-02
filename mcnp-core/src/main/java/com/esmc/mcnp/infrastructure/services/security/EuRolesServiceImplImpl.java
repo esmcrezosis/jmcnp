@@ -1,11 +1,11 @@
-package com.esmc.mcnp.services.security;
+package com.esmc.mcnp.infrastructure.services.security;
 
-import com.esmc.mcnp.dto.projections.RolesVO;
-import com.esmc.mcnp.model.security.EuRoles;
+import com.esmc.mcnp.dao.repository.security.EuRolesRepository;
+import com.esmc.mcnp.domain.dto.projections.RolesVO;
+import com.esmc.mcnp.domain.entity.security.EuRoles;
+import com.esmc.mcnp.infrastructure.services.base.CrudServiceImpl;
+
 import org.springframework.stereotype.Service;
-
-import com.esmc.mcnp.repositories.security.EuRolesRepository;
-import com.esmc.mcnp.services.base.CrudServiceImpl;
 
 import java.util.List;
 import java.util.concurrent.CompletableFuture;

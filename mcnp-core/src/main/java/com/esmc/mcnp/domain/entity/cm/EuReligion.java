@@ -1,4 +1,4 @@
-package com.esmc.mcnp.model.cm;
+package com.esmc.mcnp.domain.entity.cm;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 

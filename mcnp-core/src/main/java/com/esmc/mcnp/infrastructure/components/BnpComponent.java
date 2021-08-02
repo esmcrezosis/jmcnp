@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.esmc.mcnp.components;
+package com.esmc.mcnp.infrastructure.components;
 
 import java.util.Date;
 import java.util.List;
@@ -15,39 +15,39 @@ import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.esmc.mcnp.core.utils.ServerUtil;
-import com.esmc.mcnp.dto.bc.CalculBonInfo;
-import com.esmc.mcnp.dto.other.Bnp;
-import com.esmc.mcnp.model.ba.EuCapaTs;
-import com.esmc.mcnp.model.bc.EuBon;
-import com.esmc.mcnp.model.bc.EuProduit;
-import com.esmc.mcnp.model.cm.EuCategorieCompte;
-import com.esmc.mcnp.model.cm.EuCompte;
-import com.esmc.mcnp.model.cm.EuCompteCredit;
-import com.esmc.mcnp.model.cm.EuMembre;
-import com.esmc.mcnp.model.cm.EuMembreMorale;
-import com.esmc.mcnp.model.mprg.EuKrr;
-import com.esmc.mcnp.model.obps.EuTegc;
-import com.esmc.mcnp.model.odd.EuMstier;
-import com.esmc.mcnp.model.odd.EuMstiersUtilise;
-import com.esmc.mcnp.model.oi.EuBnp;
-import com.esmc.mcnp.model.oi.EuCaps;
-import com.esmc.mcnp.model.oi.EuTypeBnp;
-import com.esmc.mcnp.model.others.EuOperation;
-import com.esmc.mcnp.model.smcipn.EuGcsc;
-import com.esmc.mcnp.repositories.cm.EuCompteRepository;
-import com.esmc.mcnp.repositories.cm.EuMembreMoraleRepository;
-import com.esmc.mcnp.repositories.cm.EuMembreRepository;
-import com.esmc.mcnp.repositories.common.EuOperationRepository;
-import com.esmc.mcnp.repositories.mprg.EuKrrRepository;
-import com.esmc.mcnp.repositories.obps.EuGcscRepository;
-import com.esmc.mcnp.repositories.odd.EuMstierRepository;
-import com.esmc.mcnp.repositories.odd.EuMstiersUtiliseRepository;
-import com.esmc.mcnp.repositories.oi.EuBnpRepository;
-import com.esmc.mcnp.repositories.oi.EuCapsRepository;
-import com.esmc.mcnp.repositories.oi.EuTypeBnpRepository;
-import com.esmc.mcnp.services.bc.EuBonService;
-import com.esmc.mcnp.services.obps.EuTegcService;
-import com.esmc.mcnp.services.setting.EuParametresService;
+import com.esmc.mcnp.dao.repository.cm.EuCompteRepository;
+import com.esmc.mcnp.dao.repository.cm.EuMembreMoraleRepository;
+import com.esmc.mcnp.dao.repository.cm.EuMembreRepository;
+import com.esmc.mcnp.dao.repository.common.EuOperationRepository;
+import com.esmc.mcnp.dao.repository.mprg.EuKrrRepository;
+import com.esmc.mcnp.dao.repository.obps.EuGcscRepository;
+import com.esmc.mcnp.dao.repository.odd.EuMstierRepository;
+import com.esmc.mcnp.dao.repository.odd.EuMstiersUtiliseRepository;
+import com.esmc.mcnp.dao.repository.oi.EuBnpRepository;
+import com.esmc.mcnp.dao.repository.oi.EuCapsRepository;
+import com.esmc.mcnp.dao.repository.oi.EuTypeBnpRepository;
+import com.esmc.mcnp.domain.dto.bc.CalculBonInfo;
+import com.esmc.mcnp.domain.dto.other.Bnp;
+import com.esmc.mcnp.domain.entity.ba.EuCapaTs;
+import com.esmc.mcnp.domain.entity.bc.EuBon;
+import com.esmc.mcnp.domain.entity.bc.EuProduit;
+import com.esmc.mcnp.domain.entity.cm.EuCategorieCompte;
+import com.esmc.mcnp.domain.entity.cm.EuCompte;
+import com.esmc.mcnp.domain.entity.cm.EuCompteCredit;
+import com.esmc.mcnp.domain.entity.cm.EuMembre;
+import com.esmc.mcnp.domain.entity.cm.EuMembreMorale;
+import com.esmc.mcnp.domain.entity.mprg.EuKrr;
+import com.esmc.mcnp.domain.entity.obps.EuTegc;
+import com.esmc.mcnp.domain.entity.odd.EuMstier;
+import com.esmc.mcnp.domain.entity.odd.EuMstiersUtilise;
+import com.esmc.mcnp.domain.entity.oi.EuBnp;
+import com.esmc.mcnp.domain.entity.oi.EuCaps;
+import com.esmc.mcnp.domain.entity.oi.EuTypeBnp;
+import com.esmc.mcnp.domain.entity.others.EuOperation;
+import com.esmc.mcnp.domain.entity.smcipn.EuGcsc;
+import com.esmc.mcnp.infrastructure.services.bc.EuBonService;
+import com.esmc.mcnp.infrastructure.services.obps.EuTegcService;
+import com.esmc.mcnp.infrastructure.services.setting.EuParametresService;
 
 /**
  * @author USER

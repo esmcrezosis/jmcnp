@@ -1,7 +1,7 @@
-package com.esmc.mcnp.services.org;
+package com.esmc.mcnp.infrastructure.services.org;
 
-import com.esmc.mcnp.model.acteur.EuMaison;
-import com.esmc.mcnp.services.base.BaseService;
+import com.esmc.mcnp.domain.entity.acteur.EuMaison;
+import com.esmc.mcnp.infrastructure.services.base.BaseService;
 
 
 public interface EuMaisonService extends BaseService<EuMaison, Long> {

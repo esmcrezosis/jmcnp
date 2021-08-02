@@ -1,4 +1,4 @@
-package com.esmc.mcnp.services.file;
+package com.esmc.mcnp.infrastructure.services.file;
 
 import java.io.IOException;
 import java.net.MalformedURLException;
@@ -15,8 +15,8 @@ import org.springframework.util.StringUtils;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.esmc.mcnp.config.AppProperties;
-import com.esmc.mcnp.exception.FileStorageException;
-import com.esmc.mcnp.exception.MyFileNotFoundException;
+import com.esmc.mcnp.commons.exception.system.FileStorageException;
+import com.esmc.mcnp.commons.exception.system.MyFileNotFoundException;
 
 @Service
 public class FileService {

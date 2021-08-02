@@ -1,4 +1,4 @@
-package com.esmc.mcnp.dto.pbf;
+package com.esmc.mcnp.domain.dto.pbf;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Data;

@@ -9,13 +9,13 @@ import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.esmc.mcnp.components.AffectationComponent;
-import com.esmc.mcnp.components.OPIComponent;
-import com.esmc.mcnp.components.Payement;
-import com.esmc.mcnp.components.TransfertUtility;
-import com.esmc.mcnp.repositories.common.EuParametreRepository;
-import com.esmc.mcnp.services.cmfh.EuDepotVenteService;
-import com.esmc.mcnp.services.pc.EuRecouvrementMcnpService;
+import com.esmc.mcnp.dao.repository.common.EuParametreRepository;
+import com.esmc.mcnp.infrastructure.components.AffectationComponent;
+import com.esmc.mcnp.infrastructure.components.OPIComponent;
+import com.esmc.mcnp.infrastructure.components.Payement;
+import com.esmc.mcnp.infrastructure.components.TransfertUtility;
+import com.esmc.mcnp.infrastructure.services.cmfh.EuDepotVenteService;
+import com.esmc.mcnp.infrastructure.services.pc.EuRecouvrementMcnpService;
 
 @Component
 @Transactional

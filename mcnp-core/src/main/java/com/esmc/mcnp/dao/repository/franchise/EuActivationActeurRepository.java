@@ -1,7 +1,7 @@
-package com.esmc.mcnp.repositories.franchise;
+package com.esmc.mcnp.dao.repository.franchise;
 
-import com.esmc.mcnp.model.franchise.EuActivationActeur;
-import com.esmc.mcnp.repositories.base.BaseRepository;
+import com.esmc.mcnp.dao.repository.base.BaseRepository;
+import com.esmc.mcnp.domain.entity.franchise.EuActivationActeur;
 
 public interface EuActivationActeurRepository extends BaseRepository<EuActivationActeur, Integer> {
 

@@ -1,11 +1,11 @@
-package com.esmc.mcnp.repositories.op;
+package com.esmc.mcnp.dao.repository.op;
 
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.Query;
 
-import com.esmc.mcnp.model.op.EuOffreurProjet;
-import com.esmc.mcnp.repositories.base.BaseRepository;
+import com.esmc.mcnp.dao.repository.base.BaseRepository;
+import com.esmc.mcnp.domain.entity.op.EuOffreurProjet;
 
 public interface EuOffreurProjetRepository extends BaseRepository<EuOffreurProjet, Integer> {
 

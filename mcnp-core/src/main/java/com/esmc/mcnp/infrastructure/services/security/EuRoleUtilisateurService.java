@@ -1,10 +1,10 @@
-package com.esmc.mcnp.services.security;
+package com.esmc.mcnp.infrastructure.services.security;
 
 import java.util.List;
 
-import com.esmc.mcnp.model.security.EuUser;
-import com.esmc.mcnp.model.security.EuUserRole;
-import com.esmc.mcnp.services.base.BaseService;
+import com.esmc.mcnp.domain.entity.security.EuUser;
+import com.esmc.mcnp.domain.entity.security.EuUserRole;
+import com.esmc.mcnp.infrastructure.services.base.BaseService;
 
 public interface EuRoleUtilisateurService extends BaseService<EuUserRole, Long> {
 	public EuUserRole saveRoleUtilisateur(EuUserRole userRole);

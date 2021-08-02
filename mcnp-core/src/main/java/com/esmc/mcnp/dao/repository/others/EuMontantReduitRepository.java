@@ -1,10 +1,10 @@
-package com.esmc.mcnp.repositories.others;
+package com.esmc.mcnp.dao.repository.others;
 
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
-import com.esmc.mcnp.model.obps.EuMontantReduit;
-import com.esmc.mcnp.repositories.base.BaseRepository;
+import com.esmc.mcnp.dao.repository.base.BaseRepository;
+import com.esmc.mcnp.domain.entity.obps.EuMontantReduit;
 
 public interface EuMontantReduitRepository extends BaseRepository<EuMontantReduit, Integer> {
 

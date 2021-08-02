@@ -1,4 +1,4 @@
-package com.esmc.mcnp.dto.desendettement;
+package com.esmc.mcnp.domain.dto.desendettement;
 
 import java.io.Serializable;
 import java.util.Date;

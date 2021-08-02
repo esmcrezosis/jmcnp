@@ -1,4 +1,4 @@
-package com.esmc.mcnp.infrastructure.exception.business;
+package com.esmc.mcnp.commons.exception.business;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.lang.NonNull;

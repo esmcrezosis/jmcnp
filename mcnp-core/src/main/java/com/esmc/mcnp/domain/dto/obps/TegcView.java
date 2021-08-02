@@ -1,6 +1,6 @@
-package com.esmc.mcnp.dto.obps;
+package com.esmc.mcnp.domain.dto.obps;
 
-import com.esmc.mcnp.model.obps.EuTegc;
+import com.esmc.mcnp.domain.entity.obps.EuTegc;
 
 public class TegcView {
 

@@ -4,10 +4,10 @@
  * and open the template in the editor.
  */
 
-package com.esmc.mcnp.repositories.oi;
+package com.esmc.mcnp.dao.repository.oi;
 
-import com.esmc.mcnp.model.oi.EuTypeBnp;
-import com.esmc.mcnp.repositories.base.BaseRepository;
+import com.esmc.mcnp.dao.repository.base.BaseRepository;
+import com.esmc.mcnp.domain.entity.oi.EuTypeBnp;
 
 /**
  *

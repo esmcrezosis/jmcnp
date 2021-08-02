@@ -4,9 +4,9 @@ import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.List;
 
-import com.esmc.mcnp.model.smcipn.EuBudget;
-import com.esmc.mcnp.model.smcipn.EuCategorieBudget;
-import com.esmc.mcnp.model.smcipn.EuTypeBudget;
+import com.esmc.mcnp.domain.entity.smcipn.EuBudget;
+import com.esmc.mcnp.domain.entity.smcipn.EuCategorieBudget;
+import com.esmc.mcnp.domain.entity.smcipn.EuTypeBudget;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.google.common.base.Preconditions;
 import com.google.common.collect.Lists;

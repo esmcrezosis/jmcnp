@@ -1,6 +1,6 @@
-package com.esmc.mcnp.dto.vue;
+package com.esmc.mcnp.domain.dto.vue;
 
-import com.esmc.mcnp.model.security.EuRoles;
+import com.esmc.mcnp.domain.entity.security.EuRoles;
 import com.google.common.collect.Lists;
 import lombok.Data;
 import lombok.experimental.Accessors;

@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.esmc.mcnp.model.pc;
+package com.esmc.mcnp.domain.entity.pc;
 
 import java.io.Serializable;
 import java.util.Date;
@@ -23,7 +23,7 @@ import javax.persistence.TemporalType;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
-import com.esmc.mcnp.model.smcipn.EuSmcipnpwi;
+import com.esmc.mcnp.domain.entity.smcipn.EuSmcipnpwi;
 
 /**
  *

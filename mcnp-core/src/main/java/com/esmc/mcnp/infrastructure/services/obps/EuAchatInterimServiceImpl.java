@@ -1,14 +1,14 @@
-package com.esmc.mcnp.services.obps;
+package com.esmc.mcnp.infrastructure.services.obps;
 
-import com.esmc.mcnp.services.base.BaseServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.esmc.mcnp.model.others.EuAchatInterim;
-import com.esmc.mcnp.repositories.base.BaseRepository;
-import com.esmc.mcnp.repositories.obps.EuAchatInterimRepository;
+import com.esmc.mcnp.dao.repository.base.BaseRepository;
+import com.esmc.mcnp.dao.repository.obps.EuAchatInterimRepository;
+import com.esmc.mcnp.domain.entity.others.EuAchatInterim;
+import com.esmc.mcnp.infrastructure.services.base.BaseServiceImpl;
 
 @Service("euAchatInterimService")
 @Transactional(propagation = Propagation.REQUIRED)

@@ -3,10 +3,11 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.esmc.mcnp.services.ksu;
+package com.esmc.mcnp.infrastructure.services.ksu;
 
-import com.esmc.mcnp.model.ksu.EuCarte;
-import com.esmc.mcnp.services.base.CrudService;
+import com.esmc.mcnp.domain.entity.ksu.EuCarte;
+import com.esmc.mcnp.infrastructure.services.base.CrudService;
+
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 

@@ -1,12 +1,12 @@
-package com.esmc.mcnp.services.obps;
+package com.esmc.mcnp.infrastructure.services.obps;
 
-import com.esmc.mcnp.services.base.BaseServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.esmc.mcnp.model.obps.EuCommande;
-import com.esmc.mcnp.repositories.base.BaseRepository;
-import com.esmc.mcnp.repositories.obps.EuCommandeRepository;
+import com.esmc.mcnp.dao.repository.base.BaseRepository;
+import com.esmc.mcnp.dao.repository.obps.EuCommandeRepository;
+import com.esmc.mcnp.domain.entity.obps.EuCommande;
+import com.esmc.mcnp.infrastructure.services.base.BaseServiceImpl;
 
 @Service("euCommandeService")
 public class EuCommandeServiceImpl extends BaseServiceImpl<EuCommande, Long> implements EuCommandeService {

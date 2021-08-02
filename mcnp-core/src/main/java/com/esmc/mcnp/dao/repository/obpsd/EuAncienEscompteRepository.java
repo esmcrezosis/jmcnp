@@ -1,7 +1,7 @@
-package com.esmc.mcnp.repositories.obpsd;
+package com.esmc.mcnp.dao.repository.obpsd;
 
-import com.esmc.mcnp.model.obpsd.EuAncienEscompte;
-import com.esmc.mcnp.repositories.base.BaseRepository;
+import com.esmc.mcnp.dao.repository.base.BaseRepository;
+import com.esmc.mcnp.domain.entity.obpsd.EuAncienEscompte;
 
 public interface EuAncienEscompteRepository extends BaseRepository<EuAncienEscompte, Long> {
 

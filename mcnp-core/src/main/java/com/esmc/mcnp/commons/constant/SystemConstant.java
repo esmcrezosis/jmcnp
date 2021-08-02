@@ -9,7 +9,19 @@ public class SystemConstant {
 
 	public static final String DATA_ROWS = "rows";
 
+	public static final String FAIL = "1";
+
 	public static final String SUCCESS = "success";
+	public static final String RESOURCE_PREFIX = "/profile";
+	/**
+	 * Se déconnecter
+	 */
+	public static final String LOGOUT = "Logout";
+
+	/**
+	 * inscrit
+	 */
+	public static final String REGISTER = "Register";
 
 	public static final String ERROR = "error";
 

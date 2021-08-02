@@ -1,12 +1,12 @@
 package com.esmc.mcnp.web.controller.obps;
 
-import com.esmc.mcnp.model.enums.ChaineDistributionEnum;
-import com.esmc.mcnp.model.obps.EuChaineDistribution;
-import com.esmc.mcnp.model.security.EuUtilisateur;
-import com.esmc.mcnp.services.cm.EuMembreMoraleService;
-import com.esmc.mcnp.services.odd.EuAgenceOddService;
-import com.esmc.mcnp.services.org.EuCantonService;
-import com.esmc.mcnp.services.org.EuChaineDistributionService;
+import com.esmc.mcnp.domain.enums.ChaineDistributionEnum;
+import com.esmc.mcnp.domain.entity.obps.EuChaineDistribution;
+import com.esmc.mcnp.domain.entity.security.EuUtilisateur;
+import com.esmc.mcnp.infrastructure.services.cm.EuMembreMoraleService;
+import com.esmc.mcnp.infrastructure.services.odd.EuAgenceOddService;
+import com.esmc.mcnp.infrastructure.services.org.EuCantonService;
+import com.esmc.mcnp.infrastructure.services.org.EuChaineDistributionService;
 import com.esmc.mcnp.web.controller.base.BaseController;
 import com.esmc.mcnp.web.model.obps.ChaineDistributionForm;
 import com.esmc.mcnp.util.JqGrid;

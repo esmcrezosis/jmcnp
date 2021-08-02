@@ -1,7 +1,7 @@
-package com.esmc.mcnp.services.obpsd;
+package com.esmc.mcnp.infrastructure.services.obpsd;
 
-import com.esmc.mcnp.model.obpsd.Place;
-import com.esmc.mcnp.services.base.CrudService;
+import com.esmc.mcnp.domain.entity.obpsd.Place;
+import com.esmc.mcnp.infrastructure.services.base.CrudService;
 
 import java.util.List;
 

@@ -1,10 +1,10 @@
-package com.esmc.mcnp.dto.odd;
+package com.esmc.mcnp.domain.dto.odd;
 
-import com.esmc.mcnp.dto.cm.MembreMorale;
-import com.esmc.mcnp.dto.org.Canton;
-import com.esmc.mcnp.model.cm.EuMembreMorale;
-import com.esmc.mcnp.model.odd.EuAgencesOdd;
-import com.esmc.mcnp.model.odd.EuOdd;
+import com.esmc.mcnp.domain.dto.cm.MembreMorale;
+import com.esmc.mcnp.domain.dto.org.Canton;
+import com.esmc.mcnp.domain.entity.cm.EuMembreMorale;
+import com.esmc.mcnp.domain.entity.odd.EuAgencesOdd;
+import com.esmc.mcnp.domain.entity.odd.EuOdd;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.google.common.base.Preconditions;
 import com.google.common.collect.Lists;

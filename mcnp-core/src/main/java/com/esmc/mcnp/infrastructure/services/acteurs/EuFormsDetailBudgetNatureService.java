@@ -1,7 +1,7 @@
-package com.esmc.mcnp.services.acteurs;
+package com.esmc.mcnp.infrastructure.services.acteurs;
 
-import com.esmc.mcnp.model.smcipn.EuFormsDetailBudgetNature;
-import com.esmc.mcnp.services.base.BaseService;
+import com.esmc.mcnp.domain.entity.smcipn.EuFormsDetailBudgetNature;
+import com.esmc.mcnp.infrastructure.services.base.BaseService;
 
 public interface EuFormsDetailBudgetNatureService extends BaseService<EuFormsDetailBudgetNature, Long> {
 

@@ -1,9 +1,10 @@
-package com.esmc.mcnp.model.cmfh;
-
-import com.esmc.mcnp.model.cmfh.EuMf;
+package com.esmc.mcnp.domain.entity.cmfh;
 
 import java.io.Serializable;
 import javax.persistence.*;
+
+import com.esmc.mcnp.domain.entity.cmfh.EuMf;
+
 import java.util.List;
 
 

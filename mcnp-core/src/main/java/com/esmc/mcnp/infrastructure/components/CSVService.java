@@ -1,4 +1,4 @@
-package com.esmc.mcnp.components;
+package com.esmc.mcnp.infrastructure.components;
 
 import java.io.File;
 import java.io.FileReader;
@@ -19,11 +19,11 @@ import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.ResourceUtils;
 
-import com.esmc.mcnp.core.utils.DateUtility;
-import com.esmc.mcnp.model.obpsd.EuReglementWari;
-import com.esmc.mcnp.model.obpsd.EuTraite;
-import com.esmc.mcnp.services.obpsd.EuReglementWariService;
-import com.esmc.mcnp.services.obpsd.EuTraiteService;
+import com.esmc.mcnp.commons.util.DateUtility;
+import com.esmc.mcnp.domain.entity.obpsd.EuReglementWari;
+import com.esmc.mcnp.domain.entity.obpsd.EuTraite;
+import com.esmc.mcnp.infrastructure.services.obpsd.EuReglementWariService;
+import com.esmc.mcnp.infrastructure.services.obpsd.EuTraiteService;
 
 @Component
 public class CSVService {

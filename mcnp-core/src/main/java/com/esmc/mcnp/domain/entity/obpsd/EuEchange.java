@@ -1,12 +1,12 @@
-package com.esmc.mcnp.model.obpsd;
+package com.esmc.mcnp.domain.entity.obpsd;
 
 import java.io.Serializable;
 import javax.persistence.*;
 
-import com.esmc.mcnp.model.cm.EuCompte;
-import com.esmc.mcnp.model.cm.EuMembre;
-import com.esmc.mcnp.model.cm.EuMembreMorale;
-import com.esmc.mcnp.model.security.EuUtilisateur;
+import com.esmc.mcnp.domain.entity.cm.EuCompte;
+import com.esmc.mcnp.domain.entity.cm.EuMembre;
+import com.esmc.mcnp.domain.entity.cm.EuMembreMorale;
+import com.esmc.mcnp.domain.entity.security.EuUtilisateur;
 
 import java.util.Date;
 

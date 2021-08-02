@@ -1,4 +1,4 @@
-package com.esmc.mcnp.model.sms;
+package com.esmc.mcnp.domain.entity.sms;
 
 import java.io.Serializable;
 

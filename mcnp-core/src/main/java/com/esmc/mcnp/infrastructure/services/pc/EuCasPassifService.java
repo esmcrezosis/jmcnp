@@ -1,7 +1,7 @@
-package com.esmc.mcnp.services.pc;
+package com.esmc.mcnp.infrastructure.services.pc;
 
-import com.esmc.mcnp.model.pc.EuCasPassif;
-import com.esmc.mcnp.services.base.CrudService;
+import com.esmc.mcnp.domain.entity.pc.EuCasPassif;
+import com.esmc.mcnp.infrastructure.services.base.CrudService;
 
 import java.util.List;
 

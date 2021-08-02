@@ -1,4 +1,4 @@
-package com.esmc.mcnp.model.acteur;
+package com.esmc.mcnp.domain.entity.acteur;
 
 import java.io.Serializable;
 import java.util.List;

@@ -1,4 +1,4 @@
-package com.esmc.mcnp.core.utils;
+package com.esmc.mcnp.commons.util;
 
 import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.lang3.time.DateFormatUtils;
@@ -18,7 +18,7 @@ import java.util.concurrent.TimeUnit;
  * @author johnniang
  * @date 3/18/19
  */
-public class DateUtils {
+public class DateUtils extends org.apache.commons.lang3.time.DateUtils {
 
 	public static final String DEFAULT_FORMAT = "yyyy-MM-dd HH:mm:ss";
 
@@ -162,19 +162,19 @@ public class DateUtils {
 		// Calc the expiry time
 		switch (timeUnit) {
 		case DAYS:
-			result = org.apache.commons.lang3.time.DateUtils.addDays(date, timeIntValue);
+			result = addDays(date, timeIntValue);
 			break;
 		case HOURS:
-			result = org.apache.commons.lang3.time.DateUtils.addHours(date, timeIntValue);
+			result = addHours(date, timeIntValue);
 			break;
 		case MINUTES:
-			result = org.apache.commons.lang3.time.DateUtils.addMinutes(date, timeIntValue);
+			result = addMinutes(date, timeIntValue);
 			break;
 		case SECONDS:
-			result = org.apache.commons.lang3.time.DateUtils.addSeconds(date, timeIntValue);
+			result = addSeconds(date, timeIntValue);
 			break;
 		case MILLISECONDS:
-			result = org.apache.commons.lang3.time.DateUtils.addMilliseconds(date, timeIntValue);
+			result = addMilliseconds(date, timeIntValue);
 			break;
 		default:
 			result = date;

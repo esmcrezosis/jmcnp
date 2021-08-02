@@ -1,15 +1,15 @@
-package com.esmc.mcnp.services.obps;
+package com.esmc.mcnp.infrastructure.services.obps;
 
 import java.util.List;
 
-import com.esmc.mcnp.services.base.BaseServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.esmc.mcnp.model.obps.EuCommandeNrOpi;
-import com.esmc.mcnp.model.obpsd.EuTraite;
-import com.esmc.mcnp.repositories.base.BaseRepository;
-import com.esmc.mcnp.repositories.obps.EuCommandeNrOpiRepository;
+import com.esmc.mcnp.dao.repository.base.BaseRepository;
+import com.esmc.mcnp.dao.repository.obps.EuCommandeNrOpiRepository;
+import com.esmc.mcnp.domain.entity.obps.EuCommandeNrOpi;
+import com.esmc.mcnp.domain.entity.obpsd.EuTraite;
+import com.esmc.mcnp.infrastructure.services.base.BaseServiceImpl;
 
 @Service("euCommandeNrOpiService")
 public class EuCommandeNrOpiServiceImpl extends BaseServiceImpl<EuCommandeNrOpi, Integer> implements EuCommandeNrOpiService{

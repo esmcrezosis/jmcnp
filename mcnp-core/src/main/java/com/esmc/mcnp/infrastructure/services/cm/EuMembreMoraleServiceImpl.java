@@ -1,18 +1,19 @@
-package com.esmc.mcnp.services.cm;
+package com.esmc.mcnp.infrastructure.services.cm;
 
 import com.esmc.mcnp.commons.dynamicquery.DynamicQuery;
-import com.esmc.mcnp.dto.cm.MembreMorale;
-import com.esmc.mcnp.mapper.cm.MembreMoraleMapper;
-import com.esmc.mcnp.model.cm.EuStatutJuridique;
-import com.esmc.mcnp.model.cm.EuMembreMorale;
-import com.esmc.mcnp.model.odd.EuAgencesOdd;
-import com.esmc.mcnp.model.org.EuAgence;
-import com.esmc.mcnp.model.org.EuCanton;
-import com.esmc.mcnp.repositories.base.BaseRepository;
-import com.esmc.mcnp.repositories.cm.EuMembreMoraleRepository;
-import com.esmc.mcnp.services.base.BaseServiceImpl;
-import com.esmc.mcnp.services.odd.EuAgenceOddService;
-import com.esmc.mcnp.services.org.EuAgenceService;
+import com.esmc.mcnp.dao.repository.base.BaseRepository;
+import com.esmc.mcnp.dao.repository.cm.EuMembreMoraleRepository;
+import com.esmc.mcnp.domain.dto.cm.MembreMorale;
+import com.esmc.mcnp.domain.entity.cm.EuMembreMorale;
+import com.esmc.mcnp.domain.entity.cm.EuStatutJuridique;
+import com.esmc.mcnp.domain.entity.odd.EuAgencesOdd;
+import com.esmc.mcnp.domain.entity.org.EuAgence;
+import com.esmc.mcnp.domain.entity.org.EuCanton;
+import com.esmc.mcnp.domain.mapper.cm.MembreMoraleMapper;
+import com.esmc.mcnp.infrastructure.services.base.BaseServiceImpl;
+import com.esmc.mcnp.infrastructure.services.odd.EuAgenceOddService;
+import com.esmc.mcnp.infrastructure.services.org.EuAgenceService;
+
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

@@ -14,8 +14,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.esmc.mcnp.services.acteurs.EuBanqueService;
-import com.esmc.mcnp.services.obpsd.EuRelevebancairedetailService;
+import com.esmc.mcnp.infrastructure.services.acteurs.EuBanqueService;
+import com.esmc.mcnp.infrastructure.services.obpsd.EuRelevebancairedetailService;
 import com.esmc.mcnp.web.mvc.dto.Banque;
 import com.esmc.mcnp.web.mvc.dto.Releve;
 import com.esmc.mcnp.web.mvc.dto.Result;

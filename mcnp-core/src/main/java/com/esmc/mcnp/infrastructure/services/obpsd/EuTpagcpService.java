@@ -1,13 +1,13 @@
-package com.esmc.mcnp.services.obpsd;
+package com.esmc.mcnp.infrastructure.services.obpsd;
 
 import java.time.LocalDate;
 import java.util.List;
 
-import com.esmc.mcnp.services.base.BaseService;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
-import com.esmc.mcnp.model.obpsd.EuTpagcp;
+import com.esmc.mcnp.domain.entity.obpsd.EuTpagcp;
+import com.esmc.mcnp.infrastructure.services.base.BaseService;
 
 public interface EuTpagcpService extends BaseService<EuTpagcp, Long> {
 	List<EuTpagcp> findByEuCompte_CodeCompte(String codeCompte);

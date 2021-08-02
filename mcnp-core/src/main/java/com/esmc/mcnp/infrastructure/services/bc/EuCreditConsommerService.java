@@ -1,7 +1,7 @@
-package com.esmc.mcnp.services.bc;
+package com.esmc.mcnp.infrastructure.services.bc;
 
-import com.esmc.mcnp.model.obps.EuCreditConsommer;
-import com.esmc.mcnp.services.base.BaseService;
+import com.esmc.mcnp.domain.entity.obps.EuCreditConsommer;
+import com.esmc.mcnp.infrastructure.services.base.BaseService;
 
 public interface EuCreditConsommerService extends BaseService<EuCreditConsommer, Long> {
 	

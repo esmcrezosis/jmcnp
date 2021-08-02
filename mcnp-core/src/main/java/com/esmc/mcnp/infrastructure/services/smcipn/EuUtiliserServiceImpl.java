@@ -1,17 +1,17 @@
-package com.esmc.mcnp.services.smcipn;
+package com.esmc.mcnp.infrastructure.services.smcipn;
 
 import java.util.List;
 
-import com.esmc.mcnp.services.base.BaseServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.esmc.mcnp.model.smcipn.EuSmc;
-import com.esmc.mcnp.model.smcipn.EuUtiliser;
-import com.esmc.mcnp.repositories.base.BaseRepository;
-import com.esmc.mcnp.repositories.smcipn.EuUtiliserRepository;
+import com.esmc.mcnp.dao.repository.base.BaseRepository;
+import com.esmc.mcnp.dao.repository.smcipn.EuUtiliserRepository;
+import com.esmc.mcnp.domain.entity.smcipn.EuSmc;
+import com.esmc.mcnp.domain.entity.smcipn.EuUtiliser;
+import com.esmc.mcnp.infrastructure.services.base.BaseServiceImpl;
 
 @Service("euUtiliserService")
 @Transactional(readOnly = true, propagation = Propagation.REQUIRED)

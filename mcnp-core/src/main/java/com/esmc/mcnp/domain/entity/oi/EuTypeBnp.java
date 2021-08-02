@@ -1,10 +1,10 @@
-package com.esmc.mcnp.model.oi;
+package com.esmc.mcnp.domain.entity.oi;
 
 import java.io.Serializable;
 import javax.persistence.*;
 
-import com.esmc.mcnp.model.oi.EuBnp;
-import com.esmc.mcnp.model.oi.EuCaps;
+import com.esmc.mcnp.domain.entity.oi.EuBnp;
+import com.esmc.mcnp.domain.entity.oi.EuCaps;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import java.util.List;

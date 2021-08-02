@@ -1,12 +1,12 @@
-package com.esmc.mcnp.model.acteur;
+package com.esmc.mcnp.domain.entity.acteur;
 
 import java.io.Serializable;
 import java.lang.Integer;
 import java.util.Date;
 import javax.persistence.*;
 
-import com.esmc.mcnp.model.org.EuDivisionGac;
-import com.esmc.mcnp.model.security.EuUtilisateur;
+import com.esmc.mcnp.domain.entity.org.EuDivisionGac;
+import com.esmc.mcnp.domain.entity.security.EuUtilisateur;
 
 /**
  * Entity implementation class for Entity: EuLiaisonUser

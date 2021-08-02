@@ -1,8 +1,8 @@
-package com.esmc.mcnp.services.cm;
+package com.esmc.mcnp.infrastructure.services.cm;
 
-import com.esmc.mcnp.dto.cm.MembreMorale;
-import com.esmc.mcnp.model.cm.EuMembreMorale;
-import com.esmc.mcnp.services.base.BaseService;
+import com.esmc.mcnp.domain.dto.cm.MembreMorale;
+import com.esmc.mcnp.domain.entity.cm.EuMembreMorale;
+import com.esmc.mcnp.infrastructure.services.base.BaseService;
 
 import java.util.Date;
 import java.util.List;

@@ -1,10 +1,9 @@
-package com.esmc.mcnp.services.obpsd;
+package com.esmc.mcnp.infrastructure.services.obpsd;
 
 import java.util.Date;
 import java.util.List;
 import java.util.Objects;
 
-import com.esmc.mcnp.services.base.BaseServiceImpl;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -13,26 +12,27 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.esmc.mcnp.model.obpsd.EuBanque;
-import com.esmc.mcnp.model.obpsd.EuBonNeutreApproDetail;
-import com.esmc.mcnp.model.obpsd.EuBonNeutreDetail;
-import com.esmc.mcnp.model.obpsd.EuBonNeutreTiersDetail;
-import com.esmc.mcnp.model.obpsd.EuDetailFgfn;
-import com.esmc.mcnp.model.acteur.EuEli;
-import com.esmc.mcnp.model.obpsd.EuFgfn;
-import com.esmc.mcnp.model.cm.EuMembreMorale;
-import com.esmc.mcnp.model.obpsd.EuTpagcp;
-import com.esmc.mcnp.model.obpsd.EuTraite;
-import com.esmc.mcnp.repositories.obpsd.EuBonNeutreApproDetailRepository;
-import com.esmc.mcnp.repositories.obpsd.EuBonNeutreTiersDetailRepository;
-import com.esmc.mcnp.repositories.obpsd.EuDetailFgfnRepository;
-import com.esmc.mcnp.repositories.obpsd.EuFgfnRepository;
-import com.esmc.mcnp.repositories.acteurs.EuBanqueRepository;
-import com.esmc.mcnp.repositories.acteurs.EuEliRepository;
-import com.esmc.mcnp.repositories.cm.EuMembreMoraleRepository;
-import com.esmc.mcnp.repositories.obpsd.EuTpagcpRepository;
-import com.esmc.mcnp.repositories.obpsd.EuTraiteRepository;
-import com.esmc.mcnp.repositories.base.BaseRepository;
+import com.esmc.mcnp.dao.repository.acteurs.EuBanqueRepository;
+import com.esmc.mcnp.dao.repository.acteurs.EuEliRepository;
+import com.esmc.mcnp.dao.repository.base.BaseRepository;
+import com.esmc.mcnp.dao.repository.cm.EuMembreMoraleRepository;
+import com.esmc.mcnp.dao.repository.obpsd.EuBonNeutreApproDetailRepository;
+import com.esmc.mcnp.dao.repository.obpsd.EuBonNeutreTiersDetailRepository;
+import com.esmc.mcnp.dao.repository.obpsd.EuDetailFgfnRepository;
+import com.esmc.mcnp.dao.repository.obpsd.EuFgfnRepository;
+import com.esmc.mcnp.dao.repository.obpsd.EuTpagcpRepository;
+import com.esmc.mcnp.dao.repository.obpsd.EuTraiteRepository;
+import com.esmc.mcnp.domain.entity.acteur.EuEli;
+import com.esmc.mcnp.domain.entity.cm.EuMembreMorale;
+import com.esmc.mcnp.domain.entity.obpsd.EuBanque;
+import com.esmc.mcnp.domain.entity.obpsd.EuBonNeutreApproDetail;
+import com.esmc.mcnp.domain.entity.obpsd.EuBonNeutreDetail;
+import com.esmc.mcnp.domain.entity.obpsd.EuBonNeutreTiersDetail;
+import com.esmc.mcnp.domain.entity.obpsd.EuDetailFgfn;
+import com.esmc.mcnp.domain.entity.obpsd.EuFgfn;
+import com.esmc.mcnp.domain.entity.obpsd.EuTpagcp;
+import com.esmc.mcnp.domain.entity.obpsd.EuTraite;
+import com.esmc.mcnp.infrastructure.services.base.BaseServiceImpl;
 
 @Service("euFgfnService")
 @Transactional(readOnly = true, propagation = Propagation.REQUIRED)

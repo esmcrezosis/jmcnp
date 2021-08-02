@@ -1,24 +1,24 @@
-package com.esmc.mcnp.services.bc;
+package com.esmc.mcnp.infrastructure.services.bc;
 
 import java.util.List;
 import java.util.Map;
 
-import com.esmc.mcnp.services.base.BaseServiceImpl;
-import com.esmc.mcnp.services.cm.EuCompteGeneralService;
-import com.esmc.mcnp.services.cm.EuCompteService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.esmc.mcnp.model.bc.EuCnnc;
-import com.esmc.mcnp.model.cm.EuCompte;
-import com.esmc.mcnp.model.cm.EuCompteCredit;
-import com.esmc.mcnp.model.cm.EuCompteCreditTs;
-import com.esmc.mcnp.repositories.cm.EuCompteCreditRepository;
-import com.esmc.mcnp.repositories.cm.EuCompteCreditTsRepository;
-import com.esmc.mcnp.repositories.base.BaseRepository;
-import com.esmc.mcnp.repositories.bc.EuCnncRepository;
+import com.esmc.mcnp.dao.repository.base.BaseRepository;
+import com.esmc.mcnp.dao.repository.bc.EuCnncRepository;
+import com.esmc.mcnp.dao.repository.cm.EuCompteCreditRepository;
+import com.esmc.mcnp.dao.repository.cm.EuCompteCreditTsRepository;
+import com.esmc.mcnp.domain.entity.bc.EuCnnc;
+import com.esmc.mcnp.domain.entity.cm.EuCompte;
+import com.esmc.mcnp.domain.entity.cm.EuCompteCredit;
+import com.esmc.mcnp.domain.entity.cm.EuCompteCreditTs;
+import com.esmc.mcnp.infrastructure.services.base.BaseServiceImpl;
+import com.esmc.mcnp.infrastructure.services.cm.EuCompteGeneralService;
+import com.esmc.mcnp.infrastructure.services.cm.EuCompteService;
 import com.google.common.collect.Maps;
 
 /**

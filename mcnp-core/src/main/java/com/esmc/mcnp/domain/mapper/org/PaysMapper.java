@@ -1,7 +1,8 @@
-package com.esmc.mcnp.mapper.org;
+package com.esmc.mcnp.domain.mapper.org;
 
-import com.esmc.mcnp.dto.org.Pays;
-import com.esmc.mcnp.model.org.EuPays;
+import com.esmc.mcnp.domain.dto.org.Pays;
+import com.esmc.mcnp.domain.entity.org.EuPays;
+
 import org.mapstruct.Mapper;
 
 import java.util.List;

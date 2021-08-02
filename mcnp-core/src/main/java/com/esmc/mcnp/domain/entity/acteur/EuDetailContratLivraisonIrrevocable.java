@@ -1,4 +1,4 @@
-package com.esmc.mcnp.model.acteur;
+package com.esmc.mcnp.domain.entity.acteur;
 
 import javax.persistence.*;
 import java.io.Serializable;

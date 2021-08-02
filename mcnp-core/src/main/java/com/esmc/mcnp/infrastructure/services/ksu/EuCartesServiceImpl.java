@@ -3,17 +3,17 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.esmc.mcnp.services.ksu;
+package com.esmc.mcnp.infrastructure.services.ksu;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.esmc.mcnp.model.ksu.EuCartes;
-import com.esmc.mcnp.repositories.base.BaseRepository;
-import com.esmc.mcnp.repositories.ksu.EuCartesRepository;
-import com.esmc.mcnp.services.base.BaseServiceImpl;
+import com.esmc.mcnp.dao.repository.base.BaseRepository;
+import com.esmc.mcnp.dao.repository.ksu.EuCartesRepository;
+import com.esmc.mcnp.domain.entity.ksu.EuCartes;
+import com.esmc.mcnp.infrastructure.services.base.BaseServiceImpl;
 
 /**
  *

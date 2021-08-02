@@ -1,6 +1,6 @@
-package com.esmc.mcnp.model.cm;
+package com.esmc.mcnp.domain.entity.cm;
 
-import com.esmc.mcnp.model.cm.EuMembreMorale;
+import com.esmc.mcnp.domain.entity.cm.EuMembreMorale;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
 import lombok.NoArgsConstructor;

@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.esmc.mcnp.repositories.ksu;
+package com.esmc.mcnp.dao.repository.ksu;
 
 import java.time.LocalDate;
 import java.util.List;
@@ -14,8 +14,8 @@ import org.springframework.data.jpa.repository.EntityGraph;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
-import com.esmc.mcnp.model.ksu.EuCarte;
-import com.esmc.mcnp.repositories.base.BaseRepository;
+import com.esmc.mcnp.dao.repository.base.BaseRepository;
+import com.esmc.mcnp.domain.entity.ksu.EuCarte;
 
 /**
  * @author HP

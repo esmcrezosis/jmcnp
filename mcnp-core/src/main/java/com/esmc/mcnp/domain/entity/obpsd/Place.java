@@ -1,4 +1,4 @@
-package com.esmc.mcnp.model.obpsd;
+package com.esmc.mcnp.domain.entity.obpsd;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -7,7 +7,7 @@ import lombok.experimental.Accessors;
 
 import javax.persistence.*;
 
-import com.esmc.mcnp.core.utils.DateUtils;
+import com.esmc.mcnp.commons.util.DateUtils;
 import com.fasterxml.jackson.annotation.JsonFormat;
 
 import java.io.Serializable;

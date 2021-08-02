@@ -4,17 +4,17 @@
  * and open the template in the editor.
  */
 
-package com.esmc.mcnp.repositories.security;
+package com.esmc.mcnp.dao.repository.security;
 
 import java.util.List;
 
-import com.esmc.mcnp.dto.projections.UserGroupVO;
-import com.esmc.mcnp.dto.security.UserGroupDTO;
+import com.esmc.mcnp.dao.repository.base.BaseRepository;
+import com.esmc.mcnp.domain.dto.projections.UserGroupVO;
+import com.esmc.mcnp.domain.dto.security.UserGroupDTO;
+import com.esmc.mcnp.domain.entity.security.EuUserGroup;
+
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
-
-import com.esmc.mcnp.model.security.EuUserGroup;
-import com.esmc.mcnp.repositories.base.BaseRepository;
 
 /**
  * @author USER

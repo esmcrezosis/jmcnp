@@ -1,9 +1,9 @@
 package com.esmc.mcnp.web.dto.security;
 
-import com.esmc.mcnp.model.org.EuAgence;
-import com.esmc.mcnp.model.odd.EuAgencesOdd;
-import com.esmc.mcnp.model.odd.EuCentres;
-import com.esmc.mcnp.model.security.EuUserGroup;
+import com.esmc.mcnp.domain.entity.odd.EuAgencesOdd;
+import com.esmc.mcnp.domain.entity.odd.EuCentres;
+import com.esmc.mcnp.domain.entity.org.EuAgence;
+import com.esmc.mcnp.domain.entity.security.EuUserGroup;
 
 @lombok.Data
 public class Utilisateur {

@@ -1,4 +1,4 @@
-package com.esmc.mcnp.model.obpsd;
+package com.esmc.mcnp.domain.entity.obpsd;
 
 import java.io.Serializable;
 import java.util.Date;
@@ -16,8 +16,8 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
-import com.esmc.mcnp.model.bc.EuBon;
-import com.esmc.mcnp.model.security.EuUtilisateur;
+import com.esmc.mcnp.domain.entity.bc.EuBon;
+import com.esmc.mcnp.domain.entity.security.EuUtilisateur;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 /**

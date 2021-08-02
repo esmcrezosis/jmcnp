@@ -1,9 +1,9 @@
-package com.esmc.mcnp.dto.bc;
+package com.esmc.mcnp.domain.dto.bc;
 
 import java.util.Date;
 import java.util.List;
 
-import com.esmc.mcnp.model.cm.EuCompteCredit;
+import com.esmc.mcnp.domain.entity.cm.EuCompteCredit;
 import com.google.common.collect.Lists;
 
 import lombok.AllArgsConstructor;

@@ -1,7 +1,4 @@
-package com.esmc.mcnp.model.cm;
-
-import com.esmc.mcnp.model.cm.EuReligion;
-import com.esmc.mcnp.model.org.EuPays;
+package com.esmc.mcnp.domain.entity.cm;
 
 import java.io.Serializable;
 import java.util.Date;
@@ -15,6 +12,9 @@ import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+
+import com.esmc.mcnp.domain.entity.cm.EuReligion;
+import com.esmc.mcnp.domain.entity.org.EuPays;
 
 /**
  * The persistent class for the eu_ancien_membre database table.

@@ -1,4 +1,4 @@
-package com.esmc.mcnp.dto.ksu;
+package com.esmc.mcnp.domain.dto.ksu;
 
 public class Souscription {
 	

@@ -1,9 +1,9 @@
-package com.esmc.mcnp.model.others;
+package com.esmc.mcnp.domain.entity.others;
 
 import java.io.Serializable;
 import javax.persistence.*;
 
-import com.esmc.mcnp.model.security.EuUtilisateur;
+import com.esmc.mcnp.domain.entity.security.EuUtilisateur;
 
 import java.util.Date;
 

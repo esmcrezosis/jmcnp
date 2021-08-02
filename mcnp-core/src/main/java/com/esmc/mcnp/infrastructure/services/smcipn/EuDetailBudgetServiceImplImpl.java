@@ -1,8 +1,9 @@
-package com.esmc.mcnp.services.smcipn;
+package com.esmc.mcnp.infrastructure.services.smcipn;
 
-import com.esmc.mcnp.model.smcipn.EuDetailBudget;
-import com.esmc.mcnp.repositories.smcipn.EuDetailBudgetRepository;
-import com.esmc.mcnp.services.base.CrudServiceImpl;
+import com.esmc.mcnp.dao.repository.smcipn.EuDetailBudgetRepository;
+import com.esmc.mcnp.domain.entity.smcipn.EuDetailBudget;
+import com.esmc.mcnp.infrastructure.services.base.CrudServiceImpl;
+
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;

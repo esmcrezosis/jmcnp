@@ -1,4 +1,4 @@
-package com.esmc.mcnp.model.odd;
+package com.esmc.mcnp.domain.entity.odd;
 
 import java.io.Serializable;
 import java.time.LocalDate;
@@ -15,17 +15,17 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
+import com.esmc.mcnp.domain.entity.cm.EuReligion;
+import com.esmc.mcnp.domain.entity.oi.EuCaps;
+import com.esmc.mcnp.domain.entity.org.EuAgence;
+import com.esmc.mcnp.domain.entity.org.EuCanton;
+import com.esmc.mcnp.domain.entity.org.EuPays;
+import com.esmc.mcnp.domain.entity.org.EuZone;
+import com.esmc.mcnp.domain.entity.security.EuUtilisateur;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.format.annotation.DateTimeFormat.ISO;
 
-import com.esmc.mcnp.model.org.EuAgence;
-import com.esmc.mcnp.model.org.EuCanton;
-import com.esmc.mcnp.model.oi.EuCaps;
-import com.esmc.mcnp.model.org.EuPays;
-import com.esmc.mcnp.model.cm.EuReligion;
-import com.esmc.mcnp.model.org.EuZone;
-import com.esmc.mcnp.model.security.EuUtilisateur;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import lombok.Data;

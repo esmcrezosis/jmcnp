@@ -1,7 +1,7 @@
-package com.esmc.mcnp.repositories.others;
+package com.esmc.mcnp.dao.repository.others;
 
-import com.esmc.mcnp.model.others.EuValidationQuittance;
-import com.esmc.mcnp.repositories.base.BaseRepository;
+import com.esmc.mcnp.dao.repository.base.BaseRepository;
+import com.esmc.mcnp.domain.entity.others.EuValidationQuittance;
 
 public interface EuValiationQuittanceRepository extends BaseRepository<EuValidationQuittance, Integer> {
 }

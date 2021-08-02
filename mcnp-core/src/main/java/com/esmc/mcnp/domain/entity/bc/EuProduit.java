@@ -1,10 +1,10 @@
-package com.esmc.mcnp.model.bc;
+package com.esmc.mcnp.domain.entity.bc;
 
-import com.esmc.mcnp.model.cm.EuCategorieCompte;
-import com.esmc.mcnp.model.cm.EuCompteCredit;
-import com.esmc.mcnp.model.mprg.EuKrr;
-import com.esmc.mcnp.model.obps.EuCreditConsommer;
-import com.esmc.mcnp.model.acteur.EuDepotVente;
+import com.esmc.mcnp.domain.entity.acteur.EuDepotVente;
+import com.esmc.mcnp.domain.entity.cm.EuCategorieCompte;
+import com.esmc.mcnp.domain.entity.cm.EuCompteCredit;
+import com.esmc.mcnp.domain.entity.mprg.EuKrr;
+import com.esmc.mcnp.domain.entity.obps.EuCreditConsommer;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import java.io.Serializable;

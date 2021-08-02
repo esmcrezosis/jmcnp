@@ -17,8 +17,8 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.ResponseStatus;
 
-import com.esmc.mcnp.UserSecurity;
-import com.esmc.mcnp.model.security.EuUtilisateur;
+import com.esmc.mcnp.domain.UserSecurity;
+import com.esmc.mcnp.domain.entity.security.EuUtilisateur;
 import com.esmc.mcnp.util.ErrorDTO;
 
 /**

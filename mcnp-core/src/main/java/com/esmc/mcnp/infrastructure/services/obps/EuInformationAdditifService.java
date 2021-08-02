@@ -3,12 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.esmc.mcnp.services.obps;
+package com.esmc.mcnp.infrastructure.services.obps;
 
 import java.util.List;
 
-import com.esmc.mcnp.model.others.EuInformationAdditif;
-import com.esmc.mcnp.services.base.BaseService;
+import com.esmc.mcnp.domain.entity.others.EuInformationAdditif;
+import com.esmc.mcnp.infrastructure.services.base.BaseService;
 
 
 /**

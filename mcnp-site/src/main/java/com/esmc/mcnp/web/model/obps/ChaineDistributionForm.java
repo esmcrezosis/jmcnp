@@ -1,13 +1,8 @@
 package com.esmc.mcnp.web.model.obps;
 
-import com.esmc.mcnp.dto.cm.MembreMorale;
-import com.esmc.mcnp.dto.odd.AgencesOdd;
-import com.esmc.mcnp.model.enums.ChaineDistributionEnum;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.experimental.Accessors;
-
-import java.time.LocalDate;
 
 @Data
 @Accessors(chain = true)

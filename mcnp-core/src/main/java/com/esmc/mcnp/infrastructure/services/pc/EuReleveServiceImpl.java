@@ -1,9 +1,8 @@
-package com.esmc.mcnp.services.pc;
+package com.esmc.mcnp.infrastructure.services.pc;
 
 import java.util.List;
 import java.util.Objects;
 
-import com.esmc.mcnp.services.base.CrudServiceImpl;
 import com.google.common.collect.Lists;
 
 import org.springframework.data.domain.Page;
@@ -12,17 +11,18 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.esmc.mcnp.model.cm.EuAncienCompte;
-import com.esmc.mcnp.model.obpsd.Place;
-import com.esmc.mcnp.model.pc.EuReleve;
-import com.esmc.mcnp.repositories.cm.EuAncienCompteCreditRepository;
-import com.esmc.mcnp.repositories.cm.EuAncienCompteRepository;
-import com.esmc.mcnp.repositories.obps.EuAncienGcpRepository;
-import com.esmc.mcnp.repositories.obpsd.PlaceRepository;
-import com.esmc.mcnp.repositories.pc.EuReleveRepository;
-import com.esmc.mcnp.repositories.pc.EuRelevedetailRepository;
-import com.esmc.mcnp.repositories.cmfh.EuRepartitionMf107Repository;
-import com.esmc.mcnp.repositories.cmfh.EuRepartitionMf11000Repository;
+import com.esmc.mcnp.dao.repository.cm.EuAncienCompteCreditRepository;
+import com.esmc.mcnp.dao.repository.cm.EuAncienCompteRepository;
+import com.esmc.mcnp.dao.repository.cmfh.EuRepartitionMf107Repository;
+import com.esmc.mcnp.dao.repository.cmfh.EuRepartitionMf11000Repository;
+import com.esmc.mcnp.dao.repository.obps.EuAncienGcpRepository;
+import com.esmc.mcnp.dao.repository.obpsd.PlaceRepository;
+import com.esmc.mcnp.dao.repository.pc.EuReleveRepository;
+import com.esmc.mcnp.dao.repository.pc.EuRelevedetailRepository;
+import com.esmc.mcnp.domain.entity.cm.EuAncienCompte;
+import com.esmc.mcnp.domain.entity.obpsd.Place;
+import com.esmc.mcnp.domain.entity.pc.EuReleve;
+import com.esmc.mcnp.infrastructure.services.base.CrudServiceImpl;
 
 @Service("euReleveService")
 @Transactional(readOnly = true, propagation = Propagation.REQUIRED)

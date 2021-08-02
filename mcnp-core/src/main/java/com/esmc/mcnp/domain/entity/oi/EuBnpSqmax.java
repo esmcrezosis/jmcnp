@@ -1,10 +1,10 @@
-package com.esmc.mcnp.model.oi;
-
-import com.esmc.mcnp.model.cm.EuCategorieCompte;
-import com.esmc.mcnp.model.cm.EuMembre;
+package com.esmc.mcnp.domain.entity.oi;
 
 import java.io.Serializable;
 import javax.persistence.*;
+
+import com.esmc.mcnp.domain.entity.cm.EuCategorieCompte;
+import com.esmc.mcnp.domain.entity.cm.EuMembre;
 
 
 /**

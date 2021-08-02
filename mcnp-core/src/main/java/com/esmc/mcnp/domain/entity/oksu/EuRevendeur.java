@@ -1,4 +1,4 @@
-package com.esmc.mcnp.model.oksu;
+package com.esmc.mcnp.domain.entity.oksu;
 
 import java.io.Serializable;
 
@@ -12,7 +12,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
-import com.esmc.mcnp.model.obps.EuGcp;
+import com.esmc.mcnp.domain.entity.obps.EuGcp;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity

@@ -1,6 +1,6 @@
 package com.esmc.mcnp.web.controller.oksu;
 
-import com.esmc.mcnp.services.cm.EuCategorieCompteService;
+import com.esmc.mcnp.infrastructure.services.cm.EuCategorieCompteService;
 import com.esmc.mcnp.web.controller.base.BaseController;
 
 import com.esmc.mcnp.web.dto.util.Result;

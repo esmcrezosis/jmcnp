@@ -1,7 +1,7 @@
 package com.esmc.mcnp.web.mvc.dto;
 
-import com.esmc.mcnp.model.acteur.EuMembreasso;
-import com.esmc.mcnp.model.security.EuUtilisateur;
+import com.esmc.mcnp.domain.entity.acteur.EuMembreasso;
+import com.esmc.mcnp.domain.entity.security.EuUtilisateur;
 import com.google.common.collect.Lists;
 
 import java.io.Serializable;

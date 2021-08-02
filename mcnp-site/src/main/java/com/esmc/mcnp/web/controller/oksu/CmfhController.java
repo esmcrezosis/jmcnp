@@ -13,24 +13,24 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.esmc.mcnp.core.utils.StringUtils;
-import com.esmc.mcnp.model.acteur.EuDepotVente;
-import com.esmc.mcnp.model.cmfh.EuDetailMf107;
-import com.esmc.mcnp.model.cmfh.EuDetailMf11000;
-import com.esmc.mcnp.model.cmfh.EuMembreFondateur107;
-import com.esmc.mcnp.model.cmfh.EuMembreFondateur11000;
-import com.esmc.mcnp.model.cmfh.EuRepartitionMf107;
-import com.esmc.mcnp.model.cmfh.EuRepartitionMf11000;
-import com.esmc.mcnp.services.cm.EuAncienMembreService;
-import com.esmc.mcnp.services.cmfh.EuCmfhService;
-import com.esmc.mcnp.services.cmfh.EuDepotVenteService;
-import com.esmc.mcnp.services.cmfh.EuDetailMf107Service;
-import com.esmc.mcnp.services.cmfh.EuDetailMf11000Service;
-import com.esmc.mcnp.services.cmfh.EuMembreFondateur107Service;
-import com.esmc.mcnp.services.cmfh.EuMembreFondateur11000Service;
-import com.esmc.mcnp.services.cmfh.EuRepartitionMf107Service;
-import com.esmc.mcnp.services.cmfh.EuRepartitionMf11000Service;
-import com.esmc.mcnp.services.cmfh.EuSouscriptionService;
+import com.esmc.mcnp.commons.util.StringUtils;
+import com.esmc.mcnp.domain.entity.acteur.EuDepotVente;
+import com.esmc.mcnp.domain.entity.cmfh.EuDetailMf107;
+import com.esmc.mcnp.domain.entity.cmfh.EuDetailMf11000;
+import com.esmc.mcnp.domain.entity.cmfh.EuMembreFondateur107;
+import com.esmc.mcnp.domain.entity.cmfh.EuMembreFondateur11000;
+import com.esmc.mcnp.domain.entity.cmfh.EuRepartitionMf107;
+import com.esmc.mcnp.domain.entity.cmfh.EuRepartitionMf11000;
+import com.esmc.mcnp.infrastructure.services.cm.EuAncienMembreService;
+import com.esmc.mcnp.infrastructure.services.cmfh.EuCmfhService;
+import com.esmc.mcnp.infrastructure.services.cmfh.EuDepotVenteService;
+import com.esmc.mcnp.infrastructure.services.cmfh.EuDetailMf107Service;
+import com.esmc.mcnp.infrastructure.services.cmfh.EuDetailMf11000Service;
+import com.esmc.mcnp.infrastructure.services.cmfh.EuMembreFondateur107Service;
+import com.esmc.mcnp.infrastructure.services.cmfh.EuMembreFondateur11000Service;
+import com.esmc.mcnp.infrastructure.services.cmfh.EuRepartitionMf107Service;
+import com.esmc.mcnp.infrastructure.services.cmfh.EuRepartitionMf11000Service;
+import com.esmc.mcnp.infrastructure.services.cmfh.EuSouscriptionService;
 import com.esmc.mcnp.util.JqGrid;
 import com.esmc.mcnp.web.controller.base.BaseController;
 import com.google.common.collect.Lists;
@@ -254,7 +254,7 @@ public class CmfhController extends BaseController {
 
 		JqGrid<EuDetailMf107> response = new JqGrid<>();
 		Page<EuDetailMf107> detailMf107s = null;
-		if (com.esmc.mcnp.core.utils.StringUtils.isNotBlank(numIdent)) {
+		if (StringUtils.isNotBlank(numIdent)) {
 			detailMf107s = detailMf107Service.findByNumident(numIdent, pageRequest);
 		} else if (StringUtils.isNotBlank(codeMembre)) {
 			detailMf107s = detailMf107Service.findByCodeMembre(ancMembreService.getAncienCodeByMembre(codeMembre),

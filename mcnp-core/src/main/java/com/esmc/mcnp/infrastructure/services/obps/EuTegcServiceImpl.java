@@ -1,4 +1,4 @@
-package com.esmc.mcnp.services.obps;
+package com.esmc.mcnp.infrastructure.services.obps;
 
 import java.util.Date;
 import java.util.List;
@@ -10,14 +10,14 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.esmc.mcnp.dto.obps.TegcView;
-import com.esmc.mcnp.model.cm.EuMembre;
-import com.esmc.mcnp.model.cm.EuMembreMorale;
-import com.esmc.mcnp.model.obps.EuTegc;
-import com.esmc.mcnp.repositories.cm.EuMembreMoraleRepository;
-import com.esmc.mcnp.repositories.cm.EuMembreRepository;
-import com.esmc.mcnp.repositories.others.EuTegcRepository;
-import com.esmc.mcnp.services.base.CrudServiceImpl;
+import com.esmc.mcnp.dao.repository.cm.EuMembreMoraleRepository;
+import com.esmc.mcnp.dao.repository.cm.EuMembreRepository;
+import com.esmc.mcnp.dao.repository.others.EuTegcRepository;
+import com.esmc.mcnp.domain.dto.obps.TegcView;
+import com.esmc.mcnp.domain.entity.cm.EuMembre;
+import com.esmc.mcnp.domain.entity.cm.EuMembreMorale;
+import com.esmc.mcnp.domain.entity.obps.EuTegc;
+import com.esmc.mcnp.infrastructure.services.base.CrudServiceImpl;
 
 @Service("euTegcService")
 @Transactional(readOnly = true, propagation = Propagation.REQUIRED)

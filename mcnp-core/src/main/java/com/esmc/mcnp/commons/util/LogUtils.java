@@ -1,16 +1,14 @@
-package com.kreatech.common.util;
+package com.esmc.mcnp.commons.util;
 
-import java.io.PrintWriter;
-import java.io.StringWriter;
-import java.util.Map;
-
-import javax.servlet.http.HttpServletRequest;
-
+import com.esmc.mcnp.commons.json.JSON;
+import com.esmc.mcnp.core.utils.SecurityUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.kreatech.api.util.SecurityUtils;
-import com.kreatech.common.json.JSON;
+import javax.servlet.http.HttpServletRequest;
+import java.io.PrintWriter;
+import java.io.StringWriter;
+import java.util.Map;
 
 /**
  * Traiter et enregistrer les fichiers journaux
@@ -116,7 +114,7 @@ public class LogUtils {
 	}
 
 	protected static String getUsername() {
-		return SecurityUtils.getUsername();
+		return SecurityUtils.getPrincipal().getUsername();
 	}
 
 	public static Logger getAccessLog() {

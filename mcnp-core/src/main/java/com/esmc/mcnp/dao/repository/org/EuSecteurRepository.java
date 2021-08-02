@@ -1,7 +1,8 @@
-package com.esmc.mcnp.repositories.org;
+package com.esmc.mcnp.dao.repository.org;
 
-import com.esmc.mcnp.model.org.EuSecteur;
-import com.esmc.mcnp.repositories.base.BaseRepository;
+import com.esmc.mcnp.dao.repository.base.BaseRepository;
+import com.esmc.mcnp.domain.entity.org.EuSecteur;
+
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 

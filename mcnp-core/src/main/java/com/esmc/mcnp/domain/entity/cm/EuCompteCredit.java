@@ -1,20 +1,20 @@
-package com.esmc.mcnp.model.cm;
+package com.esmc.mcnp.domain.entity.cm;
 
 import java.io.Serializable;
 import javax.persistence.*;
 
-import com.esmc.mcnp.model.ba.EuCapaAffecter;
-import com.esmc.mcnp.model.bc.EuCnnc;
-import com.esmc.mcnp.model.bc.EuCnp;
-import com.esmc.mcnp.model.bc.EuDetailDomicilie;
-import com.esmc.mcnp.model.bc.EuProduit;
-import com.esmc.mcnp.model.obps.EuGcp;
-import com.esmc.mcnp.model.oi.EuBnpCredit;
-import com.esmc.mcnp.model.oi.EuCaps;
-import com.esmc.mcnp.model.oi.EuDetailBnp;
-import com.esmc.mcnp.model.others.*;
-import com.esmc.mcnp.model.pc.EuRapprochement;
-import com.esmc.mcnp.model.smcipn.EuSmc;
+import com.esmc.mcnp.domain.entity.ba.EuCapaAffecter;
+import com.esmc.mcnp.domain.entity.bc.EuCnnc;
+import com.esmc.mcnp.domain.entity.bc.EuCnp;
+import com.esmc.mcnp.domain.entity.bc.EuDetailDomicilie;
+import com.esmc.mcnp.domain.entity.bc.EuProduit;
+import com.esmc.mcnp.domain.entity.obps.EuGcp;
+import com.esmc.mcnp.domain.entity.oi.EuBnpCredit;
+import com.esmc.mcnp.domain.entity.oi.EuCaps;
+import com.esmc.mcnp.domain.entity.oi.EuDetailBnp;
+import com.esmc.mcnp.domain.entity.others.*;
+import com.esmc.mcnp.domain.entity.pc.EuRapprochement;
+import com.esmc.mcnp.domain.entity.smcipn.EuSmc;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.hibernate.annotations.DynamicUpdate;

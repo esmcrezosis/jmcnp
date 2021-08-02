@@ -1,12 +1,12 @@
-package com.esmc.mcnp.dto.odd;
+package com.esmc.mcnp.domain.dto.odd;
 
 import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.List;
 import java.util.Objects;
 
-import com.esmc.mcnp.model.odd.EuCentrales;
-import com.esmc.mcnp.model.odd.EuTypeCentrale;
+import com.esmc.mcnp.domain.entity.odd.EuCentrales;
+import com.esmc.mcnp.domain.entity.odd.EuTypeCentrale;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.google.common.collect.Lists;
 

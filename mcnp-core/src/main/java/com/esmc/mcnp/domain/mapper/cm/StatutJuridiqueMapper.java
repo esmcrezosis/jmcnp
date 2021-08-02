@@ -1,7 +1,8 @@
-package com.esmc.mcnp.mapper.cm;
+package com.esmc.mcnp.domain.mapper.cm;
 
-import com.esmc.mcnp.dto.cm.StatutJuridique;
-import com.esmc.mcnp.model.cm.EuStatutJuridique;
+import com.esmc.mcnp.domain.dto.cm.StatutJuridique;
+import com.esmc.mcnp.domain.entity.cm.EuStatutJuridique;
+
 import org.mapstruct.Mapper;
 
 @Mapper(componentModel = "spring")

@@ -1,4 +1,4 @@
-package com.esmc.mcnp.model.ot;
+package com.esmc.mcnp.domain.entity.ot;
 
 import java.io.Serializable;
 import java.time.LocalDate;

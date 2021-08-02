@@ -1,4 +1,4 @@
-package com.esmc.mcnp.repositories.smcipn;
+package com.esmc.mcnp.dao.repository.smcipn;
 
 import java.util.List;
 
@@ -6,8 +6,8 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.Query;
 
-import com.esmc.mcnp.model.smcipn.EuTransfertNr;
-import com.esmc.mcnp.repositories.base.BaseRepository;
+import com.esmc.mcnp.dao.repository.base.BaseRepository;
+import com.esmc.mcnp.domain.entity.smcipn.EuTransfertNr;
 
 public interface EuTransfertNrRepository extends BaseRepository<EuTransfertNr, Long> {
 

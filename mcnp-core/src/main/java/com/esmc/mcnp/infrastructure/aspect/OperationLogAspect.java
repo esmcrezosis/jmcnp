@@ -1,10 +1,13 @@
-package com.kreatech.config.aspect;
+package com.esmc.mcnp.infrastructure.aspect;
 
-import java.lang.reflect.Method;
-import java.util.Map;
-
-import javax.annotation.Resource;
-
+import com.alibaba.fastjson.JSONObject;
+import com.esmc.mcnp.commons.annotation.OperationLog;
+import com.esmc.mcnp.commons.util.ServletUtils;
+import com.esmc.mcnp.commons.util.StringUtils;
+import com.esmc.mcnp.config.thread.AsyncFactory;
+import com.esmc.mcnp.config.thread.AsyncManager;
+import com.esmc.mcnp.domain.entity.sys.SysOperationLog;
+import com.esmc.mcnp.infrastructure.services.sys.ISysOperationLogService;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.Signature;
 import org.aspectj.lang.annotation.AfterReturning;
@@ -16,14 +19,9 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 
-import com.alibaba.fastjson.JSONObject;
-import com.kreatech.api.module.sys.service.ISysOperationLogService;
-import com.kreatech.common.annotation.OperationLog;
-import com.kreatech.common.util.OrioleStringUtils;
-import com.kreatech.common.util.ServletUtils;
-import com.kreatech.config.thread.AsyncFactory;
-import com.kreatech.config.thread.AsyncManager;
-import com.kreatech.data.entity.sys.SysOperationLog;
+import javax.annotation.Resource;
+import java.lang.reflect.Method;
+import java.util.Map;
 
 @Aspect
 @Component
@@ -34,7 +32,7 @@ public class OperationLogAspect {
 
 	private static final Logger log = LoggerFactory.getLogger(OperationLogAspect.class);
 
-	@Pointcut("@annotation(com.kreatech.common.annotation.OperationLog)")
+	@Pointcut("@annotation(com.esmc.mcnp.commons.annotation.OperationLog)")
 	public void pointCut() {
 
 	}
@@ -86,11 +84,11 @@ public class OperationLogAspect {
 		}
 		// résultat
 		if (jsonResult != null) {
-			sysOperationLog.setResult(OrioleStringUtils.substring(jsonResult.toString(), 0, 4000));
+			sysOperationLog.setResult(StringUtils.substring(jsonResult.toString(), 0, 4000));
 		}
 		// Message d'erreur
 		if (e != null) {
-			sysOperationLog.setErrorMsg(OrioleStringUtils.substring(e.getMessage(), 0, 4000));
+			sysOperationLog.setErrorMsg(StringUtils.substring(e.getMessage(), 0, 4000));
 		}
 		AsyncManager.asyncManager().execute(AsyncFactory.recordOper(sysOperationLog));
 	}
@@ -110,9 +108,9 @@ public class OperationLogAspect {
 	 */
 	private String getRequestParams() {
 		Map<String, String[]> parameterMap = ServletUtils.getRequest().getParameterMap();
-		if (OrioleStringUtils.isNotEmpty(parameterMap)) {
+		if (StringUtils.isNotEmpty(parameterMap)) {
 			String requestParams = JSONObject.toJSONString(parameterMap);
-			return OrioleStringUtils.substring(requestParams, 0, 4000);
+			return StringUtils.substring(requestParams, 0, 4000);
 		}
 		return null;
 	}

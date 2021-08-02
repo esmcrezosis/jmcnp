@@ -1,16 +1,16 @@
-package com.esmc.mcnp.services.acteurs;
+package com.esmc.mcnp.infrastructure.services.acteurs;
 
 import java.util.List;
 
-import com.esmc.mcnp.services.base.BaseServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.esmc.mcnp.model.acteur.EuDetailContratLivraisonIrrevocable;
-import com.esmc.mcnp.repositories.acteurs.EuDetailContratLivraisonIrrevocableRepository;
-import com.esmc.mcnp.repositories.base.BaseRepository;
+import com.esmc.mcnp.dao.repository.acteurs.EuDetailContratLivraisonIrrevocableRepository;
+import com.esmc.mcnp.dao.repository.base.BaseRepository;
+import com.esmc.mcnp.domain.entity.acteur.EuDetailContratLivraisonIrrevocable;
+import com.esmc.mcnp.infrastructure.services.base.BaseServiceImpl;
 
 /**
  * Created by USER on 13/03/2017.

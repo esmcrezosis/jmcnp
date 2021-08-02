@@ -1,6 +1,4 @@
-package com.esmc.mcnp.model.obps;
-
-import com.esmc.mcnp.model.others.EuProformaCommande;
+package com.esmc.mcnp.domain.entity.obps;
 
 import java.io.Serializable;
 import java.util.Date;
@@ -15,6 +13,8 @@ import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+
+import com.esmc.mcnp.domain.entity.others.EuProformaCommande;
 
 @Entity
 @Table(name="eu_commande_nr")

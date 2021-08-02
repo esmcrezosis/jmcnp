@@ -1,7 +1,7 @@
-package com.esmc.mcnp.services.bc;
+package com.esmc.mcnp.infrastructure.services.bc;
 
-import com.esmc.mcnp.model.obpsd.EuDetailBonOpi;
-import com.esmc.mcnp.services.base.BaseService;
+import com.esmc.mcnp.domain.entity.obpsd.EuDetailBonOpi;
+import com.esmc.mcnp.infrastructure.services.base.BaseService;
 
 public interface EuDetailBonOpiService extends BaseService<EuDetailBonOpi, Integer> {
 	public Integer getLastInsertedId();

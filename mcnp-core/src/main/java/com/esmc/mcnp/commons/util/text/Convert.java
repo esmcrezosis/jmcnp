@@ -1,4 +1,6 @@
-package com.kreatech.common.util.text;
+package com.esmc.mcnp.commons.util.text;
+
+import com.esmc.mcnp.commons.util.StringUtils;
 
 import java.math.BigDecimal;
 import java.math.BigInteger;
@@ -6,8 +8,6 @@ import java.nio.ByteBuffer;
 import java.nio.charset.Charset;
 import java.text.NumberFormat;
 import java.util.Set;
-
-import com.kreatech.common.util.StringUtils;
 
 /**
  * Convertisseur de type

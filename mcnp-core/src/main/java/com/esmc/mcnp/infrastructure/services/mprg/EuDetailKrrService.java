@@ -1,7 +1,7 @@
-package com.esmc.mcnp.services.mprg;
+package com.esmc.mcnp.infrastructure.services.mprg;
 
-import com.esmc.mcnp.model.mprg.EuDetailKrr;
-import com.esmc.mcnp.services.base.BaseService;
+import com.esmc.mcnp.domain.entity.mprg.EuDetailKrr;
+import com.esmc.mcnp.infrastructure.services.base.BaseService;
 
 public interface EuDetailKrrService extends BaseService<EuDetailKrr, Long> {
 

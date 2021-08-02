@@ -1,7 +1,8 @@
-package com.esmc.mcnp.repositories.smcipn;
+package com.esmc.mcnp.dao.repository.smcipn;
 
-import com.esmc.mcnp.model.smcipn.EuDetailBudget;
-import com.esmc.mcnp.repositories.base.BaseRepository;
+import com.esmc.mcnp.dao.repository.base.BaseRepository;
+import com.esmc.mcnp.domain.entity.smcipn.EuDetailBudget;
+
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.Query;

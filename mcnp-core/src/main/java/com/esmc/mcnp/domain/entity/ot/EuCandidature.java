@@ -1,4 +1,4 @@
-package com.esmc.mcnp.model.ot;
+package com.esmc.mcnp.domain.entity.ot;
 
 import java.io.Serializable;
 import java.time.LocalDate;
@@ -7,11 +7,11 @@ import java.util.List;
 
 import javax.persistence.*;
 
+import com.esmc.mcnp.domain.entity.security.EuUtilisateur;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import org.hibernate.annotations.DynamicInsert;
 import org.hibernate.annotations.DynamicUpdate;
 
-import com.esmc.mcnp.model.security.EuUtilisateur;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import lombok.Data;

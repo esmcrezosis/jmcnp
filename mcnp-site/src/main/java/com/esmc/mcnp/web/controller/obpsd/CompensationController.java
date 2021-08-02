@@ -11,8 +11,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.esmc.mcnp.components.GcpService;
-import com.esmc.mcnp.dto.desendettement.Compensation;
+import com.esmc.mcnp.domain.dto.desendettement.Compensation;
+import com.esmc.mcnp.infrastructure.components.GcpService;
 
 @RestController
 @RequestMapping(value = "/compensation")

@@ -1,4 +1,4 @@
-package com.esmc.mcnp.domain.entity.converters;
+package com.esmc.mcnp.domain.converters;
 
 import java.sql.Date;
 import java.time.LocalDate;

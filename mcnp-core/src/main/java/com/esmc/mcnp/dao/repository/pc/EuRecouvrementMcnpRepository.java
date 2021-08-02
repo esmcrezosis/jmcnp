@@ -1,9 +1,9 @@
-package com.esmc.mcnp.repositories.pc;
+package com.esmc.mcnp.dao.repository.pc;
 
 import java.util.List;
 
-import com.esmc.mcnp.model.pc.EuRecouvrementMcnp;
-import com.esmc.mcnp.repositories.base.BaseRepository;
+import com.esmc.mcnp.dao.repository.base.BaseRepository;
+import com.esmc.mcnp.domain.entity.pc.EuRecouvrementMcnp;
 
 /**
  * Created by USER on 23/05/2017.

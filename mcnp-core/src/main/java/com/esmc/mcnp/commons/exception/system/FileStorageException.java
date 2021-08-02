@@ -1,4 +1,4 @@
-package com.esmc.mcnp.infrastructure.exception.system;
+package com.esmc.mcnp.commons.exception.system;
 
 public class FileStorageException extends RuntimeException {
     /**

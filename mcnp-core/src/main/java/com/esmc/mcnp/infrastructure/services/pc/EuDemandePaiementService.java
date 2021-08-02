@@ -1,9 +1,9 @@
-package com.esmc.mcnp.services.pc;
+package com.esmc.mcnp.infrastructure.services.pc;
 
 import java.util.List;
 
-import com.esmc.mcnp.model.pc.EuDemandePaiement;
-import com.esmc.mcnp.services.base.BaseService;
+import com.esmc.mcnp.domain.entity.pc.EuDemandePaiement;
+import com.esmc.mcnp.infrastructure.services.base.BaseService;
 
 public interface EuDemandePaiementService extends BaseService<EuDemandePaiement, Integer> {
 	public EuDemandePaiement findByNumeroDemandePaiement(String numero);

@@ -1,10 +1,11 @@
-package com.esmc.mcnp.services.org;
+package com.esmc.mcnp.infrastructure.services.org;
 
-import com.esmc.mcnp.dto.projections.ChaineDistributionVO;
-import com.esmc.mcnp.model.enums.ChaineDistributionEnum;
-import com.esmc.mcnp.model.obps.EuChaineDistribution;
-import com.esmc.mcnp.repositories.org.EuChaineDistributionRepository;
-import com.esmc.mcnp.services.base.CrudServiceImpl;
+import com.esmc.mcnp.dao.repository.org.EuChaineDistributionRepository;
+import com.esmc.mcnp.domain.dto.projections.ChaineDistributionVO;
+import com.esmc.mcnp.domain.enums.ChaineDistributionEnum;
+import com.esmc.mcnp.domain.entity.obps.EuChaineDistribution;
+import com.esmc.mcnp.infrastructure.services.base.CrudServiceImpl;
+
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;

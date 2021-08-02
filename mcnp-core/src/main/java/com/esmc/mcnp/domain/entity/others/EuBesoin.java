@@ -1,4 +1,4 @@
-package com.esmc.mcnp.model.others;
+package com.esmc.mcnp.domain.entity.others;
 
 import java.io.Serializable;
 import java.util.Date;
@@ -17,9 +17,9 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
-import com.esmc.mcnp.model.cm.EuMembreMorale;
-import com.esmc.mcnp.model.smcipn.EuBudgetFacture;
-import com.esmc.mcnp.model.smcipn.EuInvestissement;
+import com.esmc.mcnp.domain.entity.cm.EuMembreMorale;
+import com.esmc.mcnp.domain.entity.smcipn.EuBudgetFacture;
+import com.esmc.mcnp.domain.entity.smcipn.EuInvestissement;
 
 /**
  * The persistent class for the eu_besoin database table.

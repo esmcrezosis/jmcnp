@@ -1,8 +1,8 @@
 package com.esmc.mcnp.util;
 
-import com.esmc.mcnp.model.security.EuUserRolesPermission;
-
 import java.util.List;
+
+import com.esmc.mcnp.domain.entity.security.EuUserRolesPermission;
 
 public class SecurityUtil {
 

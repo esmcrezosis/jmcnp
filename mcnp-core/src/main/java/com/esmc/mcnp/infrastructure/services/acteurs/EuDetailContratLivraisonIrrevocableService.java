@@ -1,9 +1,9 @@
-package com.esmc.mcnp.services.acteurs;
+package com.esmc.mcnp.infrastructure.services.acteurs;
 
 import java.util.List;
 
-import com.esmc.mcnp.model.acteur.EuDetailContratLivraisonIrrevocable;
-import com.esmc.mcnp.services.base.BaseService;
+import com.esmc.mcnp.domain.entity.acteur.EuDetailContratLivraisonIrrevocable;
+import com.esmc.mcnp.infrastructure.services.base.BaseService;
 
 /**
  * Created by USER on 13/03/2017.

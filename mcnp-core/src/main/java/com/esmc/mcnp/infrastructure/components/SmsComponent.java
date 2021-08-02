@@ -1,4 +1,4 @@
-package com.esmc.mcnp.components;
+package com.esmc.mcnp.infrastructure.components;
 
 import java.io.IOException;
 import java.net.URI;
@@ -19,8 +19,8 @@ import org.apache.http.impl.client.HttpClientBuilder;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import com.esmc.mcnp.model.sms.EuSmsConnexion;
-import com.esmc.mcnp.services.common.EuSmsConnexionService;
+import com.esmc.mcnp.domain.entity.sms.EuSmsConnexion;
+import com.esmc.mcnp.infrastructure.services.common.EuSmsConnexionService;
 
 
 @Component

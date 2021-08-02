@@ -1,12 +1,13 @@
-package com.esmc.mcnp.model.smcipn;
+package com.esmc.mcnp.domain.entity.smcipn;
 
 import java.io.Serializable;
 import javax.persistence.*;
 
-import com.esmc.mcnp.model.pc.EuChargePaye;
-import com.esmc.mcnp.model.bc.EuDomiciliation;
 import org.hibernate.annotations.DynamicInsert;
 import org.hibernate.annotations.DynamicUpdate;
+
+import com.esmc.mcnp.domain.entity.bc.EuDomiciliation;
+import com.esmc.mcnp.domain.entity.pc.EuChargePaye;
 
 import java.util.Date;
 import java.util.List;

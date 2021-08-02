@@ -1,4 +1,4 @@
-package com.kreatech.config.thread;
+package com.esmc.mcnp.config.thread;
 
 
 import javax.annotation.PreDestroy;

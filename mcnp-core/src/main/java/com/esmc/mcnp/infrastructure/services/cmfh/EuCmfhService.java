@@ -1,9 +1,9 @@
-package com.esmc.mcnp.services.cmfh;
+package com.esmc.mcnp.infrastructure.services.cmfh;
 
 import java.util.List;
 
-import com.esmc.mcnp.model.cmfh.EuCmfh;
-import com.esmc.mcnp.services.base.BaseService;
+import com.esmc.mcnp.domain.entity.cmfh.EuCmfh;
+import com.esmc.mcnp.infrastructure.services.base.BaseService;
 
 public interface EuCmfhService extends BaseService<EuCmfh, Long> {
 	

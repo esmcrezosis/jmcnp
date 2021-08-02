@@ -4,14 +4,14 @@
  * and open the template in the editor.
  */
 
-package com.esmc.mcnp.repositories.obps;
+package com.esmc.mcnp.dao.repository.obps;
 
 import java.util.List;
 
 import org.springframework.data.jpa.repository.Query;
 
-import com.esmc.mcnp.model.obps.EuArticlesVendu;
-import com.esmc.mcnp.repositories.base.BaseRepository;
+import com.esmc.mcnp.dao.repository.base.BaseRepository;
+import com.esmc.mcnp.domain.entity.obps.EuArticlesVendu;
 
 /**
  *

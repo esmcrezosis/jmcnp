@@ -1,4 +1,4 @@
-package com.kreatech.common.util;
+package com.esmc.mcnp.commons.util;
 
 import java.io.BufferedInputStream;
 import java.io.InputStream;
@@ -65,7 +65,7 @@ public class PropertiesUtils {
 	
 	/**
 	 * Obtenez le chemin absolue du fichier en fonction du chemin relative du fichier
-	 * @param relative
+	 * @param relativePath chemin relative
 	 * @return
 	 */
 	public static String getProjectPath(String relativePath) {

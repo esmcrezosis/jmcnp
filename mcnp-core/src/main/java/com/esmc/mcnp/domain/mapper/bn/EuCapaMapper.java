@@ -1,9 +1,9 @@
-package com.esmc.mcnp.mapper.bn;
+package com.esmc.mcnp.domain.mapper.bn;
 
 import java.util.List;
 
-import com.esmc.mcnp.dto.bn.EuCapaDto;
-import com.esmc.mcnp.model.ba.EuCapa;
+import com.esmc.mcnp.domain.dto.bn.EuCapaDto;
+import com.esmc.mcnp.domain.entity.ba.EuCapa;
 
 import org.mapstruct.Mapper;
 import org.mapstruct.ReportingPolicy;

@@ -10,7 +10,7 @@ import java.time.LocalDate;
 import java.util.Date;
 import java.util.Objects;
 
-import com.esmc.mcnp.model.cm.EuMembre;
+import com.esmc.mcnp.domain.entity.cm.EuMembre;
 
 /**
  *

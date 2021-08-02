@@ -1,4 +1,4 @@
-package com.esmc.mcnp.repositories.common;
+package com.esmc.mcnp.dao.repository.common;
 
 import java.util.List;
 
@@ -6,8 +6,8 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
-import com.esmc.mcnp.model.others.EuOperation;
-import com.esmc.mcnp.repositories.base.BaseRepository;
+import com.esmc.mcnp.dao.repository.base.BaseRepository;
+import com.esmc.mcnp.domain.entity.others.EuOperation;
 
 @Repository
 public interface EuOperationRepository extends BaseRepository<EuOperation, Long> {

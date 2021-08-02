@@ -1,7 +1,7 @@
-package com.esmc.mcnp.services.common;
+package com.esmc.mcnp.infrastructure.services.common;
 
-import com.esmc.mcnp.model.ksu.EuKacm;
-import com.esmc.mcnp.services.base.BaseService;
+import com.esmc.mcnp.domain.entity.ksu.EuKacm;
+import com.esmc.mcnp.infrastructure.services.base.BaseService;
 
 public interface EuKacmService extends BaseService<EuKacm, Long> {
 

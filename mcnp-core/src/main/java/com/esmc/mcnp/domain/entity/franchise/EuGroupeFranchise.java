@@ -1,4 +1,4 @@
-package com.esmc.mcnp.model.franchise;
+package com.esmc.mcnp.domain.entity.franchise;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;

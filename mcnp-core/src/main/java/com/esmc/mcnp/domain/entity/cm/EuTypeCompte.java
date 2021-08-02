@@ -1,8 +1,8 @@
-package com.esmc.mcnp.model.cm;
+package com.esmc.mcnp.domain.entity.cm;
 
-import com.esmc.mcnp.model.cm.EuAncienCompte;
-import com.esmc.mcnp.model.cm.EuCompte;
-import com.esmc.mcnp.model.cm.EuCompteGeneral;
+import com.esmc.mcnp.domain.entity.cm.EuAncienCompte;
+import com.esmc.mcnp.domain.entity.cm.EuCompte;
+import com.esmc.mcnp.domain.entity.cm.EuCompteGeneral;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import java.io.Serializable;

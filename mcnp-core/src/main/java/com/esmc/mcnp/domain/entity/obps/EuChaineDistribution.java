@@ -1,10 +1,10 @@
-package com.esmc.mcnp.model.obps;
+package com.esmc.mcnp.domain.entity.obps;
 
-import com.esmc.mcnp.model.cm.EuMembreMorale;
-import com.esmc.mcnp.model.enums.ChaineDistributionEnum;
-import com.esmc.mcnp.model.odd.EuAgencesOdd;
-import com.esmc.mcnp.model.org.EuCanton;
-import com.esmc.mcnp.model.security.EuUtilisateur;
+import com.esmc.mcnp.domain.entity.cm.EuMembreMorale;
+import com.esmc.mcnp.domain.enums.ChaineDistributionEnum;
+import com.esmc.mcnp.domain.entity.odd.EuAgencesOdd;
+import com.esmc.mcnp.domain.entity.org.EuCanton;
+import com.esmc.mcnp.domain.entity.security.EuUtilisateur;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;

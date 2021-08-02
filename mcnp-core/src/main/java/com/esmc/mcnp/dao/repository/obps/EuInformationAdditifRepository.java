@@ -1,12 +1,12 @@
-package com.esmc.mcnp.repositories.obps;
+package com.esmc.mcnp.dao.repository.obps;
 
 import java.util.List;
 
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
-import com.esmc.mcnp.model.others.EuInformationAdditif;
-import com.esmc.mcnp.repositories.base.BaseRepository;
+import com.esmc.mcnp.dao.repository.base.BaseRepository;
+import com.esmc.mcnp.domain.entity.others.EuInformationAdditif;
 
 /**
  * Created by USER on 23/05/2017.

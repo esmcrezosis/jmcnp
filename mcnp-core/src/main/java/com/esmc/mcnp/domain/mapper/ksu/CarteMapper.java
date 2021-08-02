@@ -1,7 +1,8 @@
-package com.esmc.mcnp.mapper.ksu;
+package com.esmc.mcnp.domain.mapper.ksu;
 
-import com.esmc.mcnp.dto.ksu.Carte;
-import com.esmc.mcnp.model.ksu.EuCarte;
+import com.esmc.mcnp.domain.dto.ksu.Carte;
+import com.esmc.mcnp.domain.entity.ksu.EuCarte;
+
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 

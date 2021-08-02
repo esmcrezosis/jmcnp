@@ -11,11 +11,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.esmc.mcnp.components.TransfertService;
-import com.esmc.mcnp.dto.bn.Nn;
-import com.esmc.mcnp.dto.bn.TransfertSMS;
-import com.esmc.mcnp.dto.smcipn.Transfert;
-import com.esmc.mcnp.services.obpsd.EuNnService;
+import com.esmc.mcnp.domain.dto.bn.Nn;
+import com.esmc.mcnp.domain.dto.bn.TransfertSMS;
+import com.esmc.mcnp.domain.dto.smcipn.Transfert;
+import com.esmc.mcnp.infrastructure.components.TransfertService;
+import com.esmc.mcnp.infrastructure.services.obpsd.EuNnService;
 
 @RestController
 @RequestMapping(value = "/transfert")

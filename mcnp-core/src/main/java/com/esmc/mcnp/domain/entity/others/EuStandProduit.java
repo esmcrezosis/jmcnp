@@ -1,6 +1,4 @@
-package com.esmc.mcnp.model.others;
-
-import com.esmc.mcnp.model.acteur.EuFiliere;
+package com.esmc.mcnp.domain.entity.others;
 
 import java.io.Serializable;
 import javax.persistence.Column;
@@ -11,6 +9,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
+
+import com.esmc.mcnp.domain.entity.acteur.EuFiliere;
 
 /**
  * The persistent class for the eu_stand_produit database table.

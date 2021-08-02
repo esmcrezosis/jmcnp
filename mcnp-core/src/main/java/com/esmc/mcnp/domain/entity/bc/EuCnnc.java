@@ -1,9 +1,10 @@
-package com.esmc.mcnp.model.bc;
-
-import com.esmc.mcnp.model.cm.EuCompteCredit;
+package com.esmc.mcnp.domain.entity.bc;
 
 import java.io.Serializable;
 import javax.persistence.*;
+
+import com.esmc.mcnp.domain.entity.cm.EuCompteCredit;
+
 import java.util.Date;
 
 /**

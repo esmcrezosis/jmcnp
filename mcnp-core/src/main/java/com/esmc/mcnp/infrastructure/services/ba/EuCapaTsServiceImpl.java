@@ -1,10 +1,9 @@
-package com.esmc.mcnp.services.ba;
+package com.esmc.mcnp.infrastructure.services.ba;
 
 import java.util.Date;
 import java.util.List;
 import java.util.Objects;
 
-import com.esmc.mcnp.services.base.BaseServiceImpl;
 import org.apache.commons.collections4.ListUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,18 +11,19 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.esmc.mcnp.model.bc.EuBon;
-import com.esmc.mcnp.model.ba.EuCapaTs;
-import com.esmc.mcnp.model.cm.EuCompte;
-import com.esmc.mcnp.model.cm.EuCompteCredit;
-import com.esmc.mcnp.model.cm.EuCompteCreditCapa;
-import com.esmc.mcnp.model.cm.EuCompteCreditCapaPK;
-import com.esmc.mcnp.model.smcipn.EuFn;
-import com.esmc.mcnp.repositories.cm.EuCompteCreditCapaRepository;
-import com.esmc.mcnp.repositories.cm.EuCompteRepository;
-import com.esmc.mcnp.repositories.smcipn.EuFnRepository;
-import com.esmc.mcnp.repositories.ba.EuCapaTsRepository;
-import com.esmc.mcnp.repositories.base.BaseRepository;
+import com.esmc.mcnp.dao.repository.ba.EuCapaTsRepository;
+import com.esmc.mcnp.dao.repository.base.BaseRepository;
+import com.esmc.mcnp.dao.repository.cm.EuCompteCreditCapaRepository;
+import com.esmc.mcnp.dao.repository.cm.EuCompteRepository;
+import com.esmc.mcnp.dao.repository.smcipn.EuFnRepository;
+import com.esmc.mcnp.domain.entity.ba.EuCapaTs;
+import com.esmc.mcnp.domain.entity.bc.EuBon;
+import com.esmc.mcnp.domain.entity.cm.EuCompte;
+import com.esmc.mcnp.domain.entity.cm.EuCompteCredit;
+import com.esmc.mcnp.domain.entity.cm.EuCompteCreditCapa;
+import com.esmc.mcnp.domain.entity.cm.EuCompteCreditCapaPK;
+import com.esmc.mcnp.domain.entity.smcipn.EuFn;
+import com.esmc.mcnp.infrastructure.services.base.BaseServiceImpl;
 
 @Service("capatsServcie")
 @Transactional(readOnly = true, propagation = Propagation.REQUIRED)

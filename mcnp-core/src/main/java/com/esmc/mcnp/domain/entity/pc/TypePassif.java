@@ -1,4 +1,4 @@
-package com.esmc.mcnp.model.pc;
+package com.esmc.mcnp.domain.entity.pc;
 
 public enum TypePassif {
 	REDEMARE, MCNP, ESMC;

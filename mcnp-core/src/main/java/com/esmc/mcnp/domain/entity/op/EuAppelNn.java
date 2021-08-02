@@ -1,9 +1,10 @@
-package com.esmc.mcnp.model.op;
-
-import com.esmc.mcnp.model.others.EuProposition;
+package com.esmc.mcnp.domain.entity.op;
 
 import java.io.Serializable;
 import javax.persistence.*;
+
+import com.esmc.mcnp.domain.entity.others.EuProposition;
+
 import java.util.Date;
 import java.util.List;
 

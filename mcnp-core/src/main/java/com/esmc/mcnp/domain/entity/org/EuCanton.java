@@ -1,4 +1,4 @@
-package com.esmc.mcnp.model.org;
+package com.esmc.mcnp.domain.entity.org;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;

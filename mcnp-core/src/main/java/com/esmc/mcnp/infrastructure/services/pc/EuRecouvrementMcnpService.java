@@ -1,8 +1,8 @@
-package com.esmc.mcnp.services.pc;
+package com.esmc.mcnp.infrastructure.services.pc;
 
-import com.esmc.mcnp.model.pc.EuRecouvrementMcnp;
-import com.esmc.mcnp.model.pc.EuReleve;
-import com.esmc.mcnp.services.base.BaseService;
+import com.esmc.mcnp.domain.entity.pc.EuRecouvrementMcnp;
+import com.esmc.mcnp.domain.entity.pc.EuReleve;
+import com.esmc.mcnp.infrastructure.services.base.BaseService;
 
 public interface EuRecouvrementMcnpService extends BaseService<EuRecouvrementMcnp, Integer> {
 

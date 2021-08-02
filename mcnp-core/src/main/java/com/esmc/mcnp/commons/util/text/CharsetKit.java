@@ -1,9 +1,9 @@
-package com.kreatech.common.util.text;
+package com.esmc.mcnp.commons.util.text;
+
+import com.esmc.mcnp.commons.util.StringUtils;
 
 import java.nio.charset.Charset;
 import java.nio.charset.StandardCharsets;
-
-import com.kreatech.common.util.StringUtils;
 
 /**
  * Character set tools

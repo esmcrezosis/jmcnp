@@ -1,4 +1,4 @@
-package com.esmc.mcnp.services.base;
+package com.esmc.mcnp.infrastructure.services.base;
 
 import java.io.Serializable;
 import java.lang.reflect.ParameterizedType;
@@ -7,7 +7,7 @@ import java.util.List;
 
 import org.springframework.transaction.annotation.Transactional;
 
-import com.esmc.mcnp.repositories.base.BaseRepository;
+import com.esmc.mcnp.dao.repository.base.BaseRepository;
 
 @Transactional(readOnly = true)
 public abstract class BaseServiceImpl<T, K extends Serializable> implements BaseService<T, K>, Serializable {

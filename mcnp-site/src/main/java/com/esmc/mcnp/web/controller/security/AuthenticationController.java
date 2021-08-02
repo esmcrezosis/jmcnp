@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.view.RedirectView;
 
-import com.esmc.mcnp.UserSecurity;
+import com.esmc.mcnp.domain.UserSecurity;
 
 @Controller
 public class AuthenticationController {

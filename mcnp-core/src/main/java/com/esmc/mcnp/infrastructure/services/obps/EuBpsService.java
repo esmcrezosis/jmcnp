@@ -1,9 +1,9 @@
-package com.esmc.mcnp.services.obps;
+package com.esmc.mcnp.infrastructure.services.obps;
 
 import java.util.List;
 
-import com.esmc.mcnp.model.obps.EuBps;
-import com.esmc.mcnp.services.base.BaseService;
+import com.esmc.mcnp.domain.entity.obps.EuBps;
+import com.esmc.mcnp.infrastructure.services.base.BaseService;
 
 public interface EuBpsService extends BaseService<EuBps, Integer> {
 

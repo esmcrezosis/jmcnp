@@ -3,13 +3,13 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.esmc.mcnp.dto.desendettement;
+package com.esmc.mcnp.domain.dto.desendettement;
 
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.esmc.mcnp.dto.echange.Escompte;
+import com.esmc.mcnp.domain.dto.echange.Escompte;
 
 /**
  *

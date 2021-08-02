@@ -1,7 +1,8 @@
-package com.esmc.mcnp.mapper.smcipn;
+package com.esmc.mcnp.domain.mapper.smcipn;
 
-import com.esmc.mcnp.dto.smcipn.Budget;
-import com.esmc.mcnp.model.smcipn.EuBudget;
+import com.esmc.mcnp.domain.dto.smcipn.Budget;
+import com.esmc.mcnp.domain.entity.smcipn.EuBudget;
+
 import org.mapstruct.Mapper;
 
 import java.util.List;

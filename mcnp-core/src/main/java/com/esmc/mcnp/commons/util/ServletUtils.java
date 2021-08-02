@@ -1,9 +1,8 @@
-package com.kreatech.common.util;
+package com.esmc.mcnp.commons.util;
 
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
-import com.kreatech.common.util.text.Convert;
-
+import com.esmc.mcnp.commons.util.text.Convert;
 import org.springframework.web.context.request.RequestAttributes;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
@@ -245,7 +244,7 @@ public class ServletUtils {
         String location = "inconnue";
         String ip = getIp();
         String rspStr = HttpUtils.sendGet(url, "ip=" + ip + "&json=true", CharsetKitUtil.GBK);
-        if (OrioleStringUtils.isEmpty(rspStr)) {
+        if (StringUtils.isEmpty(rspStr)) {
             return location;
         }
         JSONObject obj = JSONObject.parseObject(rspStr);

@@ -1,4 +1,4 @@
-package com.esmc.mcnp.model.smcipn;
+package com.esmc.mcnp.domain.entity.smcipn;
 
 import java.io.Serializable;
 

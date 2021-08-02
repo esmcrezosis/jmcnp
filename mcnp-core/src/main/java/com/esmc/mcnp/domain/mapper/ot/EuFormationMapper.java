@@ -1,7 +1,8 @@
-package com.esmc.mcnp.mapper.ot;
+package com.esmc.mcnp.domain.mapper.ot;
 
-import com.esmc.mcnp.dto.ot.EuFormationDto;
-import com.esmc.mcnp.model.ot.EuFormation;
+import com.esmc.mcnp.domain.dto.ot.EuFormationDto;
+import com.esmc.mcnp.domain.entity.ot.EuFormation;
+
 import org.mapstruct.Mapper;
 import org.mapstruct.ReportingPolicy;
 

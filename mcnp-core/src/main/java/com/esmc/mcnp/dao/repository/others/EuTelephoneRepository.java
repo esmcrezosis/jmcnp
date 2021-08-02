@@ -1,9 +1,9 @@
-package com.esmc.mcnp.repositories.others;
+package com.esmc.mcnp.dao.repository.others;
 
 import java.util.List;
 
-import com.esmc.mcnp.model.cm.EuTelephone;
-import com.esmc.mcnp.repositories.base.BaseRepository;
+import com.esmc.mcnp.dao.repository.base.BaseRepository;
+import com.esmc.mcnp.domain.entity.cm.EuTelephone;
 
 public interface EuTelephoneRepository extends BaseRepository<EuTelephone, Integer> {
 

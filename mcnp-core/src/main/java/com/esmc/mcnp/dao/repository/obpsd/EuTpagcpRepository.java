@@ -1,7 +1,8 @@
-package com.esmc.mcnp.repositories.obpsd;
+package com.esmc.mcnp.dao.repository.obpsd;
 
-import com.esmc.mcnp.model.obpsd.EuTpagcp;
-import com.esmc.mcnp.repositories.base.BaseRepository;
+import com.esmc.mcnp.dao.repository.base.BaseRepository;
+import com.esmc.mcnp.domain.entity.obpsd.EuTpagcp;
+
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.Query;

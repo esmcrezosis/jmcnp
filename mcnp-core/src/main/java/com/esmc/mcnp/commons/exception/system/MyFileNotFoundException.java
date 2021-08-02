@@ -1,4 +1,4 @@
-package com.esmc.mcnp.infrastructure.exception.system;
+package com.esmc.mcnp.commons.exception.system;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ResponseStatus;

@@ -1,10 +1,9 @@
-package com.esmc.mcnp.services.obpsd;
+package com.esmc.mcnp.infrastructure.services.obpsd;
 
 import java.util.Date;
 import java.util.Objects;
 import java.util.Optional;
 
-import com.esmc.mcnp.services.base.BaseServiceImpl;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -13,12 +12,13 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.esmc.mcnp.model.obpsd.EuBanque;
-import com.esmc.mcnp.model.obpsd.EuRelevebancaire;
-import com.esmc.mcnp.model.obpsd.EuRelevebancairedetail;
-import com.esmc.mcnp.repositories.acteurs.EuBanqueRepository;
-import com.esmc.mcnp.repositories.base.BaseRepository;
-import com.esmc.mcnp.repositories.obpsd.EuRelevebancairedetailRepository;
+import com.esmc.mcnp.dao.repository.acteurs.EuBanqueRepository;
+import com.esmc.mcnp.dao.repository.base.BaseRepository;
+import com.esmc.mcnp.dao.repository.obpsd.EuRelevebancairedetailRepository;
+import com.esmc.mcnp.domain.entity.obpsd.EuBanque;
+import com.esmc.mcnp.domain.entity.obpsd.EuRelevebancaire;
+import com.esmc.mcnp.domain.entity.obpsd.EuRelevebancairedetail;
+import com.esmc.mcnp.infrastructure.services.base.BaseServiceImpl;
 
 @Service
 @Transactional(readOnly = true, propagation = Propagation.REQUIRED)

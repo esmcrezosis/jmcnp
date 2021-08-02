@@ -1,9 +1,9 @@
-package com.esmc.mcnp.services.security;
+package com.esmc.mcnp.infrastructure.services.security;
 
 import java.util.List;
 
-import com.esmc.mcnp.model.security.EuRole;
-import com.esmc.mcnp.services.base.BaseService;
+import com.esmc.mcnp.domain.entity.security.EuRole;
+import com.esmc.mcnp.infrastructure.services.base.BaseService;
 
 public interface EuRoleService extends BaseService<EuRole, Integer> {
 

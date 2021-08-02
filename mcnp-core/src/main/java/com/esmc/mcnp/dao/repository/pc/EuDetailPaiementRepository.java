@@ -1,12 +1,12 @@
-package com.esmc.mcnp.repositories.pc;
+package com.esmc.mcnp.dao.repository.pc;
 
 import java.util.List;
 
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
-import com.esmc.mcnp.model.pc.EuDetailPaiement;
-import com.esmc.mcnp.repositories.base.BaseRepository;
+import com.esmc.mcnp.dao.repository.base.BaseRepository;
+import com.esmc.mcnp.domain.entity.pc.EuDetailPaiement;
 
 public interface EuDetailPaiementRepository extends BaseRepository<EuDetailPaiement, Integer> {
 

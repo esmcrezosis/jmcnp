@@ -1,8 +1,9 @@
-package com.esmc.mcnp.services.security;
+package com.esmc.mcnp.infrastructure.services.security;
 
-import com.esmc.mcnp.dto.projections.GroupeRolesVO;
-import com.esmc.mcnp.model.security.EuGroupeRoles;
-import com.esmc.mcnp.services.base.CrudService;
+import com.esmc.mcnp.domain.dto.projections.GroupeRolesVO;
+import com.esmc.mcnp.domain.entity.security.EuGroupeRoles;
+import com.esmc.mcnp.infrastructure.services.base.CrudService;
+
 import org.springframework.scheduling.annotation.Async;
 
 import java.util.List;

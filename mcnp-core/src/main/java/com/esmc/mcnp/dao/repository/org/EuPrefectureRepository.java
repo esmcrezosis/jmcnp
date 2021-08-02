@@ -1,7 +1,7 @@
-package com.esmc.mcnp.repositories.org;
+package com.esmc.mcnp.dao.repository.org;
 
-import com.esmc.mcnp.model.org.EuPrefecture;
-import com.esmc.mcnp.repositories.base.BaseRepository;
+import com.esmc.mcnp.dao.repository.base.BaseRepository;
+import com.esmc.mcnp.domain.entity.org.EuPrefecture;
 
 public interface EuPrefectureRepository extends BaseRepository<EuPrefecture, Integer> {
 	

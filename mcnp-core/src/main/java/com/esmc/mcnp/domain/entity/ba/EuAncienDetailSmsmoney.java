@@ -1,4 +1,4 @@
-package com.esmc.mcnp.model.ba;
+package com.esmc.mcnp.domain.entity.ba;
 
 import java.io.Serializable;
 import java.util.Date;

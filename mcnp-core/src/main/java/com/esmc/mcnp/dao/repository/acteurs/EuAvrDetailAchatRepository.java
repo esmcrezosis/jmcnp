@@ -1,7 +1,8 @@
-package com.esmc.mcnp.repositories.acteurs;
+package com.esmc.mcnp.dao.repository.acteurs;
 
-import com.esmc.mcnp.model.acteur.EuAvrDetailAchat;
-import com.esmc.mcnp.repositories.base.BaseRepository;
+import com.esmc.mcnp.dao.repository.base.BaseRepository;
+import com.esmc.mcnp.domain.entity.acteur.EuAvrDetailAchat;
+
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.EntityGraph;

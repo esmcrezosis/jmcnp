@@ -1,10 +1,11 @@
-package com.esmc.mcnp.model.ba;
-
-import com.esmc.mcnp.model.bc.EuBon;
-import com.esmc.mcnp.model.cm.EuCompte;
+package com.esmc.mcnp.domain.entity.ba;
 
 import java.io.Serializable;
 import javax.persistence.*;
+
+import com.esmc.mcnp.domain.entity.bc.EuBon;
+import com.esmc.mcnp.domain.entity.cm.EuCompte;
+
 import java.util.Date;
 
 /**

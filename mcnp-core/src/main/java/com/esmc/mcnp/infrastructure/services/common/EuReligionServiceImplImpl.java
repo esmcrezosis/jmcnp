@@ -1,10 +1,10 @@
-package com.esmc.mcnp.services.common;
+package com.esmc.mcnp.infrastructure.services.common;
 
 import org.springframework.stereotype.Service;
 
-import com.esmc.mcnp.model.cm.EuReligion;
-import com.esmc.mcnp.repositories.others.EuReligionRepository;
-import com.esmc.mcnp.services.base.CrudServiceImpl;
+import com.esmc.mcnp.dao.repository.others.EuReligionRepository;
+import com.esmc.mcnp.domain.entity.cm.EuReligion;
+import com.esmc.mcnp.infrastructure.services.base.CrudServiceImpl;
 
 @Service
 public class EuReligionServiceImplImpl extends CrudServiceImpl<EuReligion, Integer> implements EuReligionService {

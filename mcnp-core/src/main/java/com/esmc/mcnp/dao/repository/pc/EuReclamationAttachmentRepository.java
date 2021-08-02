@@ -1,7 +1,7 @@
-package com.esmc.mcnp.repositories.pc;
+package com.esmc.mcnp.dao.repository.pc;
 
-import com.esmc.mcnp.model.pc.EuReclamationAttachment;
-import com.esmc.mcnp.repositories.base.BaseRepository;
+import com.esmc.mcnp.dao.repository.base.BaseRepository;
+import com.esmc.mcnp.domain.entity.pc.EuReclamationAttachment;
 
 public interface EuReclamationAttachmentRepository extends BaseRepository<EuReclamationAttachment, Long> {
 

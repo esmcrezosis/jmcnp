@@ -1,4 +1,4 @@
-package com.esmc.mcnp.dto.acteur;
+package com.esmc.mcnp.domain.dto.acteur;
 
 import java.io.Serializable;
 import java.math.BigDecimal;

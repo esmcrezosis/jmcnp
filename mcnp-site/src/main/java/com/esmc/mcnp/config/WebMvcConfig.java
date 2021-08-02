@@ -3,12 +3,14 @@ package com.esmc.mcnp.config;
 import java.util.Locale;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.context.MessageSource;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.validation.Validator;
 import org.springframework.validation.beanvalidation.LocalValidatorFactoryBean;
+import org.springframework.web.context.request.RequestContextListener;
 import org.springframework.web.multipart.MultipartResolver;
 import org.springframework.web.multipart.support.StandardServletMultipartResolver;
 import org.springframework.web.servlet.LocaleResolver;
@@ -22,6 +24,8 @@ import org.springframework.web.servlet.i18n.LocaleChangeInterceptor;
 import org.thymeleaf.dialect.springdata.SpringDataDialect;
 
 import com.esmc.mcnp.core.utils.ExcelPOIHelper;
+import com.esmc.mcnp.commons.validation.EmailValidator;
+import com.esmc.mcnp.commons.validation.PasswordMatchesValidator;
 
 import nz.net.ultraq.thymeleaf.LayoutDialect;
 
@@ -60,6 +64,16 @@ public class WebMvcConfig implements WebMvcConfigurer {
     }
 	
 	@Bean
+    public EmailValidator usernameValidator() {
+        return new EmailValidator();
+    }
+
+    @Bean
+    public PasswordMatchesValidator passwordMatchesValidator() {
+        return new PasswordMatchesValidator();
+    }
+	
+	@Bean
     public LayoutDialect layoutDialect() {
         return new LayoutDialect();
     }
@@ -82,6 +96,12 @@ public class WebMvcConfig implements WebMvcConfigurer {
 		factory.setValidationMessageSource(messageSource);
 		return factory;
 	}
+	
+	@Bean
+    @ConditionalOnMissingBean(RequestContextListener.class)
+    public RequestContextListener requestContextListener() {
+        return new RequestContextListener();
+    }
 
 	@Bean
 	public MultipartResolver multipartResolver() {

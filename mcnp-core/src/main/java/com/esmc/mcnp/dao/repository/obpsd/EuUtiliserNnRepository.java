@@ -1,7 +1,7 @@
-package com.esmc.mcnp.repositories.obpsd;
+package com.esmc.mcnp.dao.repository.obpsd;
 
-import com.esmc.mcnp.model.obpsd.EuUtiliserNn;
-import com.esmc.mcnp.repositories.base.BaseRepository;
+import com.esmc.mcnp.dao.repository.base.BaseRepository;
+import com.esmc.mcnp.domain.entity.obpsd.EuUtiliserNn;
 
 public interface EuUtiliserNnRepository extends BaseRepository<EuUtiliserNn, Long> {
 

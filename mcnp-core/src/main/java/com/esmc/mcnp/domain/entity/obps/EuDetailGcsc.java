@@ -1,8 +1,4 @@
-package com.esmc.mcnp.model.obps;
-
-import com.esmc.mcnp.model.bc.EuBon;
-import com.esmc.mcnp.model.cm.EuCompteCredit;
-import com.esmc.mcnp.model.smcipn.EuGcsc;
+package com.esmc.mcnp.domain.entity.obps;
 
 import java.io.Serializable;
 import java.util.Date;
@@ -20,6 +16,10 @@ import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+
+import com.esmc.mcnp.domain.entity.bc.EuBon;
+import com.esmc.mcnp.domain.entity.cm.EuCompteCredit;
+import com.esmc.mcnp.domain.entity.smcipn.EuGcsc;
 
 @Entity
 @Table(name="eu_detail_gcsc")

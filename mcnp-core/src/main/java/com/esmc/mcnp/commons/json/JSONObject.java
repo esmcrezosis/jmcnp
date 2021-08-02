@@ -1,16 +1,11 @@
-package com.kreatech.common.json;
+package com.esmc.mcnp.commons.json;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.LinkedHashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.StringTokenizer;
+import com.esmc.mcnp.commons.util.StringUtils;
+import com.fasterxml.jackson.databind.ObjectMapper;
+
+import java.util.*;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.kreatech.common.util.OrioleStringUtils;
 
 /**
  * Objet de message général, une structure de données emboîtable basée sur
@@ -113,7 +108,7 @@ public class JSONObject extends LinkedHashMap<String, Object> {
 	 * @return renvoie la valeur entière spécifiée, ou defaultValue.
 	 */
 	public Integer intValue(final String name, final Integer defaultValue) {
-		return OrioleStringUtils.nvl(intValue(name), defaultValue);
+		return StringUtils.nvl(intValue(name), defaultValue);
 	}
 
 	/**
@@ -137,7 +132,7 @@ public class JSONObject extends LinkedHashMap<String, Object> {
 	 * @return renvoie la valeur entière longue spécifiée, ou defaultValue.
 	 */
 	public Long longValue(final String name, final Long defaultValue) {
-		return OrioleStringUtils.nvl(longValue(name), defaultValue);
+		return StringUtils.nvl(longValue(name), defaultValue);
 	}
 
 	/**
@@ -160,7 +155,7 @@ public class JSONObject extends LinkedHashMap<String, Object> {
 	 * @return renvoie la valeur booléenne spécifiée, ou defaultValue.
 	 */
 	public Boolean boolValue(final String name, final Boolean defaultValue) {
-		return OrioleStringUtils.nvl(boolValue(name), defaultValue);
+		return StringUtils.nvl(boolValue(name), defaultValue);
 	}
 
 	/**
@@ -183,7 +178,7 @@ public class JSONObject extends LinkedHashMap<String, Object> {
 	 * @return renvoie la valeur de chaîne spécifiée, ou defaultValue.
 	 */
 	public String strValue(final String name, final String defaultValue) {
-		return OrioleStringUtils.nvl(strValue(name), defaultValue);
+		return StringUtils.nvl(strValue(name), defaultValue);
 	}
 
 	/**
@@ -217,7 +212,7 @@ public class JSONObject extends LinkedHashMap<String, Object> {
 	 *
 	 * @param name   nom du champ, prend en charge plusieurs niveaux, prend en
 	 *               charge l'indice de tableau.
-	 * @param Valeur du champ de valeur .
+	 * @param value Valeur du champ .
 	 * @return renvoie cet objet.
 	 */
 	public JSONObject value(final String name, final Object value) {
@@ -328,7 +323,7 @@ public class JSONObject extends LinkedHashMap<String, Object> {
 	 * @return renvoie la valeur entière du champ spécifié.
 	 */
 	public Integer getInt(final String name, Integer defaultValue) {
-		return OrioleStringUtils.nvl(getInt(name), defaultValue);
+		return StringUtils.nvl(getInt(name), defaultValue);
 	}
 
 	/**
@@ -350,7 +345,7 @@ public class JSONObject extends LinkedHashMap<String, Object> {
 	 * @return renvoie la valeur entière longue du champ spécifié.
 	 */
 	public Long getLong(final String name, Long defaultValue) {
-		return OrioleStringUtils.nvl(getLong(name), defaultValue);
+		return StringUtils.nvl(getLong(name), defaultValue);
 	}
 
 	/**
@@ -372,7 +367,7 @@ public class JSONObject extends LinkedHashMap<String, Object> {
 	 * @return renvoie la valeur de chaîne du champ spécifié.
 	 */
 	public String getStr(final String name, final String defaultValue) {
-		return OrioleStringUtils.nvl(getStr(name), defaultValue);
+		return StringUtils.nvl(getStr(name), defaultValue);
 	}
 
 	/**
@@ -395,7 +390,7 @@ public class JSONObject extends LinkedHashMap<String, Object> {
 	 * @return Valeur du champ
 	 */
 	public Boolean getBool(final String name, final Boolean defaultValue) {
-		return OrioleStringUtils.nvl(getBool(name), defaultValue);
+		return StringUtils.nvl(getBool(name), defaultValue);
 	}
 
 	/**
@@ -498,7 +493,7 @@ public class JSONObject extends LinkedHashMap<String, Object> {
 	 * Convertissez tous les types de Map mais pas MessageObject à tous les niveaux
 	 * en MessageObject.
 	 *
-	 * @param Valeur de la valeur.
+	 * @param value Valeur de la valeur.
 	 * @return renvoie la valeur convertie.
 	 */
 	@SuppressWarnings("unchecked")
@@ -533,7 +528,7 @@ public class JSONObject extends LinkedHashMap<String, Object> {
 	 * crée un tableau vide à cette position.
 	 *
 	 * @param arr    Le tableau actuel.
-	 * @param Indice d'index.
+	 * @param index Indice d'index.
 	 * @return renvoie l'élément de l'indice spécifié du tableau actuel, qui doit
 	 *         être un tableau.
 	 */
@@ -550,7 +545,7 @@ public class JSONObject extends LinkedHashMap<String, Object> {
 	 * créez une structure vide à cette position.
 	 *
 	 * @param arr    Le tableau actuel.
-	 * @param Indice d'index.
+	 * @param index Indice d'index.
 	 * @return renvoie l'élément d'indice spécifié du tableau actuel, qui est une
 	 *         structure.
 	 */
@@ -566,8 +561,8 @@ public class JSONObject extends LinkedHashMap<String, Object> {
 	 * Définissez la valeur de la position d'indice spécifiée du tableau.
 	 *
 	 * @param arr    Tableau.
-	 * @param Indice d'index.
-	 * @param Valeur de la valeur.
+	 * @param index Indice d'index.
+	 * @param value Valeur de la valeur.
 	 */
 	private static void elementAt(final JSONArray arr, final int index, final Object value) {
 		expand(arr, index).set(index, value);
@@ -577,7 +572,7 @@ public class JSONObject extends LinkedHashMap<String, Object> {
 	 * Obtenez la valeur de l'élément d'indice spécifié du tableau.
 	 *
 	 * @param arr    Tableau.
-	 * @param Indice d'index.
+	 * @param index Indice d'index.
 	 * @return Valeur.
 	 */
 	private static Object elementAt(final JSONArray arr, final int index) {
@@ -589,7 +584,7 @@ public class JSONObject extends LinkedHashMap<String, Object> {
 	 * limite pendant l'accès.
 	 *
 	 * @param arr    tableau
-	 * @param Indice d'index
+	 * @param index Indice d'index
 	 * @return renvoie le tableau passé
 	 */
 	private static JSONArray expand(final JSONArray arr, final int index) {
@@ -627,7 +622,7 @@ public class JSONObject extends LinkedHashMap<String, Object> {
 	 * @param name       Le nom sans indice et les noms à plusieurs niveaux ne sont
 	 *                   pas pris en charge.
 	 * @param indexesStr La chaîne de la partie d'index, telle que: [1] [2] [3]
-	 * @param Fonction   de rappel de rappel.
+	 * @param callback Fonction   de rappel de rappel.
 	 * @return renvoie la valeur de retour de la fonction de rappel.
 	 */
 	private <T> T endArray(final String name, final String indexesStr, final EndArrayCallback<T> callback) {

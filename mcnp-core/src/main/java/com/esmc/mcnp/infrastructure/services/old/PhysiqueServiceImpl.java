@@ -1,9 +1,10 @@
-package com.esmc.mcnp.services.old;
+package com.esmc.mcnp.infrastructure.services.old;
 
-import com.esmc.mcnp.model.old.Physique;
-import com.esmc.mcnp.repositories.base.BaseRepository;
-import com.esmc.mcnp.repositories.old.PhysiqueRepository;
-import com.esmc.mcnp.services.base.CrudServiceImpl;
+import com.esmc.mcnp.dao.repository.base.BaseRepository;
+import com.esmc.mcnp.dao.repository.old.PhysiqueRepository;
+import com.esmc.mcnp.domain.entity.old.Physique;
+import com.esmc.mcnp.infrastructure.services.base.CrudServiceImpl;
+
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 

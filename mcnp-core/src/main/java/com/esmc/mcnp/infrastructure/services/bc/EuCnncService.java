@@ -1,9 +1,9 @@
-package com.esmc.mcnp.services.bc;
+package com.esmc.mcnp.infrastructure.services.bc;
 
-import com.esmc.mcnp.model.bc.EuCnnc;
-import com.esmc.mcnp.model.cm.EuCompteCredit;
-import com.esmc.mcnp.model.cm.EuCompteCreditTs;
-import com.esmc.mcnp.services.base.BaseService;
+import com.esmc.mcnp.domain.entity.bc.EuCnnc;
+import com.esmc.mcnp.domain.entity.cm.EuCompteCredit;
+import com.esmc.mcnp.domain.entity.cm.EuCompteCreditTs;
+import com.esmc.mcnp.infrastructure.services.base.BaseService;
 
 import java.util.Map;
 

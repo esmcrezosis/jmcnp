@@ -1,10 +1,10 @@
-package com.esmc.mcnp.repositories.obpsd;
+package com.esmc.mcnp.dao.repository.obpsd;
 
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
-import com.esmc.mcnp.model.ba.EuDetailVentesms;
-import com.esmc.mcnp.repositories.base.BaseRepository;
+import com.esmc.mcnp.dao.repository.base.BaseRepository;
+import com.esmc.mcnp.domain.entity.ba.EuDetailVentesms;
 
 @Repository
 public interface EuDetailVentesmsRepository extends BaseRepository<EuDetailVentesms, Long> {

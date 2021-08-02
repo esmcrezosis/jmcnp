@@ -1,4 +1,4 @@
-package com.esmc.mcnp.model.bc;
+package com.esmc.mcnp.domain.entity.bc;
 
 import java.io.Serializable;
 

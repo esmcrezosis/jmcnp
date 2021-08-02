@@ -1,7 +1,7 @@
-package com.esmc.mcnp.services.common;
+package com.esmc.mcnp.infrastructure.services.common;
 
-import com.esmc.mcnp.model.bc.EuCycleFormation;
-import com.esmc.mcnp.services.base.BaseService;
+import com.esmc.mcnp.domain.entity.bc.EuCycleFormation;
+import com.esmc.mcnp.infrastructure.services.base.BaseService;
 
 public interface EuCycleFormationService extends BaseService<EuCycleFormation, Integer> {
 

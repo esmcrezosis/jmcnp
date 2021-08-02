@@ -1,4 +1,4 @@
-package com.kreatech.common.util;
+package com.esmc.mcnp.commons.util;
 
 import java.nio.charset.Charset;
 import java.nio.charset.StandardCharsets;
@@ -41,13 +41,13 @@ public class CharsetKitUtil {
     * @return Charset
     */
     public static Charset charset(String charset) {
-        return OrioleStringUtils.isEmpty(charset) ? Charset.defaultCharset() : Charset.forName(charset);
+        return StringUtils.isEmpty(charset) ? Charset.defaultCharset() : Charset.forName(charset);
     }
 
     /**
     * Codage du jeu de caractères de la chaîne convertie
     *
-    *@param Chaîne source 
+    *@param  source Chaîne
     * @param srcCharset jeu de caractères source, par défaut ISO-8859-1
     * @param destCharset jeu de caractères cible, UTF-8 par défaut
     *@return Jeu de caractères converti 
@@ -59,7 +59,7 @@ public class CharsetKitUtil {
     /**
     * Codage du jeu de caractères de la chaîne convertie
     *
-    *@param Chaîne source 
+    *@param source Chaîne
     * @param srcCharset jeu de caractères source, par défaut ISO-8859-1
     * @param destCharset jeu de caractères cible, UTF-8 par défaut
     *@return Jeu de caractères converti 
@@ -73,7 +73,7 @@ public class CharsetKitUtil {
             srcCharset = StandardCharsets.UTF_8;
         }
 
-        if (OrioleStringUtils.isEmpty(source) || srcCharset.equals(destCharset)) {
+        if (StringUtils.isEmpty(source) || srcCharset.equals(destCharset)) {
             return source;
         }
         assert destCharset != null;

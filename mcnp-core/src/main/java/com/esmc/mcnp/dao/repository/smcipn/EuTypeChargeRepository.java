@@ -3,10 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.esmc.mcnp.repositories.smcipn;
+package com.esmc.mcnp.dao.repository.smcipn;
 
-import com.esmc.mcnp.model.pc.EuTypeCharge;
-import com.esmc.mcnp.repositories.base.BaseRepository;
+import com.esmc.mcnp.dao.repository.base.BaseRepository;
+import com.esmc.mcnp.domain.entity.pc.EuTypeCharge;
 
 /**
  *

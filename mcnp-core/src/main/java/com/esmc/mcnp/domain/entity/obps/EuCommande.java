@@ -1,9 +1,9 @@
-package com.esmc.mcnp.model.obps;
+package com.esmc.mcnp.domain.entity.obps;
 
 import java.io.Serializable;
 import javax.persistence.*;
 
-import com.esmc.mcnp.model.security.EuUtilisateur;
+import com.esmc.mcnp.domain.entity.security.EuUtilisateur;
 
 import java.util.Date;
 

@@ -1,4 +1,4 @@
-package com.esmc.mcnp.repositories.ot;
+package com.esmc.mcnp.dao.repository.ot;
 
 import java.time.LocalDate;
 import java.util.List;
@@ -8,8 +8,8 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
-import com.esmc.mcnp.model.ot.EuCandidature;
-import com.esmc.mcnp.repositories.base.BaseRepository;
+import com.esmc.mcnp.dao.repository.base.BaseRepository;
+import com.esmc.mcnp.domain.entity.ot.EuCandidature;
 
 public interface EuCandidatureRepository extends BaseRepository<EuCandidature, Integer> {
 

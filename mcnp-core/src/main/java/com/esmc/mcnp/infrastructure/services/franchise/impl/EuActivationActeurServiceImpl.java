@@ -1,13 +1,13 @@
-package com.esmc.mcnp.services.franchise.impl;
+package com.esmc.mcnp.infrastructure.services.franchise.impl;
 
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.esmc.mcnp.model.franchise.EuActivationActeur;
-import com.esmc.mcnp.repositories.base.BaseRepository;
-import com.esmc.mcnp.repositories.franchise.EuActivationActeurRepository;
-import com.esmc.mcnp.services.base.BaseServiceImpl;
-import com.esmc.mcnp.services.franchise.EuActivationActeurService;
+import com.esmc.mcnp.dao.repository.base.BaseRepository;
+import com.esmc.mcnp.dao.repository.franchise.EuActivationActeurRepository;
+import com.esmc.mcnp.domain.entity.franchise.EuActivationActeur;
+import com.esmc.mcnp.infrastructure.services.base.BaseServiceImpl;
+import com.esmc.mcnp.infrastructure.services.franchise.EuActivationActeurService;
 
 @Service
 @Transactional

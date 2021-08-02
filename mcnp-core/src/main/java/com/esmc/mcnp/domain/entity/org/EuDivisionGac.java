@@ -1,9 +1,9 @@
-package com.esmc.mcnp.model.org;
-
-import com.esmc.mcnp.model.acteur.EuGac;
+package com.esmc.mcnp.domain.entity.org;
 
 import java.io.Serializable;
 import javax.persistence.*;
+
+import com.esmc.mcnp.domain.entity.acteur.EuGac;
 
 /**
  * The persistent class for the eu_division_gac database table.

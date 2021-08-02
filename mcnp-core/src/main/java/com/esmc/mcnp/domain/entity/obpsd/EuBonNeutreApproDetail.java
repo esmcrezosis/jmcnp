@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.esmc.mcnp.model.obpsd;
+package com.esmc.mcnp.domain.entity.obpsd;
 
 import java.io.Serializable;
 import java.util.Date;

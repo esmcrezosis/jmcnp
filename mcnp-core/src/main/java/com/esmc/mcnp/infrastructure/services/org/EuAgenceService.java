@@ -1,7 +1,7 @@
-package com.esmc.mcnp.services.org;
+package com.esmc.mcnp.infrastructure.services.org;
 
-import com.esmc.mcnp.model.org.EuAgence;
-import com.esmc.mcnp.services.base.CrudService;
+import com.esmc.mcnp.domain.entity.org.EuAgence;
+import com.esmc.mcnp.infrastructure.services.base.CrudService;
 
 public interface EuAgenceService extends CrudService<EuAgence, String> {
     EuAgence findByTypeGac(String typeGac);

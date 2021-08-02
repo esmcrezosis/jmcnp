@@ -1,6 +1,4 @@
-package com.esmc.mcnp.model.pc;
-
-import com.esmc.mcnp.model.others.EuPostePointage;
+package com.esmc.mcnp.domain.entity.pc;
 
 import java.io.Serializable;
 import java.lang.Boolean;
@@ -8,6 +6,8 @@ import java.lang.Integer;
 import java.lang.String;
 import java.util.Date;
 import javax.persistence.*;
+
+import com.esmc.mcnp.domain.entity.others.EuPostePointage;
 
 /**
  * Entity implementation class for Entity: EuPointage

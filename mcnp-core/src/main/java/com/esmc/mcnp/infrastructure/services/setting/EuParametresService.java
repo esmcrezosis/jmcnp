@@ -4,20 +4,22 @@
  * and open the template in the editor.
  */
 
-package com.esmc.mcnp.services.setting;
+package com.esmc.mcnp.infrastructure.services.setting;
 
-import com.esmc.mcnp.model.config.EuParametres;
-import com.esmc.mcnp.model.config.EuParametresPK;
-import com.esmc.mcnp.services.base.BaseService;
+import com.esmc.mcnp.domain.entity.config.EuParametres;
+import com.esmc.mcnp.domain.entity.config.EuParametresPK;
+import com.esmc.mcnp.infrastructure.services.base.BaseService;
 
 /**
  *
  * @author USER
  */
 public interface EuParametresService extends BaseService<EuParametres, EuParametresPK> {
-	public double getParametre(String codeParam, String libParam);
+	double getParametre(String codeParam, String libParam);
 
-	public int getParam(String codeParam, String libParam);
+	int getParam(String codeParam, String libParam);
+
+	String getStringParam(String code, String lib);
 	
-	public Double getParamConso();
+	Double getParamConso();
 }

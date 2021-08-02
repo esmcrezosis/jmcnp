@@ -1,6 +1,4 @@
-package com.esmc.mcnp.model.acteur;
-
-import com.esmc.mcnp.model.acteur.EuGac;
+package com.esmc.mcnp.domain.entity.acteur;
 
 import java.io.Serializable;
 import java.util.Date;
@@ -14,6 +12,8 @@ import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+
+import com.esmc.mcnp.domain.entity.acteur.EuGac;
 
 /**
  * The persistent class for the eu_acteur database table.

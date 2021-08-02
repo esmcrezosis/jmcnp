@@ -1,14 +1,14 @@
-package com.esmc.mcnp.services.obps;
+package com.esmc.mcnp.infrastructure.services.obps;
 
 import java.util.List;
 
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
-import com.esmc.mcnp.dto.obps.TegcView;
-import com.esmc.mcnp.model.obps.EuTegc;
-import com.esmc.mcnp.services.base.BaseService;
-import com.esmc.mcnp.services.base.CrudService;
+import com.esmc.mcnp.domain.dto.obps.TegcView;
+import com.esmc.mcnp.domain.entity.obps.EuTegc;
+import com.esmc.mcnp.infrastructure.services.base.BaseService;
+import com.esmc.mcnp.infrastructure.services.base.CrudService;
 
 public interface EuTegcService extends CrudService<EuTegc, String> {
 

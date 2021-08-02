@@ -1,4 +1,4 @@
-package com.esmc.mcnp.dto.smcipn;
+package com.esmc.mcnp.domain.dto.smcipn;
 
 import lombok.Data;
 import lombok.experimental.Accessors;

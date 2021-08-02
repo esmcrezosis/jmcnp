@@ -1,9 +1,9 @@
-package com.esmc.mcnp.services.security;
+package com.esmc.mcnp.infrastructure.services.security;
 
-import com.esmc.mcnp.dto.projections.UserGroupVO;
-import com.esmc.mcnp.dto.security.UserGroupDTO;
-import com.esmc.mcnp.model.security.EuUserGroup;
-import com.esmc.mcnp.services.base.CrudService;
+import com.esmc.mcnp.domain.dto.projections.UserGroupVO;
+import com.esmc.mcnp.domain.dto.security.UserGroupDTO;
+import com.esmc.mcnp.domain.entity.security.EuUserGroup;
+import com.esmc.mcnp.infrastructure.services.base.CrudService;
 
 import java.util.List;
 

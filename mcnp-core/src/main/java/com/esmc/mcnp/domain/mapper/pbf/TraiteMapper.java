@@ -1,7 +1,8 @@
-package com.esmc.mcnp.mapper.pbf;
+package com.esmc.mcnp.domain.mapper.pbf;
 
-import com.esmc.mcnp.dto.pbf.TraiteDto;
-import com.esmc.mcnp.model.obpsd.EuTraite;
+import com.esmc.mcnp.domain.dto.pbf.TraiteDto;
+import com.esmc.mcnp.domain.entity.obpsd.EuTraite;
+
 import org.mapstruct.Mapper;
 import org.mapstruct.ReportingPolicy;
 

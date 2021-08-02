@@ -1,16 +1,16 @@
-package com.esmc.mcnp.services.pc;
+package com.esmc.mcnp.infrastructure.services.pc;
 
 import java.util.List;
 
-import com.esmc.mcnp.services.base.CrudServiceImpl;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.esmc.mcnp.model.pc.EuRelevedetail;
-import com.esmc.mcnp.repositories.pc.EuRelevedetailRepository;
+import com.esmc.mcnp.dao.repository.pc.EuRelevedetailRepository;
+import com.esmc.mcnp.domain.entity.pc.EuRelevedetail;
+import com.esmc.mcnp.infrastructure.services.base.CrudServiceImpl;
 
 @Service("euRelevedetailService")
 @Transactional(readOnly = true, propagation = Propagation.REQUIRED)

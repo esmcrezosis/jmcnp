@@ -1,12 +1,12 @@
-package com.esmc.mcnp.services.ba;
+package com.esmc.mcnp.infrastructure.services.ba;
 
 import java.util.Date;
 import java.util.List;
 
-import com.esmc.mcnp.model.bc.EuBon;
-import com.esmc.mcnp.model.ba.EuCapaTs;
-import com.esmc.mcnp.model.cm.EuCompteCredit;
-import com.esmc.mcnp.services.base.BaseService;
+import com.esmc.mcnp.domain.entity.ba.EuCapaTs;
+import com.esmc.mcnp.domain.entity.bc.EuBon;
+import com.esmc.mcnp.domain.entity.cm.EuCompteCredit;
+import com.esmc.mcnp.infrastructure.services.base.BaseService;
 
 public interface EuCapaTsService extends BaseService<EuCapaTs, String> {
 

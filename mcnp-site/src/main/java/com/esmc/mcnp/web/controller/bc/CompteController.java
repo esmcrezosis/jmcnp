@@ -1,15 +1,15 @@
 package com.esmc.mcnp.web.controller.bc;
 
-import com.esmc.mcnp.dto.bc.CompteCredit;
-import com.esmc.mcnp.mapper.bc.EuCompteCreditMapper;
-import com.esmc.mcnp.model.bc.EuProduit;
-import com.esmc.mcnp.model.cm.EuCategorieCompte;
-import com.esmc.mcnp.model.cm.EuCompte;
-import com.esmc.mcnp.model.cm.EuCompteCredit;
-import com.esmc.mcnp.services.cm.EuCategorieCompteService;
-import com.esmc.mcnp.services.cm.EuCompteCreditService;
-import com.esmc.mcnp.services.cm.EuCompteService;
-import com.esmc.mcnp.services.cm.EuProduitService;
+import com.esmc.mcnp.domain.dto.bc.CompteCredit;
+import com.esmc.mcnp.domain.entity.bc.EuProduit;
+import com.esmc.mcnp.domain.entity.cm.EuCategorieCompte;
+import com.esmc.mcnp.domain.entity.cm.EuCompte;
+import com.esmc.mcnp.domain.entity.cm.EuCompteCredit;
+import com.esmc.mcnp.domain.mapper.bc.EuCompteCreditMapper;
+import com.esmc.mcnp.infrastructure.services.cm.EuCategorieCompteService;
+import com.esmc.mcnp.infrastructure.services.cm.EuCompteCreditService;
+import com.esmc.mcnp.infrastructure.services.cm.EuCompteService;
+import com.esmc.mcnp.infrastructure.services.cm.EuProduitService;
 import com.esmc.mcnp.util.JqGrid;
 import com.esmc.mcnp.web.controller.base.BaseController;
 import com.google.common.collect.Lists;

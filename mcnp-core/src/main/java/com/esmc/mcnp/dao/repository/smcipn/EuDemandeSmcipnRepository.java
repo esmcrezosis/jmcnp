@@ -1,7 +1,7 @@
-package com.esmc.mcnp.repositories.smcipn;
+package com.esmc.mcnp.dao.repository.smcipn;
 
-import com.esmc.mcnp.model.smcipn.EuDemandeSmcipn;
-import com.esmc.mcnp.repositories.base.BaseRepository;
+import com.esmc.mcnp.dao.repository.base.BaseRepository;
+import com.esmc.mcnp.domain.entity.smcipn.EuDemandeSmcipn;
 
 public interface EuDemandeSmcipnRepository extends BaseRepository<EuDemandeSmcipn, Long> {
 

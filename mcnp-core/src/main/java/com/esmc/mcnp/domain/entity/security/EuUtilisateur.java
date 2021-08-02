@@ -1,20 +1,32 @@
-package com.esmc.mcnp.model.security;
+package com.esmc.mcnp.domain.entity.security;
 
-import com.esmc.mcnp.commons.model.PageBean;
-import com.esmc.mcnp.model.odd.EuAgencesOdd;
-import com.esmc.mcnp.model.odd.EuCentres;
-import com.esmc.mcnp.model.org.EuAgence;
-import com.esmc.mcnp.model.org.EuSecteur;
+import java.io.Serializable;
+import java.util.Date;
+import java.util.List;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.NamedQuery;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
+import javax.persistence.Transient;
+
+import com.esmc.mcnp.domain.entity.odd.EuAgencesOdd;
+import com.esmc.mcnp.domain.entity.odd.EuCentres;
+import com.esmc.mcnp.domain.entity.org.EuAgence;
+import com.esmc.mcnp.domain.entity.org.EuSecteur;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.experimental.Accessors;
-
-import javax.persistence.*;
-import java.io.Serializable;
-import java.util.Date;
-import java.util.List;
 
 /**
  * The persistent class for the eu_utilisateur database table.
@@ -26,7 +38,7 @@ import java.util.List;
 @Entity
 @Table(name = "eu_utilisateur")
 @NamedQuery(name = "EuUtilisateur.findAll", query = "SELECT e FROM EuUtilisateur e")
-public class EuUtilisateur extends PageBean<EuUtilisateur> implements Serializable {
+public class EuUtilisateur implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @Id
@@ -45,15 +57,20 @@ public class EuUtilisateur extends PageBean<EuUtilisateur> implements Serializab
     private String pwd;
     @Column(name = "password_hash")
     private String passwordHash;
+    private String email;
+    private String secret;
+    @Column(name = "using_2fa")
+    private Boolean using2FA;
+    private Boolean enabled;
     @Column(name = "ch_pwd_flog")
     private Integer chPwdFlog;
     private int ulock;
     private Integer connecte;
     @Column(name = "code_passe", length = 100)
     private String codePasse;
-	@Column(name = "question_secrete", length = 255)
+    @Column(name = "question_secrete", length = 255)
     private String questionSecrete;
-	@Column(length = 255)
+    @Column(length = 255)
     private String reponse;
     @Column(name = "id_utilisateur_parent")
     private Long idUtilisateurParent;
@@ -100,24 +117,13 @@ public class EuUtilisateur extends PageBean<EuUtilisateur> implements Serializab
     @JsonIgnore
     @OneToMany(mappedBy = "utilisateur")
     private List<EuUserRolesPermission> permissions;
-    /**
-     * nom de l'institution
-     */
-    @Transient
-    private String orgName;
-    /**
-     * ID de rôle
-     */
-    @Transient
-    private List<Object> roleIdList;
-    /**
-     *Nom de rôle
-     */
-    @Transient
-    private List<Object> roleNameList;
 
     public EuUtilisateur(Long idUtilisateur) {
         this.idUtilisateur = idUtilisateur;
     }
 
+    @Override
+    public String toString() {
+        return this.login;
+    }
 }

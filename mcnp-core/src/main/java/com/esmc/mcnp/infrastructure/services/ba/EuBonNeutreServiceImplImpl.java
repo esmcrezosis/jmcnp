@@ -1,14 +1,14 @@
-package com.esmc.mcnp.services.ba;
+package com.esmc.mcnp.infrastructure.services.ba;
 
-import com.esmc.mcnp.exception.CompteNonIntegreException;
-import com.esmc.mcnp.exception.CompteNonTrouveException;
-import com.esmc.mcnp.exception.SoldeInsuffisantException;
-import com.esmc.mcnp.model.obpsd.*;
-import com.esmc.mcnp.repositories.obpsd.EuBonNeutreDetailRepository;
-import com.esmc.mcnp.repositories.obpsd.EuBonNeutreRepository;
-import com.esmc.mcnp.repositories.obpsd.EuBonNeutreUtiliseRepository;
-import com.esmc.mcnp.services.base.CrudServiceImpl;
-import com.esmc.mcnp.services.obpsd.EuFgfnService;
+import com.esmc.mcnp.dao.repository.obpsd.EuBonNeutreDetailRepository;
+import com.esmc.mcnp.dao.repository.obpsd.EuBonNeutreRepository;
+import com.esmc.mcnp.dao.repository.obpsd.EuBonNeutreUtiliseRepository;
+import com.esmc.mcnp.domain.entity.obpsd.*;
+import com.esmc.mcnp.commons.exception.business.CompteNonIntegreException;
+import com.esmc.mcnp.commons.exception.business.CompteNonTrouveException;
+import com.esmc.mcnp.commons.exception.business.SoldeInsuffisantException;
+import com.esmc.mcnp.infrastructure.services.base.CrudServiceImpl;
+import com.esmc.mcnp.infrastructure.services.obpsd.EuFgfnService;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataAccessException;

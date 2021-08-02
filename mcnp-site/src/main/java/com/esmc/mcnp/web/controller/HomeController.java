@@ -13,9 +13,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.esmc.mcnp.commons.dynamicquery.DynamicQuery;
-import com.esmc.mcnp.model.obps.EuTegc;
-import com.esmc.mcnp.model.security.EuUtilisateur;
-import com.esmc.mcnp.services.obps.EuTegcService;
+import com.esmc.mcnp.domain.entity.obps.EuTegc;
+import com.esmc.mcnp.domain.entity.security.EuUtilisateur;
+import com.esmc.mcnp.infrastructure.services.obps.EuTegcService;
 import com.esmc.mcnp.web.controller.base.BaseController;
 
 @Controller

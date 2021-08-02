@@ -1,9 +1,9 @@
-package com.esmc.mcnp.model.pc;
-
-import com.esmc.mcnp.model.pc.EuPaiement;
+package com.esmc.mcnp.domain.entity.pc;
 
 import java.io.Serializable;
 import javax.persistence.*;
+
+import com.esmc.mcnp.domain.entity.pc.EuPaiement;
 
 
 /**

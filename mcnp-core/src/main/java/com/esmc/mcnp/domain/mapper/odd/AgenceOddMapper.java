@@ -1,7 +1,8 @@
-package com.esmc.mcnp.mapper.odd;
+package com.esmc.mcnp.domain.mapper.odd;
 
-import com.esmc.mcnp.dto.odd.AgencesOdd;
-import com.esmc.mcnp.model.odd.EuAgencesOdd;
+import com.esmc.mcnp.domain.dto.odd.AgencesOdd;
+import com.esmc.mcnp.domain.entity.odd.EuAgencesOdd;
+
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 

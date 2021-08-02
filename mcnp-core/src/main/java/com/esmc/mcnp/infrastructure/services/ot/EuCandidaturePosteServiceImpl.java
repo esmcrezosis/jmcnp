@@ -1,8 +1,9 @@
-package com.esmc.mcnp.services.ot;
+package com.esmc.mcnp.infrastructure.services.ot;
 
-import com.esmc.mcnp.model.ot.EuCandidaturePoste;
-import com.esmc.mcnp.repositories.ot.EuCandidaturePosteRepository;
-import com.esmc.mcnp.services.base.CrudServiceImpl;
+import com.esmc.mcnp.dao.repository.ot.EuCandidaturePosteRepository;
+import com.esmc.mcnp.domain.entity.ot.EuCandidaturePoste;
+import com.esmc.mcnp.infrastructure.services.base.CrudServiceImpl;
+
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;

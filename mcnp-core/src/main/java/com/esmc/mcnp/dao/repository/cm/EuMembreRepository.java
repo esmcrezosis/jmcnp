@@ -1,4 +1,4 @@
-package com.esmc.mcnp.repositories.cm;
+package com.esmc.mcnp.dao.repository.cm;
 
 import java.util.List;
 
@@ -6,8 +6,8 @@ import net.sf.ehcache.search.parser.MValue;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
-import com.esmc.mcnp.model.cm.EuMembre;
-import com.esmc.mcnp.repositories.base.BaseRepository;
+import com.esmc.mcnp.dao.repository.base.BaseRepository;
+import com.esmc.mcnp.domain.entity.cm.EuMembre;
 
 public interface EuMembreRepository extends BaseRepository<EuMembre, String> {
 

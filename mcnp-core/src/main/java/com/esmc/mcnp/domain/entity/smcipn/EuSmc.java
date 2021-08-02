@@ -1,4 +1,4 @@
-package com.esmc.mcnp.model.smcipn;
+package com.esmc.mcnp.domain.entity.smcipn;
 
 import java.io.Serializable;
 import java.util.Date;
@@ -18,7 +18,7 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
-import com.esmc.mcnp.model.cm.EuCompteCredit;
+import com.esmc.mcnp.domain.entity.cm.EuCompteCredit;
 
 /**
  * The persistent class for the eu_smc database table.

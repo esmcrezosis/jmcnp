@@ -1,7 +1,7 @@
-package com.esmc.mcnp.dto.smcipn;
+package com.esmc.mcnp.domain.dto.smcipn;
 
-import com.esmc.mcnp.model.smcipn.EuBudget;
-import com.esmc.mcnp.model.smcipn.EuCategorieBudget;
+import com.esmc.mcnp.domain.entity.smcipn.EuBudget;
+import com.esmc.mcnp.domain.entity.smcipn.EuCategorieBudget;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.google.common.base.Preconditions;
 import com.google.common.collect.Lists;

@@ -1,8 +1,9 @@
-package com.esmc.mcnp.repositories.odd;
+package com.esmc.mcnp.dao.repository.odd;
 
-import com.esmc.mcnp.dto.projections.AgencesOddVO;
-import com.esmc.mcnp.model.odd.EuAgencesOdd;
-import com.esmc.mcnp.repositories.base.BaseRepository;
+import com.esmc.mcnp.dao.repository.base.BaseRepository;
+import com.esmc.mcnp.domain.dto.projections.AgencesOddVO;
+import com.esmc.mcnp.domain.entity.odd.EuAgencesOdd;
+
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.Query;

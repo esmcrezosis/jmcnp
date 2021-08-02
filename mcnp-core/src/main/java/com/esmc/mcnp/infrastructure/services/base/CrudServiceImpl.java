@@ -1,4 +1,4 @@
-package com.esmc.mcnp.services.base;
+package com.esmc.mcnp.infrastructure.services.base;
 
 import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Type;
@@ -13,8 +13,8 @@ import org.springframework.data.domain.Sort;
 import org.springframework.util.Assert;
 import org.springframework.util.CollectionUtils;
 
-import com.esmc.mcnp.exception.NotFoundException;
-import com.esmc.mcnp.repositories.base.BaseRepository;
+import com.esmc.mcnp.dao.repository.base.BaseRepository;
+import com.esmc.mcnp.commons.exception.business.NotFoundException;
 
 import lombok.extern.slf4j.Slf4j;
 

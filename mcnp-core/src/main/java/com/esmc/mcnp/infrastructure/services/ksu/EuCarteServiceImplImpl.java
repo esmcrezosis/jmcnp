@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.esmc.mcnp.services.ksu;
+package com.esmc.mcnp.infrastructure.services.ksu;
 
 import java.time.LocalDate;
 import java.util.List;
@@ -15,10 +15,10 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.esmc.mcnp.model.ksu.EuCarte;
-import com.esmc.mcnp.repositories.base.BaseRepository;
-import com.esmc.mcnp.repositories.ksu.EuCarteRepository;
-import com.esmc.mcnp.services.base.CrudServiceImpl;
+import com.esmc.mcnp.dao.repository.base.BaseRepository;
+import com.esmc.mcnp.dao.repository.ksu.EuCarteRepository;
+import com.esmc.mcnp.domain.entity.ksu.EuCarte;
+import com.esmc.mcnp.infrastructure.services.base.CrudServiceImpl;
 
 /**
  *

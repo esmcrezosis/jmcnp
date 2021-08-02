@@ -1,8 +1,8 @@
-package com.esmc.mcnp.services.acteurs;
+package com.esmc.mcnp.infrastructure.services.acteurs;
 
-import com.esmc.mcnp.model.acteur.EuDetailEli;
-import com.esmc.mcnp.model.acteur.EuEli;
-import com.esmc.mcnp.services.base.BaseService;
+import com.esmc.mcnp.domain.entity.acteur.EuDetailEli;
+import com.esmc.mcnp.domain.entity.acteur.EuEli;
+import com.esmc.mcnp.infrastructure.services.base.BaseService;
 
 import java.util.Date;
 import java.util.List;

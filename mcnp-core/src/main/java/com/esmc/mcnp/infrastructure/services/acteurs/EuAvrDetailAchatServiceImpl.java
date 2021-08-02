@@ -1,9 +1,10 @@
-package com.esmc.mcnp.services.acteurs;
+package com.esmc.mcnp.infrastructure.services.acteurs;
 
-import com.esmc.mcnp.model.acteur.EuAvrDetailAchat;
-import com.esmc.mcnp.repositories.acteurs.EuAvrDetailAchatRepository;
-import com.esmc.mcnp.repositories.base.BaseRepository;
-import com.esmc.mcnp.services.base.CrudServiceImpl;
+import com.esmc.mcnp.dao.repository.acteurs.EuAvrDetailAchatRepository;
+import com.esmc.mcnp.dao.repository.base.BaseRepository;
+import com.esmc.mcnp.domain.entity.acteur.EuAvrDetailAchat;
+import com.esmc.mcnp.infrastructure.services.base.CrudServiceImpl;
+
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;

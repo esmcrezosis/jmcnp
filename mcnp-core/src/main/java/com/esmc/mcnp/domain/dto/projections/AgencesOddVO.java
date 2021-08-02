@@ -1,4 +1,4 @@
-package com.esmc.mcnp.dto.projections;
+package com.esmc.mcnp.domain.dto.projections;
 
 public interface AgencesOddVO {
     Integer getIdAgencesOdd();

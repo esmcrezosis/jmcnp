@@ -1,8 +1,8 @@
-package com.esmc.mcnp.services.org;
+package com.esmc.mcnp.infrastructure.services.org;
 
-import com.esmc.mcnp.dto.projections.CantonVO;
-import com.esmc.mcnp.model.org.EuCanton;
-import com.esmc.mcnp.services.base.CrudService;
+import com.esmc.mcnp.domain.dto.projections.CantonVO;
+import com.esmc.mcnp.domain.entity.org.EuCanton;
+import com.esmc.mcnp.infrastructure.services.base.CrudService;
 
 import java.util.List;
 

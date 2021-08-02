@@ -1,4 +1,4 @@
-package com.esmc.mcnp.model.odd;
+package com.esmc.mcnp.domain.entity.odd;
 
 import java.io.Serializable;
 import java.util.Date;

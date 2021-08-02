@@ -1,19 +1,19 @@
-package com.esmc.mcnp.services.acteurs;
+package com.esmc.mcnp.infrastructure.services.acteurs;
 
 import java.util.List;
 import java.util.Objects;
 
-import com.esmc.mcnp.services.base.BaseServiceImpl;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.esmc.mcnp.model.acteur.EuDetailEli;
-import com.esmc.mcnp.model.acteur.EuEli;
-import com.esmc.mcnp.repositories.acteurs.EuDetailEliRepository;
-import com.esmc.mcnp.repositories.base.BaseRepository;
+import com.esmc.mcnp.dao.repository.acteurs.EuDetailEliRepository;
+import com.esmc.mcnp.dao.repository.base.BaseRepository;
+import com.esmc.mcnp.domain.entity.acteur.EuDetailEli;
+import com.esmc.mcnp.domain.entity.acteur.EuEli;
+import com.esmc.mcnp.infrastructure.services.base.BaseServiceImpl;
 
 @Service("euDetailEliService")
 @Transactional(readOnly = true, propagation = Propagation.REQUIRED)

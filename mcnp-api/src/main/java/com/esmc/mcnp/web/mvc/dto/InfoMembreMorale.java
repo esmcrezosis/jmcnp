@@ -10,8 +10,8 @@ import java.time.LocalDate;
 import java.util.List;
 import java.util.Objects;
 
-import com.esmc.mcnp.model.cm.EuMembreMorale;
-import com.esmc.mcnp.model.cm.EuRepresentation;
+import com.esmc.mcnp.domain.entity.cm.EuMembreMorale;
+import com.esmc.mcnp.domain.entity.cm.EuRepresentation;
 import com.google.common.collect.Lists;
 
 /**

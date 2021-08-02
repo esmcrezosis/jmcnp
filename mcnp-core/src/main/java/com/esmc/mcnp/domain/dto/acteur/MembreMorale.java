@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.esmc.mcnp.dto.acteur;
+package com.esmc.mcnp.domain.dto.acteur;
 
 import lombok.Data;
 import lombok.experimental.Accessors;
@@ -12,7 +12,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.esmc.mcnp.dto.ksu.Compte;
+import com.esmc.mcnp.domain.dto.ksu.Compte;
 
 /**
  * @author Mawuli

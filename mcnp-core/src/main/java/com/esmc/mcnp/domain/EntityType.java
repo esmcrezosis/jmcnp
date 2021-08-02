@@ -1,4 +1,4 @@
-package com.esmc.mcnp.exception;
+package com.esmc.mcnp.domain;
 
 /**
  * Created by Arpit Khandelwal.

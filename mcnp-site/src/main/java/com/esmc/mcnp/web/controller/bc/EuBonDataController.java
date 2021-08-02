@@ -1,8 +1,8 @@
 package com.esmc.mcnp.web.controller.bc;
 
-import com.esmc.mcnp.datatable.EuCompteCreditDataRepository;
-import com.esmc.mcnp.model.cm.EuCompteCredit;
-import com.esmc.mcnp.repositories.cm.EuCompteCreditRepository;
+import com.esmc.mcnp.dao.datatable.EuCompteCreditDataRepository;
+import com.esmc.mcnp.dao.repository.cm.EuCompteCreditRepository;
+import com.esmc.mcnp.domain.entity.cm.EuCompteCredit;
 import com.esmc.mcnp.web.controller.base.BaseRestController;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.jpa.datatables.mapping.DataTablesInput;

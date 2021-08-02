@@ -1,7 +1,7 @@
-package com.esmc.mcnp.repositories.pc;
+package com.esmc.mcnp.dao.repository.pc;
 
-import com.esmc.mcnp.model.obpsd.EuBanVendu;
-import com.esmc.mcnp.repositories.base.BaseRepository;
+import com.esmc.mcnp.dao.repository.base.BaseRepository;
+import com.esmc.mcnp.domain.entity.obpsd.EuBanVendu;
 
 public interface EuBanVenduRepository extends BaseRepository<EuBanVendu, Long> {
 }

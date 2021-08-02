@@ -1,11 +1,11 @@
-package com.esmc.mcnp.model.acteur;
+package com.esmc.mcnp.domain.entity.acteur;
 
 import java.io.Serializable;
 import javax.persistence.*;
 
-import com.esmc.mcnp.model.acteur.EuTypeContrat;
-import com.esmc.mcnp.model.org.EuPays;
-import com.esmc.mcnp.model.security.EuUtilisateur;
+import com.esmc.mcnp.domain.entity.acteur.EuTypeContrat;
+import com.esmc.mcnp.domain.entity.org.EuPays;
+import com.esmc.mcnp.domain.entity.security.EuUtilisateur;
 
 import java.util.Date;
 

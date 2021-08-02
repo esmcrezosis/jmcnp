@@ -1,11 +1,11 @@
-package com.esmc.mcnp.model.others;
+package com.esmc.mcnp.domain.entity.others;
 
 import java.io.Serializable;
 import javax.persistence.*;
 
-import com.esmc.mcnp.model.cm.EuMembreMorale;
-import com.esmc.mcnp.model.security.EuUtilisateur;
-import com.esmc.mcnp.model.smcipn.EuBudgetFacture;
+import com.esmc.mcnp.domain.entity.cm.EuMembreMorale;
+import com.esmc.mcnp.domain.entity.security.EuUtilisateur;
+import com.esmc.mcnp.domain.entity.smcipn.EuBudgetFacture;
 
 import java.util.Date;
 import java.util.List;

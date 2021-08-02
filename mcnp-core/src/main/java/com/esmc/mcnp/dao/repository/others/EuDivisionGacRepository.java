@@ -1,7 +1,7 @@
-package com.esmc.mcnp.repositories.others;
+package com.esmc.mcnp.dao.repository.others;
 
-import com.esmc.mcnp.model.org.EuDivisionGac;
-import com.esmc.mcnp.repositories.base.BaseRepository;
+import com.esmc.mcnp.dao.repository.base.BaseRepository;
+import com.esmc.mcnp.domain.entity.org.EuDivisionGac;
 
 public interface EuDivisionGacRepository extends BaseRepository<EuDivisionGac, Integer> {
 

@@ -1,10 +1,10 @@
-package com.esmc.mcnp.model.cm;
+package com.esmc.mcnp.domain.entity.cm;
 
-import com.esmc.mcnp.model.oi.EuBnpSqmax;
-import com.esmc.mcnp.model.others.EuOperation;
-import com.esmc.mcnp.model.bc.EuProduit;
-import com.esmc.mcnp.model.ksu.EuCartes;
-import com.esmc.mcnp.model.obps.EuGcp;
+import com.esmc.mcnp.domain.entity.bc.EuProduit;
+import com.esmc.mcnp.domain.entity.ksu.EuCartes;
+import com.esmc.mcnp.domain.entity.obps.EuGcp;
+import com.esmc.mcnp.domain.entity.oi.EuBnpSqmax;
+import com.esmc.mcnp.domain.entity.others.EuOperation;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import java.io.Serializable;

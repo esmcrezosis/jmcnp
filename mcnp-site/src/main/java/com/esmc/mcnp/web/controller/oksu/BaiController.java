@@ -1,17 +1,6 @@
 package com.esmc.mcnp.web.controller.oksu;
 
-import java.util.List;
 import java.util.Objects;
-
-import com.esmc.mcnp.core.utils.StringUtils;
-import com.esmc.mcnp.dto.bn.EuCapaDto;
-import com.esmc.mcnp.mapper.bn.EuCapaMapper;
-import com.esmc.mcnp.model.ba.EuCapa;
-import com.esmc.mcnp.services.ba.EuCapaService;
-import com.esmc.mcnp.services.cm.EuCompteCreditService;
-import com.esmc.mcnp.util.JqGrid;
-import com.esmc.mcnp.web.controller.base.BaseController;
-import com.google.common.collect.Lists;
 
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -23,6 +12,16 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+
+import com.esmc.mcnp.commons.util.StringUtils;
+import com.esmc.mcnp.domain.dto.bn.EuCapaDto;
+import com.esmc.mcnp.domain.entity.ba.EuCapa;
+import com.esmc.mcnp.domain.mapper.bn.EuCapaMapper;
+import com.esmc.mcnp.infrastructure.services.ba.EuCapaService;
+import com.esmc.mcnp.infrastructure.services.cm.EuCompteCreditService;
+import com.esmc.mcnp.util.JqGrid;
+import com.esmc.mcnp.web.controller.base.BaseController;
+import com.google.common.collect.Lists;
 
 @Controller
 @RequestMapping(value = "/bai")

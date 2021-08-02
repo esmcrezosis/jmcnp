@@ -16,19 +16,19 @@ import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.esmc.mcnp.model.cm.EuCategorieCompte;
-import com.esmc.mcnp.model.cm.EuCompte;
-import com.esmc.mcnp.model.ba.EuDetailSmsmoney;
-import com.esmc.mcnp.model.cm.EuMembreMorale;
-import com.esmc.mcnp.model.org.EuPays;
-import com.esmc.mcnp.model.cm.EuStatutJuridique;
-import com.esmc.mcnp.model.cm.EuTypeCompte;
-import com.esmc.mcnp.model.obpsd.EuUtiliserNn;
-import com.esmc.mcnp.repositories.cm.EuCompteRepository;
-import com.esmc.mcnp.repositories.cm.EuMembreMoraleRepository;
-import com.esmc.mcnp.repositories.obpsd.EuDetailSmsmoneyRepository;
-import com.esmc.mcnp.repositories.obpsd.EuUtiliserNnRepository;
-import com.esmc.mcnp.services.obpsd.EuNnService;
+import com.esmc.mcnp.dao.repository.cm.EuCompteRepository;
+import com.esmc.mcnp.dao.repository.cm.EuMembreMoraleRepository;
+import com.esmc.mcnp.dao.repository.obpsd.EuDetailSmsmoneyRepository;
+import com.esmc.mcnp.dao.repository.obpsd.EuUtiliserNnRepository;
+import com.esmc.mcnp.domain.entity.ba.EuDetailSmsmoney;
+import com.esmc.mcnp.domain.entity.cm.EuCategorieCompte;
+import com.esmc.mcnp.domain.entity.cm.EuCompte;
+import com.esmc.mcnp.domain.entity.cm.EuMembreMorale;
+import com.esmc.mcnp.domain.entity.cm.EuStatutJuridique;
+import com.esmc.mcnp.domain.entity.cm.EuTypeCompte;
+import com.esmc.mcnp.domain.entity.obpsd.EuUtiliserNn;
+import com.esmc.mcnp.domain.entity.org.EuPays;
+import com.esmc.mcnp.infrastructure.services.obpsd.EuNnService;
 
 @Service
 @Transactional

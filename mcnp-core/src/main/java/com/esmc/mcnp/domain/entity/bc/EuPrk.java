@@ -1,6 +1,4 @@
-package com.esmc.mcnp.model.bc;
-
-import com.esmc.mcnp.model.obps.EuTegc;
+package com.esmc.mcnp.domain.entity.bc;
 
 import java.io.Serializable;
 import javax.persistence.Column;
@@ -13,6 +11,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
+
+import com.esmc.mcnp.domain.entity.obps.EuTegc;
 
 /**
  * The persistent class for the eu_prk database table.

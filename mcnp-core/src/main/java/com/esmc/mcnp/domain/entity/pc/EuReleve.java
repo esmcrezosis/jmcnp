@@ -1,4 +1,4 @@
-package com.esmc.mcnp.model.pc;
+package com.esmc.mcnp.domain.entity.pc;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import org.hibernate.annotations.DynamicUpdate;

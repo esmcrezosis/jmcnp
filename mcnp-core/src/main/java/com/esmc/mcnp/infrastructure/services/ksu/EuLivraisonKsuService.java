@@ -1,4 +1,4 @@
-package com.esmc.mcnp.services.ksu;
+package com.esmc.mcnp.infrastructure.services.ksu;
 
 import java.time.LocalDate;
 import java.util.List;
@@ -6,9 +6,9 @@ import java.util.List;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
-import com.esmc.mcnp.model.ksu.EuCarte;
-import com.esmc.mcnp.model.ksu.EuLivraisonKsu;
-import com.esmc.mcnp.services.base.CrudService;
+import com.esmc.mcnp.domain.entity.ksu.EuCarte;
+import com.esmc.mcnp.domain.entity.ksu.EuLivraisonKsu;
+import com.esmc.mcnp.infrastructure.services.base.CrudService;
 
 public interface EuLivraisonKsuService extends CrudService<EuLivraisonKsu, Long> {
 

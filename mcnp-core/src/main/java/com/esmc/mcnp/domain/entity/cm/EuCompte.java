@@ -1,11 +1,11 @@
-package com.esmc.mcnp.model.cm;
+package com.esmc.mcnp.domain.entity.cm;
 
-import com.esmc.mcnp.model.obpsd.EuGcpPbf;
-import com.esmc.mcnp.model.obpsd.EuTpagcp;
-import com.esmc.mcnp.model.obpsd.EuTransfertNn;
-import com.esmc.mcnp.model.ba.EuCapa;
-import com.esmc.mcnp.model.obpsd.EuEchange;
-import com.esmc.mcnp.model.obpsd.EuEscompte;
+import com.esmc.mcnp.domain.entity.ba.EuCapa;
+import com.esmc.mcnp.domain.entity.obpsd.EuEchange;
+import com.esmc.mcnp.domain.entity.obpsd.EuEscompte;
+import com.esmc.mcnp.domain.entity.obpsd.EuGcpPbf;
+import com.esmc.mcnp.domain.entity.obpsd.EuTpagcp;
+import com.esmc.mcnp.domain.entity.obpsd.EuTransfertNn;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.hibernate.annotations.DynamicUpdate;

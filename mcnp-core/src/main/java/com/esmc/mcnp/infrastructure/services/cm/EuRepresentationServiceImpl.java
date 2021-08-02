@@ -1,16 +1,16 @@
-package com.esmc.mcnp.services.cm;
+package com.esmc.mcnp.infrastructure.services.cm;
 
 
-import com.esmc.mcnp.services.base.BaseServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.esmc.mcnp.model.cm.EuRepresentation;
-import com.esmc.mcnp.model.cm.EuRepresentationPK;
-import com.esmc.mcnp.repositories.others.EuRepresentationRepository;
-import com.esmc.mcnp.repositories.base.BaseRepository;
+import com.esmc.mcnp.dao.repository.base.BaseRepository;
+import com.esmc.mcnp.dao.repository.others.EuRepresentationRepository;
+import com.esmc.mcnp.domain.entity.cm.EuRepresentation;
+import com.esmc.mcnp.domain.entity.cm.EuRepresentationPK;
+import com.esmc.mcnp.infrastructure.services.base.BaseServiceImpl;
 
 @Service("euRepresentationService")
 @Transactional(readOnly = true, propagation = Propagation.REQUIRED)

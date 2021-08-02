@@ -1,4 +1,4 @@
-package com.esmc.mcnp.core.utils;
+package com.esmc.mcnp.commons.util;
 
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.lang.NonNull;

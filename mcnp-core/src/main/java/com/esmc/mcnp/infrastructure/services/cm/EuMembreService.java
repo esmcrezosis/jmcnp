@@ -1,8 +1,8 @@
-package com.esmc.mcnp.services.cm;
+package com.esmc.mcnp.infrastructure.services.cm;
 
-import com.esmc.mcnp.dto.cm.Membre;
-import com.esmc.mcnp.model.cm.EuMembre;
-import com.esmc.mcnp.services.base.BaseService;
+import com.esmc.mcnp.domain.dto.cm.Membre;
+import com.esmc.mcnp.domain.entity.cm.EuMembre;
+import com.esmc.mcnp.infrastructure.services.base.BaseService;
 
 import java.util.Date;
 import java.util.List;

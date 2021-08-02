@@ -1,4 +1,4 @@
-package com.kreatech.common.util;
+package com.esmc.mcnp.commons.util;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -24,23 +24,23 @@ public class HttpUtils {
     private static final Logger log = LoggerFactory.getLogger(HttpUtils.class);
 
     /**
-     * 向指定 URL 发送GET方法的请求
+     * Envoyer une demande de méthode GET à l'URL spécifiée
      *
-     * @param url   发送请求的 URL
-     * @param param 请求参数，请求参数应该是 name1=value1&name2=value2 的形式。
-     * @return 所代表远程资源的响应结果
+     * @param url URL pour envoyer la demande
+     * Paramètres de requête @param param, les paramètres de requête doivent être sous la forme nom1=valeur1&nom2=valeur2.
+     * @return représente le résultat de la réponse de la ressource distante
      */
     public static String sendGet(String url, String param) {
         return sendGet(url, param, CharsetKitUtil.UTF_8);
     }
 
     /**
-     * 向指定 URL 发送GET方法的请求
+     * Envoyer une demande de méthode GET à l'URL spécifiée
      *
-     * @param url         发送请求的 URL
-     * @param param       请求参数，请求参数应该是 name1=value1&name2=value2 的形式。
-     * @param contentType 编码类型
-     * @return 所代表远程资源的响应结果
+     * @param url URL pour envoyer la demande
+     * Paramètres de requête @param param, les paramètres de requête doivent être sous la forme nom1=valeur1&nom2=valeur2.
+     * @param contentType type d'encodage
+     * @return représente le résultat de la réponse de la ressource distante
      */
     public static String sendGet(String url, String param, String contentType) {
         StringBuilder result = new StringBuilder();
@@ -61,31 +61,31 @@ public class HttpUtils {
             }
             log.info("recv - {}", result);
         } catch (ConnectException e) {
-            log.error("调用HttpUtils.sendGet ConnectException, url=" + url + ",param=" + param, e);
+            log.error("Transfert HttpUtils.sendGet ConnectException, url=" + url + ",param=" + param, e);
         } catch (SocketTimeoutException e) {
-            log.error("调用HttpUtils.sendGet SocketTimeoutException, url=" + url + ",param=" + param, e);
+            log.error("Transfert HttpUtils.sendGet SocketTimeoutException, url=" + url + ",param=" + param, e);
         } catch (IOException e) {
-            log.error("调用HttpUtils.sendGet IOException, url=" + url + ",param=" + param, e);
+            log.error("Transfert HttpUtils.sendGet IOException, url=" + url + ",param=" + param, e);
         } catch (Exception e) {
-            log.error("调用HttpsUtil.sendGet Exception, url=" + url + ",param=" + param, e);
+            log.error("Transfert HttpsUtil.sendGet Exception, url=" + url + ",param=" + param, e);
         } finally {
             try {
                 if (in != null) {
                     in.close();
                 }
             } catch (Exception ex) {
-                log.error("调用in.close Exception, url=" + url + ",param=" + param, ex);
+                log.error("Transfert in.close Exception, url=" + url + ",param=" + param, ex);
             }
         }
         return result.toString();
     }
 
     /**
-     * 向指定 URL 发送POST方法的请求
+     * Envoyer une demande de méthode POST à l'URL spécifiée
      *
-     * @param url   发送请求的 URL
-     * @param param 请求参数，请求参数应该是 name1=value1&name2=value2 的形式。
-     * @return 所代表远程资源的响应结果
+     * @param url URL pour envoyer la demande
+     * Paramètres de requête @param param, les paramètres de requête doivent être sous la forme nom1=valeur1&nom2=valeur2.
+     * @return représente le résultat de la réponse de la ressource distante
      */
     public static String sendPost(String url, String param) {
         PrintWriter out = null;
@@ -112,13 +112,13 @@ public class HttpUtils {
             }
             log.info("recv - {}", result);
         } catch (ConnectException e) {
-            log.error("调用HttpUtils.sendPost ConnectException, url=" + url + ",param=" + param, e);
+            log.error("Transfert HttpUtils.sendPost ConnectException, url=" + url + ",param=" + param, e);
         } catch (SocketTimeoutException e) {
-            log.error("调用HttpUtils.sendPost SocketTimeoutException, url=" + url + ",param=" + param, e);
+            log.error("Transfert HttpUtils.sendPost SocketTimeoutException, url=" + url + ",param=" + param, e);
         } catch (IOException e) {
-            log.error("调用HttpUtils.sendPost IOException, url=" + url + ",param=" + param, e);
+            log.error("Transfert HttpUtils.sendPost IOException, url=" + url + ",param=" + param, e);
         } catch (Exception e) {
-            log.error("调用HttpsUtil.sendPost Exception, url=" + url + ",param=" + param, e);
+            log.error("Transfert HttpsUtil.sendPost Exception, url=" + url + ",param=" + param, e);
         } finally {
             try {
                 if (out != null) {
@@ -128,7 +128,7 @@ public class HttpUtils {
                     in.close();
                 }
             } catch (IOException ex) {
-                log.error("调用in.close Exception, url=" + url + ",param=" + param, ex);
+                log.error("Transfert in.close Exception, url=" + url + ",param=" + param, ex);
             }
         }
         return result.toString();
@@ -166,13 +166,13 @@ public class HttpUtils {
             conn.disconnect();
             br.close();
         } catch (ConnectException e) {
-            log.error("调用HttpUtils.sendSSLPost ConnectException, url=" + url + ",param=" + param, e);
+            log.error("Transfert HttpUtils.sendSSLPost ConnectException, url=" + url + ",param=" + param, e);
         } catch (SocketTimeoutException e) {
-            log.error("调用HttpUtils.sendSSLPost SocketTimeoutException, url=" + url + ",param=" + param, e);
+            log.error("Transfert HttpUtils.sendSSLPost SocketTimeoutException, url=" + url + ",param=" + param, e);
         } catch (IOException e) {
-            log.error("调用HttpUtils.sendSSLPost IOException, url=" + url + ",param=" + param, e);
+            log.error("Transfert HttpUtils.sendSSLPost IOException, url=" + url + ",param=" + param, e);
         } catch (Exception e) {
-            log.error("调用HttpsUtil.sendSSLPost Exception, url=" + url + ",param=" + param, e);
+            log.error("Transfert HttpsUtil.sendSSLPost Exception, url=" + url + ",param=" + param, e);
         }
         return result.toString();
     }

@@ -3,10 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.esmc.mcnp.services.smcipn;
+package com.esmc.mcnp.infrastructure.services.smcipn;
 
-import com.esmc.mcnp.model.pc.EuTypeCharge;
-import com.esmc.mcnp.services.base.BaseService;
+import com.esmc.mcnp.domain.entity.pc.EuTypeCharge;
+import com.esmc.mcnp.infrastructure.services.base.BaseService;
 
 /**
  *

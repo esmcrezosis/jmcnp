@@ -1,13 +1,13 @@
-package com.esmc.mcnp.services.obpsd;
+package com.esmc.mcnp.infrastructure.services.obpsd;
 
 import java.util.Date;
 import java.util.List;
 
-import com.esmc.mcnp.services.base.BaseService;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
-import com.esmc.mcnp.model.obpsd.EuTraite;
+import com.esmc.mcnp.domain.entity.obpsd.EuTraite;
+import com.esmc.mcnp.infrastructure.services.base.BaseService;
 
 public interface EuTraiteService extends BaseService<EuTraite, Long> {
 

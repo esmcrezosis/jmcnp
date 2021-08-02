@@ -1,7 +1,7 @@
-package com.esmc.mcnp.repositories.cmfh;
+package com.esmc.mcnp.dao.repository.cmfh;
 
-import com.esmc.mcnp.model.others.EuActivation;
-import com.esmc.mcnp.repositories.base.BaseRepository;
+import com.esmc.mcnp.dao.repository.base.BaseRepository;
+import com.esmc.mcnp.domain.entity.others.EuActivation;
 
 public interface EuActivationRepository extends BaseRepository<EuActivation, Long> {
 

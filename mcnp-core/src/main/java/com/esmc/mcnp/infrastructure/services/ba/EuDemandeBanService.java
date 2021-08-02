@@ -1,10 +1,10 @@
-package com.esmc.mcnp.services.ba;
+package com.esmc.mcnp.infrastructure.services.ba;
 
 import java.time.LocalDateTime;
 import java.util.List;
 
-import com.esmc.mcnp.model.obpsd.EuDemandeBan;
-import com.esmc.mcnp.services.base.BaseService;
+import com.esmc.mcnp.domain.entity.obpsd.EuDemandeBan;
+import com.esmc.mcnp.infrastructure.services.base.BaseService;
 
 public interface EuDemandeBanService extends BaseService<EuDemandeBan, Integer> {
 	List<EuDemandeBan> findByMembreAndValider(String codeMembre, boolean valider);

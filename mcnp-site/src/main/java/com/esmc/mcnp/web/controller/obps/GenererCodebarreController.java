@@ -15,22 +15,22 @@ import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.ss.usermodel.Workbook;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
+import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.esmc.mcnp.config.annotation.WebController;
-import com.esmc.mcnp.model.obps.EuCodebarre;
-import com.esmc.mcnp.model.security.EuUtilisateur;
-import com.esmc.mcnp.services.common.EuCodebarreService;
+import com.esmc.mcnp.domain.entity.obps.EuCodebarre;
+import com.esmc.mcnp.domain.entity.security.EuUtilisateur;
+import com.esmc.mcnp.infrastructure.services.common.EuCodebarreService;
 import com.esmc.mcnp.web.controller.base.BaseController;
 
 
 
 //.apache.poi.hssf.usermodel.HSSFWorkbook;
-@WebController
+@Controller
 public class GenererCodebarreController extends BaseController { 
 
 	private @Autowired EuCodebarreService codebarreService;

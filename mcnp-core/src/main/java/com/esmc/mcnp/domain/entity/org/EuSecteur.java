@@ -1,10 +1,11 @@
-package com.esmc.mcnp.model.org;
+package com.esmc.mcnp.domain.entity.org;
 
 import java.io.Serializable;
 import javax.persistence.*;
 
-import com.esmc.mcnp.model.others.EuSubSecteur;
-import com.esmc.mcnp.model.security.EuUtilisateur;
+import com.esmc.mcnp.domain.entity.others.EuSubSecteur;
+import com.esmc.mcnp.domain.entity.security.EuUtilisateur;
+
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.experimental.Accessors;

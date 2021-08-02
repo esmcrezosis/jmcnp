@@ -1,8 +1,7 @@
-package com.esmc.mcnp.services.smcipn;
+package com.esmc.mcnp.infrastructure.services.smcipn;
 
 import java.util.List;
 
-import com.esmc.mcnp.services.base.BaseServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -10,9 +9,10 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.esmc.mcnp.model.smcipn.EuTransfertNr;
-import com.esmc.mcnp.repositories.base.BaseRepository;
-import com.esmc.mcnp.repositories.smcipn.EuTransfertNrRepository;
+import com.esmc.mcnp.dao.repository.base.BaseRepository;
+import com.esmc.mcnp.dao.repository.smcipn.EuTransfertNrRepository;
+import com.esmc.mcnp.domain.entity.smcipn.EuTransfertNr;
+import com.esmc.mcnp.infrastructure.services.base.BaseServiceImpl;
 
 @Service("euTransfertNrService")
 @Transactional(readOnly = true, propagation = Propagation.REQUIRED)

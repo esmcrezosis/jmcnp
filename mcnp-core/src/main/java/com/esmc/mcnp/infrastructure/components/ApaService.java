@@ -4,9 +4,9 @@
  * and open the template in the editor.
  */
 
-package com.esmc.mcnp.components;
+package com.esmc.mcnp.infrastructure.components;
 
-import com.esmc.mcnp.dto.bc.Apa;
+import com.esmc.mcnp.domain.dto.bc.Apa;
 
 /**
  *

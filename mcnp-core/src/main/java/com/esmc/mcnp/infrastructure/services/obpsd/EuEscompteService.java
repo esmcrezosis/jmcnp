@@ -1,9 +1,9 @@
-package com.esmc.mcnp.services.obpsd;
+package com.esmc.mcnp.infrastructure.services.obpsd;
 
 import java.util.List;
 
-import com.esmc.mcnp.model.obpsd.EuEscompte;
-import com.esmc.mcnp.services.base.BaseService;
+import com.esmc.mcnp.domain.entity.obpsd.EuEscompte;
+import com.esmc.mcnp.infrastructure.services.base.BaseService;
 
 public interface EuEscompteService extends BaseService<EuEscompte, Long> {
 

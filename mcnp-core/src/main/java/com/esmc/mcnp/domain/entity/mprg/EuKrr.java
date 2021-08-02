@@ -1,8 +1,4 @@
-package com.esmc.mcnp.model.mprg;
-
-import com.esmc.mcnp.model.cm.EuMembre;
-import com.esmc.mcnp.model.cm.EuMembreMorale;
-import com.esmc.mcnp.model.bc.EuProduit;
+package com.esmc.mcnp.domain.entity.mprg;
 
 import java.io.Serializable;
 import java.util.Date;
@@ -19,6 +15,10 @@ import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+
+import com.esmc.mcnp.domain.entity.bc.EuProduit;
+import com.esmc.mcnp.domain.entity.cm.EuMembre;
+import com.esmc.mcnp.domain.entity.cm.EuMembreMorale;
 
 
 /**

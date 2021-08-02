@@ -1,9 +1,9 @@
-package com.esmc.mcnp.repositories.acteurs;
+package com.esmc.mcnp.dao.repository.acteurs;
 
 import org.springframework.stereotype.Repository;
 
-import com.esmc.mcnp.model.acteur.EuLiasonCompte;
-import com.esmc.mcnp.repositories.base.BaseRepository;
+import com.esmc.mcnp.dao.repository.base.BaseRepository;
+import com.esmc.mcnp.domain.entity.acteur.EuLiasonCompte;
 
 @Repository
 public interface EuLiasonCompteRepository extends BaseRepository<EuLiasonCompte, Integer> {

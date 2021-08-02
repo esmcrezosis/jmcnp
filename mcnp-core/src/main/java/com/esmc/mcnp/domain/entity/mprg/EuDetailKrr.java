@@ -1,4 +1,4 @@
-package com.esmc.mcnp.model.mprg;
+package com.esmc.mcnp.domain.entity.mprg;
 
 import java.io.Serializable;
 

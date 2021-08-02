@@ -1,15 +1,15 @@
-package com.esmc.mcnp.model.bc;
+package com.esmc.mcnp.domain.entity.bc;
 
 import java.io.Serializable;
 import javax.persistence.*;
 
-import com.esmc.mcnp.model.acteur.EuLouer;
-import com.esmc.mcnp.model.ba.EuCapaAffecter;
-import com.esmc.mcnp.model.cm.EuMembreMorale;
-import com.esmc.mcnp.model.others.EuProposition;
-import com.esmc.mcnp.model.pc.EuRapprochement;
-import com.esmc.mcnp.model.security.EuUtilisateur;
-import com.esmc.mcnp.model.smcipn.EuSmcipnpwi;
+import com.esmc.mcnp.domain.entity.acteur.EuLouer;
+import com.esmc.mcnp.domain.entity.ba.EuCapaAffecter;
+import com.esmc.mcnp.domain.entity.cm.EuMembreMorale;
+import com.esmc.mcnp.domain.entity.others.EuProposition;
+import com.esmc.mcnp.domain.entity.pc.EuRapprochement;
+import com.esmc.mcnp.domain.entity.security.EuUtilisateur;
+import com.esmc.mcnp.domain.entity.smcipn.EuSmcipnpwi;
 
 import java.util.Date;
 import java.util.List;

@@ -1,10 +1,10 @@
-package com.esmc.mcnp.model.smcipn;
+package com.esmc.mcnp.domain.entity.smcipn;
 
 import java.io.Serializable;
 import javax.persistence.*;
 
-import com.esmc.mcnp.model.others.EuBesoin;
-import com.esmc.mcnp.model.security.EuUtilisateur;
+import com.esmc.mcnp.domain.entity.others.EuBesoin;
+import com.esmc.mcnp.domain.entity.security.EuUtilisateur;
 
 import java.util.Date;
 import java.util.List;

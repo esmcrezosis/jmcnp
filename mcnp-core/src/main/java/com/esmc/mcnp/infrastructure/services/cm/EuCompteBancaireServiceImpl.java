@@ -1,11 +1,10 @@
-package com.esmc.mcnp.services.cm;
+package com.esmc.mcnp.infrastructure.services.cm;
 
 import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
-import com.esmc.mcnp.services.base.BaseServiceImpl;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.logging.log4j.util.Strings;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,10 +12,11 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.esmc.mcnp.exception.CompteNonTrouveException;
-import com.esmc.mcnp.model.cm.EuCompteBancaire;
-import com.esmc.mcnp.repositories.cm.EuCompteBancaireRepository;
-import com.esmc.mcnp.repositories.base.BaseRepository;
+import com.esmc.mcnp.dao.repository.base.BaseRepository;
+import com.esmc.mcnp.dao.repository.cm.EuCompteBancaireRepository;
+import com.esmc.mcnp.domain.entity.cm.EuCompteBancaire;
+import com.esmc.mcnp.commons.exception.business.CompteNonTrouveException;
+import com.esmc.mcnp.infrastructure.services.base.BaseServiceImpl;
 
 @Service("euCompteBancaireService")
 @Transactional(readOnly = true, propagation = Propagation.REQUIRED)

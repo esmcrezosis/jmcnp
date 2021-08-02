@@ -1,4 +1,4 @@
-package com.esmc.mcnp.model.config;
+package com.esmc.mcnp.domain.entity.config;
 
 import java.io.Serializable;
 import javax.persistence.*;
@@ -15,6 +15,7 @@ public class EuParametres implements Serializable {
 	private static final long serialVersionUID = 1L;
 	private EuParametresPK id;
 	private double montant;
+	private String valeur;
 
 	public EuParametres() {
 	}
@@ -29,7 +30,6 @@ public class EuParametres implements Serializable {
 		this.id = id;
 	}
 
-
 	public double getMontant() {
 		return this.montant;
 	}
@@ -38,4 +38,11 @@ public class EuParametres implements Serializable {
 		this.montant = montant;
 	}
 
+	public String getValeur() {
+		return valeur;
+	}
+
+	public void setValeur(String valeur) {
+		this.valeur = valeur;
+	}
 }

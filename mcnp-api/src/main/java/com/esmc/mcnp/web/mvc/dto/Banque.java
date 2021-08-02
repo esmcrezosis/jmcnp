@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
-import com.esmc.mcnp.model.obpsd.EuBanque;
+import com.esmc.mcnp.domain.entity.obpsd.EuBanque;
 
 public class Banque {
 	public String codeBanque;

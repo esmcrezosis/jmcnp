@@ -1,10 +1,10 @@
-package com.esmc.mcnp.repositories.cmfh;
+package com.esmc.mcnp.dao.repository.cmfh;
 
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
-import com.esmc.mcnp.model.cmfh.EuMembreFondateur107;
-import com.esmc.mcnp.repositories.base.BaseRepository;
+import com.esmc.mcnp.dao.repository.base.BaseRepository;
+import com.esmc.mcnp.domain.entity.cmfh.EuMembreFondateur107;
 
 public interface EuMembreFondateurMf107Repository extends BaseRepository<EuMembreFondateur107, String> {
 

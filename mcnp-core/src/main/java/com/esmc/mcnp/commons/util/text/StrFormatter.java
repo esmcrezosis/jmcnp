@@ -1,6 +1,6 @@
-package com.kreatech.common.util.text;
+package com.esmc.mcnp.commons.util.text;
 
-import com.kreatech.common.util.StringUtils;
+import com.esmc.mcnp.commons.util.StringUtils;
 
 /**
  * Formatage de chaîne

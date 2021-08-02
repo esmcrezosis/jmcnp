@@ -1,11 +1,11 @@
-package com.esmc.mcnp.model.smcipn;
+package com.esmc.mcnp.domain.entity.smcipn;
 
 import java.io.Serializable;
 import javax.persistence.*;
 
-import com.esmc.mcnp.model.others.EuBesoin;
-import com.esmc.mcnp.model.others.EuObjet;
-import com.esmc.mcnp.model.others.EuProforma;
+import com.esmc.mcnp.domain.entity.others.EuBesoin;
+import com.esmc.mcnp.domain.entity.others.EuObjet;
+import com.esmc.mcnp.domain.entity.others.EuProforma;
 
 
 /**

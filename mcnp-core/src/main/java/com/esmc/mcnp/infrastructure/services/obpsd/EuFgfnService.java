@@ -1,15 +1,15 @@
-package com.esmc.mcnp.services.obpsd;
+package com.esmc.mcnp.infrastructure.services.obpsd;
 
 import java.util.List;
 
-import com.esmc.mcnp.services.base.BaseService;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
-import com.esmc.mcnp.model.obpsd.EuBonNeutreDetail;
-import com.esmc.mcnp.model.acteur.EuEli;
-import com.esmc.mcnp.model.obpsd.EuFgfn;
-import com.esmc.mcnp.model.obpsd.EuTraite;
+import com.esmc.mcnp.domain.entity.acteur.EuEli;
+import com.esmc.mcnp.domain.entity.obpsd.EuBonNeutreDetail;
+import com.esmc.mcnp.domain.entity.obpsd.EuFgfn;
+import com.esmc.mcnp.domain.entity.obpsd.EuTraite;
+import com.esmc.mcnp.infrastructure.services.base.BaseService;
 
 public interface EuFgfnService extends BaseService<EuFgfn, String> {
 	public List<EuFgfn> findAllFgFn();

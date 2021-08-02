@@ -1,7 +1,7 @@
-package com.esmc.mcnp.services.oksu;
+package com.esmc.mcnp.infrastructure.services.oksu;
 
-import com.esmc.mcnp.model.oksu.EuRevendeur;
-import com.esmc.mcnp.services.base.BaseService;
+import com.esmc.mcnp.domain.entity.oksu.EuRevendeur;
+import com.esmc.mcnp.infrastructure.services.base.BaseService;
 
 import java.util.List;
 

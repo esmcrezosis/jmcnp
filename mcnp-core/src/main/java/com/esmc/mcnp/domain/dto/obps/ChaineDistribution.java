@@ -1,10 +1,10 @@
-package com.esmc.mcnp.dto.obps;
+package com.esmc.mcnp.domain.dto.obps;
 
 import java.time.LocalDate;
 
-import com.esmc.mcnp.dto.cm.MembreMorale;
-import com.esmc.mcnp.dto.odd.AgencesOdd;
-import com.esmc.mcnp.model.enums.ChaineDistributionEnum;
+import com.esmc.mcnp.domain.dto.cm.MembreMorale;
+import com.esmc.mcnp.domain.dto.odd.AgencesOdd;
+import com.esmc.mcnp.domain.enums.ChaineDistributionEnum;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;

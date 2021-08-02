@@ -1,12 +1,12 @@
-package com.esmc.mcnp.services.cm;
+package com.esmc.mcnp.infrastructure.services.cm;
 
 import java.util.List;
 
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
-import com.esmc.mcnp.model.cm.EuCompte;
-import com.esmc.mcnp.services.base.CrudService;
+import com.esmc.mcnp.domain.entity.cm.EuCompte;
+import com.esmc.mcnp.infrastructure.services.base.CrudService;
 
 public interface EuCompteService extends CrudService<EuCompte, String> {
 

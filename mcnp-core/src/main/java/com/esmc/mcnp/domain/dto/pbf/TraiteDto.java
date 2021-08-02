@@ -1,6 +1,6 @@
-package com.esmc.mcnp.dto.pbf;
+package com.esmc.mcnp.domain.dto.pbf;
 
-import com.esmc.mcnp.model.obpsd.EuTpagcp;
+import com.esmc.mcnp.domain.entity.obpsd.EuTpagcp;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.AllArgsConstructor;
 import lombok.Data;

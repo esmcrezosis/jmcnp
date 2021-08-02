@@ -1,9 +1,11 @@
-package com.esmc.mcnp.model.op;
+package com.esmc.mcnp.domain.entity.op;
 
-import com.esmc.mcnp.model.odd.EuTypeCentrale;
 import lombok.Data;
 
 import javax.persistence.*;
+
+import com.esmc.mcnp.domain.entity.odd.EuTypeCentrale;
+
 import java.io.Serializable;
 import java.time.LocalDateTime;
 

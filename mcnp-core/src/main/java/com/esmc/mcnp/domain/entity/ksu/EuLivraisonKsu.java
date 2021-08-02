@@ -1,4 +1,4 @@
-package com.esmc.mcnp.model.ksu;
+package com.esmc.mcnp.domain.entity.ksu;
 
 import java.io.Serializable;
 import java.time.LocalDate;
@@ -19,12 +19,12 @@ import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import com.esmc.mcnp.domain.enums.LivraisonEnum;
+import com.esmc.mcnp.domain.entity.security.EuUtilisateur;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.springframework.format.annotation.DateTimeFormat;
 
-import com.esmc.mcnp.model.enums.LivraisonEnum;
-import com.esmc.mcnp.model.security.EuUtilisateur;
 import com.google.common.collect.Lists;
 
 import lombok.Data;

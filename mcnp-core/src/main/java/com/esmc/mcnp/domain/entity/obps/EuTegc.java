@@ -1,4 +1,4 @@
-package com.esmc.mcnp.model.obps;
+package com.esmc.mcnp.domain.entity.obps;
 
 import java.io.Serializable;
 import java.util.Date;
@@ -14,9 +14,9 @@ import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
-import com.esmc.mcnp.model.bc.EuPrk;
-import com.esmc.mcnp.model.cm.EuMembre;
-import com.esmc.mcnp.model.cm.EuMembreMorale;
+import com.esmc.mcnp.domain.entity.bc.EuPrk;
+import com.esmc.mcnp.domain.entity.cm.EuMembre;
+import com.esmc.mcnp.domain.entity.cm.EuMembreMorale;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 /**

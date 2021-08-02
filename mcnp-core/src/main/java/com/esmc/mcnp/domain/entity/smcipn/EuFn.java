@@ -1,11 +1,12 @@
-package com.esmc.mcnp.model.smcipn;
+package com.esmc.mcnp.domain.entity.smcipn;
 
 import java.io.Serializable;
 import javax.persistence.*;
 
-import com.esmc.mcnp.model.ba.EuCapa;
-import com.esmc.mcnp.model.smcipn.EuServir;
 import org.hibernate.annotations.DynamicUpdate;
+
+import com.esmc.mcnp.domain.entity.ba.EuCapa;
+import com.esmc.mcnp.domain.entity.smcipn.EuServir;
 
 import java.util.Date;
 import java.util.List;

@@ -1,7 +1,8 @@
 package com.esmc.mcnp.core.utils;
 
-import com.esmc.mcnp.UserSecurity;
 import org.springframework.security.core.context.SecurityContextHolder;
+
+import com.esmc.mcnp.domain.UserSecurity;
 
 public class SecurityUtils {
 

@@ -1,6 +1,4 @@
-package com.esmc.mcnp.model.oi;
-
-import com.esmc.mcnp.model.cm.EuCompteCredit;
+package com.esmc.mcnp.domain.entity.oi;
 
 import java.io.Serializable;
 
@@ -12,6 +10,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
+
+import com.esmc.mcnp.domain.entity.cm.EuCompteCredit;
 
 /**
  * The persistent class for the eu_bnp_credit database table.

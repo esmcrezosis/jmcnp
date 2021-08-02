@@ -1,17 +1,13 @@
-package com.esmc.mcnp.util;
+package com.esmc.mcnp.commons.util;
 
 import java.io.File;
 import java.io.IOException;
 import java.util.Arrays;
 import java.util.Properties;
 
-import org.apache.commons.io.FilenameUtils;
 import org.apache.ibatis.io.Resources;
 import org.apache.tomcat.util.http.fileupload.FileUploadException;
 import org.springframework.web.multipart.MultipartFile;
-
-import com.esmc.mcnp.core.utils.DateUtils;
-import com.esmc.mcnp.core.utils.StringUtils;
 
 /**
  * File upload tools
@@ -141,7 +137,7 @@ public class FileUploadUtils {
 	 */
 	private static final String encodingFilename(String fileName) {
 		fileName = fileName.replace("_", " ");
-		fileName = Md5Utils.hash(fileName + System.nanoTime() + counter++);
+		fileName = MD5Utils.hash(fileName + System.nanoTime() + counter++);
 		return fileName;
 	}
 

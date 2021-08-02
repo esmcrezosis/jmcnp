@@ -1,4 +1,4 @@
-package com.esmc.mcnp.model.security;
+package com.esmc.mcnp.domain.entity.security;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 

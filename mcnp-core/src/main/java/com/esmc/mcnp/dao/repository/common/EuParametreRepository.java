@@ -4,14 +4,14 @@
  * and open the template in the editor.
  */
 
-package com.esmc.mcnp.repositories.common;
+package com.esmc.mcnp.dao.repository.common;
 
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
-import com.esmc.mcnp.model.config.EuParametres;
-import com.esmc.mcnp.model.config.EuParametresPK;
-import com.esmc.mcnp.repositories.base.BaseRepository;
+import com.esmc.mcnp.dao.repository.base.BaseRepository;
+import com.esmc.mcnp.domain.entity.config.EuParametres;
+import com.esmc.mcnp.domain.entity.config.EuParametresPK;
 
 /**
  *
@@ -19,9 +19,12 @@ import com.esmc.mcnp.repositories.base.BaseRepository;
  */
 public interface EuParametreRepository extends BaseRepository<EuParametres, EuParametresPK>{
     
-    @Query("select montant from EuParametres p where p.id.codeParam = 'tauxoperation'")
-    public Double getMontantTauxOperation();
+    @Query("select p.montant from EuParametres p where p.id.codeParam = 'tauxoperation'")
+    Double getMontantTauxOperation();
     
     @Query("select p.montant From EuParametres p where p.id.codeParam like :code and p.id.libParam like :lib")
-	public Double findByCodeAndLib(@Param("code") String code, @Param("lib") String lib);
+	Double findByCodeAndLib(@Param("code") String code, @Param("lib") String lib);
+
+    @Query("select p.valeur from EuParametres p where p.id.codeParam = :code and p.id.libParam = :lib")
+    String getValeurByCodeAndLib(@Param("code") String code, @Param("lib") String lib);
 }

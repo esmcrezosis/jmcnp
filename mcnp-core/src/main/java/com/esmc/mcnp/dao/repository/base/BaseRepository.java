@@ -1,4 +1,4 @@
-package com.esmc.mcnp.repositories.base;
+package com.esmc.mcnp.dao.repository.base;
 
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;

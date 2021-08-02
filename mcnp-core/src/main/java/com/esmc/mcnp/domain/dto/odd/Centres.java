@@ -1,14 +1,15 @@
-package com.esmc.mcnp.dto.odd;
+package com.esmc.mcnp.domain.dto.odd;
 
 import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.List;
 import java.util.Objects;
 
-import com.esmc.mcnp.dto.org.*;
+import com.esmc.mcnp.domain.dto.org.*;
+import com.esmc.mcnp.domain.entity.odd.EuCentres;
+
 import org.springframework.format.annotation.DateTimeFormat;
 
-import com.esmc.mcnp.model.odd.EuCentres;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.google.common.collect.Lists;
 

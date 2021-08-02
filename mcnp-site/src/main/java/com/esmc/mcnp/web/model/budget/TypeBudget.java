@@ -7,7 +7,7 @@ import java.util.Objects;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
-import com.esmc.mcnp.model.smcipn.EuTypeBudget;
+import com.esmc.mcnp.domain.entity.smcipn.EuTypeBudget;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.google.common.collect.Lists;
 

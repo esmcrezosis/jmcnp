@@ -1,4 +1,4 @@
-package com.kreatech.api.util;
+package com.esmc.mcnp.infrastructure.components;
 
 import org.springframework.aop.framework.AopContext;
 import org.springframework.beans.BeansException;
@@ -26,7 +26,7 @@ public final class SpringUtils implements BeanFactoryPostProcessor {
 	/**
 	 * Obtenir un objet
 	 *
-	 * @param nom beanName
+	 * @param name beanName
 	 * @return Object Une instance d'un bean enregistré avec le nom donné
 	 * @throws BeansException
 	 */
@@ -73,7 +73,7 @@ public final class SpringUtils implements BeanFactoryPostProcessor {
 	}
 
 	/**
-	 * @param nom beanName
+	 * @param name beanName
 	 * @return Class le type d'objet enregistré
 	 * @throws NoSuchBeanDefinitionException
 	 */

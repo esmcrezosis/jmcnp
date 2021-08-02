@@ -1,10 +1,10 @@
-package com.esmc.mcnp.config;
+package com.esmc.mcnp;
 
+import com.esmc.mcnp.config.*;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Import;
 
-import com.esmc.mcnp.CoreApplicationConfig;
 import com.esmc.mcnp.config.logging.LogConfig;
 
 @SpringBootApplication

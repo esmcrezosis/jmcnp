@@ -11,31 +11,31 @@ import javax.servlet.http.HttpServletRequest;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.esmc.mcnp.components.ReglementAchat;
-import com.esmc.mcnp.components.SmcipnComponent;
-import com.esmc.mcnp.components.SmsComponent;
-import com.esmc.mcnp.components.TransfertUtility;
-import com.esmc.mcnp.config.annotation.WebController;
 import com.esmc.mcnp.core.utils.ServerUtil;
-import com.esmc.mcnp.dto.obps.ArticleVendu;
-import com.esmc.mcnp.model.bc.EuPrk;
-import com.esmc.mcnp.model.obps.EuTegc;
-import com.esmc.mcnp.model.security.EuUtilisateur;
-import com.esmc.mcnp.services.cm.EuCompteService;
-import com.esmc.mcnp.services.cm.EuMembreMoraleService;
-import com.esmc.mcnp.services.obps.EuPrkService;
-import com.esmc.mcnp.services.obps.EuTegcService;
+import com.esmc.mcnp.domain.dto.obps.ArticleVendu;
+import com.esmc.mcnp.domain.entity.bc.EuPrk;
+import com.esmc.mcnp.domain.entity.obps.EuTegc;
+import com.esmc.mcnp.domain.entity.security.EuUtilisateur;
+import com.esmc.mcnp.infrastructure.components.ReglementAchat;
+import com.esmc.mcnp.infrastructure.components.SmcipnComponent;
+import com.esmc.mcnp.infrastructure.components.SmsComponent;
+import com.esmc.mcnp.infrastructure.components.TransfertUtility;
+import com.esmc.mcnp.infrastructure.services.cm.EuCompteService;
+import com.esmc.mcnp.infrastructure.services.cm.EuMembreMoraleService;
+import com.esmc.mcnp.infrastructure.services.obps.EuPrkService;
+import com.esmc.mcnp.infrastructure.services.obps.EuTegcService;
 import com.esmc.mcnp.web.controller.base.BaseController;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.common.collect.Lists;
 
-@WebController
+@Controller
 public class SmcipnDemandeurController extends BaseController {
 	@Inject
 	private TransfertUtility transfertUtility;

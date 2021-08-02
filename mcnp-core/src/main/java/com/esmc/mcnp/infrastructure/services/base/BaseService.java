@@ -1,4 +1,4 @@
-package com.esmc.mcnp.services.base;
+package com.esmc.mcnp.infrastructure.services.base;
 
 import java.util.List;
 

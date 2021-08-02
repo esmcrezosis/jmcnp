@@ -1,4 +1,4 @@
-package com.esmc.mcnp.model.smcipn;
+package com.esmc.mcnp.domain.entity.smcipn;
 
 import java.io.Serializable;
 import java.time.LocalDate;
@@ -6,11 +6,11 @@ import java.util.List;
 
 import javax.persistence.*;
 
-import com.esmc.mcnp.model.enums.NiveauValidation;
-import com.esmc.mcnp.model.odd.EuAgencesOdd;
-import com.esmc.mcnp.model.odd.EuCentrales;
-import com.esmc.mcnp.model.odd.EuCentres;
-import com.esmc.mcnp.model.security.EuUtilisateur;
+import com.esmc.mcnp.domain.enums.NiveauValidation;
+import com.esmc.mcnp.domain.entity.odd.EuAgencesOdd;
+import com.esmc.mcnp.domain.entity.odd.EuCentrales;
+import com.esmc.mcnp.domain.entity.odd.EuCentres;
+import com.esmc.mcnp.domain.entity.security.EuUtilisateur;
 import com.google.common.collect.Lists;
 
 import lombok.Data;

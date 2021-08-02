@@ -1,7 +1,8 @@
-package com.esmc.mcnp.mapper.pbf;
+package com.esmc.mcnp.domain.mapper.pbf;
 
-import com.esmc.mcnp.dto.pbf.TpagcpDto;
-import com.esmc.mcnp.model.obpsd.EuTpagcp;
+import com.esmc.mcnp.domain.dto.pbf.TpagcpDto;
+import com.esmc.mcnp.domain.entity.obpsd.EuTpagcp;
+
 import org.mapstruct.Mapper;
 
 import java.util.List;

@@ -1,4 +1,4 @@
-package com.esmc.mcnp.dto.org;
+package com.esmc.mcnp.domain.dto.org;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

@@ -1,10 +1,10 @@
-package com.esmc.mcnp.services.security;
+package com.esmc.mcnp.infrastructure.services.security;
 
 import org.springframework.stereotype.Service;
 
-import com.esmc.mcnp.model.security.EuPermission;
-import com.esmc.mcnp.repositories.security.EuPermissionRepository;
-import com.esmc.mcnp.services.base.CrudServiceImpl;
+import com.esmc.mcnp.dao.repository.security.EuPermissionRepository;
+import com.esmc.mcnp.domain.entity.security.EuPermission;
+import com.esmc.mcnp.infrastructure.services.base.CrudServiceImpl;
 
 import java.util.List;
 import java.util.concurrent.CompletableFuture;

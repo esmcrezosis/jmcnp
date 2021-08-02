@@ -1,9 +1,10 @@
-package com.esmc.mcnp.model.ksu;
-
-import com.esmc.mcnp.model.cm.EuCategorieCompte;
+package com.esmc.mcnp.domain.entity.ksu;
 
 import java.io.Serializable;
 import javax.persistence.*;
+
+import com.esmc.mcnp.domain.entity.cm.EuCategorieCompte;
+
 import java.util.Date;
 
 /**

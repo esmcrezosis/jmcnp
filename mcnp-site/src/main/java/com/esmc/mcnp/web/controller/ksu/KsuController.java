@@ -15,9 +15,8 @@ import java.util.zip.ZipOutputStream;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.esmc.mcnp.dto.ksu.Carte;
-import com.esmc.mcnp.mapper.ksu.CarteMapper;
-import com.esmc.mcnp.model.security.EuUtilisateur;
+import com.esmc.mcnp.infrastructure.services.file.FileService;
+import com.esmc.mcnp.infrastructure.services.ksu.EuCarteService;
 import com.esmc.mcnp.util.ErrorDTO;
 import com.esmc.mcnp.util.JqGrid;
 import org.apache.commons.lang3.StringUtils;
@@ -38,14 +37,15 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import com.esmc.mcnp.commons.util.FileUtils;
 import com.esmc.mcnp.config.AppProperties;
 import com.esmc.mcnp.core.constant.AppConstant;
-import com.esmc.mcnp.core.utils.FileUtils;
-import com.esmc.mcnp.model.cm.EuMembre;
-import com.esmc.mcnp.model.cm.EuMembreMorale;
-import com.esmc.mcnp.model.ksu.EuCarte;
-import com.esmc.mcnp.services.file.FileService;
-import com.esmc.mcnp.services.ksu.EuCarteService;
+import com.esmc.mcnp.domain.dto.ksu.Carte;
+import com.esmc.mcnp.domain.entity.cm.EuMembre;
+import com.esmc.mcnp.domain.entity.cm.EuMembreMorale;
+import com.esmc.mcnp.domain.entity.ksu.EuCarte;
+import com.esmc.mcnp.domain.entity.security.EuUtilisateur;
+import com.esmc.mcnp.domain.mapper.ksu.CarteMapper;
 import com.esmc.mcnp.web.controller.base.BaseController;
 import com.google.common.collect.Lists;
 

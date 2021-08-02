@@ -1,10 +1,11 @@
-package com.esmc.mcnp.services.security;
+package com.esmc.mcnp.infrastructure.services.security;
 
-import com.esmc.mcnp.dto.projections.UserGroupVO;
-import com.esmc.mcnp.dto.security.UserGroupDTO;
-import com.esmc.mcnp.model.security.EuUserGroup;
-import com.esmc.mcnp.repositories.security.EuUserGroupRepository;
-import com.esmc.mcnp.services.base.CrudServiceImpl;
+import com.esmc.mcnp.dao.repository.security.EuUserGroupRepository;
+import com.esmc.mcnp.domain.dto.projections.UserGroupVO;
+import com.esmc.mcnp.domain.dto.security.UserGroupDTO;
+import com.esmc.mcnp.domain.entity.security.EuUserGroup;
+import com.esmc.mcnp.infrastructure.services.base.CrudServiceImpl;
+
 import org.springframework.stereotype.Service;
 
 import java.util.List;

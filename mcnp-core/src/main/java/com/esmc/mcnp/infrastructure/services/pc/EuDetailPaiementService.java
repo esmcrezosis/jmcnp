@@ -1,7 +1,7 @@
-package com.esmc.mcnp.services.pc;
+package com.esmc.mcnp.infrastructure.services.pc;
 
-import com.esmc.mcnp.model.pc.EuDetailPaiement;
-import com.esmc.mcnp.services.base.BaseService;
+import com.esmc.mcnp.domain.entity.pc.EuDetailPaiement;
+import com.esmc.mcnp.infrastructure.services.base.BaseService;
 
 import java.util.List;
 

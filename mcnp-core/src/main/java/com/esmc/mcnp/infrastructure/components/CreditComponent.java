@@ -3,15 +3,13 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.esmc.mcnp.components;
+package com.esmc.mcnp.infrastructure.components;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 import java.util.Objects;
 
-import com.esmc.mcnp.model.bc.EuCnpEntree;
-import com.esmc.mcnp.repositories.bc.EuCnpEntreeRepository;
 import org.apache.commons.collections4.ListUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.lang3.time.DateUtils;
@@ -22,47 +20,49 @@ import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.esmc.mcnp.core.utils.ServerUtil;
-import com.esmc.mcnp.dto.bc.Apa;
-import com.esmc.mcnp.dto.bc.CalculBonInfo;
-import com.esmc.mcnp.exception.SoldeInsuffisantException;
-import com.esmc.mcnp.model.bc.EuBon;
-import com.esmc.mcnp.model.ba.EuCapa;
-import com.esmc.mcnp.model.ba.EuCapaTs;
-import com.esmc.mcnp.model.ba.EuNn;
-import com.esmc.mcnp.model.cm.EuCategorieCompte;
-import com.esmc.mcnp.model.bc.EuCnp;
-import com.esmc.mcnp.model.cm.EuCompte;
-import com.esmc.mcnp.model.cm.EuCompteCredit;
-import com.esmc.mcnp.model.cm.EuCompteCreditCapa;
-import com.esmc.mcnp.model.cm.EuCompteCreditCapaPK;
-import com.esmc.mcnp.model.mprg.EuDetailKrr;
-import com.esmc.mcnp.model.mprg.EuKrr;
-import com.esmc.mcnp.model.obpsd.EuUtiliserNn;
-import com.esmc.mcnp.model.smcipn.EuFn;
-import com.esmc.mcnp.model.cm.EuMembre;
-import com.esmc.mcnp.model.cm.EuMembreMorale;
-import com.esmc.mcnp.model.others.EuOperation;
-import com.esmc.mcnp.model.bc.EuProduit;
-import com.esmc.mcnp.model.smcipn.EuSmc;
-import com.esmc.mcnp.model.cm.EuTypeCompte;
-import com.esmc.mcnp.model.smcipn.EuServir;
-import com.esmc.mcnp.model.smcipn.EuSmcipnpwi;
-import com.esmc.mcnp.model.smcipn.EuUtiliser;
-import com.esmc.mcnp.repositories.cm.EuCompteCreditCapaRepository;
-import com.esmc.mcnp.repositories.cm.EuCompteCreditRepository;
-import com.esmc.mcnp.repositories.cm.EuCompteRepository;
-import com.esmc.mcnp.repositories.common.EuParametreRepository;
-import com.esmc.mcnp.repositories.mprg.EuDetailKrrRepository;
-import com.esmc.mcnp.repositories.mprg.EuKrrRepository;
-import com.esmc.mcnp.repositories.obpsd.EuUtiliserNnRepository;
-import com.esmc.mcnp.repositories.ba.EuCapaRepository;
-import com.esmc.mcnp.repositories.ba.EuCapaTsRepository;
-import com.esmc.mcnp.repositories.bc.EuCnpRepository;
-import com.esmc.mcnp.repositories.smcipn.EuFnRepository;
-import com.esmc.mcnp.repositories.smcipn.EuServirRepository;
-import com.esmc.mcnp.repositories.smcipn.EuSmcRepository;
-import com.esmc.mcnp.repositories.smcipn.EuUtiliserRepository;
-import com.esmc.mcnp.services.obpsd.EuNnService;
+import com.esmc.mcnp.dao.repository.ba.EuCapaRepository;
+import com.esmc.mcnp.dao.repository.ba.EuCapaTsRepository;
+import com.esmc.mcnp.dao.repository.bc.EuCnpEntreeRepository;
+import com.esmc.mcnp.dao.repository.bc.EuCnpRepository;
+import com.esmc.mcnp.dao.repository.cm.EuCompteCreditCapaRepository;
+import com.esmc.mcnp.dao.repository.cm.EuCompteCreditRepository;
+import com.esmc.mcnp.dao.repository.cm.EuCompteRepository;
+import com.esmc.mcnp.dao.repository.common.EuParametreRepository;
+import com.esmc.mcnp.dao.repository.mprg.EuDetailKrrRepository;
+import com.esmc.mcnp.dao.repository.mprg.EuKrrRepository;
+import com.esmc.mcnp.dao.repository.obpsd.EuUtiliserNnRepository;
+import com.esmc.mcnp.dao.repository.smcipn.EuFnRepository;
+import com.esmc.mcnp.dao.repository.smcipn.EuServirRepository;
+import com.esmc.mcnp.dao.repository.smcipn.EuSmcRepository;
+import com.esmc.mcnp.dao.repository.smcipn.EuUtiliserRepository;
+import com.esmc.mcnp.domain.dto.bc.Apa;
+import com.esmc.mcnp.domain.dto.bc.CalculBonInfo;
+import com.esmc.mcnp.domain.entity.ba.EuCapa;
+import com.esmc.mcnp.domain.entity.ba.EuCapaTs;
+import com.esmc.mcnp.domain.entity.ba.EuNn;
+import com.esmc.mcnp.domain.entity.bc.EuBon;
+import com.esmc.mcnp.domain.entity.bc.EuCnp;
+import com.esmc.mcnp.domain.entity.bc.EuCnpEntree;
+import com.esmc.mcnp.domain.entity.bc.EuProduit;
+import com.esmc.mcnp.domain.entity.cm.EuCategorieCompte;
+import com.esmc.mcnp.domain.entity.cm.EuCompte;
+import com.esmc.mcnp.domain.entity.cm.EuCompteCredit;
+import com.esmc.mcnp.domain.entity.cm.EuCompteCreditCapa;
+import com.esmc.mcnp.domain.entity.cm.EuCompteCreditCapaPK;
+import com.esmc.mcnp.domain.entity.cm.EuMembre;
+import com.esmc.mcnp.domain.entity.cm.EuMembreMorale;
+import com.esmc.mcnp.domain.entity.cm.EuTypeCompte;
+import com.esmc.mcnp.domain.entity.mprg.EuDetailKrr;
+import com.esmc.mcnp.domain.entity.mprg.EuKrr;
+import com.esmc.mcnp.domain.entity.obpsd.EuUtiliserNn;
+import com.esmc.mcnp.domain.entity.others.EuOperation;
+import com.esmc.mcnp.domain.entity.smcipn.EuFn;
+import com.esmc.mcnp.domain.entity.smcipn.EuServir;
+import com.esmc.mcnp.domain.entity.smcipn.EuSmc;
+import com.esmc.mcnp.domain.entity.smcipn.EuSmcipnpwi;
+import com.esmc.mcnp.domain.entity.smcipn.EuUtiliser;
+import com.esmc.mcnp.commons.exception.business.SoldeInsuffisantException;
+import com.esmc.mcnp.infrastructure.services.obpsd.EuNnService;
 
 /**
  * @author USER

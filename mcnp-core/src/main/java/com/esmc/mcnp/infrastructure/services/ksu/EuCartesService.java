@@ -3,10 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.esmc.mcnp.services.ksu;
+package com.esmc.mcnp.infrastructure.services.ksu;
 
-import com.esmc.mcnp.model.ksu.EuCartes;
-import com.esmc.mcnp.services.base.BaseService;
+import com.esmc.mcnp.domain.entity.ksu.EuCartes;
+import com.esmc.mcnp.infrastructure.services.base.BaseService;
 
 /**
  *

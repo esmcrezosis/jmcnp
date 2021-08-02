@@ -1,9 +1,10 @@
-package com.esmc.mcnp.model.acteur;
-
-import com.esmc.mcnp.model.others.EuFormAvr;
+package com.esmc.mcnp.domain.entity.acteur;
 
 import java.io.Serializable;
 import javax.persistence.*;
+
+import com.esmc.mcnp.domain.entity.others.EuFormAvr;
+
 import java.util.List;
 
 

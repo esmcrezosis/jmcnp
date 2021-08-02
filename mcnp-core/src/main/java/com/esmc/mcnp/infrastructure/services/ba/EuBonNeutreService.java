@@ -1,10 +1,11 @@
-package com.esmc.mcnp.services.ba;
+package com.esmc.mcnp.infrastructure.services.ba;
 
-import com.esmc.mcnp.model.obpsd.EuBonNeutre;
-import com.esmc.mcnp.model.obpsd.EuBonNeutreAppro;
-import com.esmc.mcnp.model.obpsd.EuSmsmoney;
-import com.esmc.mcnp.services.base.BaseService;
-import com.esmc.mcnp.services.base.CrudService;
+import com.esmc.mcnp.domain.entity.obpsd.EuBonNeutre;
+import com.esmc.mcnp.domain.entity.obpsd.EuBonNeutreAppro;
+import com.esmc.mcnp.domain.entity.obpsd.EuSmsmoney;
+import com.esmc.mcnp.infrastructure.services.base.BaseService;
+import com.esmc.mcnp.infrastructure.services.base.CrudService;
+
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 

@@ -1,7 +1,8 @@
-package com.esmc.mcnp.mapper.cm;
+package com.esmc.mcnp.domain.mapper.cm;
 
-import com.esmc.mcnp.dto.cm.Membre;
-import com.esmc.mcnp.model.cm.EuMembre;
+import com.esmc.mcnp.domain.dto.cm.Membre;
+import com.esmc.mcnp.domain.entity.cm.EuMembre;
+
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 

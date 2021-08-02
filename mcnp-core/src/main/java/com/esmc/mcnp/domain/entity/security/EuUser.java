@@ -1,4 +1,4 @@
-package com.esmc.mcnp.model.security;
+package com.esmc.mcnp.domain.entity.security;
 
 // Generated 19 oct. 2014 00:49:35 by Hibernate Tools 4.3.1
 

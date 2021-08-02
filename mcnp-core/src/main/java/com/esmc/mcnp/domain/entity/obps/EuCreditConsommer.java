@@ -1,12 +1,13 @@
-package com.esmc.mcnp.model.obps;
-
-import com.esmc.mcnp.model.bc.EuBon;
-import com.esmc.mcnp.model.others.EuOperation;
-import com.esmc.mcnp.model.bc.EuProduit;
-import com.esmc.mcnp.model.cm.EuCompteCredit;
+package com.esmc.mcnp.domain.entity.obps;
 
 import java.io.Serializable;
 import javax.persistence.*;
+
+import com.esmc.mcnp.domain.entity.bc.EuBon;
+import com.esmc.mcnp.domain.entity.bc.EuProduit;
+import com.esmc.mcnp.domain.entity.cm.EuCompteCredit;
+import com.esmc.mcnp.domain.entity.others.EuOperation;
+
 import java.util.Date;
 
 /**

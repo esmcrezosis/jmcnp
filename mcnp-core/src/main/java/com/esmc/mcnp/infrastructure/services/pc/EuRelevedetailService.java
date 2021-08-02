@@ -1,8 +1,9 @@
-package com.esmc.mcnp.services.pc;
+package com.esmc.mcnp.infrastructure.services.pc;
 
-import com.esmc.mcnp.model.pc.EuRelevedetail;
-import com.esmc.mcnp.services.base.BaseService;
-import com.esmc.mcnp.services.base.CrudService;
+import com.esmc.mcnp.domain.entity.pc.EuRelevedetail;
+import com.esmc.mcnp.infrastructure.services.base.BaseService;
+import com.esmc.mcnp.infrastructure.services.base.CrudService;
+
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 

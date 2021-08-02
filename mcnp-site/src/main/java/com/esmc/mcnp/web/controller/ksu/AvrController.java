@@ -1,15 +1,8 @@
 package com.esmc.mcnp.web.controller.ksu;
 
-import com.esmc.mcnp.core.utils.StringUtils;
-import com.esmc.mcnp.model.acteur.EuAvrAchat;
-import com.esmc.mcnp.model.acteur.EuAvrDetailAchat;
-import com.esmc.mcnp.model.security.EuUtilisateur;
-import com.esmc.mcnp.services.acteurs.EuAvrAchatService;
-import com.esmc.mcnp.services.acteurs.EuAvrDetailAchatService;
-import com.esmc.mcnp.services.pc.EuObjetService;
-import com.esmc.mcnp.util.JqGrid;
-import com.esmc.mcnp.web.controller.base.BaseController;
-import com.google.common.collect.Lists;
+import java.util.List;
+import java.util.Objects;
+
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
@@ -19,8 +12,16 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import java.util.List;
-import java.util.Objects;
+import com.esmc.mcnp.commons.util.StringUtils;
+import com.esmc.mcnp.domain.entity.acteur.EuAvrAchat;
+import com.esmc.mcnp.domain.entity.acteur.EuAvrDetailAchat;
+import com.esmc.mcnp.domain.entity.security.EuUtilisateur;
+import com.esmc.mcnp.infrastructure.services.acteurs.EuAvrAchatService;
+import com.esmc.mcnp.infrastructure.services.acteurs.EuAvrDetailAchatService;
+import com.esmc.mcnp.infrastructure.services.pc.EuObjetService;
+import com.esmc.mcnp.util.JqGrid;
+import com.esmc.mcnp.web.controller.base.BaseController;
+import com.google.common.collect.Lists;
 
 @Controller
 @RequestMapping(value = "avr")

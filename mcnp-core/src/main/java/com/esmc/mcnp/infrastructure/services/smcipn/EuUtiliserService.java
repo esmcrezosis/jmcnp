@@ -1,10 +1,10 @@
-package com.esmc.mcnp.services.smcipn;
+package com.esmc.mcnp.infrastructure.services.smcipn;
 
 import java.util.List;
 
-import com.esmc.mcnp.model.smcipn.EuSmc;
-import com.esmc.mcnp.model.smcipn.EuUtiliser;
-import com.esmc.mcnp.services.base.BaseService;
+import com.esmc.mcnp.domain.entity.smcipn.EuSmc;
+import com.esmc.mcnp.domain.entity.smcipn.EuUtiliser;
+import com.esmc.mcnp.infrastructure.services.base.BaseService;
 
 public interface EuUtiliserService extends BaseService<EuUtiliser, Long> {
 	public Long findLastUtiliserInsertedId();

@@ -1,9 +1,9 @@
-package com.esmc.mcnp.repositories.odd;
+package com.esmc.mcnp.dao.repository.odd;
 
 import org.springframework.data.jpa.repository.Query;
 
-import com.esmc.mcnp.model.odd.EuMstiersUtilise;
-import com.esmc.mcnp.repositories.base.BaseRepository;
+import com.esmc.mcnp.dao.repository.base.BaseRepository;
+import com.esmc.mcnp.domain.entity.odd.EuMstiersUtilise;
 
 public interface EuMstiersUtiliseRepository extends BaseRepository<EuMstiersUtilise, Integer> {
 

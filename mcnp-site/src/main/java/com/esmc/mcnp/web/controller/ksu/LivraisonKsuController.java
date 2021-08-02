@@ -1,12 +1,12 @@
 package com.esmc.mcnp.web.controller.ksu;
 
-import com.esmc.mcnp.dto.ksu.LivraisonKsu;
-import com.esmc.mcnp.mapper.ksu.LivraisonKsuMapper;
-import com.esmc.mcnp.model.enums.LivraisonEnum;
-import com.esmc.mcnp.model.ksu.EuLivraisonKsu;
-import com.esmc.mcnp.model.security.EuUtilisateur;
-import com.esmc.mcnp.services.ksu.EuCarteService;
-import com.esmc.mcnp.services.ksu.EuLivraisonKsuService;
+import com.esmc.mcnp.domain.dto.ksu.LivraisonKsu;
+import com.esmc.mcnp.domain.enums.LivraisonEnum;
+import com.esmc.mcnp.domain.entity.ksu.EuLivraisonKsu;
+import com.esmc.mcnp.domain.entity.security.EuUtilisateur;
+import com.esmc.mcnp.domain.mapper.ksu.LivraisonKsuMapper;
+import com.esmc.mcnp.infrastructure.services.ksu.EuCarteService;
+import com.esmc.mcnp.infrastructure.services.ksu.EuLivraisonKsuService;
 import com.esmc.mcnp.web.controller.base.BaseController;
 import org.apache.commons.lang3.RandomStringUtils;
 import org.apache.commons.lang3.StringUtils;

@@ -1,13 +1,13 @@
-package com.esmc.mcnp.services.odd;
+package com.esmc.mcnp.infrastructure.services.odd;
 
-import com.esmc.mcnp.dto.projections.AgencesOddVO;
+import com.esmc.mcnp.dao.repository.odd.EuAgenceOddRepository;
+import com.esmc.mcnp.domain.dto.projections.AgencesOddVO;
+import com.esmc.mcnp.domain.entity.odd.EuAgencesOdd;
+import com.esmc.mcnp.infrastructure.services.base.CrudServiceImpl;
+
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
-
-import com.esmc.mcnp.model.odd.EuAgencesOdd;
-import com.esmc.mcnp.repositories.odd.EuAgenceOddRepository;
-import com.esmc.mcnp.services.base.CrudServiceImpl;
 
 import java.util.List;
 

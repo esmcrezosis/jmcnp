@@ -2,12 +2,12 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.esmc.mcnp.dto.desendettement;
+package com.esmc.mcnp.domain.dto.desendettement;
 
 import java.io.Serializable;
 import java.util.List;
 
-import com.esmc.mcnp.dto.obps.ArticleVendu;
+import com.esmc.mcnp.domain.dto.obps.ArticleVendu;
 
 
 

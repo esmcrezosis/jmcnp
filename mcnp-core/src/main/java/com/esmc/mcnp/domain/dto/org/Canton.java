@@ -1,6 +1,6 @@
-package com.esmc.mcnp.dto.org;
+package com.esmc.mcnp.domain.dto.org;
 
-import com.esmc.mcnp.model.org.EuCanton;
+import com.esmc.mcnp.domain.entity.org.EuCanton;
 import com.google.common.collect.Lists;
 import lombok.AllArgsConstructor;
 import lombok.Data;

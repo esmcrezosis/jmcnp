@@ -1,4 +1,4 @@
-package com.esmc.mcnp.dto.other;
+package com.esmc.mcnp.domain.dto.other;
 
 import java.io.Serializable;
 

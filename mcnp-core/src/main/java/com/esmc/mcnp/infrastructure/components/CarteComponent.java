@@ -1,4 +1,4 @@
-package com.esmc.mcnp.components;
+package com.esmc.mcnp.infrastructure.components;
 
 import java.util.Objects;
 
@@ -6,15 +6,15 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.esmc.mcnp.model.acteur.EuCodeActivation;
-import com.esmc.mcnp.model.acteur.EuSouscription;
-import com.esmc.mcnp.model.cm.EuMembre;
-import com.esmc.mcnp.model.cm.EuMembreMorale;
-import com.esmc.mcnp.repositories.cmfh.EuMembreFondateurMf107Repository;
-import com.esmc.mcnp.services.cmfh.EuCodeActivationService;
-import com.esmc.mcnp.services.cmfh.EuDepotVenteService;
-import com.esmc.mcnp.services.cmfh.EuMembreFondateur11000Service;
-import com.esmc.mcnp.services.cmfh.EuSouscriptionService;
+import com.esmc.mcnp.dao.repository.cmfh.EuMembreFondateurMf107Repository;
+import com.esmc.mcnp.domain.entity.acteur.EuCodeActivation;
+import com.esmc.mcnp.domain.entity.acteur.EuSouscription;
+import com.esmc.mcnp.domain.entity.cm.EuMembre;
+import com.esmc.mcnp.domain.entity.cm.EuMembreMorale;
+import com.esmc.mcnp.infrastructure.services.cmfh.EuCodeActivationService;
+import com.esmc.mcnp.infrastructure.services.cmfh.EuDepotVenteService;
+import com.esmc.mcnp.infrastructure.services.cmfh.EuMembreFondateur11000Service;
+import com.esmc.mcnp.infrastructure.services.cmfh.EuSouscriptionService;
 
 @Component
 @Transactional(readOnly = true)

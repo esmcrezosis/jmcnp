@@ -1,4 +1,4 @@
-package com.esmc.mcnp.repositories.cmfh;
+package com.esmc.mcnp.dao.repository.cmfh;
 
 import java.util.List;
 import java.util.concurrent.CompletableFuture;
@@ -10,8 +10,8 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.scheduling.annotation.Async;
 
-import com.esmc.mcnp.model.acteur.EuDepotVente;
-import com.esmc.mcnp.repositories.base.BaseRepository;
+import com.esmc.mcnp.dao.repository.base.BaseRepository;
+import com.esmc.mcnp.domain.entity.acteur.EuDepotVente;
 
 public interface EuDepotVenteRepository extends BaseRepository<EuDepotVente, Long> {
 

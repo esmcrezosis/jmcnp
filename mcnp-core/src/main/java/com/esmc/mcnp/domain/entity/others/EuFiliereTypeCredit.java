@@ -3,10 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.esmc.mcnp.model.others;
-
-import com.esmc.mcnp.model.acteur.EuFiliere;
-import com.esmc.mcnp.model.bc.EuTypeCredit;
+package com.esmc.mcnp.domain.entity.others;
 
 import java.io.Serializable;
 import javax.persistence.Basic;
@@ -20,6 +17,9 @@ import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
+
+import com.esmc.mcnp.domain.entity.acteur.EuFiliere;
+import com.esmc.mcnp.domain.entity.bc.EuTypeCredit;
 
 /**
  *

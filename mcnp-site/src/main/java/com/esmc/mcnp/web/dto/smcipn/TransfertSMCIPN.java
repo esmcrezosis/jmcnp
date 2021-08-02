@@ -3,7 +3,7 @@ package com.esmc.mcnp.web.dto.smcipn;
 import java.io.Serializable;
 import java.util.Date;
 
-import com.esmc.mcnp.model.smcipn.EuTransfertNr;
+import com.esmc.mcnp.domain.entity.smcipn.EuTransfertNr;
 
 public class TransfertSMCIPN implements Serializable {
 

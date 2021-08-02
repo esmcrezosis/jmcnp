@@ -1,10 +1,9 @@
-package com.esmc.mcnp.dto.bn;
+package com.esmc.mcnp.domain.dto.bn;
 
 import java.io.Serializable;
 import java.util.Date;
 
-import com.esmc.mcnp.dto.projections.bc.CompteVo;
-
+import com.esmc.mcnp.domain.dto.projections.bc.CompteVo;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Data;
 import lombok.experimental.Accessors;

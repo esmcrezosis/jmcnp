@@ -4,12 +4,12 @@
  * and open the template in the editor.
  */
 
-package com.esmc.mcnp.repositories.obpsd;
+package com.esmc.mcnp.dao.repository.obpsd;
 
 import org.springframework.data.jpa.repository.Query;
 
-import com.esmc.mcnp.model.obpsd.EuGcpPbfCompense;
-import com.esmc.mcnp.repositories.base.BaseRepository;
+import com.esmc.mcnp.dao.repository.base.BaseRepository;
+import com.esmc.mcnp.domain.entity.obpsd.EuGcpPbfCompense;
 
 /**
  *

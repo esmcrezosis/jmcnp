@@ -1,7 +1,7 @@
-package com.esmc.mcnp.services.franchise;
+package com.esmc.mcnp.infrastructure.services.franchise;
 
-import com.esmc.mcnp.model.franchise.EuFranchises;
-import com.esmc.mcnp.services.base.BaseService;
+import com.esmc.mcnp.domain.entity.franchise.EuFranchises;
+import com.esmc.mcnp.infrastructure.services.base.BaseService;
 
 public interface EuFranchisesService extends BaseService<EuFranchises, Integer> {
 

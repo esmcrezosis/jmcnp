@@ -1,8 +1,9 @@
-package com.esmc.mcnp.services.obps;
+package com.esmc.mcnp.infrastructure.services.obps;
 
-import com.esmc.mcnp.model.obps.EuAncienCreditConsommer;
-import com.esmc.mcnp.repositories.obps.EuAncienCreditConsommerRepository;
-import com.esmc.mcnp.services.base.CrudServiceImpl;
+import com.esmc.mcnp.dao.repository.obps.EuAncienCreditConsommerRepository;
+import com.esmc.mcnp.domain.entity.obps.EuAncienCreditConsommer;
+import com.esmc.mcnp.infrastructure.services.base.CrudServiceImpl;
+
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 

@@ -1,6 +1,6 @@
-package com.esmc.mcnp.dto.smcipn;
+package com.esmc.mcnp.domain.dto.smcipn;
 
-import com.esmc.mcnp.model.smcipn.EuTypeBudget;
+import com.esmc.mcnp.domain.entity.smcipn.EuTypeBudget;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.google.common.collect.Lists;
 import lombok.Data;

@@ -1,30 +1,30 @@
-package com.esmc.mcnp.components;
+package com.esmc.mcnp.infrastructure.components;
 
 
 import java.util.List;
 
-import com.esmc.mcnp.model.acteur.EuActeur;
-import com.esmc.mcnp.model.op.EuAppelOffre;
-import com.esmc.mcnp.model.obps.EuArticleStockes;
-import com.esmc.mcnp.model.ba.EuCapaDeclaration;
-import com.esmc.mcnp.model.cm.EuCompte;
-import com.esmc.mcnp.model.cm.EuCompteCredit;
-import com.esmc.mcnp.model.cm.EuCompteCreditCapa;
-import com.esmc.mcnp.model.cm.EuCompteCreditTs;
-import com.esmc.mcnp.model.others.EuCours;
-import com.esmc.mcnp.model.bc.EuCreditCodebarre;
-import com.esmc.mcnp.model.bc.EuDetailDomicilie;
-import com.esmc.mcnp.model.acteur.EuFiliere;
-import com.esmc.mcnp.model.others.EuFrais;
-import com.esmc.mcnp.model.smcipn.EuGcsc;
-import com.esmc.mcnp.model.acteur.EuMaison;
-import com.esmc.mcnp.model.cm.EuMembre;
-import com.esmc.mcnp.model.cm.EuMembreMorale;
-import com.esmc.mcnp.model.others.EuProposition;
-import com.esmc.mcnp.model.cm.EuRepresentation;
-import com.esmc.mcnp.model.obps.EuTegc;
-import com.esmc.mcnp.model.bc.EuTypeCredit;
-import com.esmc.mcnp.model.security.EuUtilisateur;
+import com.esmc.mcnp.domain.entity.acteur.EuActeur;
+import com.esmc.mcnp.domain.entity.acteur.EuFiliere;
+import com.esmc.mcnp.domain.entity.acteur.EuMaison;
+import com.esmc.mcnp.domain.entity.ba.EuCapaDeclaration;
+import com.esmc.mcnp.domain.entity.bc.EuCreditCodebarre;
+import com.esmc.mcnp.domain.entity.bc.EuDetailDomicilie;
+import com.esmc.mcnp.domain.entity.bc.EuTypeCredit;
+import com.esmc.mcnp.domain.entity.cm.EuCompte;
+import com.esmc.mcnp.domain.entity.cm.EuCompteCredit;
+import com.esmc.mcnp.domain.entity.cm.EuCompteCreditCapa;
+import com.esmc.mcnp.domain.entity.cm.EuCompteCreditTs;
+import com.esmc.mcnp.domain.entity.cm.EuMembre;
+import com.esmc.mcnp.domain.entity.cm.EuMembreMorale;
+import com.esmc.mcnp.domain.entity.cm.EuRepresentation;
+import com.esmc.mcnp.domain.entity.obps.EuArticleStockes;
+import com.esmc.mcnp.domain.entity.obps.EuTegc;
+import com.esmc.mcnp.domain.entity.op.EuAppelOffre;
+import com.esmc.mcnp.domain.entity.others.EuCours;
+import com.esmc.mcnp.domain.entity.others.EuFrais;
+import com.esmc.mcnp.domain.entity.others.EuProposition;
+import com.esmc.mcnp.domain.entity.security.EuUtilisateur;
+import com.esmc.mcnp.domain.entity.smcipn.EuGcsc;
 
 public interface RechercheService {
 

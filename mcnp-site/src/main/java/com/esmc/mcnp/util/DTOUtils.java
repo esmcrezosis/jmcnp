@@ -12,26 +12,26 @@ import javax.inject.Inject;
 
 import org.springframework.stereotype.Component;
 
-import com.esmc.mcnp.components.RechercheService;
 import com.esmc.mcnp.core.utils.ServerUtil;
-import com.esmc.mcnp.model.acteur.EuActeur;
-import com.esmc.mcnp.model.obps.EuArticleStockes;
-import com.esmc.mcnp.model.cm.EuCompte;
-import com.esmc.mcnp.model.others.EuCours;
-import com.esmc.mcnp.model.bc.EuDetailDomicilie;
-import com.esmc.mcnp.model.acteur.EuFiliere;
-import com.esmc.mcnp.model.cm.EuMembre;
-import com.esmc.mcnp.model.cm.EuMembreMorale;
-import com.esmc.mcnp.model.cm.EuRepresentation;
-import com.esmc.mcnp.dto.acteur.Acteur;
-import com.esmc.mcnp.dto.acteur.Consultation;
-import com.esmc.mcnp.dto.acteur.Filiere;
-import com.esmc.mcnp.dto.acteur.Membre;
-import com.esmc.mcnp.dto.acteur.MembreMorale;
-import com.esmc.mcnp.dto.echange.DetailDomicilie;
-import com.esmc.mcnp.dto.ksu.Compte;
-import com.esmc.mcnp.dto.obps.ArticleStocke;
-import com.esmc.mcnp.dto.other.Cour;
+import com.esmc.mcnp.domain.dto.acteur.Acteur;
+import com.esmc.mcnp.domain.dto.acteur.Consultation;
+import com.esmc.mcnp.domain.dto.acteur.Filiere;
+import com.esmc.mcnp.domain.dto.acteur.Membre;
+import com.esmc.mcnp.domain.dto.acteur.MembreMorale;
+import com.esmc.mcnp.domain.dto.echange.DetailDomicilie;
+import com.esmc.mcnp.domain.dto.ksu.Compte;
+import com.esmc.mcnp.domain.dto.obps.ArticleStocke;
+import com.esmc.mcnp.domain.dto.other.Cour;
+import com.esmc.mcnp.domain.entity.acteur.EuActeur;
+import com.esmc.mcnp.domain.entity.acteur.EuFiliere;
+import com.esmc.mcnp.domain.entity.bc.EuDetailDomicilie;
+import com.esmc.mcnp.domain.entity.cm.EuCompte;
+import com.esmc.mcnp.domain.entity.cm.EuMembre;
+import com.esmc.mcnp.domain.entity.cm.EuMembreMorale;
+import com.esmc.mcnp.domain.entity.cm.EuRepresentation;
+import com.esmc.mcnp.domain.entity.obps.EuArticleStockes;
+import com.esmc.mcnp.domain.entity.others.EuCours;
+import com.esmc.mcnp.infrastructure.components.RechercheService;
 
 /**
  *

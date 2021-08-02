@@ -1,6 +1,4 @@
-package com.esmc.mcnp.model.obpsd;
-
-import com.esmc.mcnp.model.cm.EuCompte;
+package com.esmc.mcnp.domain.entity.obpsd;
 
 import java.io.Serializable;
 import java.time.LocalDate;
@@ -13,6 +11,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
+
+import com.esmc.mcnp.domain.entity.cm.EuCompte;
 
 
 /**

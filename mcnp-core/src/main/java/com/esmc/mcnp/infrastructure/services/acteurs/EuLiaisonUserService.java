@@ -1,8 +1,8 @@
-package com.esmc.mcnp.services.acteurs;
+package com.esmc.mcnp.infrastructure.services.acteurs;
 
-import com.esmc.mcnp.model.org.EuDivisionGac;
-import com.esmc.mcnp.model.acteur.EuLiaisonUser;
-import com.esmc.mcnp.services.base.BaseService;
+import com.esmc.mcnp.domain.entity.acteur.EuLiaisonUser;
+import com.esmc.mcnp.domain.entity.org.EuDivisionGac;
+import com.esmc.mcnp.infrastructure.services.base.BaseService;
 
 public interface EuLiaisonUserService extends BaseService<EuLiaisonUser, Integer> {
 	EuDivisionGac findByUtilisateur(Long idUser);

@@ -1,7 +1,7 @@
-package com.esmc.mcnp.services.obpsd;
+package com.esmc.mcnp.infrastructure.services.obpsd;
 
-import com.esmc.mcnp.model.obpsd.EuEchange;
-import com.esmc.mcnp.services.base.BaseService;
+import com.esmc.mcnp.domain.entity.obpsd.EuEchange;
+import com.esmc.mcnp.infrastructure.services.base.BaseService;
 
 public interface EuEchangeService extends BaseService<EuEchange, Long> {
 	public Long findLastEchangeInsertedId();

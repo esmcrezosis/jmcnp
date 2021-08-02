@@ -1,13 +1,12 @@
-package com.kreatech.common.util;
+package com.esmc.mcnp.commons.util;
 
-import java.net.InetAddress;
-import java.net.UnknownHostException;
+import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONObject;
+import com.esmc.mcnp.config.Global;
 
 import javax.servlet.http.HttpServletRequest;
-
-import com.kreatech.common.json.JSON;
-import com.kreatech.common.json.JSONObject;
-import com.kreatech.config.Global;
+import java.net.InetAddress;
+import java.net.UnknownHostException;
 
 public class IpUtil {
 
@@ -43,7 +42,7 @@ public class IpUtil {
         if (Global.isAddressEnabled())
         {
             String rspStr = HttpUtils.sendPost(IP_URL, "ip=" + ip);
-            if (OrioleStringUtils.isEmpty(rspStr))
+            if (StringUtils.isEmpty(rspStr))
             {
             	System.out.println("Obtenir une exception de localisation"+ ip);
                 return address;
@@ -51,10 +50,10 @@ public class IpUtil {
             JSONObject obj;
             try
             {
-                obj = JSON.unmarshal(rspStr, JSONObject.class);
-                JSONObject data = obj.getObj("data");
-                String region = data.getStr("region");
-                String city = data.getStr("city");
+                obj = JSON.parseObject(rspStr);
+                JSONObject data = obj.getJSONObject("data");
+                String region = data.getString("region");
+                String city = data.getString("city");
                 address = region + " " + city;
             }
             catch (Exception e)
@@ -96,7 +95,7 @@ public class IpUtil {
 	}
 
 	private static boolean internalIp(byte[] addr) {
-		if (OrioleStringUtils.isNull(addr) || addr.length < 2) {
+		if (StringUtils.isNull(addr) || addr.length < 2) {
 			return true;
 		}
 		final byte b0 = addr[0];

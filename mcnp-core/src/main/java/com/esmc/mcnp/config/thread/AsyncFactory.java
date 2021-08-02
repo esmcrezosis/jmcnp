@@ -1,23 +1,22 @@
-package com.kreatech.config.thread;
+package com.esmc.mcnp.config.thread;
 
 import java.io.File;
 import java.util.Date;
 import java.util.TimerTask;
 
+import com.esmc.mcnp.commons.constant.SystemConstant;
+import com.esmc.mcnp.commons.util.DateUtils;
+import com.esmc.mcnp.commons.util.IpUtil;
+import com.esmc.mcnp.commons.util.LogUtils;
+import com.esmc.mcnp.commons.util.ServletUtils;
+import com.esmc.mcnp.domain.entity.sys.SysLoginRecord;
+import com.esmc.mcnp.domain.entity.sys.SysOperationLog;
+import com.esmc.mcnp.infrastructure.components.SpringUtils;
+import com.esmc.mcnp.infrastructure.services.sys.ISysOperationLogService;
+import com.esmc.mcnp.infrastructure.services.sys.SysloginRecordServiceImpl;
 import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
-import com.kreatech.api.module.sys.service.ISysOperationLogService;
-import com.kreatech.api.module.sys.service.impl.SysloginRecordServiceImpl;
-import com.kreatech.api.util.SpringUtils;
-import com.kreatech.common.constant.Constants;
-import com.kreatech.common.util.DateUtils;
-import com.kreatech.common.util.IpUtil;
-import com.kreatech.common.util.LogUtils;
-import com.kreatech.common.util.ServletUtils;
-import com.kreatech.data.entity.sys.SysLoginRecord;
-import com.kreatech.data.entity.sys.SysOperationLog;
 
 import eu.bitwalker.useragentutils.UserAgent;
 
@@ -48,10 +47,10 @@ public class AsyncFactory {
 	/**
     * Enregistrer les informations de connexion
     *
-    * @param nom d'utilisateur nom d'utilisateur
-    * @param Statut 
-    * @param Message 
-    * @param Liste d'arguments 
+    * @param username d'utilisateur nom d'utilisateur
+    * @param status Statut
+    * @param message Message
+    * @param args Liste d'arguments
     * @return Tâche de tâche 
     */
     public static TimerTask recordLogininfor(final String username, final String status, final String message, final Object... args)
@@ -85,13 +84,13 @@ public class AsyncFactory {
                 logininfor.setOs(os);
                 logininfor.setMsg(message);
                 // État du journal
-                if (StringUtils.equalsAny(status, Constants.LOGIN_SUCCESS, Constants.LOGOUT, Constants.REGISTER))
+                if (StringUtils.equalsAny(status, SystemConstant.SUCCESS, SystemConstant.LOGOUT, SystemConstant.REGISTER))
                 {
-                    logininfor.setStatus(Constants.SUCCESS);
+                    logininfor.setStatus(SystemConstant.SUCCESS);
                 }
-                else if (Constants.LOGIN_FAIL.equals(status))
+                else if (SystemConstant.ERROR.equals(status))
                 {
-                    logininfor.setStatus(Constants.FAIL);
+                    logininfor.setStatus(SystemConstant.FAIL);
                 }
                 // Insérer des données
                 SpringUtils.getBean(SysloginRecordServiceImpl.class).create(logininfor);
@@ -102,9 +101,9 @@ public class AsyncFactory {
 	/**
 	 * Nettoyer les fichiers de sauvegarde de base de données expirés
 	 * 
-	 * @param jours  Si 30 est passé, cela signifie nettoyer les fichiers il y a 30
+	 * @param days jours  Si 30 est passé, cela signifie nettoyer les fichiers il y a 30
 	 *               jours
-	 * @param Chemin du dossier du dossier pour stocker les fichiers de sauvegarde
+	 * @param folder Chemin du dossier du dossier pour stocker les fichiers de sauvegarde
 	 * @return
 	 */
 	public static TimerTask cleanOutDateBackupFile(final Integer days, final String folder) {

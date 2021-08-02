@@ -1,9 +1,9 @@
-package com.esmc.mcnp.model.smcipn;
+package com.esmc.mcnp.domain.entity.smcipn;
 
 import java.io.Serializable;
 import javax.persistence.*;
 
-import com.esmc.mcnp.model.cm.EuMembre;
+import com.esmc.mcnp.domain.entity.cm.EuMembre;
 
 
 /**

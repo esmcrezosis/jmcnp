@@ -1,4 +1,4 @@
-package com.esmc.mcnp.components;
+package com.esmc.mcnp.infrastructure.components;
 
 import java.util.Date;
 import java.util.Objects;
@@ -10,15 +10,15 @@ import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.esmc.mcnp.core.utils.ServerUtil;
-import com.esmc.mcnp.model.obpsd.EuBonNeutre;
-import com.esmc.mcnp.model.obpsd.EuBonNeutreAppro;
-import com.esmc.mcnp.model.obpsd.EuBonNeutreDetail;
-import com.esmc.mcnp.model.cm.EuMembre;
-import com.esmc.mcnp.model.cm.EuMembreMorale;
-import com.esmc.mcnp.services.ba.EuBonNeutreDetailService;
-import com.esmc.mcnp.services.ba.EuBonNeutreService;
-import com.esmc.mcnp.services.cm.EuMembreMoraleService;
-import com.esmc.mcnp.services.cm.EuMembreService;
+import com.esmc.mcnp.domain.entity.cm.EuMembre;
+import com.esmc.mcnp.domain.entity.cm.EuMembreMorale;
+import com.esmc.mcnp.domain.entity.obpsd.EuBonNeutre;
+import com.esmc.mcnp.domain.entity.obpsd.EuBonNeutreAppro;
+import com.esmc.mcnp.domain.entity.obpsd.EuBonNeutreDetail;
+import com.esmc.mcnp.infrastructure.services.ba.EuBonNeutreDetailService;
+import com.esmc.mcnp.infrastructure.services.ba.EuBonNeutreService;
+import com.esmc.mcnp.infrastructure.services.cm.EuMembreMoraleService;
+import com.esmc.mcnp.infrastructure.services.cm.EuMembreService;
 
 @Component
 @Transactional

@@ -1,4 +1,4 @@
-package com.esmc.mcnp.repositories.base;
+package com.esmc.mcnp.dao.repository.base;
 
 import java.util.ArrayList;
 import java.util.Collection;

@@ -1,7 +1,7 @@
-package com.esmc.mcnp.repositories.cm;
+package com.esmc.mcnp.dao.repository.cm;
 
-import com.esmc.mcnp.model.bc.EuProduit;
-import com.esmc.mcnp.repositories.base.BaseRepository;
+import com.esmc.mcnp.dao.repository.base.BaseRepository;
+import com.esmc.mcnp.domain.entity.bc.EuProduit;
 
 public interface EuProduitRepository extends BaseRepository<EuProduit, String> {
 }

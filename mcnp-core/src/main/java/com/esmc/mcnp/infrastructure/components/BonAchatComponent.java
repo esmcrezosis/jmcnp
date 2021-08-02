@@ -1,4 +1,4 @@
-package com.esmc.mcnp.components;
+package com.esmc.mcnp.infrastructure.components;
 
 import java.util.Date;
 import java.util.Objects;
@@ -9,25 +9,25 @@ import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.esmc.mcnp.core.utils.ServerUtil;
-import com.esmc.mcnp.exception.CompteNonIntegreException;
-import com.esmc.mcnp.exception.CompteNonTrouveException;
-import com.esmc.mcnp.exception.SoldeInsuffisantException;
-import com.esmc.mcnp.model.ba.EuCapa;
-import com.esmc.mcnp.model.cm.EuCategorieCompte;
-import com.esmc.mcnp.model.cm.EuCompte;
-import com.esmc.mcnp.model.cm.EuMembre;
-import com.esmc.mcnp.model.cm.EuMembreMorale;
-import com.esmc.mcnp.model.cm.EuTypeCompte;
-import com.esmc.mcnp.model.ksu.EuKacm;
-import com.esmc.mcnp.model.obpsd.EuBonNeutre;
-import com.esmc.mcnp.model.obpsd.EuSmsmoney;
-import com.esmc.mcnp.services.ba.EuBonNeutreService;
-import com.esmc.mcnp.services.ba.EuCapaService;
-import com.esmc.mcnp.services.cm.EuCompteService;
-import com.esmc.mcnp.services.cm.EuMembreMoraleService;
-import com.esmc.mcnp.services.cm.EuMembreService;
-import com.esmc.mcnp.services.common.EuKacmService;
-import com.esmc.mcnp.services.obpsd.EuSmsmoneyService;
+import com.esmc.mcnp.domain.entity.ba.EuCapa;
+import com.esmc.mcnp.domain.entity.cm.EuCategorieCompte;
+import com.esmc.mcnp.domain.entity.cm.EuCompte;
+import com.esmc.mcnp.domain.entity.cm.EuMembre;
+import com.esmc.mcnp.domain.entity.cm.EuMembreMorale;
+import com.esmc.mcnp.domain.entity.cm.EuTypeCompte;
+import com.esmc.mcnp.domain.entity.ksu.EuKacm;
+import com.esmc.mcnp.domain.entity.obpsd.EuBonNeutre;
+import com.esmc.mcnp.domain.entity.obpsd.EuSmsmoney;
+import com.esmc.mcnp.commons.exception.business.CompteNonIntegreException;
+import com.esmc.mcnp.commons.exception.business.CompteNonTrouveException;
+import com.esmc.mcnp.commons.exception.business.SoldeInsuffisantException;
+import com.esmc.mcnp.infrastructure.services.ba.EuBonNeutreService;
+import com.esmc.mcnp.infrastructure.services.ba.EuCapaService;
+import com.esmc.mcnp.infrastructure.services.cm.EuCompteService;
+import com.esmc.mcnp.infrastructure.services.cm.EuMembreMoraleService;
+import com.esmc.mcnp.infrastructure.services.cm.EuMembreService;
+import com.esmc.mcnp.infrastructure.services.common.EuKacmService;
+import com.esmc.mcnp.infrastructure.services.obpsd.EuSmsmoneyService;
 
 @Component
 @Transactional(readOnly = false)

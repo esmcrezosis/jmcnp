@@ -1,10 +1,11 @@
-package com.esmc.mcnp.model.ba;
-
-import com.esmc.mcnp.model.cm.EuMembreMorale;
-import com.esmc.mcnp.model.obpsd.EuTypeNn;
+package com.esmc.mcnp.domain.entity.ba;
 
 import java.io.Serializable;
 import javax.persistence.*;
+
+import com.esmc.mcnp.domain.entity.cm.EuMembreMorale;
+import com.esmc.mcnp.domain.entity.obpsd.EuTypeNn;
+
 import java.util.Date;
 
 

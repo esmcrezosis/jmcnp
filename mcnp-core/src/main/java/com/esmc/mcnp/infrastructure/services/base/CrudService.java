@@ -1,4 +1,4 @@
-package com.esmc.mcnp.services.base;
+package com.esmc.mcnp.infrastructure.services.base;
 
 import java.util.Collection;
 import java.util.List;
@@ -11,7 +11,7 @@ import org.springframework.lang.NonNull;
 import org.springframework.lang.Nullable;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.esmc.mcnp.exception.NotFoundException;
+import com.esmc.mcnp.commons.exception.business.NotFoundException;
 
 /**
  * CrudService interface contains some common methods.

@@ -1,7 +1,7 @@
-package com.esmc.mcnp.services.cmfh;
+package com.esmc.mcnp.infrastructure.services.cmfh;
 
-import com.esmc.mcnp.model.acteur.EuSouscription;
-import com.esmc.mcnp.services.base.BaseService;
+import com.esmc.mcnp.domain.entity.acteur.EuSouscription;
+import com.esmc.mcnp.infrastructure.services.base.BaseService;
 
 public interface EuSouscriptionService extends BaseService<EuSouscription, Long> {
 

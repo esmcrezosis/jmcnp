@@ -1,9 +1,9 @@
-package com.esmc.mcnp.mapper.bc;
+package com.esmc.mcnp.domain.mapper.bc;
 
 import java.util.List;
 
-import com.esmc.mcnp.dto.bc.CompteCredit;
-import com.esmc.mcnp.model.cm.EuCompteCredit;
+import com.esmc.mcnp.domain.dto.bc.CompteCredit;
+import com.esmc.mcnp.domain.entity.cm.EuCompteCredit;
 
 import org.mapstruct.Mapper;
 import org.mapstruct.ReportingPolicy;

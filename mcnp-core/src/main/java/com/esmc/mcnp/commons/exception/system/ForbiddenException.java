@@ -1,8 +1,8 @@
-package com.esmc.mcnp.infrastructure.exception.system;
+package com.esmc.mcnp.commons.exception.system;
 
 import org.springframework.http.HttpStatus;
 
-import com.esmc.mcnp.infrastructure.exception.business.AppException;
+import com.esmc.mcnp.commons.exception.business.AppException;
 
 /**
  * Exception caused by accessing forbidden resources.

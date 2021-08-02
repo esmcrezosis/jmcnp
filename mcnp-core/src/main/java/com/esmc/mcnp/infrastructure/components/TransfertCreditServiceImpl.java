@@ -3,27 +3,27 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.esmc.mcnp.components;
+package com.esmc.mcnp.infrastructure.components;
 
 import com.esmc.mcnp.core.utils.ServerUtil;
-import com.esmc.mcnp.dto.smcipn.Transfert;
-import com.esmc.mcnp.model.acteur.EuActeur;
-import com.esmc.mcnp.model.op.EuAppelOffre;
-import com.esmc.mcnp.model.cm.EuCategorieCompte;
-import com.esmc.mcnp.model.cm.EuCompte;
-import com.esmc.mcnp.model.cm.EuCompteCredit;
-import com.esmc.mcnp.model.cm.EuCompteCreditTs;
-import com.esmc.mcnp.model.bc.EuProduit;
-import com.esmc.mcnp.model.cm.EuTypeCompte;
-import com.esmc.mcnp.model.smcipn.EuSmcipnpwi;
-import com.esmc.mcnp.repositories.acteurs.EuActeurRepository;
-import com.esmc.mcnp.repositories.cm.EuCompteCreditRepository;
-import com.esmc.mcnp.repositories.cm.EuCompteCreditTsRepository;
-import com.esmc.mcnp.repositories.cm.EuCompteRepository;
-import com.esmc.mcnp.repositories.cm.EuMembreMoraleRepository;
-import com.esmc.mcnp.repositories.cm.EuMembreRepository;
-import com.esmc.mcnp.repositories.smcipn.EuAppelOffreRepository;
-import com.esmc.mcnp.repositories.smcipn.EuSmcipnwiRepository;
+import com.esmc.mcnp.dao.repository.acteurs.EuActeurRepository;
+import com.esmc.mcnp.dao.repository.cm.EuCompteCreditRepository;
+import com.esmc.mcnp.dao.repository.cm.EuCompteCreditTsRepository;
+import com.esmc.mcnp.dao.repository.cm.EuCompteRepository;
+import com.esmc.mcnp.dao.repository.cm.EuMembreMoraleRepository;
+import com.esmc.mcnp.dao.repository.cm.EuMembreRepository;
+import com.esmc.mcnp.dao.repository.smcipn.EuAppelOffreRepository;
+import com.esmc.mcnp.dao.repository.smcipn.EuSmcipnwiRepository;
+import com.esmc.mcnp.domain.dto.smcipn.Transfert;
+import com.esmc.mcnp.domain.entity.acteur.EuActeur;
+import com.esmc.mcnp.domain.entity.bc.EuProduit;
+import com.esmc.mcnp.domain.entity.cm.EuCategorieCompte;
+import com.esmc.mcnp.domain.entity.cm.EuCompte;
+import com.esmc.mcnp.domain.entity.cm.EuCompteCredit;
+import com.esmc.mcnp.domain.entity.cm.EuCompteCreditTs;
+import com.esmc.mcnp.domain.entity.cm.EuTypeCompte;
+import com.esmc.mcnp.domain.entity.op.EuAppelOffre;
+import com.esmc.mcnp.domain.entity.smcipn.EuSmcipnpwi;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;

@@ -1,9 +1,9 @@
-package com.esmc.mcnp.services.common;
+package com.esmc.mcnp.infrastructure.services.common;
 
 import java.util.List;
 
-import com.esmc.mcnp.model.others.EuOperation;
-import com.esmc.mcnp.services.base.BaseService;
+import com.esmc.mcnp.domain.entity.others.EuOperation;
+import com.esmc.mcnp.infrastructure.services.base.BaseService;
 
 public interface EuOperationService extends BaseService<EuOperation, Long> {
 	public Long getLastOperation();

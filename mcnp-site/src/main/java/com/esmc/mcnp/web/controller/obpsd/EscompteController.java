@@ -9,8 +9,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.esmc.mcnp.components.GcpService;
-import com.esmc.mcnp.dto.obps.LGcp;
+import com.esmc.mcnp.domain.dto.obps.LGcp;
+import com.esmc.mcnp.infrastructure.components.GcpService;
 import com.esmc.mcnp.web.controller.base.BaseRestController;
 
 import org.springframework.web.bind.annotation.RequestBody;

@@ -1,9 +1,9 @@
-package com.esmc.mcnp.services.franchise;
+package com.esmc.mcnp.infrastructure.services.franchise;
 
 import java.util.List;
 
-import com.esmc.mcnp.model.franchise.EuAchatFranchises;
-import com.esmc.mcnp.services.base.BaseService;
+import com.esmc.mcnp.domain.entity.franchise.EuAchatFranchises;
+import com.esmc.mcnp.infrastructure.services.base.BaseService;
 
 public interface EuAchatFranchisesService extends BaseService<EuAchatFranchises, Long> {
 

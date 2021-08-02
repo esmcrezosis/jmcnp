@@ -1,4 +1,4 @@
-package com.esmc.mcnp.model.obpsd;
+package com.esmc.mcnp.domain.entity.obpsd;
 
 import java.io.Serializable;
 import javax.persistence.*;

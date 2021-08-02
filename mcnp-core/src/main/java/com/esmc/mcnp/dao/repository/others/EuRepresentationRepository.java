@@ -1,4 +1,4 @@
-package com.esmc.mcnp.repositories.others;
+package com.esmc.mcnp.dao.repository.others;
 
 import java.util.List;
 
@@ -6,9 +6,9 @@ import org.springframework.data.jpa.repository.EntityGraph;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
-import com.esmc.mcnp.model.cm.EuRepresentation;
-import com.esmc.mcnp.model.cm.EuRepresentationPK;
-import com.esmc.mcnp.repositories.base.BaseRepository;
+import com.esmc.mcnp.dao.repository.base.BaseRepository;
+import com.esmc.mcnp.domain.entity.cm.EuRepresentation;
+import com.esmc.mcnp.domain.entity.cm.EuRepresentationPK;
 
 public interface EuRepresentationRepository extends BaseRepository<EuRepresentation, EuRepresentationPK> {
 

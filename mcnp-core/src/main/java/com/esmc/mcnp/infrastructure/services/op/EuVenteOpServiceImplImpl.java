@@ -1,8 +1,9 @@
-package com.esmc.mcnp.services.op;
+package com.esmc.mcnp.infrastructure.services.op;
 
-import com.esmc.mcnp.model.op.EuVenteOp;
-import com.esmc.mcnp.repositories.op.EuVenteOpRepository;
-import com.esmc.mcnp.services.base.CrudServiceImpl;
+import com.esmc.mcnp.dao.repository.op.EuVenteOpRepository;
+import com.esmc.mcnp.domain.entity.op.EuVenteOp;
+import com.esmc.mcnp.infrastructure.services.base.CrudServiceImpl;
+
 import org.springframework.stereotype.Service;
 
 @Service

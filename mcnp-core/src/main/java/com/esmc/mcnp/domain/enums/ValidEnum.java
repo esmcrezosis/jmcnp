@@ -1,4 +1,4 @@
-package com.kreatech.common.constant;
+package com.esmc.mcnp.domain.enums;
 
 public enum ValidEnum {
     /**

@@ -3,12 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.esmc.mcnp.services.common;
+package com.esmc.mcnp.infrastructure.services.common;
 
 import java.util.List;
 
-import com.esmc.mcnp.model.bc.EuTypeCredit;
-import com.esmc.mcnp.services.base.BaseService;
+import com.esmc.mcnp.domain.entity.bc.EuTypeCredit;
+import com.esmc.mcnp.infrastructure.services.base.BaseService;
 
 /**
  *

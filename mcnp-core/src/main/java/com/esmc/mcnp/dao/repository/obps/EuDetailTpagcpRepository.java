@@ -1,8 +1,8 @@
-package com.esmc.mcnp.repositories.obps;
+package com.esmc.mcnp.dao.repository.obps;
 
-import com.esmc.mcnp.model.obps.EuDetailTpagcp;
-import com.esmc.mcnp.model.obps.EuDetailTpagcpPK;
-import com.esmc.mcnp.repositories.base.BaseRepository;
+import com.esmc.mcnp.dao.repository.base.BaseRepository;
+import com.esmc.mcnp.domain.entity.obps.EuDetailTpagcp;
+import com.esmc.mcnp.domain.entity.obps.EuDetailTpagcpPK;
 
 public interface EuDetailTpagcpRepository extends BaseRepository<EuDetailTpagcp, EuDetailTpagcpPK> {
 

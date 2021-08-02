@@ -1,7 +1,7 @@
-package com.esmc.mcnp.repositories.common;
+package com.esmc.mcnp.dao.repository.common;
 
-import com.esmc.mcnp.model.ksu.EuKacm;
-import com.esmc.mcnp.repositories.base.BaseRepository;
+import com.esmc.mcnp.dao.repository.base.BaseRepository;
+import com.esmc.mcnp.domain.entity.ksu.EuKacm;
 
 public interface EuKacmRepository extends BaseRepository<EuKacm, Long> {
 

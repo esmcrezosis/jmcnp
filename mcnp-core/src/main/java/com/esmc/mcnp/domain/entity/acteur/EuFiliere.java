@@ -1,10 +1,10 @@
-package com.esmc.mcnp.model.acteur;
+package com.esmc.mcnp.domain.entity.acteur;
 
 import java.io.Serializable;
 import javax.persistence.*;
 
-import com.esmc.mcnp.model.others.EuStandProduit;
-import com.esmc.mcnp.model.security.EuUtilisateur;
+import com.esmc.mcnp.domain.entity.others.EuStandProduit;
+import com.esmc.mcnp.domain.entity.security.EuUtilisateur;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import java.util.Date;

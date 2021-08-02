@@ -1,13 +1,13 @@
-package com.esmc.mcnp.services.obps;
-import com.esmc.mcnp.services.base.BaseServiceImpl;
+package com.esmc.mcnp.infrastructure.services.obps;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.esmc.mcnp.model.obps.EuArticleStockesAdditif;
-import com.esmc.mcnp.repositories.obps.EuArticleStockesAdditifRepository;
-import com.esmc.mcnp.repositories.base.BaseRepository;
+import com.esmc.mcnp.dao.repository.base.BaseRepository;
+import com.esmc.mcnp.dao.repository.obps.EuArticleStockesAdditifRepository;
+import com.esmc.mcnp.domain.entity.obps.EuArticleStockesAdditif;
+import com.esmc.mcnp.infrastructure.services.base.BaseServiceImpl;
 
 @Service("euArticleStockesAdditifService")
 @Transactional(propagation = Propagation.REQUIRED)

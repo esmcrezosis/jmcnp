@@ -1,4 +1,4 @@
-package com.esmc.mcnp.model.others;
+package com.esmc.mcnp.domain.entity.others;
 
 import java.io.Serializable;
 import java.util.Date;
@@ -15,8 +15,8 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
-import com.esmc.mcnp.model.bc.EuBon;
-import com.esmc.mcnp.model.security.EuUtilisateur;
+import com.esmc.mcnp.domain.entity.bc.EuBon;
+import com.esmc.mcnp.domain.entity.security.EuUtilisateur;
 
 /**
  * The persistent class for the eu_achat_interim database table.

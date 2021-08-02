@@ -1,4 +1,4 @@
-package com.esmc.mcnp.dto.security;
+package com.esmc.mcnp.domain.dto.security;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

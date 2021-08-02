@@ -1,4 +1,4 @@
-package com.esmc.mcnp.model.others;
+package com.esmc.mcnp.domain.entity.others;
 
 import java.io.Serializable;
 import java.lang.Double;

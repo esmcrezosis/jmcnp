@@ -1,9 +1,10 @@
-package com.esmc.mcnp.model.obps;
-
-import com.esmc.mcnp.model.bc.EuBon;
+package com.esmc.mcnp.domain.entity.obps;
 
 import java.io.Serializable;
 import javax.persistence.*;
+
+import com.esmc.mcnp.domain.entity.bc.EuBon;
+
 import java.util.Date;
 
 

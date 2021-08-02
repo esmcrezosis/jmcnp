@@ -1,9 +1,9 @@
-package com.esmc.mcnp.services.common;
+package com.esmc.mcnp.infrastructure.services.common;
 
 import java.util.List;
 
-import com.esmc.mcnp.model.obps.EuCodebarre;
-import com.esmc.mcnp.services.base.BaseService;
+import com.esmc.mcnp.domain.entity.obps.EuCodebarre;
+import com.esmc.mcnp.infrastructure.services.base.BaseService;
 
 public interface EuCodebarreService extends BaseService<EuCodebarre, String> {
 	

@@ -1,7 +1,7 @@
-package com.esmc.mcnp.services.obps;
+package com.esmc.mcnp.infrastructure.services.obps;
 
-import com.esmc.mcnp.model.others.EuAchatInterim;
-import com.esmc.mcnp.services.base.BaseService;
+import com.esmc.mcnp.domain.entity.others.EuAchatInterim;
+import com.esmc.mcnp.infrastructure.services.base.BaseService;
 
 public interface EuAchatInterimService extends BaseService<EuAchatInterim, Long> {
 

@@ -1,10 +1,10 @@
-package com.kreatech.config.thread;
+package com.esmc.mcnp.config.thread;
+
+import com.esmc.mcnp.infrastructure.components.SpringUtils;
 
 import java.util.TimerTask;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
-
-import com.kreatech.api.util.SpringUtils;
 
 public class AsyncManager {
 

@@ -17,8 +17,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.esmc.mcnp.model.security.EuConfirmation;
-import com.esmc.mcnp.services.common.EuConfirmationService;
+import com.esmc.mcnp.domain.entity.security.EuConfirmation;
+import com.esmc.mcnp.infrastructure.services.common.EuConfirmationService;
 import com.esmc.mcnp.web.controller.base.BaseController;
 import com.esmc.mcnp.web.dto.security.Verif;
 

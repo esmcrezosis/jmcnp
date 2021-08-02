@@ -1,6 +1,4 @@
-package com.esmc.mcnp.model.obpsd;
-
-import com.esmc.mcnp.model.cm.EuCompte;
+package com.esmc.mcnp.domain.entity.obpsd;
 
 import java.io.Serializable;
 import java.util.Date;
@@ -14,6 +12,8 @@ import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+
+import com.esmc.mcnp.domain.entity.cm.EuCompte;
 
 /**
  * The persistent class for the eu_transfert_nn database table.

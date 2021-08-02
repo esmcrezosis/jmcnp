@@ -1,13 +1,12 @@
-package com.kreatech.config;
+package com.esmc.mcnp.config;
 
-import java.util.HashMap;
-import java.util.Map;
-
+import com.esmc.mcnp.commons.util.PropertiesUtils;
+import com.esmc.mcnp.commons.util.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.kreatech.common.util.OrioleStringUtils;
-import com.kreatech.common.util.PropertiesUtils;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * Classe de configuration globale
@@ -53,7 +52,7 @@ public class Global {
 		String value = map.get(key);
 		if (value == null) {
 			value = String.valueOf(PropertiesUtils.readPathValue(NAME, key));
-			map.put(key, value != null ? value : OrioleStringUtils.EMPTY);
+			map.put(key, value != null ? value : StringUtils.EMPTY);
 		}
 		return value;
 	}
@@ -62,21 +61,21 @@ public class Global {
 	 * Obtenir le nom du projet
 	 */
 	public static String getName() {
-		return OrioleStringUtils.nvl(getConfig("boot.name"), "boot");
+		return StringUtils.nvl(getConfig("boot.name"), "boot");
 	}
 
 	/**
 	 * Obtenir la version du projet
 	 */
 	public static String getVersion() {
-		return OrioleStringUtils.nvl(getConfig("boot.version"), "1.0");
+		return StringUtils.nvl(getConfig("app.version"), "1.0");
 	}
 
 	/**
 	 * Année d'acquisition des droits d'auteur
 	 */
 	public static String getCopyrightYear() {
-		return OrioleStringUtils.nvl(getConfig("boot.copyrightYear"), "2020");
+		return StringUtils.nvl(getConfig("app.copyrightYear"), "2020");
 	}
 
 	/**
@@ -90,7 +89,7 @@ public class Global {
 	 * Obtenir le chemin de téléchargement du fichier
 	 */
 	public static String getProfile() {
-		return getConfig("boot.profile");
+		return getConfig("app.profile");
 	}
 
 	/**
@@ -119,17 +118,6 @@ public class Global {
 	 */
 	public static String getImageUrl() {
 		return getConfig("boot.imageUrl");
-	}
-
-	/**
-	 * Obtenir le chemin de sauvegarde de la base de données
-	 */
-	public static String getDbBackupPath() {
-		return getProfile() + "/dbbackup";
-	}
-
-	public static boolean hasRedis() {
-		return Boolean.valueOf(getConfig("redis.enabled"));
 	}
 
 }

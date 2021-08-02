@@ -1,4 +1,4 @@
-package com.esmc.mcnp.dto.obps;
+package com.esmc.mcnp.domain.dto.obps;
 
 import lombok.Data;
 import lombok.experimental.Accessors;

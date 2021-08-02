@@ -3,15 +3,15 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.esmc.mcnp.repositories.smcipn;
+package com.esmc.mcnp.dao.repository.smcipn;
 
 import java.util.List;
 
 import org.springframework.data.jpa.repository.Query;
 
-import com.esmc.mcnp.model.smcipn.EuSmc;
-import com.esmc.mcnp.model.smcipn.EuUtiliser;
-import com.esmc.mcnp.repositories.base.BaseRepository;
+import com.esmc.mcnp.dao.repository.base.BaseRepository;
+import com.esmc.mcnp.domain.entity.smcipn.EuSmc;
+import com.esmc.mcnp.domain.entity.smcipn.EuUtiliser;
 
 /**
  *

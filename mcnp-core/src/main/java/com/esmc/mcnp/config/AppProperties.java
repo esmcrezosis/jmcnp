@@ -9,7 +9,7 @@ import java.nio.file.Paths;
 import java.time.Duration;
 
 import static com.esmc.mcnp.core.constant.AppConstant.*;
-import static com.esmc.mcnp.core.utils.AppUtils.ensureSuffix;
+import static com.esmc.mcnp.commons.util.AppUtils.ensureSuffix;
 
 
 /**

@@ -1,14 +1,14 @@
-package com.esmc.mcnp.services.common;
+package com.esmc.mcnp.infrastructure.services.common;
 
-import com.esmc.mcnp.services.base.BaseServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.esmc.mcnp.model.ksu.EuKacm;
-import com.esmc.mcnp.repositories.base.BaseRepository;
-import com.esmc.mcnp.repositories.common.EuKacmRepository;
+import com.esmc.mcnp.dao.repository.base.BaseRepository;
+import com.esmc.mcnp.dao.repository.common.EuKacmRepository;
+import com.esmc.mcnp.domain.entity.ksu.EuKacm;
+import com.esmc.mcnp.infrastructure.services.base.BaseServiceImpl;
 
 @Service("euKacmService")
 @Transactional(readOnly = true, propagation = Propagation.REQUIRED)

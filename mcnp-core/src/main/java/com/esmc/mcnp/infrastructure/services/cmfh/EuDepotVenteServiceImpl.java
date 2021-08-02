@@ -1,4 +1,4 @@
-package com.esmc.mcnp.services.cmfh;
+package com.esmc.mcnp.infrastructure.services.cmfh;
 
 import java.text.SimpleDateFormat;
 import java.util.Collections;
@@ -18,27 +18,27 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.esmc.mcnp.components.EchangeUtility;
-import com.esmc.mcnp.components.SmcipnComponent;
 import com.esmc.mcnp.config.AppProperties;
-import com.esmc.mcnp.model.acteur.EuDepotVente;
-import com.esmc.mcnp.model.ba.EuCapa;
-import com.esmc.mcnp.model.cm.EuCategorieCompte;
-import com.esmc.mcnp.model.cm.EuCompte;
-import com.esmc.mcnp.model.cm.EuMembre;
-import com.esmc.mcnp.model.cm.EuMembreMorale;
-import com.esmc.mcnp.model.cm.EuTypeCompte;
-import com.esmc.mcnp.model.obps.EuTegc;
-import com.esmc.mcnp.model.obpsd.EuEchange;
-import com.esmc.mcnp.model.pc.EuRecouvrementMcnp;
-import com.esmc.mcnp.model.smcipn.EuSmcipnpwi;
-import com.esmc.mcnp.repositories.ba.EuCapaRepository;
-import com.esmc.mcnp.repositories.cm.EuCompteRepository;
-import com.esmc.mcnp.repositories.cmfh.EuDepotVenteRepository;
-import com.esmc.mcnp.repositories.others.EuTegcRepository;
-import com.esmc.mcnp.repositories.pc.EuRecouvrementMcnpRepository;
-import com.esmc.mcnp.services.base.CrudServiceImpl;
-import com.esmc.mcnp.services.smcipn.EuSmcipnpwiService;
+import com.esmc.mcnp.dao.repository.ba.EuCapaRepository;
+import com.esmc.mcnp.dao.repository.cm.EuCompteRepository;
+import com.esmc.mcnp.dao.repository.cmfh.EuDepotVenteRepository;
+import com.esmc.mcnp.dao.repository.others.EuTegcRepository;
+import com.esmc.mcnp.dao.repository.pc.EuRecouvrementMcnpRepository;
+import com.esmc.mcnp.domain.entity.acteur.EuDepotVente;
+import com.esmc.mcnp.domain.entity.ba.EuCapa;
+import com.esmc.mcnp.domain.entity.cm.EuCategorieCompte;
+import com.esmc.mcnp.domain.entity.cm.EuCompte;
+import com.esmc.mcnp.domain.entity.cm.EuMembre;
+import com.esmc.mcnp.domain.entity.cm.EuMembreMorale;
+import com.esmc.mcnp.domain.entity.cm.EuTypeCompte;
+import com.esmc.mcnp.domain.entity.obps.EuTegc;
+import com.esmc.mcnp.domain.entity.obpsd.EuEchange;
+import com.esmc.mcnp.domain.entity.pc.EuRecouvrementMcnp;
+import com.esmc.mcnp.domain.entity.smcipn.EuSmcipnpwi;
+import com.esmc.mcnp.infrastructure.components.EchangeUtility;
+import com.esmc.mcnp.infrastructure.components.SmcipnComponent;
+import com.esmc.mcnp.infrastructure.services.base.CrudServiceImpl;
+import com.esmc.mcnp.infrastructure.services.smcipn.EuSmcipnpwiService;
 
 @Service("euDepotVenteService")
 @Transactional(readOnly = true, propagation = Propagation.REQUIRED)

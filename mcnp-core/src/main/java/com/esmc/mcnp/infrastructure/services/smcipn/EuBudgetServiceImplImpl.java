@@ -1,15 +1,15 @@
-package com.esmc.mcnp.services.smcipn;
+package com.esmc.mcnp.infrastructure.services.smcipn;
 
 import java.util.List;
 
-import com.esmc.mcnp.dto.projections.BudgetVO;
+import com.esmc.mcnp.dao.repository.smcipn.EuBudgetRepository;
+import com.esmc.mcnp.domain.dto.projections.BudgetVO;
+import com.esmc.mcnp.domain.entity.smcipn.EuBudget;
+import com.esmc.mcnp.infrastructure.services.base.CrudServiceImpl;
+
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
-
-import com.esmc.mcnp.model.smcipn.EuBudget;
-import com.esmc.mcnp.repositories.smcipn.EuBudgetRepository;
-import com.esmc.mcnp.services.base.CrudServiceImpl;
 
 @Service
 public class EuBudgetServiceImplImpl extends CrudServiceImpl<EuBudget, Long> implements EuBudgetService {

@@ -1,9 +1,9 @@
-package com.esmc.mcnp.services.pc;
+package com.esmc.mcnp.infrastructure.services.pc;
 
 import java.util.List;
 
-import com.esmc.mcnp.model.obpsd.EuBan;
-import com.esmc.mcnp.services.base.BaseService;
+import com.esmc.mcnp.domain.entity.obpsd.EuBan;
+import com.esmc.mcnp.infrastructure.services.base.BaseService;
 
 public interface EuBanService extends BaseService<EuBan, Long> {
 

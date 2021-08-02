@@ -1,4 +1,4 @@
-package com.esmc.mcnp.dto.acteur;
+package com.esmc.mcnp.domain.dto.acteur;
 
 public class EuAssociationDto {
 

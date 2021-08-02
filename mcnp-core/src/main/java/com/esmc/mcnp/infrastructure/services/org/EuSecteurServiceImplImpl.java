@@ -1,8 +1,9 @@
-package com.esmc.mcnp.services.org;
+package com.esmc.mcnp.infrastructure.services.org;
 
-import com.esmc.mcnp.model.org.EuSecteur;
-import com.esmc.mcnp.repositories.org.EuSecteurRepository;
-import com.esmc.mcnp.services.base.CrudServiceImpl;
+import com.esmc.mcnp.dao.repository.org.EuSecteurRepository;
+import com.esmc.mcnp.domain.entity.org.EuSecteur;
+import com.esmc.mcnp.infrastructure.services.base.CrudServiceImpl;
+
 import org.springframework.stereotype.Service;
 
 @Service

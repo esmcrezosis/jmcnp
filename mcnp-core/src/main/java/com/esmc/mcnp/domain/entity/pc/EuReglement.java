@@ -1,11 +1,11 @@
-package com.esmc.mcnp.model.pc;
-
-import com.esmc.mcnp.model.others.EuFacture;
+package com.esmc.mcnp.domain.entity.pc;
 
 import java.io.Serializable;
 import java.util.Date;
 
 import javax.persistence.*;
+
+import com.esmc.mcnp.domain.entity.others.EuFacture;
 
 /**
  * The persistent class for the eu_reglement database table.

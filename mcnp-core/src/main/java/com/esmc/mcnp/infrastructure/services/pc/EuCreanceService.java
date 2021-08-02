@@ -1,12 +1,12 @@
-package com.esmc.mcnp.services.pc;
+package com.esmc.mcnp.infrastructure.services.pc;
 
 import java.util.List;
 
-import com.esmc.mcnp.services.base.BaseService;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
-import com.esmc.mcnp.model.pc.EuCreance;
+import com.esmc.mcnp.domain.entity.pc.EuCreance;
+import com.esmc.mcnp.infrastructure.services.base.BaseService;
 
 public interface EuCreanceService extends BaseService<EuCreance, Long> {
 

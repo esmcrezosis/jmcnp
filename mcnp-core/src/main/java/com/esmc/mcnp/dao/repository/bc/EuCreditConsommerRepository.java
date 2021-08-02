@@ -1,11 +1,11 @@
-package com.esmc.mcnp.repositories.bc;
+package com.esmc.mcnp.dao.repository.bc;
 
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
-import com.esmc.mcnp.model.obps.EuCreditConsommer;
-import com.esmc.mcnp.repositories.base.BaseRepository;
+import com.esmc.mcnp.dao.repository.base.BaseRepository;
+import com.esmc.mcnp.domain.entity.obps.EuCreditConsommer;
 
 @Repository
 public interface EuCreditConsommerRepository extends BaseRepository<EuCreditConsommer, Long> {

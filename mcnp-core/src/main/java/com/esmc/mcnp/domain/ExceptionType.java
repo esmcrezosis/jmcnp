@@ -1,4 +1,4 @@
-package com.esmc.mcnp.exception;
+package com.esmc.mcnp.domain;
 
 /**
  * Created by Arpit Khandelwal.
@@ -14,7 +14,7 @@ public enum ExceptionType {
         this.value = value;
     }
 
-    String getValue() {
+    public String getValue() {
         return this.value;
     }
 }

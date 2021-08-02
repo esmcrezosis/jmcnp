@@ -4,11 +4,12 @@
  * and open the template in the editor.
  */
 
-package com.esmc.mcnp.services.security;
+package com.esmc.mcnp.infrastructure.services.security;
 
-import com.esmc.mcnp.dto.security.Login;
-import com.esmc.mcnp.model.security.EuUtilisateur;
-import com.esmc.mcnp.services.base.CrudService;
+import com.esmc.mcnp.domain.dto.security.Login;
+import com.esmc.mcnp.domain.entity.security.EuUtilisateur;
+import com.esmc.mcnp.infrastructure.services.base.CrudService;
+
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 

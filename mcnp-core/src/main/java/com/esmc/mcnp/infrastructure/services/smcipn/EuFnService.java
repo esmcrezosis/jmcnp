@@ -1,9 +1,9 @@
-package com.esmc.mcnp.services.smcipn;
+package com.esmc.mcnp.infrastructure.services.smcipn;
 
 import java.util.List;
 
-import com.esmc.mcnp.model.smcipn.EuFn;
-import com.esmc.mcnp.services.base.BaseService;
+import com.esmc.mcnp.domain.entity.smcipn.EuFn;
+import com.esmc.mcnp.infrastructure.services.base.BaseService;
 
 public interface EuFnService extends BaseService<EuFn, Long> {
 

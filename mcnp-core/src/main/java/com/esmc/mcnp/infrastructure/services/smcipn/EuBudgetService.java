@@ -1,13 +1,13 @@
-package com.esmc.mcnp.services.smcipn;
+package com.esmc.mcnp.infrastructure.services.smcipn;
 
 import java.util.List;
 
-import com.esmc.mcnp.dto.projections.BudgetVO;
+import com.esmc.mcnp.domain.dto.projections.BudgetVO;
+import com.esmc.mcnp.domain.entity.smcipn.EuBudget;
+import com.esmc.mcnp.infrastructure.services.base.CrudService;
+
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
-
-import com.esmc.mcnp.model.smcipn.EuBudget;
-import com.esmc.mcnp.services.base.CrudService;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 

@@ -1,9 +1,9 @@
-package com.esmc.mcnp.repositories.acteurs;
+package com.esmc.mcnp.dao.repository.acteurs;
 
 import org.springframework.data.jpa.repository.Query;
 
-import com.esmc.mcnp.model.obpsd.EuBanque;
-import com.esmc.mcnp.repositories.base.BaseRepository;
+import com.esmc.mcnp.dao.repository.base.BaseRepository;
+import com.esmc.mcnp.domain.entity.obpsd.EuBanque;
 
 public interface EuBanqueRepository extends BaseRepository<EuBanque, String> {
 

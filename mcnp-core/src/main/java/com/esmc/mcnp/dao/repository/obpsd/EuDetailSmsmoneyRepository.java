@@ -1,12 +1,12 @@
-package com.esmc.mcnp.repositories.obpsd;
+package com.esmc.mcnp.dao.repository.obpsd;
 
 import java.util.List;
 
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
-import com.esmc.mcnp.model.ba.EuDetailSmsmoney;
-import com.esmc.mcnp.repositories.base.BaseRepository;
+import com.esmc.mcnp.dao.repository.base.BaseRepository;
+import com.esmc.mcnp.domain.entity.ba.EuDetailSmsmoney;
 
 public interface EuDetailSmsmoneyRepository extends BaseRepository<EuDetailSmsmoney, Long> {
 

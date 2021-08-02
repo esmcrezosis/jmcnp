@@ -1,12 +1,13 @@
-package com.esmc.mcnp.model.smcipn;
+package com.esmc.mcnp.domain.entity.smcipn;
 
 import java.io.Serializable;
 import java.util.Date;
 
 import javax.persistence.*;
 
-import com.esmc.mcnp.model.smcipn.EuSmcipnpwi;
 import org.hibernate.annotations.DynamicUpdate;
+
+import com.esmc.mcnp.domain.entity.smcipn.EuSmcipnpwi;
 
 /**
  * The persistent class for the eu_gcsc database table.

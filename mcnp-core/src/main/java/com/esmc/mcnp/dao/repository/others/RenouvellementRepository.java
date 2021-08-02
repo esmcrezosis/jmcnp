@@ -1,9 +1,9 @@
-package com.esmc.mcnp.repositories.others;
+package com.esmc.mcnp.dao.repository.others;
 
 import org.springframework.data.jpa.repository.Query;
 
-import com.esmc.mcnp.model.bc.EuRenouvellement;
-import com.esmc.mcnp.repositories.base.BaseRepository;
+import com.esmc.mcnp.dao.repository.base.BaseRepository;
+import com.esmc.mcnp.domain.entity.bc.EuRenouvellement;
 
 public interface RenouvellementRepository extends BaseRepository<EuRenouvellement, Long> {
 

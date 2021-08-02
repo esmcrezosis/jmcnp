@@ -1,8 +1,8 @@
-package com.esmc.mcnp.services.cmfh;
+package com.esmc.mcnp.infrastructure.services.cmfh;
 
-import com.esmc.mcnp.model.cmfh.EuMembreFondateur107;
-import com.esmc.mcnp.repositories.cmfh.EuMembreFondateurMf107Repository;
-import com.esmc.mcnp.services.base.CrudServiceImpl;
+import com.esmc.mcnp.dao.repository.cmfh.EuMembreFondateurMf107Repository;
+import com.esmc.mcnp.domain.entity.cmfh.EuMembreFondateur107;
+import com.esmc.mcnp.infrastructure.services.base.CrudServiceImpl;
 
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;

@@ -1,4 +1,4 @@
-package com.esmc.mcnp;
+package com.esmc.mcnp.domain;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -10,8 +10,8 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
-import com.esmc.mcnp.model.security.EuUserGroup;
-import com.esmc.mcnp.model.security.EuUtilisateur;
+import com.esmc.mcnp.domain.entity.security.EuUserGroup;
+import com.esmc.mcnp.domain.entity.security.EuUtilisateur;
 
 public class UserSecurity extends EuUtilisateur implements UserDetails, CredentialsContainer, Cloneable {
 

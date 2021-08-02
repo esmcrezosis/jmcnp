@@ -1,7 +1,8 @@
-package com.esmc.mcnp.components;
+package com.esmc.mcnp.infrastructure.components;
 
-import com.esmc.mcnp.dto.obps.Article;
 import org.springframework.stereotype.Component;
+
+import com.esmc.mcnp.domain.dto.obps.Article;
 
 @Component
 public class MapperUtility {

@@ -3,12 +3,11 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.esmc.mcnp.services.security;
+package com.esmc.mcnp.infrastructure.services.security;
 
 import java.util.List;
 import java.util.Objects;
 
-import com.esmc.mcnp.services.base.CrudServiceImpl;
 import org.apache.commons.codec.digest.DigestUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,9 +17,10 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.esmc.mcnp.dto.security.Login;
-import com.esmc.mcnp.model.security.EuUtilisateur;
-import com.esmc.mcnp.repositories.security.EuUtilisateurRepository;
+import com.esmc.mcnp.dao.repository.security.EuUtilisateurRepository;
+import com.esmc.mcnp.domain.dto.security.Login;
+import com.esmc.mcnp.domain.entity.security.EuUtilisateur;
+import com.esmc.mcnp.infrastructure.services.base.CrudServiceImpl;
 
 /**
  *

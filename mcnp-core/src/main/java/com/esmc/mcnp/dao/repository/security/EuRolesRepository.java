@@ -1,8 +1,9 @@
-package com.esmc.mcnp.repositories.security;
+package com.esmc.mcnp.dao.repository.security;
 
-import com.esmc.mcnp.dto.projections.RolesVO;
-import com.esmc.mcnp.model.security.EuRoles;
-import com.esmc.mcnp.repositories.base.BaseRepository;
+import com.esmc.mcnp.dao.repository.base.BaseRepository;
+import com.esmc.mcnp.domain.dto.projections.RolesVO;
+import com.esmc.mcnp.domain.entity.security.EuRoles;
+
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.scheduling.annotation.Async;
 

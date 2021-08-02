@@ -1,4 +1,4 @@
-package com.esmc.mcnp.dto.vue;
+package com.esmc.mcnp.domain.dto.vue;
 
 import lombok.Data;
 import lombok.experimental.Accessors;

@@ -1,9 +1,10 @@
-package com.esmc.mcnp.model.bc;
+package com.esmc.mcnp.domain.entity.bc;
 
-import com.esmc.mcnp.model.ba.EuCapa;
-import com.esmc.mcnp.model.cm.EuCompteCredit;
-import com.esmc.mcnp.model.obps.EuGcp;
 import org.hibernate.annotations.DynamicUpdate;
+
+import com.esmc.mcnp.domain.entity.ba.EuCapa;
+import com.esmc.mcnp.domain.entity.cm.EuCompteCredit;
+import com.esmc.mcnp.domain.entity.obps.EuGcp;
 
 import java.io.Serializable;
 import javax.persistence.*;

@@ -1,7 +1,8 @@
-package com.esmc.mcnp.mapper.security;
+package com.esmc.mcnp.domain.mapper.security;
 
-import com.esmc.mcnp.dto.security.User;
-import com.esmc.mcnp.model.security.EuUtilisateur;
+import com.esmc.mcnp.domain.dto.security.User;
+import com.esmc.mcnp.domain.entity.security.EuUtilisateur;
+
 import org.mapstruct.InheritInverseConfiguration;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;

@@ -1,13 +1,13 @@
-package com.esmc.mcnp.model.obps;
-
-import com.esmc.mcnp.model.acteur.EuEli;
-import com.esmc.mcnp.model.cm.EuMembreMorale;
+package com.esmc.mcnp.domain.entity.obps;
 
 import java.io.Serializable;
 import java.util.Date;
 
 import javax.persistence.*;
 //import java.util.Date;
+
+import com.esmc.mcnp.domain.entity.acteur.EuEli;
+import com.esmc.mcnp.domain.entity.cm.EuMembreMorale;
 
 
 /**

@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.esmc.mcnp.model.cmfh;
+package com.esmc.mcnp.domain.entity.cmfh;
 
 import java.io.Serializable;
 import java.time.LocalDate;

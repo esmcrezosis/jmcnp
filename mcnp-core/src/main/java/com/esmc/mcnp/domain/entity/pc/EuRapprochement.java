@@ -1,4 +1,4 @@
-package com.esmc.mcnp.model.pc;
+package com.esmc.mcnp.domain.entity.pc;
 
 import java.io.Serializable;
 import javax.persistence.Column;
@@ -10,10 +10,10 @@ import javax.persistence.ManyToOne;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 
-import com.esmc.mcnp.model.bc.EuDomiciliation;
-import com.esmc.mcnp.model.cm.EuCompteCredit;
-import com.esmc.mcnp.model.smcipn.EuSmcipn;
-import com.esmc.mcnp.model.smcipn.EuSmcipnp;
+import com.esmc.mcnp.domain.entity.bc.EuDomiciliation;
+import com.esmc.mcnp.domain.entity.cm.EuCompteCredit;
+import com.esmc.mcnp.domain.entity.smcipn.EuSmcipn;
+import com.esmc.mcnp.domain.entity.smcipn.EuSmcipnp;
 
 /**
  * The persistent class for the eu_rapprochement database table.

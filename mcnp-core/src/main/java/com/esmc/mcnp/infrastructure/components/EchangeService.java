@@ -1,10 +1,10 @@
-package com.esmc.mcnp.components;
+package com.esmc.mcnp.infrastructure.components;
 
 import java.util.List;
 
-import com.esmc.mcnp.dto.echange.Echange;
-import com.esmc.mcnp.exception.CompteNonIntegreException;
-import com.esmc.mcnp.exception.SoldeInsuffisantException;
+import com.esmc.mcnp.domain.dto.echange.Echange;
+import com.esmc.mcnp.commons.exception.business.CompteNonIntegreException;
+import com.esmc.mcnp.commons.exception.business.SoldeInsuffisantException;
 
 public interface EchangeService {
 

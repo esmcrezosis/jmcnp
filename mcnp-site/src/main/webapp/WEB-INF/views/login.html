@@ -96,16 +96,22 @@
                                             passe invalide.
                                         </div>
                                         <div th:if="${param.logout}">Vous êtes déconnecté.</div>
-                                        
-                                        <div class="md-form">
-                                            <i class="fas fa-envelope prefix white-text"></i> <input
-                                                type="text" id="username" name="username"
-                                                class="form-control"/> <label for="username">Nom
-                                            Utilisateur</label>
+
+                                        <div>
+                                            <div class="md-form input-group">
+                                                <input id="codeMembre" name="username" type="text" class="form-control"
+                                                       placeholder="Nom Utilisateur" aria-label="Nom Utilisateur"
+                                                       aria-describedby="btnScan">
+                                                <div class="input-group-append">
+                                                    <button class="btn btn-md btn-default m-0 px-3" type="button"
+                                                            id="btnScan">Scanner
+                                                    </button>
+                                                </div>
+                                            </div>
                                         </div>
 
                                         <div class="md-form">
-                                            <i class="fas fa-lock prefix white-text"></i> <input
+                                            <input
                                                 type="password" id="password" name="password"
                                                 class="form-control"/> <label for="password">Mot de
                                             Passe</label>

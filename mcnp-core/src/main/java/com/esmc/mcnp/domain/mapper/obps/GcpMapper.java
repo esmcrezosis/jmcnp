@@ -1,12 +1,12 @@
-package com.esmc.mcnp.mapper.obps;
+package com.esmc.mcnp.domain.mapper.obps;
 
 import java.util.List;
 
 import org.mapstruct.Mapper;
 import org.mapstruct.ReportingPolicy;
 
-import com.esmc.mcnp.dto.obps.GcpDto;
-import com.esmc.mcnp.model.obps.EuGcp;
+import com.esmc.mcnp.domain.dto.obps.GcpDto;
+import com.esmc.mcnp.domain.entity.obps.EuGcp;
 
 @Mapper(componentModel = "spring", unmappedTargetPolicy = ReportingPolicy.IGNORE)
 public interface GcpMapper {

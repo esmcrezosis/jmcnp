@@ -18,10 +18,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.esmc.mcnp.dto.obps.GcpDto;
-import com.esmc.mcnp.mapper.obps.GcpMapper;
-import com.esmc.mcnp.model.obps.EuGcp;
-import com.esmc.mcnp.services.obps.EuGcpService;
+import com.esmc.mcnp.domain.dto.obps.GcpDto;
+import com.esmc.mcnp.domain.entity.obps.EuGcp;
+import com.esmc.mcnp.domain.mapper.obps.GcpMapper;
+import com.esmc.mcnp.infrastructure.services.obps.EuGcpService;
 import com.esmc.mcnp.util.JqGrid;
 import com.esmc.mcnp.web.controller.base.BaseController;
 import com.google.common.collect.Lists;

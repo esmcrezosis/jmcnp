@@ -4,14 +4,14 @@
  * and open the template in the editor.
  */
 
-package com.esmc.mcnp.services.obpsd;
+package com.esmc.mcnp.infrastructure.services.obpsd;
 
 import java.util.Date;
 import java.util.List;
 
-import com.esmc.mcnp.dto.bn.Nn;
-import com.esmc.mcnp.model.ba.EuNn;
-import com.esmc.mcnp.services.base.BaseService;
+import com.esmc.mcnp.domain.dto.bn.Nn;
+import com.esmc.mcnp.domain.entity.ba.EuNn;
+import com.esmc.mcnp.infrastructure.services.base.BaseService;
 
 /**
  *

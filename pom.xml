@@ -1,28 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">  
-  <modelVersion>4.0.0</modelVersion>  
-  <groupId>com.esmc</groupId>  
-  <artifactId>mcnp</artifactId>  
-  <version>1.0</version>  
-  <packaging>pom</packaging>  
-  <name>mcnp</name>  
-  <parent>
-    <groupId>org.springframework.boot</groupId>  
-    <artifactId>spring-boot-starter-parent</artifactId>  
-    <version>2.2.13.RELEASE</version>
-    <relativePath/>  
-    <!-- lookup parent from repository --> 
-  </parent>  
-  <properties> 
-    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <java.version>11</java.version>
-    <mapstruct.version>1.4.1.Final</mapstruct.version>
-  </properties>  
-  <modules> 
-    <module>mcnp-core</module>
-	<!-- <module>mcnp-biometrics</module> -->
-    <module>mcnp-site</module>
-    <module>mcnp-api</module>
-  </modules>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>com.esmc</groupId>
+	<artifactId>mcnp</artifactId>
+	<version>1.0</version>
+	<packaging>pom</packaging>
+	<name>mcnp</name>
+	<parent>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-parent</artifactId>
+		<version>2.2.13.RELEASE</version>
+		<relativePath />
+		<!-- lookup parent from repository -->
+	</parent>
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<java.version>11</java.version>
+		<mapstruct.version>1.4.1.Final</mapstruct.version>
+		<aerogear.version>1.0.0</aerogear.version>
+		<uap-java.version>1.5.2</uap-java.version>
+		<geoip2.version>2.15.0</geoip2.version>
+		<guava.version>30.1.1-jre</guava.version>
+		<passay.version>1.6.0</passay.version>
+	</properties>
+	<modules>
+		<module>mcnp-core</module>
+		<!-- <module>mcnp-biometrics</module> -->
+		<module>mcnp-site</module>
+		<module>mcnp-api</module>
+	</modules>
 </project>

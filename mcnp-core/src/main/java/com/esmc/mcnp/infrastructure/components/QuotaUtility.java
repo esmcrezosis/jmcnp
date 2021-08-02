@@ -1,4 +1,4 @@
-package com.esmc.mcnp.components;
+package com.esmc.mcnp.infrastructure.components;
 
 //import java.util.List;
 
@@ -7,8 +7,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.esmc.mcnp.services.bc.EuCreditConsommerService;
-import com.esmc.mcnp.services.common.EuTypeCreditService;
+import com.esmc.mcnp.infrastructure.services.bc.EuCreditConsommerService;
+import com.esmc.mcnp.infrastructure.services.common.EuTypeCreditService;
 
 @Component
 public class QuotaUtility {

@@ -1,4 +1,4 @@
-package com.esmc.mcnp.components;
+package com.esmc.mcnp.infrastructure.components;
 
 import java.util.Arrays;
 import java.util.Date;
@@ -10,20 +10,20 @@ import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.esmc.mcnp.core.utils.ServerUtil;
-import com.esmc.mcnp.dto.bc.CalculBonInfo;
-import com.esmc.mcnp.model.bc.EuBon;
-import com.esmc.mcnp.model.cm.EuCompte;
-import com.esmc.mcnp.model.cm.EuMembre;
-import com.esmc.mcnp.model.cm.EuMembreMorale;
-import com.esmc.mcnp.model.odd.EuMembreFifo;
-import com.esmc.mcnp.model.odd.EuMstier;
-import com.esmc.mcnp.model.odd.EuMstierListebc;
-import com.esmc.mcnp.services.cm.EuCompteService;
-import com.esmc.mcnp.services.cm.EuMembreMoraleService;
-import com.esmc.mcnp.services.cm.EuMembreService;
-import com.esmc.mcnp.services.oi.EuMembreFifoService;
-import com.esmc.mcnp.services.oi.EuMstierListebcService;
-import com.esmc.mcnp.services.oi.EuMstiersService;
+import com.esmc.mcnp.domain.dto.bc.CalculBonInfo;
+import com.esmc.mcnp.domain.entity.bc.EuBon;
+import com.esmc.mcnp.domain.entity.cm.EuCompte;
+import com.esmc.mcnp.domain.entity.cm.EuMembre;
+import com.esmc.mcnp.domain.entity.cm.EuMembreMorale;
+import com.esmc.mcnp.domain.entity.odd.EuMembreFifo;
+import com.esmc.mcnp.domain.entity.odd.EuMstier;
+import com.esmc.mcnp.domain.entity.odd.EuMstierListebc;
+import com.esmc.mcnp.infrastructure.services.cm.EuCompteService;
+import com.esmc.mcnp.infrastructure.services.cm.EuMembreMoraleService;
+import com.esmc.mcnp.infrastructure.services.cm.EuMembreService;
+import com.esmc.mcnp.infrastructure.services.oi.EuMembreFifoService;
+import com.esmc.mcnp.infrastructure.services.oi.EuMstierListebcService;
+import com.esmc.mcnp.infrastructure.services.oi.EuMstiersService;
 
 @Component
 public class AffectationComponent {

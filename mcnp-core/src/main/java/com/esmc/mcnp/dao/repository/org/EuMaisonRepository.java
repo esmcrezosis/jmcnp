@@ -4,13 +4,13 @@
  * and open the template in the editor.
  */
 
-package com.esmc.mcnp.repositories.org;
+package com.esmc.mcnp.dao.repository.org;
 
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
-import com.esmc.mcnp.model.acteur.EuMaison;
-import com.esmc.mcnp.repositories.base.BaseRepository;
+import com.esmc.mcnp.dao.repository.base.BaseRepository;
+import com.esmc.mcnp.domain.entity.acteur.EuMaison;
 
 /**
  *

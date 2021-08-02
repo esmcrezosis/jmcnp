@@ -1,9 +1,9 @@
-package com.esmc.mcnp.services.cm;
+package com.esmc.mcnp.infrastructure.services.cm;
 
 import java.util.List;
 
-import com.esmc.mcnp.model.cm.EuCompteCreditTs;
-import com.esmc.mcnp.services.base.BaseService;
+import com.esmc.mcnp.domain.entity.cm.EuCompteCreditTs;
+import com.esmc.mcnp.infrastructure.services.base.BaseService;
 
 public interface EuCompteCreditTsService extends BaseService<EuCompteCreditTs, Long> {
 

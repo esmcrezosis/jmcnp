@@ -1,4 +1,4 @@
-package com.esmc.mcnp.core.utils;
+package com.esmc.mcnp.commons.util;
 
 import java.io.PrintWriter;
 import java.io.StringWriter;

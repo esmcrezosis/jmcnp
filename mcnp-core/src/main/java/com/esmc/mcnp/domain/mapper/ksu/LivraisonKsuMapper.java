@@ -1,7 +1,8 @@
-package com.esmc.mcnp.mapper.ksu;
+package com.esmc.mcnp.domain.mapper.ksu;
 
-import com.esmc.mcnp.dto.ksu.LivraisonKsu;
-import com.esmc.mcnp.model.ksu.EuLivraisonKsu;
+import com.esmc.mcnp.domain.dto.ksu.LivraisonKsu;
+import com.esmc.mcnp.domain.entity.ksu.EuLivraisonKsu;
+
 import org.mapstruct.Mapper;
 
 import java.util.List;

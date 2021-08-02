@@ -1,7 +1,7 @@
-package com.esmc.mcnp.services.pc;
+package com.esmc.mcnp.infrastructure.services.pc;
 
-import com.esmc.mcnp.model.pc.EuReleveescompte;
-import com.esmc.mcnp.services.base.BaseService;
+import com.esmc.mcnp.domain.entity.pc.EuReleveescompte;
+import com.esmc.mcnp.infrastructure.services.base.BaseService;
 
 public interface EuReleveescompteservice extends BaseService<EuReleveescompte, Integer> {
 

@@ -1,10 +1,10 @@
-package com.esmc.mcnp.model.ba;
-
-import com.esmc.mcnp.model.cm.EuCompteCredit;
-import com.esmc.mcnp.model.bc.EuDomiciliation;
+package com.esmc.mcnp.domain.entity.ba;
 
 import java.io.Serializable;
 import javax.persistence.*;
+
+import com.esmc.mcnp.domain.entity.bc.EuDomiciliation;
+import com.esmc.mcnp.domain.entity.cm.EuCompteCredit;
 
 
 /**

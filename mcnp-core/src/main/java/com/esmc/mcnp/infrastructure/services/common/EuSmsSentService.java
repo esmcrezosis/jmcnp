@@ -1,7 +1,7 @@
-package com.esmc.mcnp.services.common;
+package com.esmc.mcnp.infrastructure.services.common;
 
-import com.esmc.mcnp.model.sms.EuSmsSent;
-import com.esmc.mcnp.services.base.BaseService;
+import com.esmc.mcnp.domain.entity.sms.EuSmsSent;
+import com.esmc.mcnp.infrastructure.services.base.BaseService;
 
 public interface EuSmsSentService extends BaseService<EuSmsSent, Long>{
 

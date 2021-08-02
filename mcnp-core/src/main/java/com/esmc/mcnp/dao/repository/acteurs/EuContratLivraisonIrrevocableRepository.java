@@ -1,7 +1,7 @@
-package com.esmc.mcnp.repositories.acteurs;
+package com.esmc.mcnp.dao.repository.acteurs;
 
-import com.esmc.mcnp.model.acteur.EuContratLivraisonIrrevocable;
-import com.esmc.mcnp.repositories.base.BaseRepository;
+import com.esmc.mcnp.dao.repository.base.BaseRepository;
+import com.esmc.mcnp.domain.entity.acteur.EuContratLivraisonIrrevocable;
 
 public interface EuContratLivraisonIrrevocableRepository extends BaseRepository<EuContratLivraisonIrrevocable, Integer> {
 

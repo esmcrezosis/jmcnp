@@ -1,4 +1,4 @@
-package com.esmc.mcnp.services.oi;
+package com.esmc.mcnp.infrastructure.services.oi;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
@@ -8,8 +8,8 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 
-import com.esmc.mcnp.model.odd.EuMstierListecm;
-import com.esmc.mcnp.services.base.CrudService;
+import com.esmc.mcnp.domain.entity.odd.EuMstierListecm;
+import com.esmc.mcnp.infrastructure.services.base.CrudService;
 
 public interface EuMstierListecmService extends CrudService<EuMstierListecm, Integer> {
 	

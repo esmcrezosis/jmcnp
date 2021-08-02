@@ -3,20 +3,21 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.esmc.mcnp.components;
+package com.esmc.mcnp.infrastructure.components;
 
-import com.esmc.mcnp.model.bc.EuBon;
-import com.esmc.mcnp.model.ba.EuCapa;
-import com.esmc.mcnp.model.ba.EuCapaTs;
-import com.esmc.mcnp.model.cm.EuCompte;
-import com.esmc.mcnp.model.cm.EuCompteCredit;
-import com.esmc.mcnp.model.cm.EuCompteCreditTs;
-import com.esmc.mcnp.repositories.ba.EuCapaRepository;
-import com.esmc.mcnp.repositories.ba.EuCapaTsRepository;
-import com.esmc.mcnp.repositories.bc.EuBonRepository;
-import com.esmc.mcnp.repositories.cm.EuCompteCreditRepository;
-import com.esmc.mcnp.repositories.cm.EuCompteCreditTsRepository;
-import com.esmc.mcnp.repositories.cm.EuCompteRepository;
+import com.esmc.mcnp.dao.repository.ba.EuCapaRepository;
+import com.esmc.mcnp.dao.repository.ba.EuCapaTsRepository;
+import com.esmc.mcnp.dao.repository.bc.EuBonRepository;
+import com.esmc.mcnp.dao.repository.cm.EuCompteCreditRepository;
+import com.esmc.mcnp.dao.repository.cm.EuCompteCreditTsRepository;
+import com.esmc.mcnp.dao.repository.cm.EuCompteRepository;
+import com.esmc.mcnp.domain.entity.ba.EuCapa;
+import com.esmc.mcnp.domain.entity.ba.EuCapaTs;
+import com.esmc.mcnp.domain.entity.bc.EuBon;
+import com.esmc.mcnp.domain.entity.cm.EuCompte;
+import com.esmc.mcnp.domain.entity.cm.EuCompteCredit;
+import com.esmc.mcnp.domain.entity.cm.EuCompteCreditTs;
+
 import java.util.Date;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;

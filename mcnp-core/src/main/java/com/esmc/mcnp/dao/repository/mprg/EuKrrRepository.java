@@ -1,10 +1,10 @@
-package com.esmc.mcnp.repositories.mprg;
+package com.esmc.mcnp.dao.repository.mprg;
 
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
-import com.esmc.mcnp.model.mprg.EuKrr;
-import com.esmc.mcnp.repositories.base.BaseRepository;
+import com.esmc.mcnp.dao.repository.base.BaseRepository;
+import com.esmc.mcnp.domain.entity.mprg.EuKrr;
 
 public interface EuKrrRepository extends BaseRepository<EuKrr, Long> {
 

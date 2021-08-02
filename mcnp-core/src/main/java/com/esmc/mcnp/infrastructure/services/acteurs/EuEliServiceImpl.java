@@ -1,28 +1,28 @@
-package com.esmc.mcnp.services.acteurs;
+package com.esmc.mcnp.infrastructure.services.acteurs;
 
 import java.util.Date;
 import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 
-import com.esmc.mcnp.services.base.BaseServiceImpl;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.esmc.mcnp.exception.CompteNonTrouveException;
-import com.esmc.mcnp.model.acteur.EuDetailEli;
-import com.esmc.mcnp.model.acteur.EuEli;
-import com.esmc.mcnp.model.cm.EuMembre;
-import com.esmc.mcnp.model.cm.EuMembreMorale;
-import com.esmc.mcnp.model.obps.EuTegc;
-import com.esmc.mcnp.repositories.cm.EuMembreMoraleRepository;
-import com.esmc.mcnp.repositories.cm.EuMembreRepository;
-import com.esmc.mcnp.repositories.others.EuTegcRepository;
-import com.esmc.mcnp.repositories.acteurs.EuEliRepository;
-import com.esmc.mcnp.repositories.base.BaseRepository;
+import com.esmc.mcnp.dao.repository.acteurs.EuEliRepository;
+import com.esmc.mcnp.dao.repository.base.BaseRepository;
+import com.esmc.mcnp.dao.repository.cm.EuMembreMoraleRepository;
+import com.esmc.mcnp.dao.repository.cm.EuMembreRepository;
+import com.esmc.mcnp.dao.repository.others.EuTegcRepository;
+import com.esmc.mcnp.domain.entity.acteur.EuDetailEli;
+import com.esmc.mcnp.domain.entity.acteur.EuEli;
+import com.esmc.mcnp.domain.entity.cm.EuMembre;
+import com.esmc.mcnp.domain.entity.cm.EuMembreMorale;
+import com.esmc.mcnp.domain.entity.obps.EuTegc;
+import com.esmc.mcnp.commons.exception.business.CompteNonTrouveException;
+import com.esmc.mcnp.infrastructure.services.base.BaseServiceImpl;
 
 @Service("euEliService")
 @Transactional(readOnly = true, propagation = Propagation.REQUIRED)

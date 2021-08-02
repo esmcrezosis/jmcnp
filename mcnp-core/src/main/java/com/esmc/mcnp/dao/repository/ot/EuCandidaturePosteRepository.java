@@ -1,7 +1,8 @@
-package com.esmc.mcnp.repositories.ot;
+package com.esmc.mcnp.dao.repository.ot;
 
-import com.esmc.mcnp.model.ot.EuCandidaturePoste;
-import com.esmc.mcnp.repositories.base.BaseRepository;
+import com.esmc.mcnp.dao.repository.base.BaseRepository;
+import com.esmc.mcnp.domain.entity.ot.EuCandidaturePoste;
+
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.EntityGraph;

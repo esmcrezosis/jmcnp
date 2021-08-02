@@ -1,4 +1,4 @@
-package com.esmc.mcnp.services.obps;
+package com.esmc.mcnp.infrastructure.services.obps;
 
 import java.util.List;
 
@@ -7,10 +7,10 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.esmc.mcnp.model.others.EuInformationAdditif;
-import com.esmc.mcnp.repositories.base.BaseRepository;
-import com.esmc.mcnp.repositories.obps.EuInformationAdditifRepository;
-import com.esmc.mcnp.services.base.BaseServiceImpl;
+import com.esmc.mcnp.dao.repository.base.BaseRepository;
+import com.esmc.mcnp.dao.repository.obps.EuInformationAdditifRepository;
+import com.esmc.mcnp.domain.entity.others.EuInformationAdditif;
+import com.esmc.mcnp.infrastructure.services.base.BaseServiceImpl;
 
 @Service("euInformationAdditifService")
 @Transactional(readOnly = true, propagation = Propagation.REQUIRED)

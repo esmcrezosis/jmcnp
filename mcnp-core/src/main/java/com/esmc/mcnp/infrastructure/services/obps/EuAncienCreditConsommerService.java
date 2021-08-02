@@ -1,7 +1,7 @@
-package com.esmc.mcnp.services.obps;
+package com.esmc.mcnp.infrastructure.services.obps;
 
-import com.esmc.mcnp.model.obps.EuAncienCreditConsommer;
-import com.esmc.mcnp.services.base.CrudService;
+import com.esmc.mcnp.domain.entity.obps.EuAncienCreditConsommer;
+import com.esmc.mcnp.infrastructure.services.base.CrudService;
 
 import java.util.List;
 

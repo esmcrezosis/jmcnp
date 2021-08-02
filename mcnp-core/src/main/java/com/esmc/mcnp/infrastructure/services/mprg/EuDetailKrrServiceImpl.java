@@ -1,14 +1,14 @@
-package com.esmc.mcnp.services.mprg;
+package com.esmc.mcnp.infrastructure.services.mprg;
 
-import com.esmc.mcnp.services.base.BaseServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.esmc.mcnp.model.mprg.EuDetailKrr;
-import com.esmc.mcnp.repositories.base.BaseRepository;
-import com.esmc.mcnp.repositories.mprg.EuDetailKrrRepository;
+import com.esmc.mcnp.dao.repository.base.BaseRepository;
+import com.esmc.mcnp.dao.repository.mprg.EuDetailKrrRepository;
+import com.esmc.mcnp.domain.entity.mprg.EuDetailKrr;
+import com.esmc.mcnp.infrastructure.services.base.BaseServiceImpl;
 
 @Service("euDetailKrr")
 @Transactional(readOnly = true, propagation = Propagation.REQUIRED)

@@ -1,10 +1,10 @@
-package com.kreatech.common.util;
-
-import com.kreatech.common.util.text.StrFormatter;
+package com.esmc.mcnp.commons.util;
 
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.Map;
+
+import com.esmc.mcnp.commons.util.text.StrFormatter;
 
 /**
  * Outils de chaines de caractères

@@ -21,9 +21,9 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.esmc.mcnp.services.security.EuUtilisateurService;
-import com.esmc.mcnp.dto.security.Login;
+import com.esmc.mcnp.domain.dto.security.Login;
 import com.esmc.mcnp.exception.ResourceNotFoundException;
+import com.esmc.mcnp.infrastructure.services.security.EuUtilisateurService;
 import com.esmc.mcnp.util.ErrorDTO;
 import com.google.common.base.Preconditions;
 import com.google.common.collect.Lists;

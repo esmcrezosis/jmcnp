@@ -1,21 +1,21 @@
-package com.esmc.mcnp.services.bc;
+package com.esmc.mcnp.infrastructure.services.bc;
 
 import java.util.Date;
 import java.util.List;
 import java.util.Objects;
 
-import com.esmc.mcnp.services.base.BaseServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.esmc.mcnp.model.ba.EuCapa;
-import com.esmc.mcnp.model.bc.EuCnp;
-import com.esmc.mcnp.model.cm.EuCompteCredit;
-import com.esmc.mcnp.model.bc.EuDomiciliation;
-import com.esmc.mcnp.repositories.base.BaseRepository;
-import com.esmc.mcnp.repositories.bc.EuCnpRepository;
+import com.esmc.mcnp.dao.repository.base.BaseRepository;
+import com.esmc.mcnp.dao.repository.bc.EuCnpRepository;
+import com.esmc.mcnp.domain.entity.ba.EuCapa;
+import com.esmc.mcnp.domain.entity.bc.EuCnp;
+import com.esmc.mcnp.domain.entity.bc.EuDomiciliation;
+import com.esmc.mcnp.domain.entity.cm.EuCompteCredit;
+import com.esmc.mcnp.infrastructure.services.base.BaseServiceImpl;
 
 @Service("euCnpService")
 @Transactional(readOnly = true, propagation = Propagation.REQUIRED)

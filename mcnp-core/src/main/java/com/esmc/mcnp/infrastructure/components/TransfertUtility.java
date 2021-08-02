@@ -1,4 +1,4 @@
-package com.esmc.mcnp.components;
+package com.esmc.mcnp.infrastructure.components;
 
 import java.util.Arrays;
 import java.util.Date;
@@ -15,26 +15,26 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.esmc.mcnp.core.utils.ServerUtil;
-import com.esmc.mcnp.dto.bc.CalculBonInfo;
-import com.esmc.mcnp.exception.CompteNonIntegreException;
-import com.esmc.mcnp.exception.CompteNonTrouveException;
-import com.esmc.mcnp.exception.SoldeInsuffisantException;
-import com.esmc.mcnp.model.ba.EuCapa;
-import com.esmc.mcnp.model.ba.EuCapaTs;
-import com.esmc.mcnp.model.bc.EuBon;
-import com.esmc.mcnp.model.cm.EuCategorieCompte;
-import com.esmc.mcnp.model.cm.EuCompte;
-import com.esmc.mcnp.model.cm.EuCompteCredit;
-import com.esmc.mcnp.model.cm.EuCompteCreditTs;
-import com.esmc.mcnp.model.cm.EuTypeCompte;
-import com.esmc.mcnp.model.others.EuOperation;
-import com.esmc.mcnp.services.ba.EuCapaService;
-import com.esmc.mcnp.services.ba.EuCapaTsService;
-import com.esmc.mcnp.services.bc.EuBonService;
-import com.esmc.mcnp.services.cm.EuCompteCreditService;
-import com.esmc.mcnp.services.cm.EuCompteCreditTsService;
-import com.esmc.mcnp.services.cm.EuCompteService;
-import com.esmc.mcnp.services.common.EuOperationService;
+import com.esmc.mcnp.domain.dto.bc.CalculBonInfo;
+import com.esmc.mcnp.domain.entity.ba.EuCapa;
+import com.esmc.mcnp.domain.entity.ba.EuCapaTs;
+import com.esmc.mcnp.domain.entity.bc.EuBon;
+import com.esmc.mcnp.domain.entity.cm.EuCategorieCompte;
+import com.esmc.mcnp.domain.entity.cm.EuCompte;
+import com.esmc.mcnp.domain.entity.cm.EuCompteCredit;
+import com.esmc.mcnp.domain.entity.cm.EuCompteCreditTs;
+import com.esmc.mcnp.domain.entity.cm.EuTypeCompte;
+import com.esmc.mcnp.domain.entity.others.EuOperation;
+import com.esmc.mcnp.commons.exception.business.CompteNonIntegreException;
+import com.esmc.mcnp.commons.exception.business.CompteNonTrouveException;
+import com.esmc.mcnp.commons.exception.business.SoldeInsuffisantException;
+import com.esmc.mcnp.infrastructure.services.ba.EuCapaService;
+import com.esmc.mcnp.infrastructure.services.ba.EuCapaTsService;
+import com.esmc.mcnp.infrastructure.services.bc.EuBonService;
+import com.esmc.mcnp.infrastructure.services.cm.EuCompteCreditService;
+import com.esmc.mcnp.infrastructure.services.cm.EuCompteCreditTsService;
+import com.esmc.mcnp.infrastructure.services.cm.EuCompteService;
+import com.esmc.mcnp.infrastructure.services.common.EuOperationService;
 import com.google.common.collect.Lists;
 
 @Service

@@ -2,6 +2,7 @@ package com.esmc.mcnp.web.controller.base;
 
 import java.sql.SQLException;
 import java.text.SimpleDateFormat;
+import java.util.Collection;
 import java.util.Date;
 import java.util.Objects;
 
@@ -10,6 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.validation.ConstraintViolationException;
 
+import com.esmc.mcnp.domain.entity.security.EuUserRolesPermission;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,6 +19,10 @@ import org.springframework.beans.propertyeditors.CustomDateEditor;
 import org.springframework.dao.DataAccessException;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.http.HttpStatus;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.security.core.context.SecurityContext;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.transaction.PlatformTransactionManager;
 import org.springframework.transaction.TransactionDefinition;
@@ -30,8 +36,9 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.esmc.mcnp.UserSecurity;
-import com.esmc.mcnp.model.security.EuUtilisateur;
+import com.esmc.mcnp.commons.util.ServletUtils;
+import com.esmc.mcnp.domain.UserSecurity;
+import com.esmc.mcnp.domain.entity.security.EuUtilisateur;
 import com.esmc.mcnp.util.ErrorDTO;
 
 /**
@@ -73,6 +80,35 @@ public abstract class BaseController {
 			return ((UserSecurity) principal);
 		}
 		return null;
+	}
+
+	public boolean hasPrivilege(String role) {
+
+		SecurityContext context = SecurityContextHolder.getContext();
+
+		if (context == null) {
+			return false;
+		}
+		Authentication auth = context.getAuthentication();
+
+		if (auth == null) {
+			return false;
+		}
+		Collection<? extends GrantedAuthority> authorities = auth.getAuthorities();
+		// contains(GrantedAuthority) returns true or false if has the collection
+		// element or not
+		return authorities.contains(new SimpleGrantedAuthority(role));
+
+	}
+
+	public boolean hasRole(String role) {
+		if (!isLoggedIn())
+			return false;
+		return getCurrentUser().getPermissions().stream().map(p -> p.getEuRole().getCodeRoles()).anyMatch(s -> s.equalsIgnoreCase(role));
+	}
+
+	public boolean isAdmin() {
+		return hasRole("ROLE_ADMIN");
 	}
 
 	@ModelAttribute("codeMembre")
@@ -146,7 +182,7 @@ public abstract class BaseController {
 	@ResponseBody
 	public Object handleExceptions(HttpServletRequest req, Exception exception, HttpServletResponse response) {
 		log.error("Erreur Interne au serveur -> Request: " + req.getRequestURL() + " raised ", exception);
-		if (com.esmc.mcnp.core.utils.ServletUtils.isAjaxRequest(req)) {
+		if (ServletUtils.isAjaxRequest(req)) {
 			return new ErrorDTO("Erreur Interne au serveur -> Request: " + req.getRequestURL() + " raised "
 					+ exception.getMessage());
 		} else {
