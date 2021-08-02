@@ -38,9 +38,9 @@ public class PaiementApi extends BaseRestController {
 
 	private SmcipnComponent smcipnComp;
 	private TransfertUtility transfertUtility;
-	private Payement payement;
 	private EuTegcService tegcService;
 	private EuBonService bonService;
+	private Payement payement;
 	private EuChargeService chargeService;
 	private EuChargePayeService chargePayeService;
 	private EuCompteService compteService;

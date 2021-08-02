@@ -340,4 +340,9 @@ public class EuCompteCreditServiceImpl extends CrudServiceImpl<EuCompteCredit, L
         return comptecreditRepo.findByCompteAndType(codeCompte, typeRecurrent, pageable);
     }
 
+	@Override
+	public Double getSumCreditByCompteAndCodeProduit(String codeCompte, String codeProduit) {
+		return comptecreditRepo.getSommeCreditByCompte2(codeCompte, codeProduit);
+	}
+
 }

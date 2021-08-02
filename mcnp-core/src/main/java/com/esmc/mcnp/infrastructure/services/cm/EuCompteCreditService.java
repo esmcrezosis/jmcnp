@@ -3,12 +3,11 @@ package com.esmc.mcnp.infrastructure.services.cm;
 import java.util.Date;
 import java.util.List;
 
-import com.esmc.mcnp.domain.entity.cm.EuCompteCredit;
-import com.esmc.mcnp.infrastructure.services.base.BaseService;
-import com.esmc.mcnp.infrastructure.services.base.CrudService;
-
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+
+import com.esmc.mcnp.domain.entity.cm.EuCompteCredit;
+import com.esmc.mcnp.infrastructure.services.base.CrudService;
 
 public interface EuCompteCreditService extends CrudService<EuCompteCredit, Long> {
     Long getLastCreditInsertedId();
@@ -60,6 +59,8 @@ public interface EuCompteCreditService extends CrudService<EuCompteCredit, Long>
 
     Double getSommeCreditRecurrentByTypeAndDuree(String codeCompte, String codeProduit, String typeRecurrent,
                                                  String typeProduit, double duree);
+    
+    Double getSumCreditByCompteAndCodeProduit(String codeCompte, String codeProduit);;
 
     Double getSumCreditByEuCompte(String codeCompte);
 

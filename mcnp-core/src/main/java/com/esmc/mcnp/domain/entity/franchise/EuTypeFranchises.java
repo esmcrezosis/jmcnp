@@ -27,4 +27,6 @@ public class EuTypeFranchises {
 	private Integer idTypeFranchises;
 	@Column(name = "libelle_type_franchises")
 	private String libelleTypeFranchises;
+	@Column(name = "montant_franchise")
+	private Double montantFranchise;
 }
